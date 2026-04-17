@@ -17,8 +17,8 @@ services:
     # Default: bash for dev. Use `docker compose up -d` + override to run web server:
     #   docker compose run --rm autofigure-edit python -m uvicorn server:app --host 0.0.0.0 --port 8000
     command: bash
-    ports:
-      - "8000:8000"
+    # ports:
+    #   - "8000:8000"  # uncomment when running web server
     environment:
       PYTHONUNBUFFERED: "1"
       HF_HOME: /app/.cache/huggingface
