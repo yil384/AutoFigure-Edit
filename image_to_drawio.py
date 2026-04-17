@@ -62,7 +62,8 @@ def _get_esrgan_model():
         import torch
         import spandrel
 
-        model_path = os.path.expanduser("~/.cache/realesrgan/RealESRGAN_x4plus.pth")
+        model_dir = os.environ.get("ESRGAN_MODEL_DIR", os.path.expanduser("~/.cache/realesrgan"))
+        model_path = os.path.join(model_dir, "RealESRGAN_x4plus.pth")
         if not os.path.exists(model_path):
             return (None, None, f"Model not found: {model_path}")
 

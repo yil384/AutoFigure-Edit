@@ -1,15 +1,17 @@
-ARG BASE_IMAGE=docker.m.daocloud.io/library/python:3.11-slim
+ARG BASE_IMAGE=nvidia/cuda:12.1.1-runtime-ubuntu22.04
 FROM ${BASE_IMAGE}
 
 ENV DEBIAN_FRONTEND=noninteractive
 ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1 \
     PIP_NO_CACHE_DIR=1 \
-    HF_HOME=/app/.cache/huggingface
+    HF_HOME=/app/.cache/huggingface \
+    ESRGAN_MODEL_DIR=/app/.cache/realesrgan
 
 WORKDIR /app
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
+    python3 python3-pip python3-dev \
     build-essential \
     pkg-config \
     libcairo2-dev \
@@ -21,6 +23,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libpangocairo-1.0-0 \
     libgdk-pixbuf-2.0-0 \
     libffi8 \
+    wget \
+    && ln -sf /usr/bin/python3 /usr/bin/python \
     && rm -rf /var/lib/apt/lists/*
 
 COPY requirements.txt /app/requirements.txt
@@ -31,7 +35,13 @@ RUN pip install --upgrade pip \
          pip install -r /app/requirements.txt --index-url "$PIP_INDEX_URL" --extra-index-url "$PIP_EXTRA_INDEX_URL"; \
        else \
          pip install -r /app/requirements.txt --index-url "$PIP_INDEX_URL"; \
-       fi
+       fi \
+    && pip install spandrel
+
+# Download Real-ESRGAN model weights
+RUN mkdir -p /app/.cache/realesrgan \
+    && wget -q -O /app/.cache/realesrgan/RealESRGAN_x4plus.pth \
+       https://github.com/xinntao/Real-ESRGAN/releases/download/v0.1.0/RealESRGAN_x4plus.pth
 
 COPY . /app
 

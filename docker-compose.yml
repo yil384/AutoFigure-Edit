@@ -4,7 +4,7 @@ services:
       context: .
       dockerfile: Dockerfile
       args:
-        BASE_IMAGE: ${BASE_IMAGE:-docker.m.daocloud.io/library/python:3.11-slim}
+        BASE_IMAGE: ${BASE_IMAGE:-nvidia/cuda:12.1.1-runtime-ubuntu22.04}
         PIP_INDEX_URL: ${PIP_INDEX_URL:-https://pypi.org/simple}
         PIP_EXTRA_INDEX_URL: ${PIP_EXTRA_INDEX_URL:-}
     image: autofigure-edit:latest
@@ -19,19 +19,25 @@ services:
       HF_HOME: /app/.cache/huggingface
       HF_TOKEN: ${HF_TOKEN:-}
       HUGGINGFACE_HUB_TOKEN: ${HF_TOKEN:-}
-      OPENROUTER_MULTIMODAL_RETRIES: ${OPENROUTER_MULTIMODAL_RETRIES:-3}
-      OPENROUTER_MULTIMODAL_RETRY_DELAY: ${OPENROUTER_MULTIMODAL_RETRY_DELAY:-1.5}
+      GEMINI_API_KEY: ${GEMINI_API_KEY:-}
       ROBOFLOW_API_KEY: ${ROBOFLOW_API_KEY:-}
       ROBOFLOW_API_URL: ${ROBOFLOW_API_URL:-https://serverless.roboflow.com/sam3/concept_segment}
       ROBOFLOW_API_FALLBACK_URLS: ${ROBOFLOW_API_FALLBACK_URLS:-}
       FAL_KEY: ${FAL_KEY:-}
-    dns:
-      - ${DOCKER_DNS_1:-223.5.5.5}
-      - ${DOCKER_DNS_2:-119.29.29.29}
+      ESRGAN_MODEL_DIR: /app/.cache/realesrgan
+    # GPU support
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
     volumes:
       - ./outputs:/app/outputs
       - ./uploads:/app/uploads
       - hf_cache:/app/.cache/huggingface
+      - esrgan_cache:/app/.cache/realesrgan
     healthcheck:
       test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/healthz', timeout=3)"]
       interval: 30s
@@ -41,3 +47,4 @@ services:
 
 volumes:
   hf_cache:
+  esrgan_cache:
