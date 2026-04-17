@@ -1413,12 +1413,12 @@ SVG FORMAT RULES (MUST FOLLOW):
 - Text: use text-anchor, font-family, font-size, font-weight as inline attributes"""
 
     if no_icon_mode:
-        prompt = f"""编写 SVG 代码来尽可能像素级复现这张图片。
+        prompt = f"""Write SVG code to reproduce this figure at pixel-level accuracy.
 
-当前 SAM3 没有检测到任何有效图标，因此这是一个无图标回退模式任务：
-- 不要添加任何灰色矩形占位符
-- 不要添加任何 <AF>01 / <AF>02 标签
-- 所有可见内容都应直接用 SVG 元素复现
+No icons were detected, so this is a no-icon fallback mode:
+- Do NOT add any gray rectangle placeholders
+- Do NOT add any <AF>01 / <AF>02 labels
+- All visible content should be directly reproduced with SVG elements
 
 CRITICAL DIMENSION REQUIREMENT:
 - The original image has dimensions: {fig_w} x {fig_h} pixels
@@ -1433,7 +1433,9 @@ Image 2 is the SAM reference image.
 
 Please output ONLY the SVG code, starting with <svg and ending with </svg>. Do not include any explanation or markdown formatting."""
     else:
-        prompt = f"""编写svg代码来实现像素级别的复现这张图片（除了图标用相同大小的矩形占位符填充之外其他文字和组件都要保持一致（即灰色矩形覆盖的内容就是图标））
+        prompt = f"""Write SVG code to reproduce this figure at pixel-level accuracy.
+All icons are replaced by same-sized gray rectangle placeholders (the gray rectangles in the second image mark icon positions).
+Everything else — text labels, boxes, arrows, colors, layout — must match the original exactly.
 
 CRITICAL DIMENSION REQUIREMENT:
 - The original image has dimensions: {fig_w} x {fig_h} pixels
@@ -1443,14 +1445,15 @@ CRITICAL DIMENSION REQUIREMENT:
 - DO NOT scale or resize the SVG
 {svg_format_rules}
 
-ARROW/CONNECTION RULES (非常重要):
-- 仔细观察原图中每条箭头/连线的起点和终点，确保SVG中每条连线连接的是正确的两个元素
-- 不要凭想象添加原图中不存在的连线
-- 不要遗漏原图中存在的连线
-- 保持箭头方向一致（箭头朝向哪端）
-- 对于有弯折的连线，使用<path>准确复现弯折路径，不要简化为直线
-- 对于虚线箭头，使用 stroke-dasharray 属性
-- 先画所有矩形/文字/图标占位，最后画所有连线，确保连线端点精确对准目标元素的边界
+ARROW/CONNECTION RULES (CRITICAL):
+- Carefully trace each arrow/connection in the original image from its source element to its target element
+- Each connection must link the EXACT same two elements as in the original — do NOT guess or invent connections
+- Do NOT add connections that do not exist in the original image
+- Do NOT omit connections that exist in the original image
+- Preserve arrow direction (which end has the arrowhead)
+- For bent/curved connections, use <path> to accurately reproduce the bend path — do NOT simplify to straight lines
+- For dashed arrows, use the stroke-dasharray attribute
+- Draw all rectangles, text, and icon placeholders FIRST, then draw all connections LAST, ensuring each connection endpoint aligns precisely with the target element boundary
 
 PLACEHOLDER STYLE REQUIREMENT:
 Look at the second image (samed.png) - each icon area is marked with a gray rectangle (#808080), black border, and a centered label like <AF>01, <AF>02, etc.
