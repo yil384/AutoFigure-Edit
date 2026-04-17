@@ -10,19 +10,25 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
 
 WORKDIR /app
 
-RUN apt-get update && apt-get install -y --no-install-recommends \
+# Use TUNA mirror for China/restricted networks; set APT_MIRROR=archive.ubuntu.com to skip
+ARG APT_MIRROR=mirrors.tuna.tsinghua.edu.cn
+RUN if [ "$APT_MIRROR" != "archive.ubuntu.com" ]; then \
+      sed -i "s|http://archive.ubuntu.com|http://${APT_MIRROR}|g" /etc/apt/sources.list && \
+      sed -i "s|http://security.ubuntu.com|http://${APT_MIRROR}|g" /etc/apt/sources.list; \
+    fi \
+    && apt-get update && apt-get install -y --no-install-recommends \
     python3 python3-pip python3-dev \
     build-essential \
     pkg-config \
     libcairo2-dev \
     libglib2.0-0 \
-    libgl1 \
+    libgl1-mesa-glx \
     libgomp1 \
     libcairo2 \
     libpango-1.0-0 \
     libpangocairo-1.0-0 \
     libgdk-pixbuf-2.0-0 \
-    libffi8 \
+    libffi-dev \
     wget \
     && ln -sf /usr/bin/python3 /usr/bin/python \
     && rm -rf /var/lib/apt/lists/*
