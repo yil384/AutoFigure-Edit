@@ -10,12 +10,9 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
 
 WORKDIR /app
 
-# Use TUNA mirror for China/restricted networks; set APT_MIRROR=archive.ubuntu.com to skip
-ARG APT_MIRROR=mirrors.tuna.tsinghua.edu.cn
-RUN if [ "$APT_MIRROR" != "archive.ubuntu.com" ]; then \
-      sed -i "s|http://archive.ubuntu.com|http://${APT_MIRROR}|g" /etc/apt/sources.list && \
-      sed -i "s|http://security.ubuntu.com|http://${APT_MIRROR}|g" /etc/apt/sources.list; \
-    fi \
+# Fix: archive.ubuntu.com:80 may be blocked; switch to HTTPS
+RUN sed -i 's|http://archive.ubuntu.com|https://archive.ubuntu.com|g' /etc/apt/sources.list \
+    && sed -i 's|http://security.ubuntu.com|https://security.ubuntu.com|g' /etc/apt/sources.list \
     && apt-get update && apt-get install -y --no-install-recommends \
     python3 python3-pip python3-dev \
     build-essential \
