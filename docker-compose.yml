@@ -34,6 +34,8 @@ services:
               count: all
               capabilities: [gpu]
     volumes:
+      # 代码目录映射 — 宿主机改代码，容器内实时生效，无需重新 build
+      - .:/app
       - ./outputs:/app/outputs
       - ./uploads:/app/uploads
       - hf_cache:/app/.cache/huggingface
