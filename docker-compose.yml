@@ -12,6 +12,11 @@ services:
     restart: unless-stopped
     init: true
     stop_grace_period: 20s
+    stdin_open: true   # docker start -ai
+    tty: true          # interactive terminal
+    # Default: bash for dev. Use `docker compose up -d` + override to run web server:
+    #   docker compose run --rm autofigure-edit python -m uvicorn server:app --host 0.0.0.0 --port 8000
+    command: bash
     ports:
       - "8000:8000"
     environment:
