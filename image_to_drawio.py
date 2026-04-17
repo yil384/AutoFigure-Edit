@@ -1433,7 +1433,7 @@ Image 2 is the SAM reference image.
 
 Please output ONLY the SVG code, starting with <svg and ending with </svg>. Do not include any explanation or markdown formatting."""
     else:
-        prompt = f"""编写svg代码来实现像素级别的复现这张图片（除了图标用相同大小的矩形占位符填充之外其他文字和组件(尤其是箭头样式)都要保持一致（即灰色矩形覆盖的内容就是图标））
+        prompt = f"""编写svg代码来实现像素级别的复现这张图片（除了图标用相同大小的矩形占位符填充之外其他文字和组件都要保持一致（即灰色矩形覆盖的内容就是图标））
 
 CRITICAL DIMENSION REQUIREMENT:
 - The original image has dimensions: {fig_w} x {fig_h} pixels
@@ -1442,6 +1442,15 @@ CRITICAL DIMENSION REQUIREMENT:
   - Set width="{fig_w}" height="{fig_h}"
 - DO NOT scale or resize the SVG
 {svg_format_rules}
+
+ARROW/CONNECTION RULES (非常重要):
+- 仔细观察原图中每条箭头/连线的起点和终点，确保SVG中每条连线连接的是正确的两个元素
+- 不要凭想象添加原图中不存在的连线
+- 不要遗漏原图中存在的连线
+- 保持箭头方向一致（箭头朝向哪端）
+- 对于有弯折的连线，使用<path>准确复现弯折路径，不要简化为直线
+- 对于虚线箭头，使用 stroke-dasharray 属性
+- 先画所有矩形/文字/图标占位，最后画所有连线，确保连线端点精确对准目标元素的边界
 
 PLACEHOLDER STYLE REQUIREMENT:
 Look at the second image (samed.png) - each icon area is marked with a gray rectangle (#808080), black border, and a centered label like <AF>01, <AF>02, etc.
