@@ -18,6 +18,16 @@
 
       <main class="input-layout">
         <section class="card">
+          <div class="field-group">
+            <label class="field-label" for="pipelineSelect">Pipeline</label>
+            <select id="pipelineSelect" class="input">
+              <option value="drawio" selected>PNG -> draw.io (Editable XML)</option>
+              <option value="svg">Method Text -> SVG (Original)</option>
+            </select>
+          </div>
+        </section>
+
+        <section class="card" id="methodTextSection">
           <label class="field-label" for="methodText">Method Text</label>
           <textarea
             id="methodText"
@@ -25,6 +35,32 @@
             placeholder="Paste your paper method text here..."
           ></textarea>
           <div class="hint">Tip: concise, structured method text yields cleaner templates.</div>
+        </section>
+
+        <section class="card" id="inputImageSection">
+          <label class="field-label">Input Image (for draw.io pipeline)</label>
+          <div class="upload-zone" id="inputImageZone">
+            <input id="inputImageFile" class="file-input" type="file" accept="image/*" />
+            <div class="upload-text">Drop figure PNG here or click to upload</div>
+          </div>
+          <div class="upload-meta">
+            <img id="inputImagePreview" class="upload-preview" alt="Input image preview" />
+            <div id="inputImageStatus" class="hint"></div>
+          </div>
+          <div class="field-group" style="margin-top:0.5rem">
+            <label class="field-label" for="gridSelect">Grid Layout</label>
+            <select id="gridSelect" class="input">
+              <option value="auto" selected>Auto-detect</option>
+              <option value="1x1">1x1 (single figure)</option>
+              <option value="2x2">2x2 (4 figures)</option>
+              <option value="1x2">1x2 (2 figures side-by-side)</option>
+              <option value="2x1">2x1 (2 figures stacked)</option>
+            </select>
+          </div>
+          <div class="field-group" style="margin-top:0.5rem">
+            <label class="field-label" for="targetSsim">Target SSIM</label>
+            <input id="targetSsim" class="input" type="number" min="0" max="1" step="0.05" value="0.90" />
+          </div>
         </section>
 
         <section class="card">

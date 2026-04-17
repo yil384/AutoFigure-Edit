@@ -102,7 +102,7 @@ PROVIDER_CONFIGS = {
     "gemini": {
         "base_url": "https://generativelanguage.googleapis.com/v1beta",
         "default_image_model": "gemini-3-pro-image-preview",
-        "default_svg_model": "gemini-3.1-pro",
+        "default_svg_model": "gemini-3.1-pro-preview",
     },
 }
 

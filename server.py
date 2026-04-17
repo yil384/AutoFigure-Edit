@@ -86,13 +86,18 @@ class Job:
 
 
 class RunRequest(BaseModel):
-    method_text: str = Field(..., min_length=1)
+    pipeline: str = "svg"  # "svg" or "drawio"
+    method_text: Optional[str] = None
+    input_image_path: Optional[str] = None
+    grid: Optional[str] = "auto"
+    target_ssim: Optional[float] = 0.90
     provider: str = "bianxie"
     api_key: Optional[str] = None
     base_url: Optional[str] = None
     image_model: Optional[str] = None
     image_size: Optional[str] = None
     svg_model: Optional[str] = None
+    model: Optional[str] = None
     sam_prompt: Optional[str] = None
     sam_backend: Optional[str] = None
     sam_api_key: Optional[str] = None
@@ -101,6 +106,7 @@ class RunRequest(BaseModel):
     merge_threshold: Optional[float] = None
     optimize_iterations: Optional[int] = None
     reference_image_path: Optional[str] = None
+    skip_icons: Optional[bool] = False
 
 
 app = FastAPI()
@@ -125,54 +131,95 @@ def run_job(req: RunRequest) -> JSONResponse:
     output_dir = OUTPUTS_DIR / job_id
     output_dir.mkdir(parents=True, exist_ok=True)
 
-    cmd = [
-        PYTHON_EXECUTABLE,
-        str(BASE_DIR / "autofigure2.py"),
-        "--method_text",
-        req.method_text,
-        "--output_dir",
-        str(output_dir),
-        "--provider",
-        req.provider,
-    ]
+    if req.pipeline == "drawio":
+        # draw.io pipeline
+        input_image = req.input_image_path
+        if input_image and not Path(input_image).is_absolute():
+            input_image = str((BASE_DIR / input_image).resolve())
+        if not input_image:
+            raise HTTPException(status_code=400, detail="input_image_path required for drawio pipeline")
 
-    if req.api_key:
-        cmd += ["--api_key", req.api_key]
-    if req.base_url:
-        cmd += ["--base_url", req.base_url]
-    if req.image_model:
-        cmd += ["--image_model", req.image_model]
-    if req.image_size:
-        cmd += ["--image_size", req.image_size]
-    if req.svg_model:
-        cmd += ["--svg_model", req.svg_model]
+        cmd = [
+            PYTHON_EXECUTABLE,
+            str(BASE_DIR / "image_to_drawio.py"),
+            "--input_image", input_image,
+            "--output_dir", str(output_dir),
+            "--provider", req.provider,
+        ]
+        if req.api_key:
+            cmd += ["--api_key", req.api_key]
+        if req.model:
+            cmd += ["--model", req.model]
+        if req.grid:
+            cmd += ["--grid", req.grid]
+        if req.target_ssim is not None:
+            cmd += ["--target_ssim", str(req.target_ssim)]
+        if req.optimize_iterations is not None:
+            cmd += ["--optimize_iterations", str(req.optimize_iterations)]
 
-    sam_prompt = req.sam_prompt or DEFAULT_SAM_PROMPT
-    placeholder_mode = req.placeholder_mode or DEFAULT_PLACEHOLDER_MODE
-    merge_threshold = (
-        req.merge_threshold if req.merge_threshold is not None else DEFAULT_MERGE_THRESHOLD
-    )
+        sam_prompt = req.sam_prompt or DEFAULT_SAM_PROMPT
+        cmd += ["--sam_prompts", sam_prompt]
+        if req.sam_backend:
+            cmd += ["--sam_backend", req.sam_backend]
+        if req.sam_api_key:
+            cmd += ["--sam_api_key", req.sam_api_key]
+        if req.merge_threshold is not None:
+            cmd += ["--merge_threshold", str(req.merge_threshold)]
+        if req.skip_icons:
+            cmd += ["--skip_icons"]
+    else:
+        # Original SVG pipeline
+        if not req.method_text:
+            raise HTTPException(status_code=400, detail="method_text required for svg pipeline")
 
-    cmd += ["--sam_prompt", sam_prompt]
-    cmd += ["--placeholder_mode", placeholder_mode]
-    cmd += ["--merge_threshold", str(merge_threshold)]
-    if req.sam_backend:
-        cmd += ["--sam_backend", req.sam_backend]
-    if req.sam_api_key:
-        cmd += ["--sam_api_key", req.sam_api_key]
-    if req.sam_max_masks is not None:
-        cmd += ["--sam_max_masks", str(req.sam_max_masks)]
-    if req.optimize_iterations is not None:
-        cmd += ["--optimize_iterations", str(req.optimize_iterations)]
+        cmd = [
+            PYTHON_EXECUTABLE,
+            str(BASE_DIR / "autofigure2.py"),
+            "--method_text",
+            req.method_text,
+            "--output_dir",
+            str(output_dir),
+            "--provider",
+            req.provider,
+        ]
 
-    reference_path = req.reference_image_path
-    if reference_path:
-        reference_path = (
-            str((BASE_DIR / reference_path).resolve())
-            if not Path(reference_path).is_absolute()
-            else reference_path
+        if req.api_key:
+            cmd += ["--api_key", req.api_key]
+        if req.base_url:
+            cmd += ["--base_url", req.base_url]
+        if req.image_model:
+            cmd += ["--image_model", req.image_model]
+        if req.image_size:
+            cmd += ["--image_size", req.image_size]
+        if req.svg_model:
+            cmd += ["--svg_model", req.svg_model]
+
+        sam_prompt = req.sam_prompt or DEFAULT_SAM_PROMPT
+        placeholder_mode = req.placeholder_mode or DEFAULT_PLACEHOLDER_MODE
+        merge_threshold = (
+            req.merge_threshold if req.merge_threshold is not None else DEFAULT_MERGE_THRESHOLD
         )
-        cmd += ["--reference_image_path", reference_path]
+
+        cmd += ["--sam_prompt", sam_prompt]
+        cmd += ["--placeholder_mode", placeholder_mode]
+        cmd += ["--merge_threshold", str(merge_threshold)]
+        if req.sam_backend:
+            cmd += ["--sam_backend", req.sam_backend]
+        if req.sam_api_key:
+            cmd += ["--sam_api_key", req.sam_api_key]
+        if req.sam_max_masks is not None:
+            cmd += ["--sam_max_masks", str(req.sam_max_masks)]
+        if req.optimize_iterations is not None:
+            cmd += ["--optimize_iterations", str(req.optimize_iterations)]
+
+        reference_path = req.reference_image_path
+        if reference_path:
+            reference_path = (
+                str((BASE_DIR / reference_path).resolve())
+                if not Path(reference_path).is_absolute()
+                else reference_path
+            )
+            cmd += ["--reference_image_path", reference_path]
 
     env = os.environ.copy()
     env["PYTHONUNBUFFERED"] = "1"
@@ -341,7 +388,24 @@ def _scan_artifacts(job: Job) -> None:
         output_dir / "samed.png",
         output_dir / "template.svg",
         output_dir / "final.svg",
+        output_dir / "template.drawio",
+        output_dir / "final.drawio",
+        output_dir / "final_rendered.png",
+        output_dir / "gemini_icons.png",
     ]
+
+    # Scan panel subdirectories for draw.io pipeline
+    for panel_dir in sorted(output_dir.glob("panel_*")):
+        if panel_dir.is_dir():
+            candidates.extend([
+                panel_dir / "samed.png",
+                panel_dir / "template.drawio",
+                panel_dir / "optimized.drawio",
+                panel_dir / "final.drawio",
+            ])
+            icons_sub = panel_dir / "icons"
+            if icons_sub.is_dir():
+                candidates.extend(icons_sub.glob("*.png"))
 
     icons_dir = output_dir / "icons"
     if icons_dir.is_dir():
@@ -370,16 +434,26 @@ def _scan_artifacts(job: Job) -> None:
 def _classify_artifact(rel_path: str) -> str:
     if rel_path == "figure.png":
         return "figure"
-    if rel_path == "samed.png":
+    if "samed.png" in rel_path:
         return "samed"
     if rel_path.endswith("_nobg.png"):
         return "icon_nobg"
-    if rel_path.startswith("icons/") and rel_path.endswith(".png"):
+    if "icons/" in rel_path and rel_path.endswith(".png"):
         return "icon_raw"
     if rel_path == "template.svg":
         return "template_svg"
     if rel_path == "final.svg":
         return "final_svg"
+    if "template.drawio" in rel_path:
+        return "template_drawio"
+    if "final.drawio" in rel_path:
+        return "final_drawio"
+    if "optimized.drawio" in rel_path:
+        return "optimized_drawio"
+    if "gemini_icons" in rel_path:
+        return "icon_sheet"
+    if rel_path == "final_rendered.png":
+        return "rendered"
     return "artifact"
 
 

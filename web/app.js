@@ -25,7 +25,49 @@
     const samPrompt = $("samPrompt");
     const samApiKeyGroup = $("samApiKeyGroup");
     const samApiKeyInput = $("samApiKey");
+    const pipelineSelect = $("pipelineSelect");
+    const methodTextSection = $("methodTextSection");
+    const inputImageSection = $("inputImageSection");
+    const inputImageFile = $("inputImageFile");
+    const inputImageZone = $("inputImageZone");
+    const inputImagePreview = $("inputImagePreview");
+    const inputImageStatus = $("inputImageStatus");
     let uploadedReferencePath = null;
+    let uploadedInputImagePath = null;
+
+    function syncPipelineVisibility() {
+      const pipeline = pipelineSelect ? pipelineSelect.value : "svg";
+      if (methodTextSection) methodTextSection.hidden = (pipeline === "drawio");
+      if (inputImageSection) inputImageSection.hidden = (pipeline !== "drawio");
+      saveInputState();
+    }
+
+    if (pipelineSelect) {
+      pipelineSelect.addEventListener("change", syncPipelineVisibility);
+      syncPipelineVisibility();
+    }
+
+    if (inputImageZone && inputImageFile) {
+      inputImageZone.addEventListener("click", () => inputImageFile.click());
+      inputImageZone.addEventListener("dragover", (e) => { e.preventDefault(); inputImageZone.classList.add("dragging"); });
+      inputImageZone.addEventListener("dragleave", () => inputImageZone.classList.remove("dragging"));
+      inputImageZone.addEventListener("drop", async (e) => {
+        e.preventDefault();
+        inputImageZone.classList.remove("dragging");
+        const file = e.dataTransfer.files[0];
+        if (file) {
+          const uploaded = await uploadReference(file, confirmBtn, inputImagePreview, inputImageStatus);
+          if (uploaded) { uploadedInputImagePath = uploaded.path; saveInputState(); }
+        }
+      });
+      inputImageFile.addEventListener("change", async () => {
+        const file = inputImageFile.files[0];
+        if (file) {
+          const uploaded = await uploadReference(file, confirmBtn, inputImagePreview, inputImageStatus);
+          if (uploaded) { uploadedInputImagePath = uploaded.path; saveInputState(); }
+        }
+      });
+    }
 
     function loadInputState() {
       try {
@@ -195,27 +237,53 @@
 
     confirmBtn.addEventListener("click", async () => {
       errorMsg.textContent = "";
-      const methodText = $("methodText").value.trim();
-      if (!methodText) {
-        errorMsg.textContent = "Please provide method text.";
-        return;
+      const pipeline = pipelineSelect ? pipelineSelect.value : "svg";
+
+      if (pipeline === "drawio") {
+        if (!uploadedInputImagePath) {
+          errorMsg.textContent = "Please upload an input image for the draw.io pipeline.";
+          return;
+        }
+      } else {
+        const methodText = $("methodText").value.trim();
+        if (!methodText) {
+          errorMsg.textContent = "Please provide method text.";
+          return;
+        }
       }
 
       confirmBtn.disabled = true;
       confirmBtn.textContent = "Starting...";
 
-      const payload = {
-        method_text: methodText,
-        provider: $("provider").value,
-        api_key: $("apiKey").value.trim() || null,
-        optimize_iterations: parseInt($("optimizeIterations").value, 10),
-        reference_image_path: uploadedReferencePath,
-        sam_backend: $("samBackend").value,
-        sam_prompt: $("samPrompt").value.trim() || null,
-        sam_api_key: $("samApiKey").value.trim() || null,
-      };
-      if ($("provider").value === "gemini") {
-        payload.image_size = imageSizeInput?.value || "4K";
+      let payload;
+      if (pipeline === "drawio") {
+        payload = {
+          pipeline: "drawio",
+          input_image_path: uploadedInputImagePath,
+          grid: $("gridSelect") ? $("gridSelect").value : "auto",
+          target_ssim: parseFloat($("targetSsim") ? $("targetSsim").value : "0.90"),
+          provider: $("provider").value,
+          api_key: $("apiKey").value.trim() || null,
+          optimize_iterations: parseInt($("optimizeIterations").value, 10),
+          sam_backend: $("samBackend").value,
+          sam_prompt: $("samPrompt").value.trim() || null,
+          sam_api_key: $("samApiKey").value.trim() || null,
+        };
+      } else {
+        payload = {
+          pipeline: "svg",
+          method_text: $("methodText").value.trim(),
+          provider: $("provider").value,
+          api_key: $("apiKey").value.trim() || null,
+          optimize_iterations: parseInt($("optimizeIterations").value, 10),
+          reference_image_path: uploadedReferencePath,
+          sam_backend: $("samBackend").value,
+          sam_prompt: $("samPrompt").value.trim() || null,
+          sam_api_key: $("samApiKey").value.trim() || null,
+        };
+        if ($("provider").value === "gemini") {
+          payload.image_size = imageSizeInput?.value || "4K";
+        }
       }
       if (payload.sam_backend === "local") {
         payload.sam_api_key = null;
@@ -358,8 +426,13 @@
       samed: { step: 2, label: "SAM3 segmentation" },
       icon_raw: { step: 3, label: "Icons extracted" },
       icon_nobg: { step: 3, label: "Icons refined" },
+      icon_sheet: { step: 3, label: "Icon sheet generated" },
       template_svg: { step: 4, label: "Template SVG ready" },
       final_svg: { step: 5, label: "Final SVG ready" },
+      template_drawio: { step: 4, label: "draw.io template ready" },
+      optimized_drawio: { step: 5, label: "draw.io optimized" },
+      final_drawio: { step: 6, label: "Final draw.io ready" },
+      rendered: { step: 6, label: "Rendered preview" },
     };
 
     let currentStep = 0;
@@ -379,9 +452,20 @@
         await loadSvgAsset(data.url);
       }
 
+      if (data.kind === "final_drawio" || data.kind === "template_drawio") {
+        // Show download link for .drawio files
+        const dlLink = document.createElement("a");
+        dlLink.href = data.url;
+        dlLink.download = data.name;
+        dlLink.className = "artifact-card";
+        dlLink.innerHTML = `<div class="artifact-meta"><div class="artifact-name">${data.name}</div><div class="artifact-badge">Download .drawio</div></div>`;
+        artifactList.prepend(dlLink);
+      }
+
       if (stepMap[data.kind] && stepMap[data.kind].step > currentStep) {
         currentStep = stepMap[data.kind].step;
-        statusText.textContent = `Step ${currentStep}/5 - ${stepMap[data.kind].label}`;
+        const totalSteps = (data.kind.includes("drawio") || data.kind === "rendered" || data.kind === "icon_sheet") ? 7 : 5;
+        statusText.textContent = `Step ${currentStep}/${totalSteps} - ${stepMap[data.kind].label}`;
       }
     });
 
@@ -508,10 +592,20 @@
         return "icon raw";
       case "icon_nobg":
         return "icon no-bg";
+      case "icon_sheet":
+        return "icon sheet";
       case "template_svg":
-        return "template";
+        return "template SVG";
       case "final_svg":
-        return "final";
+        return "final SVG";
+      case "template_drawio":
+        return "template drawio";
+      case "optimized_drawio":
+        return "optimized drawio";
+      case "final_drawio":
+        return "final drawio";
+      case "rendered":
+        return "rendered";
       default:
         return "artifact";
     }
