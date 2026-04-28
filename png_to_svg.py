@@ -2412,7 +2412,8 @@ def _fit_segment_primitive(pts, arc_tol=0.8, line_tol=0.5):
     return [('L', [(pN[0], pN[1])])]
 
 
-def _contour_to_commands(contour_pts, precision=4, arc_tol=0.8, line_tol=0.5):
+def _contour_to_commands(contour_pts, precision=4, arc_tol=0.8, line_tol=0.5,
+                         dp_epsilon=0.4, angle_thresh=25.0):
     """Convert a contour (Nx2 array) to SVG path commands.
 
     Smooths the contour, detects corners, splits into segments,
@@ -2428,17 +2429,18 @@ def _contour_to_commands(contour_pts, precision=4, arc_tol=0.8, line_tol=0.5):
                     ('L', [(pts[1][0], pts[1][1])]), ('Z', [])]
         return []
 
-    # Simplify with Douglas-Peucker (gentle)
-    import cv2
-    simplified = cv2.approxPolyDP(pts.reshape(-1, 1, 2).astype(np.float32),
-                                   epsilon=0.4, closed=True)
-    pts = simplified.reshape(-1, 2).astype(float)
-    n = len(pts)
-    if n < 3:
-        return []
+    # Simplify with Douglas-Peucker
+    if dp_epsilon > 0:
+        import cv2
+        simplified = cv2.approxPolyDP(pts.reshape(-1, 1, 2).astype(np.float32),
+                                       epsilon=dp_epsilon, closed=True)
+        pts = simplified.reshape(-1, 2).astype(float)
+        n = len(pts)
+        if n < 3:
+            return []
 
     # Detect corners
-    corners = _detect_corners(pts, angle_thresh=25.0)
+    corners = _detect_corners(pts, angle_thresh=angle_thresh)
 
     # Build commands
     commands = [('M', [(pts[0][0], pts[0][1])])]
@@ -3127,6 +3129,217 @@ def png_to_svg_v6(input_path, output_path=None, n_colors=32,
     out_size = os.path.getsize(output_path)
     print(f"\nOutput: {output_path}")
     print(f"Size: {out_size/1024:.0f}KB, {path_count} paths, "
+          f"{total_subpaths} subpaths, {len(new_colors)} colors")
+
+    return output_path, None
+
+
+def png_to_svg_v7(input_path, output_path=None, n_colors=32,
+                  min_cc_area=10, denoise='edge', svgo=True,
+                  arc_tol=0.5, line_tol=0.3):
+    """SciPrism-style PNG→SVG: per-contour curve fitting (L/A/Q/C commands).
+
+    Reverse-engineered from SciPrism's actual SVG output:
+      - Each contour = separate path (not one compound path per color)
+      - Smart curve fitting: L (straight), A (arc), Q (quadratic), C (cubic)
+      - Sub-pixel precision (4 decimal places)
+      - fill-rule="evenodd" with compound paths for shapes with holes
+      - Background rect, shapes stacked largest-first
+
+    Pipeline:
+      1. Edge-preserving denoise → two-stage color quantization
+      2. Color-guarded CC merge (removes low-contrast noise only)
+      3. Per-color 2x-upscale contour tracing (RETR_CCOMP for holes)
+      4. Corner detection → per-segment curve fitting (line/arc/bezier)
+      5. SVGO compression
+
+    Returns:
+        (output_path, None) on success, (None, error) on failure.
+    """
+    import time
+    import cv2
+
+    if output_path is None:
+        base = os.path.splitext(input_path)[0]
+        output_path = f"{base}_v7.svg"
+
+    # 1. Load image
+    img = Image.open(input_path).convert('RGB')
+    arr = np.array(img)
+    h, w = arr.shape[:2]
+    print(f"Image: {w}x{h}")
+
+    # 2. Edge-preserving denoise + two-stage quantization
+    n_achroma = max(4, n_colors * 3 // 8)
+    n_chroma = n_colors - n_achroma
+    print(f"\n[1] Quantizing to {n_colors} colors "
+          f"({n_achroma} achromatic + {n_chroma} chromatic, "
+          f"denoise={denoise})...")
+    t0 = time.time()
+    qarr, palette = _two_stage_quantize(arr, n_achroma=n_achroma,
+                                         n_chroma=n_chroma,
+                                         denoise=denoise)
+
+    colors_flat = qarr.reshape(-1, 3)
+    unique_colors = np.unique(colors_flat, axis=0)
+    label_img = np.zeros((h, w), dtype=np.int32)
+    for ci, c in enumerate(unique_colors):
+        label_img[np.all(qarr == c, axis=2)] = ci
+    print(f"  {len(unique_colors)} colors in {time.time()-t0:.1f}s")
+
+    # 3. Color-guarded CC merge
+    print(f"\n[2] Merging small components (min_area={min_cc_area})...")
+    t0 = time.time()
+    _merge_small_components(label_img, min_area=min_cc_area,
+                           palette=unique_colors,
+                           max_color_dist=40)
+
+    used_labels = np.unique(label_img)
+    remap = np.zeros(len(unique_colors), dtype=np.int32)
+    new_colors = []
+    for new_idx, old_idx in enumerate(used_labels):
+        remap[old_idx] = new_idx
+        new_colors.append(unique_colors[old_idx])
+    new_colors = np.array(new_colors, dtype=np.uint8)
+    label_img_new = remap[label_img]
+    print(f"  Done in {time.time()-t0:.1f}s")
+
+    # Count pixels per color (for stacking order)
+    counts = np.bincount(label_img_new.ravel(), minlength=len(new_colors))
+    order = np.argsort(-counts)  # largest area first
+
+    # 4. Per-contour curve fitting (SciPrism-style)
+    print(f"\n[3] Per-contour curve fitting (L/A/Q/C)...")
+    t0 = time.time()
+
+    bg_idx = order[0]
+    bg_color = f"#{new_colors[bg_idx][0]:02x}" \
+               f"{new_colors[bg_idx][1]:02x}{new_colors[bg_idx][2]:02x}"
+
+    svg_lines = [
+        f'<svg xmlns="http://www.w3.org/2000/svg" '
+        f'width="{w}" height="{h}" viewBox="0 0 {w} {h}">',
+        f'<rect width="{w}" height="{h}" fill="{bg_color}"/>',
+    ]
+
+    total_paths = 0
+    total_subpaths = 0
+
+    for color_idx in order:
+        hex_color = f"#{new_colors[color_idx][0]:02x}" \
+                    f"{new_colors[color_idx][1]:02x}" \
+                    f"{new_colors[color_idx][2]:02x}"
+        pixel_count = counts[color_idx]
+        if pixel_count < 4:
+            continue
+        if color_idx == bg_idx:
+            continue
+
+        # Binary mask for this color
+        mask = (label_img_new == color_idx).astype(np.uint8) * 255
+
+        # 2x upscale + 0.5px dilation for boundary coverage
+        mask_2x = cv2.resize(mask, (w * 2, h * 2),
+                             interpolation=cv2.INTER_NEAREST)
+        mask_2x = cv2.dilate(mask_2x, np.ones((2, 2), np.uint8),
+                             iterations=1)
+
+        # Find contours with hierarchy (CCOMP: outer + holes)
+        contours, hierarchy = cv2.findContours(
+            mask_2x, cv2.RETR_CCOMP, cv2.CHAIN_APPROX_SIMPLE
+        )
+        if not contours or hierarchy is None:
+            continue
+
+        hierarchy = hierarchy[0]
+
+        # Group outer contours with their holes
+        idx = 0
+        while idx >= 0:
+            # Outer contour
+            outer_pts = contours[idx].reshape(-1, 2).astype(float) / 2.0
+            if len(outer_pts) < 3:
+                idx = hierarchy[idx][0]
+                continue
+
+            # Collect hole contours
+            hole_pts_list = []
+            child_idx = hierarchy[idx][2]
+            while child_idx >= 0:
+                hpts = contours[child_idx].reshape(-1, 2).astype(float) / 2.0
+                if len(hpts) >= 3:
+                    hole_pts_list.append(hpts)
+                child_idx = hierarchy[child_idx][0]
+
+            # Fit curves to outer contour (no DP — keep pixel precision)
+            outer_cmds = _contour_to_commands(outer_pts, precision=4,
+                                              arc_tol=arc_tol,
+                                              line_tol=line_tol,
+                                              dp_epsilon=0)
+            if not outer_cmds:
+                idx = hierarchy[idx][0]
+                continue
+
+            # If no holes, single path
+            if not hole_pts_list:
+                d = _commands_to_d(outer_cmds, precision=4)
+                svg_lines.append(
+                    f'<path fill="{hex_color}" fill-rule="evenodd" d="{d}"/>')
+                total_paths += 1
+                total_subpaths += 1
+            else:
+                # Compound path with holes (evenodd)
+                all_cmds = list(outer_cmds)
+                for hpts in hole_pts_list:
+                    hole_cmds = _contour_to_commands(hpts, precision=4,
+                                                     arc_tol=arc_tol,
+                                                     line_tol=line_tol,
+                                                     dp_epsilon=0)
+                    if hole_cmds:
+                        all_cmds.extend(hole_cmds)
+                        total_subpaths += 1
+                d = _commands_to_d(all_cmds, precision=4)
+                svg_lines.append(
+                    f'<path fill="{hex_color}" fill-rule="evenodd" d="{d}"/>')
+                total_paths += 1
+                total_subpaths += 1  # outer
+
+            idx = hierarchy[idx][0]
+
+    svg_lines.append('</svg>')
+    svg_content = '\n'.join(svg_lines)
+
+    print(f"  {total_paths} paths, {total_subpaths} subpaths "
+          f"in {time.time()-t0:.1f}s")
+
+    # 5. Write output
+    with open(output_path, 'w') as f:
+        f.write(svg_content)
+
+    pre_size = os.path.getsize(output_path)
+    print(f"\n  Pre-SVGO size: {pre_size/1024:.0f}KB")
+
+    # 6. SVGO compression
+    if svgo:
+        print(f"\n[4] SVGO compression...")
+        try:
+            result = subprocess.run(
+                ["npx", "svgo", output_path, "-o", output_path, "--multipass"],
+                capture_output=True, text=True, timeout=120,
+            )
+            if result.returncode == 0:
+                post_size = os.path.getsize(output_path)
+                reduction = (1 - post_size / pre_size) * 100
+                print(f"  {pre_size/1024:.0f}KB → {post_size/1024:.0f}KB "
+                      f"({reduction:.0f}% reduction)")
+            else:
+                print(f"  SVGO failed: {result.stderr[:200]}")
+        except (FileNotFoundError, subprocess.TimeoutExpired) as e:
+            print(f"  SVGO skipped: {e}")
+
+    out_size = os.path.getsize(output_path)
+    print(f"\nOutput: {output_path}")
+    print(f"Size: {out_size/1024:.0f}KB, {total_paths} paths, "
           f"{total_subpaths} subpaths, {len(new_colors)} colors")
 
     return output_path, None
