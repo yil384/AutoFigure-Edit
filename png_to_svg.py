@@ -2250,8 +2250,12 @@ def _smooth_contour(pts, sigma=1.2):
     return np.column_stack([xs[pad:pad+n], ys[pad:pad+n]])
 
 
-def _detect_corners(pts, angle_thresh=25.0, min_seg_len=3):
+def _detect_corners(pts, angle_thresh=25.0, min_seg_len=3, window=5):
     """Detect corner indices by measuring angle deviation from 180°.
+
+    Uses a multi-scale window to avoid detecting pixel-level staircase
+    as corners. The angle is measured between vectors spanning `window`
+    points on each side of the candidate.
 
     Returns list of indices where corners occur.
     """
@@ -2260,9 +2264,10 @@ def _detect_corners(pts, angle_thresh=25.0, min_seg_len=3):
         return [0, n - 1]
 
     corners = [0]
-    for i in range(1, n - 1):
-        v1 = pts[i] - pts[i - 1]
-        v2 = pts[i + 1] - pts[i]
+    half = max(1, window)
+    for i in range(half, n - half):
+        v1 = pts[i] - pts[max(0, i - half)]
+        v2 = pts[min(n - 1, i + half)] - pts[i]
         len1 = np.linalg.norm(v1)
         len2 = np.linalg.norm(v2)
         if len1 < 1e-6 or len2 < 1e-6:
@@ -3129,6 +3134,1136 @@ def png_to_svg_v6(input_path, output_path=None, n_colors=32,
     out_size = os.path.getsize(output_path)
     print(f"\nOutput: {output_path}")
     print(f"Size: {out_size/1024:.0f}KB, {path_count} paths, "
+          f"{total_subpaths} subpaths, {len(new_colors)} colors")
+
+    return output_path, None
+
+
+def _subpixel_contour_to_commands(pts, arc_tol=0.3, line_tol=0.2,
+                                  angle_thresh=60.0, min_fit_pts=4):
+    """Convert sub-pixel contour points to SVG path commands (L/A/Q/C).
+
+    Unlike _contour_to_commands, this operates on smooth sub-pixel points
+    from marching squares — no DP simplification needed.
+
+    Args:
+        pts: Nx2 float array of (x, y) sub-pixel coordinates.
+        arc_tol: Max residual for arc fitting.
+        line_tol: Max deviation for line fitting.
+        angle_thresh: Corner detection angle threshold (degrees).
+        min_fit_pts: Minimum points in a segment to attempt curve fitting.
+
+    Returns:
+        List of (cmd, params) tuples, or empty list.
+    """
+    n = len(pts)
+    if n < 3:
+        return []
+
+    # Detect corners using multi-scale window
+    corners = _detect_corners(pts, angle_thresh=angle_thresh,
+                              min_seg_len=5, window=5)
+
+    commands = [('M', [(pts[0][0], pts[0][1])])]
+
+    for i in range(len(corners) - 1):
+        seg = pts[corners[i]:corners[i + 1] + 1]
+        if len(seg) < 2:
+            continue
+        if len(seg) >= min_fit_pts:
+            cmds = _fit_segment_primitive(seg, arc_tol=arc_tol,
+                                           line_tol=line_tol)
+            commands.extend(cmds)
+        else:
+            # Too few points — use lines
+            for p in seg[1:]:
+                commands.append(('L', [(p[0], p[1])]))
+
+    # Closing segment
+    last_pt = pts[corners[-1]]
+    first_pt = pts[0]
+    if math.hypot(last_pt[0] - first_pt[0], last_pt[1] - first_pt[1]) > 0.3:
+        closing = np.vstack([pts[corners[-1]:], pts[:1]])
+        if len(closing) >= 2:
+            if len(closing) >= min_fit_pts:
+                cmds = _fit_segment_primitive(closing, arc_tol=arc_tol,
+                                               line_tol=line_tol)
+                commands.extend(cmds)
+            else:
+                for p in closing[1:]:
+                    commands.append(('L', [(p[0], p[1])]))
+
+    commands.append(('Z', []))
+    return commands
+
+
+def png_to_svg_v8(input_path, output_path=None, n_colors=32,
+                  min_cc_area=10, denoise='edge', svgo=True,
+                  sigma=0.5, arc_tol=0.3, line_tol=0.2):
+    """SciPrism-quality PNG→SVG: sub-pixel marching squares + curve fitting.
+
+    Key innovation: instead of tracing pixel-edge boundaries (OpenCV), uses
+    Gaussian blur + marching squares (skimage.find_contours) to extract
+    smooth sub-pixel contour points. Then fits L/A/Q/C curves to these
+    smooth points — same strategy as SciPrism.
+
+    Pipeline:
+      1. Edge-preserving denoise → two-stage color quantization
+      2. Color-guarded CC merge
+      3. Per-color: Gaussian blur → marching squares at level 0.5
+      4. Per-contour: corner detection → curve fitting (line/arc/bezier)
+      5. Compound paths per color with fill-rule="evenodd"
+      6. SVGO compression
+
+    Returns:
+        (output_path, None) on success, (None, error) on failure.
+    """
+    import time
+    import cv2
+    from skimage.measure import find_contours
+
+    if output_path is None:
+        base = os.path.splitext(input_path)[0]
+        output_path = f"{base}_v8.svg"
+
+    # 1. Load image
+    img = Image.open(input_path).convert('RGB')
+    arr = np.array(img)
+    h, w = arr.shape[:2]
+    print(f"Image: {w}x{h}")
+
+    # 2. Quantize
+    n_achroma = max(4, n_colors * 3 // 8)
+    n_chroma = n_colors - n_achroma
+    print(f"\n[1] Quantizing to {n_colors} colors (denoise={denoise})...")
+    t0 = time.time()
+    qarr, palette = _two_stage_quantize(arr, n_achroma=n_achroma,
+                                         n_chroma=n_chroma, denoise=denoise)
+
+    colors_flat = qarr.reshape(-1, 3)
+    unique_colors = np.unique(colors_flat, axis=0)
+    label_img = np.zeros((h, w), dtype=np.int32)
+    for ci, c in enumerate(unique_colors):
+        label_img[np.all(qarr == c, axis=2)] = ci
+    print(f"  {len(unique_colors)} colors in {time.time()-t0:.1f}s")
+
+    # 3. CC merge
+    print(f"\n[2] Merging small components (min_area={min_cc_area})...")
+    t0 = time.time()
+    _merge_small_components(label_img, min_area=min_cc_area,
+                           palette=unique_colors, max_color_dist=40)
+
+    used_labels = np.unique(label_img)
+    remap = np.zeros(len(unique_colors), dtype=np.int32)
+    new_colors = []
+    for new_idx, old_idx in enumerate(used_labels):
+        remap[old_idx] = new_idx
+        new_colors.append(unique_colors[old_idx])
+    new_colors = np.array(new_colors, dtype=np.uint8)
+    label_img_new = remap[label_img]
+    print(f"  Done in {time.time()-t0:.1f}s")
+
+    counts = np.bincount(label_img_new.ravel(), minlength=len(new_colors))
+    order = np.argsort(-counts)
+
+    # 4. Sub-pixel contour tracing + curve fitting
+    print(f"\n[3] Sub-pixel contours (sigma={sigma}) + curve fitting...")
+    t0 = time.time()
+
+    bg_idx = order[0]
+    bg_color = f"#{new_colors[bg_idx][0]:02x}" \
+               f"{new_colors[bg_idx][1]:02x}{new_colors[bg_idx][2]:02x}"
+
+    svg_lines = [
+        f'<svg xmlns="http://www.w3.org/2000/svg" '
+        f'width="{w}" height="{h}" viewBox="0 0 {w} {h}">',
+        f'<rect width="{w}" height="{h}" fill="{bg_color}"/>',
+    ]
+
+    total_paths = 0
+    total_subpaths = 0
+    min_contour_len = 6  # minimum points for a meaningful contour
+
+    for color_idx in order:
+        if color_idx == bg_idx or counts[color_idx] < 4:
+            continue
+
+        hex_color = f"#{new_colors[color_idx][0]:02x}" \
+                    f"{new_colors[color_idx][1]:02x}" \
+                    f"{new_colors[color_idx][2]:02x}"
+
+        # Binary mask → dilate → Gaussian blur → marching squares
+        mask = (label_img_new == color_idx).astype(np.uint8)
+        kernel = np.ones((3, 3), np.uint8)
+        dilated = cv2.dilate(mask, kernel, iterations=1)
+        blurred = cv2.GaussianBlur(dilated.astype(np.float32),
+                                   (0, 0), sigmaX=sigma)
+        contours = find_contours(blurred, level=0.5)
+
+        if not contours:
+            continue
+
+        # Convert all contours to SVG subpath commands
+        # find_contours returns (row, col); we need (x=col, y=row)
+        all_d_parts = []
+        for contour in contours:
+            if len(contour) < min_contour_len:
+                continue
+            # (row, col) → (x, y)
+            pts = contour[:, ::-1].copy()
+
+            cmds = _subpixel_contour_to_commands(
+                pts, arc_tol=arc_tol, line_tol=line_tol)
+            if cmds:
+                d = _commands_to_d(cmds, precision=4)
+                all_d_parts.append(d)
+                total_subpaths += 1
+
+        if all_d_parts:
+            compound_d = " ".join(all_d_parts)
+            svg_lines.append(
+                f'<path fill="{hex_color}" fill-rule="evenodd" '
+                f'd="{compound_d}"/>')
+            total_paths += 1
+
+    svg_lines.append('</svg>')
+    svg_content = '\n'.join(svg_lines)
+
+    print(f"  {total_paths} paths, {total_subpaths} subpaths "
+          f"in {time.time()-t0:.1f}s")
+
+    # 5. Write output
+    with open(output_path, 'w') as f:
+        f.write(svg_content)
+
+    pre_size = os.path.getsize(output_path)
+    print(f"\n  Pre-SVGO size: {pre_size/1024:.0f}KB")
+
+    # 6. SVGO compression
+    if svgo:
+        print(f"\n[4] SVGO compression...")
+        try:
+            result = subprocess.run(
+                ["npx", "svgo", output_path, "-o", output_path, "--multipass"],
+                capture_output=True, text=True, timeout=120,
+            )
+            if result.returncode == 0:
+                post_size = os.path.getsize(output_path)
+                reduction = (1 - post_size / pre_size) * 100
+                print(f"  {pre_size/1024:.0f}KB → {post_size/1024:.0f}KB "
+                      f"({reduction:.0f}% reduction)")
+            else:
+                print(f"  SVGO failed: {result.stderr[:200]}")
+        except (FileNotFoundError, subprocess.TimeoutExpired) as e:
+            print(f"  SVGO skipped: {e}")
+
+    out_size = os.path.getsize(output_path)
+    print(f"\nOutput: {output_path}")
+    print(f"Size: {out_size/1024:.0f}KB, {total_paths} paths, "
+          f"{total_subpaths} subpaths, {len(new_colors)} colors")
+
+    return output_path, None
+
+
+def _parse_polygon_d(d_str):
+    """Parse an SVG polygon path d-string (M/L/Z only) into list of contours.
+
+    Each contour is a Nx2 numpy array of (x, y) float coordinates.
+    """
+    import re
+    contours = []
+    current = []
+    tokens = re.findall(r'[MLZmlhvHV]|[-]?\d+\.?\d*', d_str)
+    cmd = None
+    cx, cy = 0.0, 0.0  # current point
+    i = 0
+    while i < len(tokens):
+        t = tokens[i]
+        if t in ('M', 'L', 'Z', 'm', 'l', 'z', 'H', 'V', 'h', 'v'):
+            cmd = t
+            i += 1
+        else:
+            if cmd == 'M':
+                if current:
+                    contours.append(np.array(current, dtype=np.float64))
+                    current = []
+                cx, cy = float(tokens[i]), float(tokens[i + 1])
+                current.append([cx, cy])
+                i += 2
+                cmd = 'L'  # implicit L after M
+            elif cmd == 'L':
+                cx, cy = float(tokens[i]), float(tokens[i + 1])
+                current.append([cx, cy])
+                i += 2
+            elif cmd == 'H':
+                cx = float(tokens[i])
+                current.append([cx, cy])
+                i += 1
+            elif cmd == 'V':
+                cy = float(tokens[i])
+                current.append([cx, cy])
+                i += 1
+            elif cmd == 'h':
+                cx += float(tokens[i])
+                current.append([cx, cy])
+                i += 1
+            elif cmd == 'v':
+                cy += float(tokens[i])
+                current.append([cx, cy])
+                i += 1
+            elif cmd == 'm':
+                if current:
+                    contours.append(np.array(current, dtype=np.float64))
+                    current = []
+                cx += float(tokens[i])
+                cy += float(tokens[i + 1])
+                current.append([cx, cy])
+                i += 2
+                cmd = 'l'
+            elif cmd == 'l':
+                cx += float(tokens[i])
+                cy += float(tokens[i + 1])
+                current.append([cx, cy])
+                i += 2
+            else:
+                i += 1
+        if cmd in ('Z', 'z'):
+            if current:
+                contours.append(np.array(current, dtype=np.float64))
+                current = []
+            cmd = None
+            i += 0  # Z consumed above
+    if current:
+        contours.append(np.array(current, dtype=np.float64))
+    return contours
+
+
+def _fit_contour_curves(pts, arc_tol=0.8, line_tol=0.5,
+                        angle_thresh=60.0, min_fit_pts=5, window=5):
+    """Convert polygon contour vertices to SVG path with L/A/Q/C curves.
+
+    Takes integer-coordinate polygon vertices from mlp and fits the best
+    geometric primitive (line/arc/bezier) to each segment between corners.
+
+    Returns list of (cmd, params) tuples.
+    """
+    n = len(pts)
+    if n < 3:
+        cmds = [('M', [(pts[0][0], pts[0][1])])]
+        for p in pts[1:]:
+            cmds.append(('L', [(p[0], p[1])]))
+        cmds.append(('Z', []))
+        return cmds
+
+    # Detect corners using multi-scale window
+    corners = _detect_corners(pts, angle_thresh=angle_thresh,
+                              min_seg_len=min_fit_pts, window=window)
+
+    commands = [('M', [(pts[0][0], pts[0][1])])]
+
+    for i in range(len(corners) - 1):
+        seg = pts[corners[i]:corners[i + 1] + 1]
+        if len(seg) < 2:
+            continue
+        if len(seg) >= min_fit_pts:
+            cmds = _fit_segment_primitive(seg, arc_tol=arc_tol,
+                                          line_tol=line_tol)
+            commands.extend(cmds)
+        else:
+            for p in seg[1:]:
+                commands.append(('L', [(p[0], p[1])]))
+
+    # Closing segment
+    last_pt = pts[corners[-1]]
+    first_pt = pts[0]
+    dist = math.hypot(last_pt[0] - first_pt[0], last_pt[1] - first_pt[1])
+    if dist > 0.3:
+        closing = np.vstack([pts[corners[-1]:], pts[:1]])
+        if len(closing) >= 2:
+            if len(closing) >= min_fit_pts:
+                cmds = _fit_segment_primitive(closing, arc_tol=arc_tol,
+                                              line_tol=line_tol)
+                commands.extend(cmds)
+            else:
+                for p in closing[1:]:
+                    commands.append(('L', [(p[0], p[1])]))
+
+    commands.append(('Z', []))
+    return commands
+
+
+def _adjust_vertex_subpixel(pts):
+    """Potrace-style vertex adjustment: move polygon vertices to sub-pixel
+    positions using best-fit line intersections.
+
+    For each vertex, computes the best-fit line through the neighboring
+    points on each side, then moves the vertex to the intersection of
+    the two lines (constrained within 0.5 pixel of original position).
+
+    Returns adjusted Nx2 float array.
+    """
+    n = len(pts)
+    if n < 3:
+        return pts.copy()
+
+    adjusted = pts.astype(np.float64).copy()
+
+    for i in range(n):
+        # Points on the "incoming" side (prev direction)
+        # and "outgoing" side (next direction)
+        prev_pts = []
+        next_pts = []
+        for k in range(1, min(4, n // 2)):
+            prev_pts.append(pts[(i - k) % n])
+            next_pts.append(pts[(i + k) % n])
+
+        if len(prev_pts) < 2 or len(next_pts) < 2:
+            continue
+
+        # Best-fit line through incoming points + current
+        in_pts = np.array([pts[i]] + prev_pts)
+        out_pts = np.array([pts[i]] + next_pts)
+
+        # Direction vectors via SVD
+        in_center = in_pts.mean(axis=0)
+        in_svd = np.linalg.svd(in_pts - in_center)
+        in_dir = in_svd[2][0]  # first principal component
+
+        out_center = out_pts.mean(axis=0)
+        out_svd = np.linalg.svd(out_pts - out_center)
+        out_dir = out_svd[2][0]
+
+        # Find intersection of two lines
+        # Line 1: in_center + t * in_dir
+        # Line 2: out_center + s * out_dir
+        # Solve: in_center + t * in_dir = out_center + s * out_dir
+        A_mat = np.column_stack([in_dir, -out_dir])
+        b_vec = out_center - in_center
+
+        det = A_mat[0, 0] * A_mat[1, 1] - A_mat[0, 1] * A_mat[1, 0]
+        if abs(det) < 1e-6:
+            continue  # Lines are parallel
+
+        t = (b_vec[0] * A_mat[1, 1] - b_vec[1] * A_mat[0, 1]) / det
+        intersection = in_center + t * in_dir
+
+        # Constrain within 0.5 pixel of original
+        dx = intersection[0] - pts[i][0]
+        dy = intersection[1] - pts[i][1]
+        dx = max(-0.5, min(0.5, dx))
+        dy = max(-0.5, min(0.5, dy))
+        adjusted[i] = pts[i][0] + dx, pts[i][1] + dy
+
+    return adjusted
+
+
+def _polygon_to_curved_path(pts, arc_radius=0.5, min_corner_angle=150.0):
+    """Convert a simplified polygon to SVG path with arc-rounded corners.
+
+    SciPrism-style: at each polygon vertex where the angle is less than
+    min_corner_angle degrees, insert a small elliptical arc to smooth the
+    corner. Straight segments remain as L commands.
+
+    Args:
+        pts: Nx2 float array of (sub-pixel adjusted) polygon vertices.
+        arc_radius: Max radius for corner arcs (pixels).
+        min_corner_angle: Angles above this are kept straight (degrees).
+
+    Returns:
+        List of (cmd, params) tuples.
+    """
+    n = len(pts)
+    if n < 3:
+        cmds = [('M', [(pts[0][0], pts[0][1])])]
+        for p in pts[1:]:
+            cmds.append(('L', [(p[0], p[1])]))
+        cmds.append(('Z', []))
+        return cmds
+
+    # Compute angles at each vertex
+    angles = []
+    for i in range(n):
+        v_in = pts[i] - pts[(i - 1) % n]
+        v_out = pts[(i + 1) % n] - pts[i]
+        len_in = np.linalg.norm(v_in)
+        len_out = np.linalg.norm(v_out)
+        if len_in < 1e-6 or len_out < 1e-6:
+            angles.append(180.0)
+            continue
+        cos_a = np.clip(np.dot(v_in, v_out) / (len_in * len_out), -1, 1)
+        angles.append(math.degrees(math.acos(cos_a)))
+
+    # Compute edge lengths
+    edge_lens = []
+    for i in range(n):
+        edge_lens.append(np.linalg.norm(pts[(i + 1) % n] - pts[i]))
+
+    # Build path commands with arc-rounded corners
+    commands = []
+
+    # For each vertex, compute tangent points if it gets an arc
+    tangent_in = [None] * n   # point on incoming edge where arc starts
+    tangent_out = [None] * n  # point on outgoing edge where arc ends
+    arc_params = [None] * n
+
+    for i in range(n):
+        if angles[i] >= min_corner_angle:
+            continue  # Keep as straight corner
+
+        # Compute maximum arc radius for this corner
+        d_in = edge_lens[(i - 1) % n]
+        d_out = edge_lens[i]
+        r = min(arc_radius, d_in * 0.4, d_out * 0.4)
+        if r < 0.05:
+            continue
+
+        half_angle = angles[i] / 2.0
+        if half_angle < 1.0:
+            continue  # Nearly straight
+
+        # Tangent distance from corner vertex
+        tan_dist = r / math.tan(math.radians(half_angle))
+        if tan_dist > d_in * 0.45 or tan_dist > d_out * 0.45:
+            continue
+
+        # Direction vectors
+        v_in = pts[i] - pts[(i - 1) % n]
+        v_in = v_in / np.linalg.norm(v_in)
+        v_out = pts[(i + 1) % n] - pts[i]
+        v_out = v_out / np.linalg.norm(v_out)
+
+        # Tangent points
+        t_in = pts[i] - v_in * tan_dist
+        t_out = pts[i] + v_out * tan_dist
+
+        tangent_in[i] = t_in
+        tangent_out[i] = t_out
+
+        # Determine sweep direction using cross product
+        cross = v_in[0] * v_out[1] - v_in[1] * v_out[0]
+        sweep = 1 if cross > 0 else 0
+
+        arc_params[i] = (r, r, 0.0, 0, sweep,
+                         t_out[0], t_out[1])
+
+    # Generate path
+    # Find first vertex without arc to start
+    start = 0
+    for i in range(n):
+        if arc_params[i] is None:
+            start = i
+            break
+
+    # Start at the first vertex (or its tangent-out if it has arc)
+    if arc_params[start] is not None:
+        commands.append(('M', [(tangent_out[start][0],
+                                tangent_out[start][1])]))
+    else:
+        commands.append(('M', [(pts[start][0], pts[start][1])]))
+
+    for step in range(1, n + 1):
+        i = (start + step) % n
+
+        if arc_params[i] is not None:
+            # Line to tangent-in, then arc to tangent-out
+            commands.append(('L', [(tangent_in[i][0], tangent_in[i][1])]))
+            rx, ry, rot, la, sw, ex, ey = arc_params[i]
+            commands.append(('A', [(rx, ry, rot, la, sw, ex, ey)]))
+        else:
+            # Straight line to this vertex
+            commands.append(('L', [(pts[i][0], pts[i][1])]))
+
+    commands.append(('Z', []))
+    return commands
+
+
+def png_to_svg_v10(input_path, output_path=None, n_colors=32,
+                   min_cc_area=10, denoise='edge', svgo=True,
+                   dp_epsilon=0.7, arc_radius=0.3, min_corner_angle=130.0,
+                   min_arc_verts=8):
+    """PNG→SVG replicating SciPrism's strategy.
+
+    Pipeline (reverse-engineered from SciPrism output + Potrace paper):
+      1. Color quantization + CC merge
+      2. multilabel-potrace raw polygon tracing (shared boundaries)
+      3. Douglas-Peucker simplification (replaces potrace optimal polygon)
+      4. Corner arc fitting (small arcs at staircase corners, large polygons only)
+      5. Merge same-color paths + SVGO
+
+    Returns:
+        (output_path, None) on success, (None, error) on failure.
+    """
+    import time
+    import cv2
+    import re
+
+    if output_path is None:
+        base = os.path.splitext(input_path)[0]
+        output_path = f"{base}_v10.svg"
+
+    # 1. Load
+    img = Image.open(input_path).convert('RGB')
+    arr = np.array(img)
+    h, w = arr.shape[:2]
+    print(f"Image: {w}x{h}")
+
+    # 2. Quantize
+    n_achroma = max(4, n_colors * 3 // 8)
+    n_chroma = n_colors - n_achroma
+    print(f"\n[1] Quantizing to {n_colors} colors (denoise={denoise})...")
+    t0 = time.time()
+    qarr, palette = _two_stage_quantize(arr, n_achroma=n_achroma,
+                                         n_chroma=n_chroma, denoise=denoise)
+    colors_flat = qarr.reshape(-1, 3)
+    unique_colors = np.unique(colors_flat, axis=0)
+    label_img = np.zeros((h, w), dtype=np.int32)
+    for ci, c in enumerate(unique_colors):
+        label_img[np.all(qarr == c, axis=2)] = ci
+    print(f"  {len(unique_colors)} colors in {time.time()-t0:.1f}s")
+
+    # 3. CC merge
+    print(f"\n[2] Merging small components (min_area={min_cc_area})...")
+    t0 = time.time()
+    _merge_small_components(label_img, min_area=min_cc_area,
+                           palette=unique_colors, max_color_dist=40)
+    used_labels = np.unique(label_img)
+    remap = np.zeros(len(unique_colors), dtype=np.int32)
+    new_colors = []
+    for new_idx, old_idx in enumerate(used_labels):
+        remap[old_idx] = new_idx
+        new_colors.append(unique_colors[old_idx])
+    new_colors = np.array(new_colors, dtype=np.uint8)
+    label_img_new = remap[label_img]
+    print(f"  Done in {time.time()-t0:.1f}s")
+
+    # 4. multilabel-potrace raw polygon tracing
+    print(f"\n[3] multilabel-potrace raw polygon tracing...")
+    t0 = time.time()
+    try:
+        import multilabel_potrace_svg as mlp
+    except ImportError:
+        return None, "multilabel-potrace not installed"
+
+    n_labels = len(new_colors)
+    comp_img = np.zeros((h, w), dtype=np.int32)
+    comp_colors_list = []
+    comp_id = 0
+    for ci in range(n_labels):
+        mask = (label_img_new == ci).astype(np.uint8)
+        n_cc, cc_labels = cv2.connectedComponents(mask, connectivity=8)
+        for cc in range(1, n_cc):
+            comp_img[cc_labels == cc] = comp_id
+            comp_colors_list.append(new_colors[ci])
+            comp_id += 1
+    print(f"  {comp_id} 8-connected components")
+
+    comp_colors_arr = np.array(comp_colors_list, dtype=np.uint8)
+    label_16 = np.ascontiguousarray(comp_img.astype(np.uint16))
+
+    import tempfile
+    with tempfile.NamedTemporaryFile(suffix='.svg', delete=False) as tmp:
+        tmp_path = tmp.name
+
+    mlp.multilabel_potrace_svg(
+        label_16, tmp_path,
+        straight_line_tol=0.0,  # Raw polygon (no simplification)
+        smoothing=0.0,
+        curve_fusion_tol=0.0,
+        comp_colors=comp_colors_arr, line_width=0,
+    )
+    print(f"  mlp done in {time.time()-t0:.1f}s")
+
+    # 5. Parse polygons → DP simplify → corner arcs
+    print(f"\n[4] DP simplify (eps={dp_epsilon}) + corner arcs "
+          f"(r={arc_radius}, angle={min_corner_angle})...")
+    t0 = time.time()
+
+    path_pattern = re.compile(r'<path d="([^"]+)" fill="([^"]+)"/>')
+    with open(tmp_path) as f:
+        mlp_svg = f.read()
+    os.unlink(tmp_path)
+
+    matches = path_pattern.findall(mlp_svg)
+
+    from collections import defaultdict
+    color_d_parts = defaultdict(list)
+    total_subpaths = 0
+    n_arcs = 0
+    n_lines = 0
+
+    for d, fill in matches:
+        contours = _parse_polygon_d(d)
+        for contour in contours:
+            pts = contour.astype(np.float32)
+
+            # Douglas-Peucker simplification
+            if dp_epsilon > 0:
+                simplified = cv2.approxPolyDP(
+                    pts.reshape(-1, 1, 2), dp_epsilon, closed=True)
+                pts = simplified.reshape(-1, 2).astype(np.float64)
+            else:
+                pts = contour
+
+            if len(pts) >= min_arc_verts:
+                # Large enough polygon: apply corner arc fitting
+                cmds = _polygon_to_curved_path(
+                    pts, arc_radius=arc_radius,
+                    min_corner_angle=min_corner_angle)
+            elif len(pts) >= 2:
+                # Small polygon: keep as L-only
+                cmds = [('M', [(pts[0][0], pts[0][1])])]
+                for p in pts[1:]:
+                    cmds.append(('L', [(p[0], p[1])]))
+                cmds.append(('Z', []))
+            else:
+                continue
+
+            for cmd, _ in cmds:
+                if cmd == 'A':
+                    n_arcs += 1
+                elif cmd == 'L':
+                    n_lines += 1
+
+            d_str = _commands_to_d(cmds, precision=4)
+            color_d_parts[fill].append(d_str)
+            total_subpaths += 1
+
+    print(f"  {total_subpaths} subpaths: L={n_lines}, A={n_arcs}")
+    print(f"  Done in {time.time()-t0:.1f}s")
+
+    # 6. Build SVG
+    counts = np.bincount(label_img_new.ravel(), minlength=len(new_colors))
+    order = np.argsort(-counts)
+    bg_idx = order[0]
+
+    svg_lines = [
+        f'<svg xmlns="http://www.w3.org/2000/svg" '
+        f'width="{w}" height="{h}" viewBox="0 0 {w} {h}">',
+    ]
+
+    total_paths = 0
+    for color_idx in order:
+        r, g, b = new_colors[color_idx]
+        hex_color = f"#{r:02x}{g:02x}{b:02x}"
+        rgb_color = f"rgb({r},{g},{b})"
+
+        d_parts = color_d_parts.get(hex_color, [])
+        if not d_parts:
+            d_parts = color_d_parts.get(rgb_color, [])
+        if not d_parts:
+            continue
+
+        compound_d = " ".join(d_parts)
+        if color_idx == bg_idx:
+            bg_d = f"M0,0 L{w},0 L{w},{h} L0,{h} Z"
+            compound_d = bg_d + " " + compound_d
+        svg_lines.append(
+            f'<path fill="{hex_color}" fill-rule="evenodd" '
+            f'd="{compound_d}"/>')
+        total_paths += 1
+
+    svg_lines.append('</svg>')
+
+    with open(output_path, 'w') as f:
+        f.write('\n'.join(svg_lines))
+
+    pre_size = os.path.getsize(output_path)
+    print(f"\n  Pre-SVGO size: {pre_size/1024:.0f}KB")
+
+    # 7. SVGO
+    if svgo:
+        print(f"\n[5] SVGO compression...")
+        try:
+            result = subprocess.run(
+                ["npx", "svgo", output_path, "-o", output_path, "--multipass"],
+                capture_output=True, text=True, timeout=120,
+            )
+            if result.returncode == 0:
+                post_size = os.path.getsize(output_path)
+                reduction = (1 - post_size / pre_size) * 100
+                print(f"  {pre_size/1024:.0f}KB → {post_size/1024:.0f}KB "
+                      f"({reduction:.0f}% reduction)")
+        except Exception as e:
+            print(f"  SVGO failed: {e}")
+
+    out_size = os.path.getsize(output_path)
+    print(f"\nOutput: {output_path}")
+    print(f"Size: {out_size/1024:.0f}KB, {total_paths} paths, "
+          f"{total_subpaths} subpaths, {len(new_colors)} colors")
+
+    return output_path, None
+
+
+def _reverse_commands(cmds):
+    """Reverse a list of SVG path commands (for shared boundary other side).
+
+    Converts M-...-Z going forward into M-...-Z going backward,
+    preserving the exact same geometric boundary.
+    """
+    if len(cmds) < 2:
+        return cmds
+
+    # Strip M and Z
+    inner = [c for c in cmds if c[0] not in ('M', 'Z')]
+    if not inner:
+        return cmds
+
+    # Collect all points in order (including start from M)
+    points = []
+    m_cmd = cmds[0]
+    if m_cmd[0] == 'M':
+        points.append(m_cmd[1][0])
+
+    for cmd, params in inner:
+        if cmd == 'L':
+            points.append(params[0])
+        elif cmd == 'A':
+            rx, ry, rot, la, sw, ex, ey = params[0]
+            points.append((ex, ey))
+        elif cmd == 'Q':
+            points.append(params[1])  # endpoint
+        elif cmd == 'C':
+            points.append(params[2])  # endpoint
+
+    # Reverse: start from last point, reverse each segment
+    rev = [('M', [points[-1]])]
+    for i in range(len(inner) - 1, -1, -1):
+        cmd, params = inner[i]
+        # The endpoint of the reversed segment is the start of the forward segment
+        target = points[i]  # points[i] is the start point of inner[i]
+        if cmd == 'L':
+            rev.append(('L', [target]))
+        elif cmd == 'A':
+            rx, ry, rot, la, sw, ex, ey = params[0]
+            # Reverse arc: flip sweep flag
+            rev.append(('A', [(rx, ry, rot, la, 1 - sw,
+                              target[0], target[1])]))
+        elif cmd == 'Q':
+            cp = params[0]
+            rev.append(('Q', [cp, target]))
+        elif cmd == 'C':
+            cp1, cp2, ep = params[0], params[1], params[2]
+            # Reverse cubic: swap control points
+            rev.append(('C', [cp2, cp1, target]))
+    rev.append(('Z', []))
+    return rev
+
+
+def png_to_svg_v9(input_path, output_path=None, n_colors=32,
+                  min_cc_area=10, denoise='edge', svgo=True,
+                  arc_tol=0.8, line_tol=0.5, angle_thresh=60.0):
+    """PNG→SVG with bilateral shared-boundary curve fitting.
+
+    Combines v6's multilabel-potrace shared-boundary tracing with bilateral
+    curve fitting: each shared boundary is fitted ONCE and the same curves
+    are used on both sides (reversed direction), preserving exact boundary
+    sharing and preventing gaps.
+
+    Pipeline:
+      1. Edge-preserving denoise → two-stage color quantization
+      2. Color-guarded CC merge
+      3. multilabel-potrace polygon tracing (shared boundaries)
+      4. Build edge graph → identify shared boundary segments
+      5. Fit curves to each shared segment → apply to both sides
+      6. Merge same-color paths into compound paths
+      7. SVGO compression
+
+    Returns:
+        (output_path, None) on success, (None, error) on failure.
+    """
+    import time
+    import cv2
+    import re
+
+    if output_path is None:
+        base = os.path.splitext(input_path)[0]
+        output_path = f"{base}_v9.svg"
+
+    # 1. Load
+    img = Image.open(input_path).convert('RGB')
+    arr = np.array(img)
+    h, w = arr.shape[:2]
+    print(f"Image: {w}x{h}")
+
+    # 2. Quantize
+    n_achroma = max(4, n_colors * 3 // 8)
+    n_chroma = n_colors - n_achroma
+    print(f"\n[1] Quantizing to {n_colors} colors (denoise={denoise})...")
+    t0 = time.time()
+    qarr, palette = _two_stage_quantize(arr, n_achroma=n_achroma,
+                                         n_chroma=n_chroma, denoise=denoise)
+    colors_flat = qarr.reshape(-1, 3)
+    unique_colors = np.unique(colors_flat, axis=0)
+    label_img = np.zeros((h, w), dtype=np.int32)
+    for ci, c in enumerate(unique_colors):
+        label_img[np.all(qarr == c, axis=2)] = ci
+    print(f"  {len(unique_colors)} colors in {time.time()-t0:.1f}s")
+
+    # 3. CC merge
+    print(f"\n[2] Merging small components (min_area={min_cc_area})...")
+    t0 = time.time()
+    _merge_small_components(label_img, min_area=min_cc_area,
+                           palette=unique_colors, max_color_dist=40)
+    used_labels = np.unique(label_img)
+    remap = np.zeros(len(unique_colors), dtype=np.int32)
+    new_colors = []
+    for new_idx, old_idx in enumerate(used_labels):
+        remap[old_idx] = new_idx
+        new_colors.append(unique_colors[old_idx])
+    new_colors = np.array(new_colors, dtype=np.uint8)
+    label_img_new = remap[label_img]
+    print(f"  Done in {time.time()-t0:.1f}s")
+
+    # 4. multilabel-potrace polygon tracing
+    print(f"\n[3] multilabel-potrace polygon tracing...")
+    t0 = time.time()
+    try:
+        import multilabel_potrace_svg as mlp
+    except ImportError:
+        return None, "multilabel-potrace not installed"
+
+    n_labels = len(new_colors)
+    comp_img = np.zeros((h, w), dtype=np.int32)
+    comp_colors_list = []
+    comp_id = 0
+    for ci in range(n_labels):
+        mask = (label_img_new == ci).astype(np.uint8)
+        n_cc, cc_labels = cv2.connectedComponents(mask, connectivity=8)
+        for cc in range(1, n_cc):
+            comp_img[cc_labels == cc] = comp_id
+            comp_colors_list.append(new_colors[ci])
+            comp_id += 1
+    print(f"  {comp_id} 8-connected components")
+
+    comp_colors_arr = np.array(comp_colors_list, dtype=np.uint8)
+    label_16 = np.ascontiguousarray(comp_img.astype(np.uint16))
+
+    import tempfile
+    with tempfile.NamedTemporaryFile(suffix='.svg', delete=False) as tmp:
+        tmp_path = tmp.name
+
+    mlp.multilabel_potrace_svg(
+        label_16, tmp_path,
+        straight_line_tol=0.0, smoothing=0.0, curve_fusion_tol=0.0,
+        comp_colors=comp_colors_arr, line_width=0,
+    )
+    print(f"  mlp done in {time.time()-t0:.1f}s")
+
+    # 5. Parse polygon paths
+    print(f"\n[4] Bilateral curve fitting...")
+    t0 = time.time()
+
+    path_pattern = re.compile(r'<path d="([^"]+)" fill="([^"]+)"/>')
+    with open(tmp_path) as f:
+        mlp_svg = f.read()
+    os.unlink(tmp_path)
+
+    matches = path_pattern.findall(mlp_svg)
+
+    # Parse each component's polygon vertices
+    components = []
+    for d, fill in matches:
+        coords = re.findall(r'[-]?\d+', d)
+        verts = [(int(coords[i]), int(coords[i + 1]))
+                 for i in range(0, len(coords), 2)]
+        components.append((verts, fill))
+
+    print(f"  {len(components)} components parsed")
+
+    # Build edge graph
+    edge_to_comp = {}
+    for ci, (verts, _) in enumerate(components):
+        n = len(verts)
+        for i in range(n):
+            e = (verts[i], verts[(i + 1) % n])
+            edge_to_comp[e] = ci
+
+    # For each component, identify shared boundary segments and fit curves
+    # A segment is a run of consecutive edges shared with the same neighbor
+    from collections import defaultdict
+
+    comp_commands = []  # per-component: list of (cmd, params)
+    total_arcs = 0
+    total_lines = 0
+    total_quads = 0
+    total_cubics = 0
+
+    # Cache: (comp_i, comp_j, start_idx) → fitted commands
+    # To avoid fitting the same shared segment twice
+    fitted_cache = {}
+
+    for ci, (verts, fill) in enumerate(components):
+        n = len(verts)
+        if n < 3:
+            # Degenerate: just M...L...Z
+            cmds = [('M', [verts[0]])]
+            for v in verts[1:]:
+                cmds.append(('L', [v]))
+            cmds.append(('Z', []))
+            comp_commands.append((cmds, fill))
+            continue
+
+        # Walk edges, group into segments (shared vs non-shared)
+        segments = []  # [(is_shared, neighbor, vert_indices), ...]
+        i = 0
+        while i < n:
+            e = (verts[i], verts[(i + 1) % n])
+            rev = (e[1], e[0])
+            if rev in edge_to_comp and edge_to_comp[rev] != ci:
+                # Shared edge
+                neighbor = edge_to_comp[rev]
+                seg_start = i
+                while i < n:
+                    e2 = (verts[i], verts[(i + 1) % n])
+                    rev2 = (e2[1], e2[0])
+                    if rev2 in edge_to_comp and edge_to_comp[rev2] == neighbor:
+                        i += 1
+                    else:
+                        break
+                segments.append(('shared', neighbor, seg_start, i))
+            else:
+                # Non-shared edge (image border)
+                seg_start = i
+                while i < n:
+                    e2 = (verts[i], verts[(i + 1) % n])
+                    rev2 = (e2[1], e2[0])
+                    is_shared = (rev2 in edge_to_comp
+                                 and edge_to_comp[rev2] != ci)
+                    if not is_shared:
+                        i += 1
+                    else:
+                        break
+                segments.append(('border', -1, seg_start, i))
+
+        # Build path commands from segments
+        cmds = [('M', [verts[0]])]
+        for seg_type, neighbor, seg_start, seg_end in segments:
+            # Extract vertices for this segment
+            seg_verts = []
+            for j in range(seg_start, seg_end + 1):
+                seg_verts.append(verts[j % n])
+            if len(seg_verts) < 2:
+                continue
+
+            pts = np.array(seg_verts, dtype=np.float64)
+
+            if seg_type == 'shared' and len(pts) >= 5:
+                # Check cache
+                cache_key = (min(ci, neighbor), max(ci, neighbor),
+                             verts[seg_start])
+                if cache_key in fitted_cache:
+                    # Use cached (possibly reversed)
+                    cached_cmds, cached_ci = fitted_cache[cache_key]
+                    if cached_ci == ci:
+                        for c in cached_cmds:
+                            cmds.append(c)
+                    else:
+                        # Reverse the cached commands
+                        rev_cmds = _reverse_commands(
+                            [('M', [pts[0]])] + cached_cmds + [('Z', [])])
+                        # Skip M and Z from reversed
+                        for c in rev_cmds:
+                            if c[0] not in ('M', 'Z'):
+                                cmds.append(c)
+                else:
+                    # Fit curves to this segment
+                    seg_cmds = _fit_contour_curves(
+                        pts, arc_tol=arc_tol, line_tol=line_tol,
+                        angle_thresh=angle_thresh,
+                        min_fit_pts=5, window=5)
+                    # Extract inner commands (skip M and Z)
+                    inner = [c for c in seg_cmds if c[0] not in ('M', 'Z')]
+                    fitted_cache[cache_key] = (inner, ci)
+                    for c in inner:
+                        cmds.append(c)
+            else:
+                # Non-shared or short segment: keep as L
+                for p in pts[1:]:
+                    cmds.append(('L', [(p[0], p[1])]))
+
+        cmds.append(('Z', []))
+
+        # Count commands
+        for cmd, _ in cmds:
+            if cmd == 'A':
+                total_arcs += 1
+            elif cmd == 'L':
+                total_lines += 1
+            elif cmd == 'Q':
+                total_quads += 1
+            elif cmd == 'C':
+                total_cubics += 1
+
+        comp_commands.append((cmds, fill))
+
+    print(f"  L={total_lines}, A={total_arcs}, "
+          f"Q={total_quads}, C={total_cubics}")
+    print(f"  Done in {time.time()-t0:.1f}s")
+
+    # 6. Merge same-color paths
+    counts = np.bincount(label_img_new.ravel(), minlength=len(new_colors))
+    order = np.argsort(-counts)
+    bg_idx = order[0]
+
+    color_d_parts = defaultdict(list)
+    for cmds, fill in comp_commands:
+        d_str = _commands_to_d(cmds, precision=4)
+        color_d_parts[fill].append(d_str)
+
+    svg_lines = [
+        f'<svg xmlns="http://www.w3.org/2000/svg" '
+        f'width="{w}" height="{h}" viewBox="0 0 {w} {h}">',
+    ]
+
+    total_paths = 0
+    total_subpaths = sum(len(v) for v in color_d_parts.values())
+    for color_idx in order:
+        r, g, b = new_colors[color_idx]
+        hex_color = f"#{r:02x}{g:02x}{b:02x}"
+        rgb_color = f"rgb({r},{g},{b})"
+
+        d_parts = color_d_parts.get(hex_color, [])
+        if not d_parts:
+            d_parts = color_d_parts.get(rgb_color, [])
+        if not d_parts:
+            continue
+
+        compound_d = " ".join(d_parts)
+        if color_idx == bg_idx:
+            bg_d = f"M0,0 L{w},0 L{w},{h} L0,{h} Z"
+            compound_d = bg_d + " " + compound_d
+        svg_lines.append(
+            f'<path fill="{hex_color}" fill-rule="evenodd" '
+            f'd="{compound_d}"/>')
+        total_paths += 1
+
+    svg_lines.append('</svg>')
+
+    with open(output_path, 'w') as f:
+        f.write('\n'.join(svg_lines))
+
+    pre_size = os.path.getsize(output_path)
+    print(f"\n  Pre-SVGO size: {pre_size/1024:.0f}KB")
+
+    # 7. SVGO
+    if svgo:
+        print(f"\n[5] SVGO compression...")
+        try:
+            result = subprocess.run(
+                ["npx", "svgo", output_path, "-o", output_path, "--multipass"],
+                capture_output=True, text=True, timeout=120,
+            )
+            if result.returncode == 0:
+                post_size = os.path.getsize(output_path)
+                reduction = (1 - post_size / pre_size) * 100
+                print(f"  {pre_size/1024:.0f}KB → {post_size/1024:.0f}KB "
+                      f"({reduction:.0f}% reduction)")
+        except Exception as e:
+            print(f"  SVGO failed: {e}")
+
+    out_size = os.path.getsize(output_path)
+    print(f"\nOutput: {output_path}")
+    print(f"Size: {out_size/1024:.0f}KB, {total_paths} paths, "
           f"{total_subpaths} subpaths, {len(new_colors)} colors")
 
     return output_path, None
