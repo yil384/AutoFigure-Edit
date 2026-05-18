@@ -29,6 +29,34 @@
 
 ---
 
+> ## 🌿 Branch focus: **`svg_to_drawio`**
+>
+> **This branch is dedicated to the SVG → drawio (mxgraph) converter work.**
+> The goal is to turn a figure (raster PNG + vtracer-traced SVG) into an
+> **editable** drawio file — native shapes with text inside, connectors
+> bound to shape IDs (drag-follow), not just a raster-trace dump.
+>
+> 📖 **Read [`svg_to_drawio/README.md`](svg_to_drawio/README.md)** for
+> the architecture, what works, the full list of open TODOs, and the
+> lessons learned across ~10 iterations.
+>
+> **Status**: WIP. Best output to date renders all major boxes as
+> editable native shapes with ~20 bound connectors, but ~30 small labels
+> and curving connectors still emit as raw stencils. Pixel diff to source
+> hovers around 22–25 mean. See the TODO section for the next direction
+> (replace heuristics with a learned shape classifier; arrow keypoint
+> detector; possibly switch the trace tool away from vtracer).
+>
+> Quick run:
+> ```bash
+> export CUDA_VISIBLE_DEVICES=<gpu>
+> export CLAUDE_CODE_OAUTH_TOKEN=sk-ant-oat01-...   # optional
+> python -m svg_to_drawio input.svg input.png -o out.drawio \
+>     --cluster-cache /tmp/c.json --ocr-cache /tmp/o.json
+> ```
+
+---
+
 
 
 
