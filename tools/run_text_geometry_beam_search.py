@@ -142,8 +142,47 @@ def main() -> None:
     cleanup_report = {"deleted_files": 0, "deleted_states": 0}
     seen_state_keys = {initial.key}
     for step in range(1, max(1, args.steps) + 1):
-        generated = []
-        for state_index, state in enumerate(beam):
+        generated: list[SearchState] = []
+        successors: list[SearchState] = []
+        pending_batch: list[SearchState] = []
+
+        def flush_batch() -> None:
+            if not pending_batch:
+                return
+            batch = list(pending_batch)
+            pending_batch.clear()
+            rows = _evaluate_with_retry(
+                args.source_image,
+                [item.drawio for item in batch],
+                drawio_cli=args.drawio_cli,
+                export=True,
+                retry_attempts=args.retry_all_null_attempts,
+                retry_delay=args.retry_all_null_delay,
+            )
+            by_path = {Path(row["drawio"]).resolve(): row for row in rows}
+            for batch_state in batch:
+                row = by_path.get(batch_state.drawio.resolve())
+                if not row:
+                    continue
+                batch_state.row = row
+                batch_state.score = float(row.get("score") or -1e9)
+                if batch_state.score >= args.min_action_score:
+                    successors.append(batch_state)
+            if args.cleanup_generated and args.eval_batch_size > 0:
+                protected = {item.key for item in beam}
+                protected.update(
+                    item.key
+                    for item in sorted(successors, key=lambda x: x.score, reverse=True)[
+                        :max(1, args.beam_width)
+                    ]
+                )
+                deleted = _cleanup_states(
+                    [item for item in batch if item.key not in protected]
+                )
+                cleanup_report["deleted_files"] += deleted["files"]
+                cleanup_report["deleted_states"] += deleted["states"]
+
+        for state in beam:
             available = _rank_available_actions(
                 state,
                 actions,
@@ -177,7 +216,12 @@ def main() -> None:
                     row=None,
                 )
                 generated.append(candidate_state)
+                pending_batch.append(candidate_state)
                 all_generated.append(_state_report(candidate_state, parent=state, step=step))
+                if args.eval_batch_size > 0 and len(pending_batch) >= args.eval_batch_size:
+                    flush_batch()
+
+        flush_batch()
 
         if not generated:
             history.append({
@@ -186,39 +230,6 @@ def main() -> None:
                 "beam": [_state_report(item) for item in beam],
             })
             break
-
-        successors: list[SearchState] = []
-        for batch in _chunked(generated, args.eval_batch_size):
-            rows = _evaluate_with_retry(
-                args.source_image,
-                [item.drawio for item in batch],
-                drawio_cli=args.drawio_cli,
-                export=True,
-                retry_attempts=args.retry_all_null_attempts,
-                retry_delay=args.retry_all_null_delay,
-            )
-            by_path = {Path(row["drawio"]).resolve(): row for row in rows}
-            for state in batch:
-                row = by_path.get(state.drawio.resolve())
-                if not row:
-                    continue
-                state.row = row
-                state.score = float(row.get("score") or -1e9)
-                if state.score >= args.min_action_score:
-                    successors.append(state)
-            if args.cleanup_generated and args.eval_batch_size > 0:
-                protected = {item.key for item in beam}
-                protected.update(
-                    item.key
-                    for item in sorted(successors, key=lambda x: x.score, reverse=True)[
-                        :max(1, args.beam_width)
-                    ]
-                )
-                deleted = _cleanup_states(
-                    [item for item in batch if item.key not in protected]
-                )
-                cleanup_report["deleted_files"] += deleted["files"]
-                cleanup_report["deleted_states"] += deleted["states"]
 
         pool = beam + successors
         pool.sort(key=lambda item: item.score, reverse=True)
@@ -580,15 +591,6 @@ def _cleanup_states(states: list[SearchState]) -> dict[str, int]:
         if state_files:
             touched_states += 1
     return {"files": files, "states": touched_states}
-
-
-def _chunked(states: list[SearchState], batch_size: int) -> list[list[SearchState]]:
-    if batch_size <= 0:
-        return [states]
-    return [
-        states[index:index + batch_size]
-        for index in range(0, len(states), batch_size)
-    ]
 
 
 def _state_artifact_paths(state: SearchState) -> list[Path]:
