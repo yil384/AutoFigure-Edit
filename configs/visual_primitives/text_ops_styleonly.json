@@ -1,0 +1,7 @@
+[
+  {"kind": "bold", "value": true},
+  {"kind": "bold", "value": false},
+  {"kind": "font", "delta": 1},
+  {"kind": "font", "delta": -1},
+  {"kind": "font", "delta": 2}
+]

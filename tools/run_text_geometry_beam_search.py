@@ -82,8 +82,12 @@ def main() -> None:
     ap.add_argument("--max-actions-per-state", type=int, default=32)
     ap.add_argument("--min-action-score", type=float, default=-1e9,
                     help="drop successors below this absolute score")
+    ap.add_argument("--eval-batch-size", type=int, default=0,
+                    help="evaluate generated successors in chunks; 0 evaluates the full step at once")
     ap.add_argument("--retry-all-null-attempts", type=int, default=3)
     ap.add_argument("--retry-all-null-delay", type=float, default=6.0)
+    ap.add_argument("--cleanup-generated", action="store_true",
+                    help="delete non-best generated drawio/png/program artifacts after evaluation")
     args = ap.parse_args()
 
     out_dir = Path(args.output_dir)
@@ -135,6 +139,7 @@ def main() -> None:
     beam = [initial]
     history: list[dict[str, Any]] = []
     all_generated: list[dict[str, Any]] = []
+    cleanup_report = {"deleted_files": 0, "deleted_states": 0}
     seen_state_keys = {initial.key}
     for step in range(1, max(1, args.steps) + 1):
         generated = []
@@ -182,28 +187,49 @@ def main() -> None:
             })
             break
 
-        rows = _evaluate_with_retry(
-            args.source_image,
-            [item.drawio for item in generated],
-            drawio_cli=args.drawio_cli,
-            export=True,
-            retry_attempts=args.retry_all_null_attempts,
-            retry_delay=args.retry_all_null_delay,
-        )
-        by_path = {Path(row["drawio"]).resolve(): row for row in rows}
         successors: list[SearchState] = []
-        for state in generated:
-            row = by_path.get(state.drawio.resolve())
-            if not row:
-                continue
-            state.row = row
-            state.score = float(row.get("score") or -1e9)
-            if state.score >= args.min_action_score:
-                successors.append(state)
+        for batch in _chunked(generated, args.eval_batch_size):
+            rows = _evaluate_with_retry(
+                args.source_image,
+                [item.drawio for item in batch],
+                drawio_cli=args.drawio_cli,
+                export=True,
+                retry_attempts=args.retry_all_null_attempts,
+                retry_delay=args.retry_all_null_delay,
+            )
+            by_path = {Path(row["drawio"]).resolve(): row for row in rows}
+            for state in batch:
+                row = by_path.get(state.drawio.resolve())
+                if not row:
+                    continue
+                state.row = row
+                state.score = float(row.get("score") or -1e9)
+                if state.score >= args.min_action_score:
+                    successors.append(state)
+            if args.cleanup_generated and args.eval_batch_size > 0:
+                protected = {item.key for item in beam}
+                protected.update(
+                    item.key
+                    for item in sorted(successors, key=lambda x: x.score, reverse=True)[
+                        :max(1, args.beam_width)
+                    ]
+                )
+                deleted = _cleanup_states(
+                    [item for item in batch if item.key not in protected]
+                )
+                cleanup_report["deleted_files"] += deleted["files"]
+                cleanup_report["deleted_states"] += deleted["states"]
 
         pool = beam + successors
         pool.sort(key=lambda item: item.score, reverse=True)
         beam = _dedupe_by_render_path(pool)[:max(1, args.beam_width)]
+        if args.cleanup_generated:
+            protected = {item.key for item in beam}
+            deleted = _cleanup_states(
+                [item for item in generated if item.key not in protected]
+            )
+            cleanup_report["deleted_files"] += deleted["files"]
+            cleanup_report["deleted_states"] += deleted["states"]
         history.append({
             "step": step,
             "generated": len(generated),
@@ -229,6 +255,29 @@ def main() -> None:
     if source_compare.exists():
         shutil.copyfile(source_compare, best_compare)
 
+    if args.cleanup_generated:
+        protected = {best.key, initial.key}
+        generated_states = [
+            SearchState(
+                key=str(item.get("key")),
+                program={},
+                actions=[],
+                score=float(item.get("score") or -1e9),
+                drawio=Path(str(item.get("drawio"))),
+                program_path=Path(str(item.get("program"))),
+                row=None,
+            )
+            for item in all_generated
+            if item.get("key") not in protected
+        ]
+        deleted = _cleanup_states(generated_states)
+        cleanup_report["deleted_files"] += deleted["files"]
+        cleanup_report["deleted_states"] += deleted["states"]
+        if best.key != initial.key:
+            deleted = _cleanup_states([best])
+            cleanup_report["deleted_files"] += deleted["files"]
+            cleanup_report["deleted_states"] += deleted["states"]
+
     report = {
         "source_image": args.source_image,
         "program_json": args.program_json,
@@ -245,8 +294,10 @@ def main() -> None:
         "forced_ids": sorted(forced_ids),
         "candidates": candidates,
         "ops": ops,
+        "eval_batch_size": args.eval_batch_size,
         "steps": history,
         "generated": all_generated,
+        "cleanup": cleanup_report,
     }
     report_path = Path(f"{base}.report.json")
     report_path.write_text(json.dumps(report, indent=2, ensure_ascii=True))
@@ -507,6 +558,48 @@ def _dedupe_by_render_path(states: list[SearchState]) -> list[SearchState]:
         seen.add(state.key)
         kept.append(state)
     return kept
+
+
+def _cleanup_states(states: list[SearchState]) -> dict[str, int]:
+    files = 0
+    touched_states = 0
+    seen_paths: set[Path] = set()
+    for state in states:
+        state_files = 0
+        for path in _state_artifact_paths(state):
+            if path in seen_paths:
+                continue
+            seen_paths.add(path)
+            try:
+                if path.exists():
+                    path.unlink()
+                    files += 1
+                    state_files += 1
+            except FileNotFoundError:
+                continue
+        if state_files:
+            touched_states += 1
+    return {"files": files, "states": touched_states}
+
+
+def _chunked(states: list[SearchState], batch_size: int) -> list[list[SearchState]]:
+    if batch_size <= 0:
+        return [states]
+    return [
+        states[index:index + batch_size]
+        for index in range(0, len(states), batch_size)
+    ]
+
+
+def _state_artifact_paths(state: SearchState) -> list[Path]:
+    drawio = Path(state.drawio)
+    program = Path(state.program_path)
+    return [
+        drawio,
+        program,
+        Path(str(drawio) + ".png"),
+        drawio.with_suffix(drawio.suffix + ".compare.png"),
+    ]
 
 
 def _state_key(actions: list[dict[str, Any]]) -> str:
