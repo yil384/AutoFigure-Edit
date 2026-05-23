@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Run multi-step beam search over native draw.io text geometry edits."""
+"""Run multi-step beam search over native draw.io primitive geometry edits."""
 from __future__ import annotations
 
 import argparse
@@ -64,7 +64,7 @@ class SearchState:
 
 def main() -> None:
     ap = argparse.ArgumentParser(
-        description="RL-inspired beam search for native text geometry edits")
+        description="RL-inspired beam search for native primitive geometry edits")
     ap.add_argument("source_image")
     ap.add_argument("program_json")
     ap.add_argument("-o", "--output-dir", default="outputs/visual_primitives")
@@ -74,8 +74,11 @@ def main() -> None:
     ap.add_argument("--baseline-drawio", default=None)
     ap.add_argument("--metrics-json", default=None)
     ap.add_argument("--candidate-ids", default=None,
-                    help="comma-separated text primitive ids to prioritize")
-    ap.add_argument("--max-texts", type=int, default=12)
+                    help="comma-separated primitive ids to prioritize")
+    ap.add_argument("--primitive-types", default="text",
+                    help="comma-separated primitive types to search, e.g. text,shape,edge,region")
+    ap.add_argument("--max-texts", type=int, default=12,
+                    help="maximum candidate primitives to search")
     ap.add_argument("--ops-json", default=None)
     ap.add_argument("--steps", type=int, default=2)
     ap.add_argument("--beam-width", type=int, default=4)
@@ -104,10 +107,16 @@ def main() -> None:
         item.strip() for item in (args.candidate_ids or "").split(",")
         if item.strip()
     }
-    candidates = _candidate_texts(
+    primitive_types = {
+        item.strip()
+        for item in str(args.primitive_types or "text").split(",")
+        if item.strip()
+    }
+    candidates = _candidate_primitives(
         program,
         metrics_tokens,
         forced_ids,
+        primitive_types,
         max_texts=args.max_texts,
     )
     ops = _load_ops(args.ops_json)
@@ -303,6 +312,7 @@ def main() -> None:
         },
         "metrics_tokens": metrics_tokens,
         "forced_ids": sorted(forced_ids),
+        "primitive_types": sorted(primitive_types),
         "candidates": candidates,
         "ops": ops,
         "eval_batch_size": args.eval_batch_size,
@@ -394,10 +404,11 @@ def _cleanup_drawio_process(drawio_cli: str) -> None:
             continue
 
 
-def _candidate_texts(
+def _candidate_primitives(
     program: dict[str, Any],
     metrics_tokens: dict[str, list[str]],
     forced_ids: set[str],
+    primitive_types: set[str],
     *,
     max_texts: int,
 ) -> list[dict[str, Any]]:
@@ -406,10 +417,11 @@ def _candidate_texts(
     candidates = []
     fallback = []
     for primitive in program.get("primitives", []):
-        if primitive.get("type") != "text":
+        primitive_type = str(primitive.get("type") or "")
+        if primitive_type not in primitive_types:
             continue
         text = str(primitive.get("text", "")).strip()
-        if not text:
+        if primitive_type == "text" and not text:
             continue
         primitive_id = str(primitive.get("id"))
         tokens = {
@@ -424,9 +436,13 @@ def _candidate_texts(
         width = max(1.0, float(bbox[2]) - float(bbox[0]))
         height = max(1.0, float(bbox[3]) - float(bbox[1]))
         style = primitive.get("style") or {}
+        candidate_text = text or str(
+            primitive.get("shape") or primitive.get("role") or primitive_type
+        )
         item = {
             "primitive_id": primitive_id,
-            "text": text,
+            "text": candidate_text,
+            "primitive_type": primitive_type,
             "bbox": bbox,
             "source": primitive.get("source"),
             "font_size": style.get("font_size"),
@@ -434,6 +450,7 @@ def _candidate_texts(
             "matched_missing_tokens": matched_missing,
             "forced": forced,
             "area": round(width * height, 3),
+            "length": primitive.get("length"),
         }
         fallback.append(item)
         if forced or matched_extra or matched_missing:
@@ -476,15 +493,28 @@ def _build_actions(
     actions = []
     for op_index, op in enumerate(ops):
         for candidate_index, candidate in enumerate(candidates):
+            if not _op_compatible(candidate, op):
+                continue
             actions.append({
                 "primitive_id": candidate["primitive_id"],
                 "text": candidate["text"],
+                "primitive_type": candidate["primitive_type"],
                 "candidate_index": candidate_index,
                 "op_index": op_index,
                 "op": op,
                 "key": f"{candidate['primitive_id']}::{_op_name(op)}",
             })
     return actions
+
+
+def _op_compatible(candidate: dict[str, Any], op: dict[str, Any]) -> bool:
+    primitive_type = str(candidate.get("primitive_type") or "")
+    kind = str(op.get("kind") or "")
+    if primitive_type != "text" and kind in {"font", "bold"}:
+        return False
+    if primitive_type == "edge" and kind == "box":
+        return False
+    return True
 
 
 def _rank_available_actions(
@@ -509,6 +539,18 @@ def _primitive_by_id(program: dict[str, Any], primitive_id: str) -> dict[str, An
     return None
 
 
+def _shift_path(path: Any, dx: float, dy: float) -> list[list[float]]:
+    shifted = []
+    for point in path or []:
+        if not isinstance(point, (list, tuple)) or len(point) < 2:
+            continue
+        shifted.append([
+            _round(float(point[0]) + dx),
+            _round(float(point[1]) + dy),
+        ])
+    return shifted
+
+
 def _apply_op(primitive: dict[str, Any], op: dict[str, Any]) -> bool:
     bbox = primitive.get("bbox")
     if not bbox or len(bbox) != 4:
@@ -520,6 +562,10 @@ def _apply_op(primitive: dict[str, Any], op: dict[str, Any]) -> bool:
         dy = float(op.get("dy") or 0.0)
         if dx == 0 and dy == 0:
             return False
+        if primitive.get("path"):
+            shifted = _shift_path(primitive.get("path"), dx, dy)
+            if len(shifted) >= 2:
+                primitive["path"] = shifted
         primitive["bbox"] = [_round(x0 + dx), _round(y0 + dy), _round(x1 + dx), _round(y1 + dy)]
         return True
     if kind == "font":
@@ -542,6 +588,8 @@ def _apply_op(primitive: dict[str, Any], op: dict[str, Any]) -> bool:
         style["bold"] = after
         return True
     if kind == "box":
+        if primitive.get("path"):
+            return False
         dw = float(op.get("dw") or 0.0)
         dh = float(op.get("dh") or 0.0)
         if dw == 0 and dh == 0:
@@ -630,7 +678,8 @@ def _state_report(
 
 
 def _action_label(action: dict[str, Any]) -> str:
-    return f"{action['primitive_id']}:{_safe_name(action['text'])}:{_op_name(action['op'])}"
+    primitive_type = action.get("primitive_type") or "primitive"
+    return f"{action['primitive_id']}:{primitive_type}:{_safe_name(action['text'])}:{_op_name(action['op'])}"
 
 
 def _action_slug(actions: list[dict[str, Any]]) -> str:
