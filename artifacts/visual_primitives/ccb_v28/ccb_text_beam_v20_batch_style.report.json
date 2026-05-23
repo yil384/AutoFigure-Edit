@@ -1,0 +1,2205 @@
+{
+  "source_image": "uploads/ccb48c0276204b17ba8d7e3474ea19ad.jpg",
+  "program_json": "artifacts/visual_primitives/ccb_v27/ccb_pure_native_current_best.vp_program.json",
+  "baseline_drawio": "artifacts/visual_primitives/ccb_v27/ccb_pure_native_current_best.drawio",
+  "baseline": {
+    "step": null,
+    "key": "root",
+    "parent_key": null,
+    "score": 0.815716,
+    "drawio": "artifacts/visual_primitives/ccb_v27/ccb_pure_native_current_best.drawio",
+    "program": "artifacts/visual_primitives/ccb_v27/ccb_pure_native_current_best.vp_program.json",
+    "actions": [],
+    "metrics": {
+      "drawio": "artifacts/visual_primitives/ccb_v27/ccb_pure_native_current_best.drawio",
+      "score": 0.815716,
+      "edge_f1": 0.7439,
+      "edge_precision": 0.8284,
+      "ocr_f1": 0.8267,
+      "ocr_precision": 0.9323,
+      "changed_pixel_ratio_t30": 0.164004,
+      "pure": true
+    }
+  },
+  "best": {
+    "step": null,
+    "key": "selective_base_bottom_right_text_0117::font_p2",
+    "parent_key": null,
+    "score": 0.815918,
+    "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0095_selective_base_bottom_right_text_0117_input_metrocs_font_p2.drawio",
+    "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0095_selective_base_bottom_right_text_0117_input_metrocs_font_p2.vp_program.json",
+    "actions": [
+      "selective_base_bottom_right_text_0117:input_metrocs:font_p2"
+    ],
+    "metrics": {
+      "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0095_selective_base_bottom_right_text_0117_input_metrocs_font_p2.drawio",
+      "score": 0.815918,
+      "edge_f1": 0.7444,
+      "edge_precision": 0.8286,
+      "ocr_f1": 0.8267,
+      "ocr_precision": 0.9323,
+      "changed_pixel_ratio_t30": 0.164056,
+      "pure": true
+    }
+  },
+  "best_artifacts": {
+    "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.best.drawio",
+    "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.best.vp_program.json",
+    "png": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.best.drawio.png",
+    "compare": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.best.drawio.compare.png"
+  },
+  "metrics_tokens": {
+    "extra": [
+      "13",
+      "2x",
+      "79",
+      "conn",
+      "erative",
+      "famiios",
+      "filter",
+      "physical-qubit",
+      "re"
+    ],
+    "missing": [
+      "-3",
+      "1-9",
+      "22",
+      "23",
+      "2x-calculus",
+      "4-6",
+      "4s",
+      "8",
+      "assembled",
+      "atom/ion",
+      "atom/lrap",
+      "ba",
+      "bb",
+      "benchmarking",
+      "bloch",
+      "diffusion",
+      "ee",
+      "exploitation",
+      "fast",
+      "fast-track",
+      "formed",
+      "gauge",
+      "ge",
+      "hardware",
+      "ina",
+      "interfero-",
+      "lation",
+      "llm4rl",
+      "noi",
+      "non-"
+    ]
+  },
+  "forced_ids": [
+    "rotated_ocr_text_0006",
+    "selective_base_bottom_left_ocr_text_0002",
+    "selective_base_bottom_left_ocr_text_0008",
+    "selective_base_bottom_left_text_0069",
+    "selective_base_bottom_left_text_0072",
+    "selective_base_bottom_left_text_0086",
+    "selective_base_bottom_left_text_0096",
+    "selective_base_bottom_left_text_0102",
+    "selective_base_bottom_right_cv_text_0003",
+    "selective_base_bottom_right_text_0067",
+    "selective_base_bottom_right_text_0099",
+    "selective_base_bottom_right_text_0108",
+    "selective_base_bottom_right_text_0117",
+    "selective_base_bottom_right_text_0118",
+    "selective_base_top_left_text_0004",
+    "selective_base_top_left_text_0006",
+    "selective_base_top_left_text_0009",
+    "selective_base_top_left_text_0031",
+    "selective_base_top_left_text_0036",
+    "selective_base_top_left_text_0063",
+    "selective_base_top_right_cv_text_0005",
+    "selective_base_top_right_text_0041",
+    "selective_base_top_right_text_0043",
+    "selective_base_top_right_text_0045",
+    "selective_base_top_right_text_0056"
+  ],
+  "candidates": [
+    {
+      "primitive_id": "selective_base_bottom_left_text_0102",
+      "text": "Gauge",
+      "bbox": [
+        201.0,
+        592.0,
+        228.0,
+        605.0
+      ],
+      "source": "ocr+vlm_update",
+      "font_size": 8,
+      "matched_extra_tokens": [],
+      "matched_missing_tokens": [
+        "gauge"
+      ],
+      "forced": true,
+      "area": 351.0
+    },
+    {
+      "primitive_id": "selective_base_top_left_text_0063",
+      "text": "4-6",
+      "bbox": [
+        348.0,
+        317.0,
+        381.0,
+        338.0
+      ],
+      "source": "ocr+cv_text_snap",
+      "font_size": 9,
+      "matched_extra_tokens": [],
+      "matched_missing_tokens": [
+        "4-6"
+      ],
+      "forced": true,
+      "area": 693.0
+    },
+    {
+      "primitive_id": "selective_base_bottom_left_ocr_text_0008",
+      "text": "Fast-track",
+      "bbox": [
+        414.0,
+        650.0,
+        470.0,
+        662.667
+      ],
+      "source": "ocr_preprocess_augment+vlm_update+beam_text_geo",
+      "font_size": 10,
+      "matched_extra_tokens": [],
+      "matched_missing_tokens": [
+        "fast-track"
+      ],
+      "forced": true,
+      "area": 709.352
+    },
+    {
+      "primitive_id": "selective_base_bottom_left_text_0096",
+      "text": "Interfero-",
+      "bbox": [
+        314.0,
+        531.0,
+        367.0,
+        550.0
+      ],
+      "source": "ocr+cv_text_snap+beam_text_geo",
+      "font_size": 10,
+      "matched_extra_tokens": [],
+      "matched_missing_tokens": [
+        "interfero-"
+      ],
+      "forced": true,
+      "area": 1007.0
+    },
+    {
+      "primitive_id": "selective_base_bottom_right_text_0108",
+      "text": "Diffusion",
+      "bbox": [
+        809.0,
+        607.0,
+        867.0,
+        627.0
+      ],
+      "source": "ocr+cv_text_snap+vlm_update",
+      "font_size": 9,
+      "matched_extra_tokens": [],
+      "matched_missing_tokens": [
+        "diffusion"
+      ],
+      "forced": true,
+      "area": 1160.0
+    },
+    {
+      "primitive_id": "selective_base_bottom_left_text_0072",
+      "text": "Hardware",
+      "bbox": [
+        396.0,
+        441.0,
+        462.0,
+        462.0
+      ],
+      "source": "ocr+cv_text_snap",
+      "font_size": 9,
+      "matched_extra_tokens": [],
+      "matched_missing_tokens": [
+        "hardware"
+      ],
+      "forced": true,
+      "area": 1386.0
+    },
+    {
+      "primitive_id": "selective_base_top_left_text_0036",
+      "text": "Exploitation",
+      "bbox": [
+        235.0,
+        160.0,
+        313.0,
+        184.0
+      ],
+      "source": "ocr+cv_text_snap",
+      "font_size": 11,
+      "matched_extra_tokens": [],
+      "matched_missing_tokens": [
+        "exploitation"
+      ],
+      "forced": true,
+      "area": 1872.0
+    },
+    {
+      "primitive_id": "selective_base_top_right_text_0043",
+      "text": "atom/ion trap",
+      "bbox": [
+        714.0,
+        194.0,
+        805.0,
+        219.0
+      ],
+      "source": "ocr+cv_text_snap+vlm_update",
+      "font_size": 10,
+      "matched_extra_tokens": [],
+      "matched_missing_tokens": [
+        "atom/ion"
+      ],
+      "forced": true,
+      "area": 2275.0
+    },
+    {
+      "primitive_id": "selective_base_bottom_right_cv_text_0003",
+      "text": "Benchmarking",
+      "bbox": [
+        1120.0,
+        412.0,
+        1215.0,
+        438.0
+      ],
+      "source": "cv_text_augment+text_geo_sweep+beam_text_geo+beam_text_geo",
+      "font_size": 14,
+      "matched_extra_tokens": [],
+      "matched_missing_tokens": [
+        "benchmarking"
+      ],
+      "forced": true,
+      "area": 2470.0
+    },
+    {
+      "primitive_id": "selective_base_top_left_text_0009",
+      "text": "assembled\ncolored code",
+      "bbox": [
+        118.0,
+        68.0,
+        205.333,
+        99.0
+      ],
+      "source": "ocr_stack_merge+text_repair_auto_accept+beam_text_geo",
+      "font_size": 8,
+      "matched_extra_tokens": [],
+      "matched_missing_tokens": [
+        "assembled"
+      ],
+      "forced": true,
+      "area": 2707.323
+    },
+    {
+      "primitive_id": "selective_base_bottom_left_text_0069",
+      "text": "QFT",
+      "bbox": [
+        48.0,
+        442.0,
+        81.0,
+        464.0
+      ],
+      "source": "ocr+cv_text_snap+beam_text_geo",
+      "font_size": 13,
+      "matched_extra_tokens": [],
+      "matched_missing_tokens": [],
+      "forced": true,
+      "area": 726.0
+    },
+    {
+      "primitive_id": "selective_base_bottom_right_text_0099",
+      "text": "RL Circuit",
+      "bbox": [
+        1138.0,
+        579.0,
+        1183.0,
+        599.0
+      ],
+      "source": "ocr+cv_text_snap",
+      "font_size": 9,
+      "matched_extra_tokens": [],
+      "matched_missing_tokens": [],
+      "forced": true,
+      "area": 900.0
+    },
+    {
+      "primitive_id": "selective_base_top_right_text_0045",
+      "text": "Trotter",
+      "bbox": [
+        1294.0,
+        203.0,
+        1344.0,
+        223.0
+      ],
+      "source": "ocr+cv_text_snap+beam_text_geo",
+      "font_size": 9,
+      "matched_extra_tokens": [],
+      "matched_missing_tokens": [],
+      "forced": true,
+      "area": 1000.0
+    },
+    {
+      "primitive_id": "selective_base_top_right_text_0056",
+      "text": "pipeline",
+      "bbox": [
+        1293.0,
+        283.0,
+        1348.0,
+        306.0
+      ],
+      "source": "ocr+cv_text_snap+beam_text_geo",
+      "font_size": 12,
+      "matched_extra_tokens": [],
+      "matched_missing_tokens": [],
+      "forced": true,
+      "area": 1265.0
+    },
+    {
+      "primitive_id": "selective_base_top_left_text_0031",
+      "text": "RL-based",
+      "bbox": [
+        242.0,
+        146.0,
+        306.0,
+        166.0
+      ],
+      "source": "ocr+cv_text_snap",
+      "font_size": 9,
+      "matched_extra_tokens": [],
+      "matched_missing_tokens": [],
+      "forced": true,
+      "area": 1280.0
+    },
+    {
+      "primitive_id": "selective_base_top_right_cv_text_0005",
+      "text": "X/Z bias",
+      "bbox": [
+        833.0,
+        189.0,
+        893.0,
+        211.0
+      ],
+      "source": "cv_text_augment+beam_text_geo+beam_text_geo",
+      "font_size": 14,
+      "matched_extra_tokens": [],
+      "matched_missing_tokens": [],
+      "forced": true,
+      "area": 1320.0
+    },
+    {
+      "primitive_id": "selective_base_bottom_left_ocr_text_0002",
+      "text": "Scheduling",
+      "bbox": [
+        395.333,
+        563.667,
+        460.0,
+        584.333
+      ],
+      "source": "ocr_preprocess_augment+beam_text_geo",
+      "font_size": 11,
+      "matched_extra_tokens": [],
+      "matched_missing_tokens": [],
+      "forced": true,
+      "area": 1336.408
+    },
+    {
+      "primitive_id": "rotated_ocr_text_0006",
+      "text": "Soundness hrrc",
+      "bbox": [
+        1221.65,
+        635.25,
+        1277.35,
+        659.75
+      ],
+      "source": "rotated_ocr_text_augment",
+      "font_size": 10,
+      "matched_extra_tokens": [],
+      "matched_missing_tokens": [],
+      "forced": true,
+      "area": 1364.65
+    },
+    {
+      "primitive_id": "selective_base_bottom_right_text_0118",
+      "text": "Soundness",
+      "bbox": [
+        1150.0,
+        678.0,
+        1220.0,
+        698.0
+      ],
+      "source": "ocr+cv_text_snap+beam_text_geo+beam_text_geo",
+      "font_size": 11,
+      "matched_extra_tokens": [],
+      "matched_missing_tokens": [],
+      "forced": true,
+      "area": 1400.0
+    },
+    {
+      "primitive_id": "selective_base_bottom_right_text_0117",
+      "text": "\u2014 Input Metrocs",
+      "bbox": [
+        814.0,
+        681.0,
+        913.0,
+        697.5
+      ],
+      "source": "ocr",
+      "font_size": 9,
+      "matched_extra_tokens": [],
+      "matched_missing_tokens": [],
+      "forced": true,
+      "area": 1633.5
+    },
+    {
+      "primitive_id": "selective_base_top_right_text_0041",
+      "text": "RL Policy",
+      "bbox": [
+        1099.0,
+        188.0,
+        1165.0,
+        213.0
+      ],
+      "source": "ocr+cv_text_snap+beam_text_geo",
+      "font_size": 12,
+      "matched_extra_tokens": [],
+      "matched_missing_tokens": [],
+      "forced": true,
+      "area": 1650.0
+    },
+    {
+      "primitive_id": "selective_base_bottom_left_text_0086",
+      "text": "CV Primitives",
+      "bbox": [
+        277.0,
+        482.0,
+        357.0,
+        503.0
+      ],
+      "source": "ocr+cv_text_snap+vlm_update+beam_text_geo",
+      "font_size": 11,
+      "matched_extra_tokens": [],
+      "matched_missing_tokens": [],
+      "forced": true,
+      "area": 1680.0
+    },
+    {
+      "primitive_id": "selective_base_top_left_text_0006",
+      "text": "Full ZX-Calculus",
+      "bbox": [
+        534.0,
+        54.0,
+        638.0,
+        77.0
+      ],
+      "source": "ocr+cv_text_snap",
+      "font_size": 9,
+      "matched_extra_tokens": [],
+      "matched_missing_tokens": [],
+      "forced": true,
+      "area": 2392.0
+    },
+    {
+      "primitive_id": "selective_base_top_left_text_0004",
+      "text": "VT Team",
+      "bbox": [
+        548.0,
+        31.0,
+        616.0,
+        71.0
+      ],
+      "source": "ocr+cv_text_snap",
+      "font_size": 9,
+      "matched_extra_tokens": [],
+      "matched_missing_tokens": [],
+      "forced": true,
+      "area": 2720.0
+    },
+    {
+      "primitive_id": "selective_base_bottom_right_text_0067",
+      "text": "Input Workloads",
+      "bbox": [
+        866.0,
+        398.0,
+        972.0,
+        424.0
+      ],
+      "source": "ocr+cv_text_snap+beam_text_geo",
+      "font_size": 12,
+      "matched_extra_tokens": [],
+      "matched_missing_tokens": [],
+      "forced": true,
+      "area": 2756.0
+    }
+  ],
+  "ops": [
+    {
+      "kind": "bold",
+      "value": true
+    },
+    {
+      "kind": "bold",
+      "value": false
+    },
+    {
+      "kind": "font",
+      "delta": 1
+    },
+    {
+      "kind": "font",
+      "delta": -1
+    },
+    {
+      "kind": "font",
+      "delta": 2
+    }
+  ],
+  "eval_batch_size": 20,
+  "steps": [
+    {
+      "step": 1,
+      "generated": 100,
+      "evaluated": 100,
+      "beam": [
+        {
+          "step": null,
+          "key": "selective_base_bottom_right_text_0117::font_p2",
+          "parent_key": null,
+          "score": 0.815918,
+          "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0095_selective_base_bottom_right_text_0117_input_metrocs_font_p2.drawio",
+          "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0095_selective_base_bottom_right_text_0117_input_metrocs_font_p2.vp_program.json",
+          "actions": [
+            "selective_base_bottom_right_text_0117:input_metrocs:font_p2"
+          ],
+          "metrics": {
+            "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0095_selective_base_bottom_right_text_0117_input_metrocs_font_p2.drawio",
+            "score": 0.815918,
+            "edge_f1": 0.7444,
+            "edge_precision": 0.8286,
+            "ocr_f1": 0.8267,
+            "ocr_precision": 0.9323,
+            "changed_pixel_ratio_t30": 0.164056,
+            "pure": true
+          }
+        },
+        {
+          "step": null,
+          "key": "rotated_ocr_text_0006::font_p1",
+          "parent_key": null,
+          "score": 0.81585,
+          "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0043_rotated_ocr_text_0006_soundness_hrrc_font_p1.drawio",
+          "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0043_rotated_ocr_text_0006_soundness_hrrc_font_p1.vp_program.json",
+          "actions": [
+            "rotated_ocr_text_0006:soundness_hrrc:font_p1"
+          ],
+          "metrics": {
+            "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0043_rotated_ocr_text_0006_soundness_hrrc_font_p1.drawio",
+            "score": 0.81585,
+            "edge_f1": 0.7442,
+            "edge_precision": 0.8286,
+            "ocr_f1": 0.8267,
+            "ocr_precision": 0.9323,
+            "changed_pixel_ratio_t30": 0.164017,
+            "pure": true
+          }
+        },
+        {
+          "step": null,
+          "key": "selective_base_bottom_right_text_0117::font_p1",
+          "parent_key": null,
+          "score": 0.815834,
+          "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0045_selective_base_bottom_right_text_0117_input_metrocs_font_p1.drawio",
+          "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0045_selective_base_bottom_right_text_0117_input_metrocs_font_p1.vp_program.json",
+          "actions": [
+            "selective_base_bottom_right_text_0117:input_metrocs:font_p1"
+          ],
+          "metrics": {
+            "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0045_selective_base_bottom_right_text_0117_input_metrocs_font_p1.drawio",
+            "score": 0.815834,
+            "edge_f1": 0.7442,
+            "edge_precision": 0.8285,
+            "ocr_f1": 0.8267,
+            "ocr_precision": 0.9323,
+            "changed_pixel_ratio_t30": 0.16401,
+            "pure": true
+          }
+        },
+        {
+          "step": null,
+          "key": "selective_base_bottom_left_text_0086::bold_1",
+          "parent_key": null,
+          "score": 0.815782,
+          "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0009_selective_base_bottom_left_text_0086_cv_primitives_bold_1.drawio",
+          "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0009_selective_base_bottom_left_text_0086_cv_primitives_bold_1.vp_program.json",
+          "actions": [
+            "selective_base_bottom_left_text_0086:cv_primitives:bold_1"
+          ],
+          "metrics": {
+            "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0009_selective_base_bottom_left_text_0086_cv_primitives_bold_1.drawio",
+            "score": 0.815782,
+            "edge_f1": 0.744,
+            "edge_precision": 0.8286,
+            "ocr_f1": 0.8267,
+            "ocr_precision": 0.9323,
+            "changed_pixel_ratio_t30": 0.163943,
+            "pure": true
+          }
+        },
+        {
+          "step": null,
+          "key": "selective_base_top_left_text_0004::font_p2",
+          "parent_key": null,
+          "score": 0.815782,
+          "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0099_selective_base_top_left_text_0004_vt_team_font_p2.drawio",
+          "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0099_selective_base_top_left_text_0004_vt_team_font_p2.vp_program.json",
+          "actions": [
+            "selective_base_top_left_text_0004:vt_team:font_p2"
+          ],
+          "metrics": {
+            "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0099_selective_base_top_left_text_0004_vt_team_font_p2.drawio",
+            "score": 0.815782,
+            "edge_f1": 0.744,
+            "edge_precision": 0.8286,
+            "ocr_f1": 0.8267,
+            "ocr_precision": 0.9323,
+            "changed_pixel_ratio_t30": 0.163974,
+            "pure": true
+          }
+        },
+        {
+          "step": null,
+          "key": "selective_base_top_left_text_0031::bold_1",
+          "parent_key": null,
+          "score": 0.815732,
+          "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0007_selective_base_top_left_text_0031_rl_based_bold_1.drawio",
+          "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0007_selective_base_top_left_text_0031_rl_based_bold_1.vp_program.json",
+          "actions": [
+            "selective_base_top_left_text_0031:rl_based:bold_1"
+          ],
+          "metrics": {
+            "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0007_selective_base_top_left_text_0031_rl_based_bold_1.drawio",
+            "score": 0.815732,
+            "edge_f1": 0.7439,
+            "edge_precision": 0.8285,
+            "ocr_f1": 0.8267,
+            "ocr_precision": 0.9323,
+            "changed_pixel_ratio_t30": 0.163997,
+            "pure": true
+          }
+        },
+        {
+          "step": null,
+          "key": "selective_base_bottom_right_text_0099::bold_0",
+          "parent_key": null,
+          "score": 0.815732,
+          "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0015_selective_base_bottom_right_text_0099_rl_circuit_bold_0.drawio",
+          "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0015_selective_base_bottom_right_text_0099_rl_circuit_bold_0.vp_program.json",
+          "actions": [
+            "selective_base_bottom_right_text_0099:rl_circuit:bold_0"
+          ],
+          "metrics": {
+            "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0015_selective_base_bottom_right_text_0099_rl_circuit_bold_0.drawio",
+            "score": 0.815732,
+            "edge_f1": 0.7439,
+            "edge_precision": 0.8285,
+            "ocr_f1": 0.8267,
+            "ocr_precision": 0.9323,
+            "changed_pixel_ratio_t30": 0.163992,
+            "pure": true
+          }
+        },
+        {
+          "step": null,
+          "key": "selective_base_top_left_text_0004::font_p1",
+          "parent_key": null,
+          "score": 0.815732,
+          "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0049_selective_base_top_left_text_0004_vt_team_font_p1.drawio",
+          "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0049_selective_base_top_left_text_0004_vt_team_font_p1.vp_program.json",
+          "actions": [
+            "selective_base_top_left_text_0004:vt_team:font_p1"
+          ],
+          "metrics": {
+            "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0049_selective_base_top_left_text_0004_vt_team_font_p1.drawio",
+            "score": 0.815732,
+            "edge_f1": 0.7439,
+            "edge_precision": 0.8285,
+            "ocr_f1": 0.8267,
+            "ocr_precision": 0.9323,
+            "changed_pixel_ratio_t30": 0.163989,
+            "pure": true
+          }
+        }
+      ],
+      "top_successors": [
+        {
+          "step": null,
+          "key": "selective_base_bottom_right_text_0117::font_p2",
+          "parent_key": null,
+          "score": 0.815918,
+          "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0095_selective_base_bottom_right_text_0117_input_metrocs_font_p2.drawio",
+          "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0095_selective_base_bottom_right_text_0117_input_metrocs_font_p2.vp_program.json",
+          "actions": [
+            "selective_base_bottom_right_text_0117:input_metrocs:font_p2"
+          ],
+          "metrics": {
+            "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0095_selective_base_bottom_right_text_0117_input_metrocs_font_p2.drawio",
+            "score": 0.815918,
+            "edge_f1": 0.7444,
+            "edge_precision": 0.8286,
+            "ocr_f1": 0.8267,
+            "ocr_precision": 0.9323,
+            "changed_pixel_ratio_t30": 0.164056,
+            "pure": true
+          }
+        },
+        {
+          "step": null,
+          "key": "rotated_ocr_text_0006::font_p1",
+          "parent_key": null,
+          "score": 0.81585,
+          "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0043_rotated_ocr_text_0006_soundness_hrrc_font_p1.drawio",
+          "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0043_rotated_ocr_text_0006_soundness_hrrc_font_p1.vp_program.json",
+          "actions": [
+            "rotated_ocr_text_0006:soundness_hrrc:font_p1"
+          ],
+          "metrics": {
+            "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0043_rotated_ocr_text_0006_soundness_hrrc_font_p1.drawio",
+            "score": 0.81585,
+            "edge_f1": 0.7442,
+            "edge_precision": 0.8286,
+            "ocr_f1": 0.8267,
+            "ocr_precision": 0.9323,
+            "changed_pixel_ratio_t30": 0.164017,
+            "pure": true
+          }
+        },
+        {
+          "step": null,
+          "key": "selective_base_bottom_right_text_0117::font_p1",
+          "parent_key": null,
+          "score": 0.815834,
+          "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0045_selective_base_bottom_right_text_0117_input_metrocs_font_p1.drawio",
+          "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0045_selective_base_bottom_right_text_0117_input_metrocs_font_p1.vp_program.json",
+          "actions": [
+            "selective_base_bottom_right_text_0117:input_metrocs:font_p1"
+          ],
+          "metrics": {
+            "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0045_selective_base_bottom_right_text_0117_input_metrocs_font_p1.drawio",
+            "score": 0.815834,
+            "edge_f1": 0.7442,
+            "edge_precision": 0.8285,
+            "ocr_f1": 0.8267,
+            "ocr_precision": 0.9323,
+            "changed_pixel_ratio_t30": 0.16401,
+            "pure": true
+          }
+        },
+        {
+          "step": null,
+          "key": "selective_base_bottom_left_text_0086::bold_1",
+          "parent_key": null,
+          "score": 0.815782,
+          "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0009_selective_base_bottom_left_text_0086_cv_primitives_bold_1.drawio",
+          "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0009_selective_base_bottom_left_text_0086_cv_primitives_bold_1.vp_program.json",
+          "actions": [
+            "selective_base_bottom_left_text_0086:cv_primitives:bold_1"
+          ],
+          "metrics": {
+            "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0009_selective_base_bottom_left_text_0086_cv_primitives_bold_1.drawio",
+            "score": 0.815782,
+            "edge_f1": 0.744,
+            "edge_precision": 0.8286,
+            "ocr_f1": 0.8267,
+            "ocr_precision": 0.9323,
+            "changed_pixel_ratio_t30": 0.163943,
+            "pure": true
+          }
+        },
+        {
+          "step": null,
+          "key": "selective_base_top_left_text_0004::font_p2",
+          "parent_key": null,
+          "score": 0.815782,
+          "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0099_selective_base_top_left_text_0004_vt_team_font_p2.drawio",
+          "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0099_selective_base_top_left_text_0004_vt_team_font_p2.vp_program.json",
+          "actions": [
+            "selective_base_top_left_text_0004:vt_team:font_p2"
+          ],
+          "metrics": {
+            "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0099_selective_base_top_left_text_0004_vt_team_font_p2.drawio",
+            "score": 0.815782,
+            "edge_f1": 0.744,
+            "edge_precision": 0.8286,
+            "ocr_f1": 0.8267,
+            "ocr_precision": 0.9323,
+            "changed_pixel_ratio_t30": 0.163974,
+            "pure": true
+          }
+        },
+        {
+          "step": null,
+          "key": "selective_base_top_left_text_0031::bold_1",
+          "parent_key": null,
+          "score": 0.815732,
+          "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0007_selective_base_top_left_text_0031_rl_based_bold_1.drawio",
+          "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0007_selective_base_top_left_text_0031_rl_based_bold_1.vp_program.json",
+          "actions": [
+            "selective_base_top_left_text_0031:rl_based:bold_1"
+          ],
+          "metrics": {
+            "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0007_selective_base_top_left_text_0031_rl_based_bold_1.drawio",
+            "score": 0.815732,
+            "edge_f1": 0.7439,
+            "edge_precision": 0.8285,
+            "ocr_f1": 0.8267,
+            "ocr_precision": 0.9323,
+            "changed_pixel_ratio_t30": 0.163997,
+            "pure": true
+          }
+        },
+        {
+          "step": null,
+          "key": "selective_base_bottom_right_text_0099::bold_0",
+          "parent_key": null,
+          "score": 0.815732,
+          "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0015_selective_base_bottom_right_text_0099_rl_circuit_bold_0.drawio",
+          "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0015_selective_base_bottom_right_text_0099_rl_circuit_bold_0.vp_program.json",
+          "actions": [
+            "selective_base_bottom_right_text_0099:rl_circuit:bold_0"
+          ],
+          "metrics": {
+            "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0015_selective_base_bottom_right_text_0099_rl_circuit_bold_0.drawio",
+            "score": 0.815732,
+            "edge_f1": 0.7439,
+            "edge_precision": 0.8285,
+            "ocr_f1": 0.8267,
+            "ocr_precision": 0.9323,
+            "changed_pixel_ratio_t30": 0.163992,
+            "pure": true
+          }
+        },
+        {
+          "step": null,
+          "key": "selective_base_top_left_text_0004::font_p1",
+          "parent_key": null,
+          "score": 0.815732,
+          "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0049_selective_base_top_left_text_0004_vt_team_font_p1.drawio",
+          "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0049_selective_base_top_left_text_0004_vt_team_font_p1.vp_program.json",
+          "actions": [
+            "selective_base_top_left_text_0004:vt_team:font_p1"
+          ],
+          "metrics": {
+            "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0049_selective_base_top_left_text_0004_vt_team_font_p1.drawio",
+            "score": 0.815732,
+            "edge_f1": 0.7439,
+            "edge_precision": 0.8285,
+            "ocr_f1": 0.8267,
+            "ocr_precision": 0.9323,
+            "changed_pixel_ratio_t30": 0.163989,
+            "pure": true
+          }
+        },
+        {
+          "step": null,
+          "key": "selective_base_bottom_left_text_0102::bold_1",
+          "parent_key": null,
+          "score": 0.815716,
+          "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0001_selective_base_bottom_left_text_0102_gauge_bold_1.drawio",
+          "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0001_selective_base_bottom_left_text_0102_gauge_bold_1.vp_program.json",
+          "actions": [
+            "selective_base_bottom_left_text_0102:gauge:bold_1"
+          ],
+          "metrics": {
+            "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0001_selective_base_bottom_left_text_0102_gauge_bold_1.drawio",
+            "score": 0.815716,
+            "edge_f1": 0.7439,
+            "edge_precision": 0.8284,
+            "ocr_f1": 0.8267,
+            "ocr_precision": 0.9323,
+            "changed_pixel_ratio_t30": 0.164017,
+            "pure": true
+          }
+        },
+        {
+          "step": null,
+          "key": "selective_base_top_left_text_0063::bold_1",
+          "parent_key": null,
+          "score": 0.815716,
+          "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0002_selective_base_top_left_text_0063_4_6_bold_1.drawio",
+          "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0002_selective_base_top_left_text_0063_4_6_bold_1.vp_program.json",
+          "actions": [
+            "selective_base_top_left_text_0063:4_6:bold_1"
+          ],
+          "metrics": {
+            "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0002_selective_base_top_left_text_0063_4_6_bold_1.drawio",
+            "score": 0.815716,
+            "edge_f1": 0.7439,
+            "edge_precision": 0.8284,
+            "ocr_f1": 0.8267,
+            "ocr_precision": 0.9323,
+            "changed_pixel_ratio_t30": 0.164009,
+            "pure": true
+          }
+        },
+        {
+          "step": null,
+          "key": "selective_base_bottom_left_text_0096::bold_1",
+          "parent_key": null,
+          "score": 0.815716,
+          "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0003_selective_base_bottom_left_text_0096_interfero_bold_1.drawio",
+          "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0003_selective_base_bottom_left_text_0096_interfero_bold_1.vp_program.json",
+          "actions": [
+            "selective_base_bottom_left_text_0096:interfero:bold_1"
+          ],
+          "metrics": {
+            "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0003_selective_base_bottom_left_text_0096_interfero_bold_1.drawio",
+            "score": 0.815716,
+            "edge_f1": 0.7439,
+            "edge_precision": 0.8284,
+            "ocr_f1": 0.8267,
+            "ocr_precision": 0.9323,
+            "changed_pixel_ratio_t30": 0.163974,
+            "pure": true
+          }
+        },
+        {
+          "step": null,
+          "key": "selective_base_bottom_left_text_0096::font_p1",
+          "parent_key": null,
+          "score": 0.815716,
+          "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0029_selective_base_bottom_left_text_0096_interfero_font_p1.drawio",
+          "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0029_selective_base_bottom_left_text_0096_interfero_font_p1.vp_program.json",
+          "actions": [
+            "selective_base_bottom_left_text_0096:interfero:font_p1"
+          ],
+          "metrics": {
+            "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0029_selective_base_bottom_left_text_0096_interfero_font_p1.drawio",
+            "score": 0.815716,
+            "edge_f1": 0.7439,
+            "edge_precision": 0.8284,
+            "ocr_f1": 0.8267,
+            "ocr_precision": 0.9323,
+            "changed_pixel_ratio_t30": 0.16398,
+            "pure": true
+          }
+        }
+      ]
+    }
+  ],
+  "generated": [
+    {
+      "step": 1,
+      "key": "selective_base_bottom_left_text_0102::bold_1",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0001_selective_base_bottom_left_text_0102_gauge_bold_1.drawio",
+      "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0001_selective_base_bottom_left_text_0102_gauge_bold_1.vp_program.json",
+      "actions": [
+        "selective_base_bottom_left_text_0102:gauge:bold_1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_top_left_text_0063::bold_1",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0002_selective_base_top_left_text_0063_4_6_bold_1.drawio",
+      "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0002_selective_base_top_left_text_0063_4_6_bold_1.vp_program.json",
+      "actions": [
+        "selective_base_top_left_text_0063:4_6:bold_1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_bottom_left_text_0096::bold_1",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0003_selective_base_bottom_left_text_0096_interfero_bold_1.drawio",
+      "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0003_selective_base_bottom_left_text_0096_interfero_bold_1.vp_program.json",
+      "actions": [
+        "selective_base_bottom_left_text_0096:interfero:bold_1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_bottom_left_text_0072::bold_1",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0004_selective_base_bottom_left_text_0072_hardware_bold_1.drawio",
+      "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0004_selective_base_bottom_left_text_0072_hardware_bold_1.vp_program.json",
+      "actions": [
+        "selective_base_bottom_left_text_0072:hardware:bold_1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_bottom_right_cv_text_0003::bold_1",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0005_selective_base_bottom_right_cv_text_0003_benchmarking_bold_1.drawio",
+      "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0005_selective_base_bottom_right_cv_text_0003_benchmarking_bold_1.vp_program.json",
+      "actions": [
+        "selective_base_bottom_right_cv_text_0003:benchmarking:bold_1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_bottom_left_text_0069::bold_1",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0006_selective_base_bottom_left_text_0069_qft_bold_1.drawio",
+      "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0006_selective_base_bottom_left_text_0069_qft_bold_1.vp_program.json",
+      "actions": [
+        "selective_base_bottom_left_text_0069:qft:bold_1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_top_left_text_0031::bold_1",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0007_selective_base_top_left_text_0031_rl_based_bold_1.drawio",
+      "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0007_selective_base_top_left_text_0031_rl_based_bold_1.vp_program.json",
+      "actions": [
+        "selective_base_top_left_text_0031:rl_based:bold_1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_top_right_cv_text_0005::bold_1",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0008_selective_base_top_right_cv_text_0005_x_z_bias_bold_1.drawio",
+      "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0008_selective_base_top_right_cv_text_0005_x_z_bias_bold_1.vp_program.json",
+      "actions": [
+        "selective_base_top_right_cv_text_0005:x_z_bias:bold_1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_bottom_left_text_0086::bold_1",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0009_selective_base_bottom_left_text_0086_cv_primitives_bold_1.drawio",
+      "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0009_selective_base_bottom_left_text_0086_cv_primitives_bold_1.vp_program.json",
+      "actions": [
+        "selective_base_bottom_left_text_0086:cv_primitives:bold_1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_bottom_left_ocr_text_0008::bold_0",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0010_selective_base_bottom_left_ocr_text_0008_fast_track_bold_0.drawio",
+      "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0010_selective_base_bottom_left_ocr_text_0008_fast_track_bold_0.vp_program.json",
+      "actions": [
+        "selective_base_bottom_left_ocr_text_0008:fast_track:bold_0"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_bottom_right_text_0108::bold_0",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0011_selective_base_bottom_right_text_0108_diffusion_bold_0.drawio",
+      "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0011_selective_base_bottom_right_text_0108_diffusion_bold_0.vp_program.json",
+      "actions": [
+        "selective_base_bottom_right_text_0108:diffusion:bold_0"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_top_left_text_0036::bold_0",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0012_selective_base_top_left_text_0036_exploitation_bold_0.drawio",
+      "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0012_selective_base_top_left_text_0036_exploitation_bold_0.vp_program.json",
+      "actions": [
+        "selective_base_top_left_text_0036:exploitation:bold_0"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_top_right_text_0043::bold_0",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0013_selective_base_top_right_text_0043_atom_ion_trap_bold_0.drawio",
+      "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0013_selective_base_top_right_text_0043_atom_ion_trap_bold_0.vp_program.json",
+      "actions": [
+        "selective_base_top_right_text_0043:atom_ion_trap:bold_0"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_top_left_text_0009::bold_0",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0014_selective_base_top_left_text_0009_assembled_colored_code_bold_0.drawio",
+      "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0014_selective_base_top_left_text_0009_assembled_colored_code_bold_0.vp_program.json",
+      "actions": [
+        "selective_base_top_left_text_0009:assembled_colored_code:bold_0"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_bottom_right_text_0099::bold_0",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0015_selective_base_bottom_right_text_0099_rl_circuit_bold_0.drawio",
+      "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0015_selective_base_bottom_right_text_0099_rl_circuit_bold_0.vp_program.json",
+      "actions": [
+        "selective_base_bottom_right_text_0099:rl_circuit:bold_0"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_top_right_text_0045::bold_0",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0016_selective_base_top_right_text_0045_trotter_bold_0.drawio",
+      "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0016_selective_base_top_right_text_0045_trotter_bold_0.vp_program.json",
+      "actions": [
+        "selective_base_top_right_text_0045:trotter:bold_0"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_top_right_text_0056::bold_0",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0017_selective_base_top_right_text_0056_pipeline_bold_0.drawio",
+      "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0017_selective_base_top_right_text_0056_pipeline_bold_0.vp_program.json",
+      "actions": [
+        "selective_base_top_right_text_0056:pipeline:bold_0"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_bottom_left_ocr_text_0002::bold_0",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0018_selective_base_bottom_left_ocr_text_0002_scheduling_bold_0.drawio",
+      "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0018_selective_base_bottom_left_ocr_text_0002_scheduling_bold_0.vp_program.json",
+      "actions": [
+        "selective_base_bottom_left_ocr_text_0002:scheduling:bold_0"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "rotated_ocr_text_0006::bold_0",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0019_rotated_ocr_text_0006_soundness_hrrc_bold_0.drawio",
+      "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0019_rotated_ocr_text_0006_soundness_hrrc_bold_0.vp_program.json",
+      "actions": [
+        "rotated_ocr_text_0006:soundness_hrrc:bold_0"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_bottom_right_text_0118::bold_0",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0020_selective_base_bottom_right_text_0118_soundness_bold_0.drawio",
+      "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0020_selective_base_bottom_right_text_0118_soundness_bold_0.vp_program.json",
+      "actions": [
+        "selective_base_bottom_right_text_0118:soundness:bold_0"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_bottom_right_text_0117::bold_0",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0021_selective_base_bottom_right_text_0117_input_metrocs_bold_0.drawio",
+      "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0021_selective_base_bottom_right_text_0117_input_metrocs_bold_0.vp_program.json",
+      "actions": [
+        "selective_base_bottom_right_text_0117:input_metrocs:bold_0"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_top_right_text_0041::bold_0",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0022_selective_base_top_right_text_0041_rl_policy_bold_0.drawio",
+      "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0022_selective_base_top_right_text_0041_rl_policy_bold_0.vp_program.json",
+      "actions": [
+        "selective_base_top_right_text_0041:rl_policy:bold_0"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_top_left_text_0006::bold_0",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0023_selective_base_top_left_text_0006_full_zx_calculus_bold_0.drawio",
+      "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0023_selective_base_top_left_text_0006_full_zx_calculus_bold_0.vp_program.json",
+      "actions": [
+        "selective_base_top_left_text_0006:full_zx_calculus:bold_0"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_top_left_text_0004::bold_0",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0024_selective_base_top_left_text_0004_vt_team_bold_0.drawio",
+      "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0024_selective_base_top_left_text_0004_vt_team_bold_0.vp_program.json",
+      "actions": [
+        "selective_base_top_left_text_0004:vt_team:bold_0"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_bottom_right_text_0067::bold_0",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0025_selective_base_bottom_right_text_0067_input_workloads_bold_0.drawio",
+      "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0025_selective_base_bottom_right_text_0067_input_workloads_bold_0.vp_program.json",
+      "actions": [
+        "selective_base_bottom_right_text_0067:input_workloads:bold_0"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_bottom_left_text_0102::font_p1",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0026_selective_base_bottom_left_text_0102_gauge_font_p1.drawio",
+      "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0026_selective_base_bottom_left_text_0102_gauge_font_p1.vp_program.json",
+      "actions": [
+        "selective_base_bottom_left_text_0102:gauge:font_p1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_top_left_text_0063::font_p1",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0027_selective_base_top_left_text_0063_4_6_font_p1.drawio",
+      "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0027_selective_base_top_left_text_0063_4_6_font_p1.vp_program.json",
+      "actions": [
+        "selective_base_top_left_text_0063:4_6:font_p1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_bottom_left_ocr_text_0008::font_p1",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0028_selective_base_bottom_left_ocr_text_0008_fast_track_font_p1.drawio",
+      "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0028_selective_base_bottom_left_ocr_text_0008_fast_track_font_p1.vp_program.json",
+      "actions": [
+        "selective_base_bottom_left_ocr_text_0008:fast_track:font_p1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_bottom_left_text_0096::font_p1",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0029_selective_base_bottom_left_text_0096_interfero_font_p1.drawio",
+      "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0029_selective_base_bottom_left_text_0096_interfero_font_p1.vp_program.json",
+      "actions": [
+        "selective_base_bottom_left_text_0096:interfero:font_p1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_bottom_right_text_0108::font_p1",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0030_selective_base_bottom_right_text_0108_diffusion_font_p1.drawio",
+      "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0030_selective_base_bottom_right_text_0108_diffusion_font_p1.vp_program.json",
+      "actions": [
+        "selective_base_bottom_right_text_0108:diffusion:font_p1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_bottom_left_text_0072::font_p1",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0031_selective_base_bottom_left_text_0072_hardware_font_p1.drawio",
+      "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0031_selective_base_bottom_left_text_0072_hardware_font_p1.vp_program.json",
+      "actions": [
+        "selective_base_bottom_left_text_0072:hardware:font_p1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_top_left_text_0036::font_p1",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0032_selective_base_top_left_text_0036_exploitation_font_p1.drawio",
+      "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0032_selective_base_top_left_text_0036_exploitation_font_p1.vp_program.json",
+      "actions": [
+        "selective_base_top_left_text_0036:exploitation:font_p1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_top_right_text_0043::font_p1",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0033_selective_base_top_right_text_0043_atom_ion_trap_font_p1.drawio",
+      "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0033_selective_base_top_right_text_0043_atom_ion_trap_font_p1.vp_program.json",
+      "actions": [
+        "selective_base_top_right_text_0043:atom_ion_trap:font_p1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_bottom_right_cv_text_0003::font_p1",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0034_selective_base_bottom_right_cv_text_0003_benchmarking_font_p1.drawio",
+      "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0034_selective_base_bottom_right_cv_text_0003_benchmarking_font_p1.vp_program.json",
+      "actions": [
+        "selective_base_bottom_right_cv_text_0003:benchmarking:font_p1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_top_left_text_0009::font_p1",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0035_selective_base_top_left_text_0009_assembled_colored_code_font_p1.drawio",
+      "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0035_selective_base_top_left_text_0009_assembled_colored_code_font_p1.vp_program.json",
+      "actions": [
+        "selective_base_top_left_text_0009:assembled_colored_code:font_p1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_bottom_left_text_0069::font_p1",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0036_selective_base_bottom_left_text_0069_qft_font_p1.drawio",
+      "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0036_selective_base_bottom_left_text_0069_qft_font_p1.vp_program.json",
+      "actions": [
+        "selective_base_bottom_left_text_0069:qft:font_p1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_bottom_right_text_0099::font_p1",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0037_selective_base_bottom_right_text_0099_rl_circuit_font_p1.drawio",
+      "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0037_selective_base_bottom_right_text_0099_rl_circuit_font_p1.vp_program.json",
+      "actions": [
+        "selective_base_bottom_right_text_0099:rl_circuit:font_p1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_top_right_text_0045::font_p1",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0038_selective_base_top_right_text_0045_trotter_font_p1.drawio",
+      "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0038_selective_base_top_right_text_0045_trotter_font_p1.vp_program.json",
+      "actions": [
+        "selective_base_top_right_text_0045:trotter:font_p1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_top_right_text_0056::font_p1",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0039_selective_base_top_right_text_0056_pipeline_font_p1.drawio",
+      "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0039_selective_base_top_right_text_0056_pipeline_font_p1.vp_program.json",
+      "actions": [
+        "selective_base_top_right_text_0056:pipeline:font_p1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_top_left_text_0031::font_p1",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0040_selective_base_top_left_text_0031_rl_based_font_p1.drawio",
+      "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0040_selective_base_top_left_text_0031_rl_based_font_p1.vp_program.json",
+      "actions": [
+        "selective_base_top_left_text_0031:rl_based:font_p1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_top_right_cv_text_0005::font_p1",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0041_selective_base_top_right_cv_text_0005_x_z_bias_font_p1.drawio",
+      "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0041_selective_base_top_right_cv_text_0005_x_z_bias_font_p1.vp_program.json",
+      "actions": [
+        "selective_base_top_right_cv_text_0005:x_z_bias:font_p1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_bottom_left_ocr_text_0002::font_p1",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0042_selective_base_bottom_left_ocr_text_0002_scheduling_font_p1.drawio",
+      "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0042_selective_base_bottom_left_ocr_text_0002_scheduling_font_p1.vp_program.json",
+      "actions": [
+        "selective_base_bottom_left_ocr_text_0002:scheduling:font_p1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "rotated_ocr_text_0006::font_p1",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0043_rotated_ocr_text_0006_soundness_hrrc_font_p1.drawio",
+      "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0043_rotated_ocr_text_0006_soundness_hrrc_font_p1.vp_program.json",
+      "actions": [
+        "rotated_ocr_text_0006:soundness_hrrc:font_p1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_bottom_right_text_0118::font_p1",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0044_selective_base_bottom_right_text_0118_soundness_font_p1.drawio",
+      "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0044_selective_base_bottom_right_text_0118_soundness_font_p1.vp_program.json",
+      "actions": [
+        "selective_base_bottom_right_text_0118:soundness:font_p1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_bottom_right_text_0117::font_p1",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0045_selective_base_bottom_right_text_0117_input_metrocs_font_p1.drawio",
+      "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0045_selective_base_bottom_right_text_0117_input_metrocs_font_p1.vp_program.json",
+      "actions": [
+        "selective_base_bottom_right_text_0117:input_metrocs:font_p1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_top_right_text_0041::font_p1",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0046_selective_base_top_right_text_0041_rl_policy_font_p1.drawio",
+      "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0046_selective_base_top_right_text_0041_rl_policy_font_p1.vp_program.json",
+      "actions": [
+        "selective_base_top_right_text_0041:rl_policy:font_p1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_bottom_left_text_0086::font_p1",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0047_selective_base_bottom_left_text_0086_cv_primitives_font_p1.drawio",
+      "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0047_selective_base_bottom_left_text_0086_cv_primitives_font_p1.vp_program.json",
+      "actions": [
+        "selective_base_bottom_left_text_0086:cv_primitives:font_p1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_top_left_text_0006::font_p1",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0048_selective_base_top_left_text_0006_full_zx_calculus_font_p1.drawio",
+      "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0048_selective_base_top_left_text_0006_full_zx_calculus_font_p1.vp_program.json",
+      "actions": [
+        "selective_base_top_left_text_0006:full_zx_calculus:font_p1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_top_left_text_0004::font_p1",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0049_selective_base_top_left_text_0004_vt_team_font_p1.drawio",
+      "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0049_selective_base_top_left_text_0004_vt_team_font_p1.vp_program.json",
+      "actions": [
+        "selective_base_top_left_text_0004:vt_team:font_p1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_bottom_right_text_0067::font_p1",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0050_selective_base_bottom_right_text_0067_input_workloads_font_p1.drawio",
+      "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0050_selective_base_bottom_right_text_0067_input_workloads_font_p1.vp_program.json",
+      "actions": [
+        "selective_base_bottom_right_text_0067:input_workloads:font_p1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_bottom_left_text_0102::font_m1",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0051_selective_base_bottom_left_text_0102_gauge_font_m1.drawio",
+      "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0051_selective_base_bottom_left_text_0102_gauge_font_m1.vp_program.json",
+      "actions": [
+        "selective_base_bottom_left_text_0102:gauge:font_m1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_top_left_text_0063::font_m1",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0052_selective_base_top_left_text_0063_4_6_font_m1.drawio",
+      "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0052_selective_base_top_left_text_0063_4_6_font_m1.vp_program.json",
+      "actions": [
+        "selective_base_top_left_text_0063:4_6:font_m1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_bottom_left_ocr_text_0008::font_m1",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0053_selective_base_bottom_left_ocr_text_0008_fast_track_font_m1.drawio",
+      "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0053_selective_base_bottom_left_ocr_text_0008_fast_track_font_m1.vp_program.json",
+      "actions": [
+        "selective_base_bottom_left_ocr_text_0008:fast_track:font_m1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_bottom_left_text_0096::font_m1",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0054_selective_base_bottom_left_text_0096_interfero_font_m1.drawio",
+      "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0054_selective_base_bottom_left_text_0096_interfero_font_m1.vp_program.json",
+      "actions": [
+        "selective_base_bottom_left_text_0096:interfero:font_m1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_bottom_right_text_0108::font_m1",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0055_selective_base_bottom_right_text_0108_diffusion_font_m1.drawio",
+      "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0055_selective_base_bottom_right_text_0108_diffusion_font_m1.vp_program.json",
+      "actions": [
+        "selective_base_bottom_right_text_0108:diffusion:font_m1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_bottom_left_text_0072::font_m1",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0056_selective_base_bottom_left_text_0072_hardware_font_m1.drawio",
+      "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0056_selective_base_bottom_left_text_0072_hardware_font_m1.vp_program.json",
+      "actions": [
+        "selective_base_bottom_left_text_0072:hardware:font_m1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_top_left_text_0036::font_m1",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0057_selective_base_top_left_text_0036_exploitation_font_m1.drawio",
+      "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0057_selective_base_top_left_text_0036_exploitation_font_m1.vp_program.json",
+      "actions": [
+        "selective_base_top_left_text_0036:exploitation:font_m1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_top_right_text_0043::font_m1",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0058_selective_base_top_right_text_0043_atom_ion_trap_font_m1.drawio",
+      "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0058_selective_base_top_right_text_0043_atom_ion_trap_font_m1.vp_program.json",
+      "actions": [
+        "selective_base_top_right_text_0043:atom_ion_trap:font_m1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_bottom_right_cv_text_0003::font_m1",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0059_selective_base_bottom_right_cv_text_0003_benchmarking_font_m1.drawio",
+      "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0059_selective_base_bottom_right_cv_text_0003_benchmarking_font_m1.vp_program.json",
+      "actions": [
+        "selective_base_bottom_right_cv_text_0003:benchmarking:font_m1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_top_left_text_0009::font_m1",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0060_selective_base_top_left_text_0009_assembled_colored_code_font_m1.drawio",
+      "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0060_selective_base_top_left_text_0009_assembled_colored_code_font_m1.vp_program.json",
+      "actions": [
+        "selective_base_top_left_text_0009:assembled_colored_code:font_m1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_bottom_left_text_0069::font_m1",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0061_selective_base_bottom_left_text_0069_qft_font_m1.drawio",
+      "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0061_selective_base_bottom_left_text_0069_qft_font_m1.vp_program.json",
+      "actions": [
+        "selective_base_bottom_left_text_0069:qft:font_m1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_bottom_right_text_0099::font_m1",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0062_selective_base_bottom_right_text_0099_rl_circuit_font_m1.drawio",
+      "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0062_selective_base_bottom_right_text_0099_rl_circuit_font_m1.vp_program.json",
+      "actions": [
+        "selective_base_bottom_right_text_0099:rl_circuit:font_m1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_top_right_text_0045::font_m1",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0063_selective_base_top_right_text_0045_trotter_font_m1.drawio",
+      "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0063_selective_base_top_right_text_0045_trotter_font_m1.vp_program.json",
+      "actions": [
+        "selective_base_top_right_text_0045:trotter:font_m1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_top_right_text_0056::font_m1",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0064_selective_base_top_right_text_0056_pipeline_font_m1.drawio",
+      "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0064_selective_base_top_right_text_0056_pipeline_font_m1.vp_program.json",
+      "actions": [
+        "selective_base_top_right_text_0056:pipeline:font_m1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_top_left_text_0031::font_m1",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0065_selective_base_top_left_text_0031_rl_based_font_m1.drawio",
+      "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0065_selective_base_top_left_text_0031_rl_based_font_m1.vp_program.json",
+      "actions": [
+        "selective_base_top_left_text_0031:rl_based:font_m1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_top_right_cv_text_0005::font_m1",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0066_selective_base_top_right_cv_text_0005_x_z_bias_font_m1.drawio",
+      "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0066_selective_base_top_right_cv_text_0005_x_z_bias_font_m1.vp_program.json",
+      "actions": [
+        "selective_base_top_right_cv_text_0005:x_z_bias:font_m1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_bottom_left_ocr_text_0002::font_m1",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0067_selective_base_bottom_left_ocr_text_0002_scheduling_font_m1.drawio",
+      "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0067_selective_base_bottom_left_ocr_text_0002_scheduling_font_m1.vp_program.json",
+      "actions": [
+        "selective_base_bottom_left_ocr_text_0002:scheduling:font_m1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "rotated_ocr_text_0006::font_m1",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0068_rotated_ocr_text_0006_soundness_hrrc_font_m1.drawio",
+      "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0068_rotated_ocr_text_0006_soundness_hrrc_font_m1.vp_program.json",
+      "actions": [
+        "rotated_ocr_text_0006:soundness_hrrc:font_m1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_bottom_right_text_0118::font_m1",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0069_selective_base_bottom_right_text_0118_soundness_font_m1.drawio",
+      "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0069_selective_base_bottom_right_text_0118_soundness_font_m1.vp_program.json",
+      "actions": [
+        "selective_base_bottom_right_text_0118:soundness:font_m1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_bottom_right_text_0117::font_m1",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0070_selective_base_bottom_right_text_0117_input_metrocs_font_m1.drawio",
+      "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0070_selective_base_bottom_right_text_0117_input_metrocs_font_m1.vp_program.json",
+      "actions": [
+        "selective_base_bottom_right_text_0117:input_metrocs:font_m1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_top_right_text_0041::font_m1",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0071_selective_base_top_right_text_0041_rl_policy_font_m1.drawio",
+      "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0071_selective_base_top_right_text_0041_rl_policy_font_m1.vp_program.json",
+      "actions": [
+        "selective_base_top_right_text_0041:rl_policy:font_m1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_bottom_left_text_0086::font_m1",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0072_selective_base_bottom_left_text_0086_cv_primitives_font_m1.drawio",
+      "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0072_selective_base_bottom_left_text_0086_cv_primitives_font_m1.vp_program.json",
+      "actions": [
+        "selective_base_bottom_left_text_0086:cv_primitives:font_m1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_top_left_text_0006::font_m1",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0073_selective_base_top_left_text_0006_full_zx_calculus_font_m1.drawio",
+      "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0073_selective_base_top_left_text_0006_full_zx_calculus_font_m1.vp_program.json",
+      "actions": [
+        "selective_base_top_left_text_0006:full_zx_calculus:font_m1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_top_left_text_0004::font_m1",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0074_selective_base_top_left_text_0004_vt_team_font_m1.drawio",
+      "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0074_selective_base_top_left_text_0004_vt_team_font_m1.vp_program.json",
+      "actions": [
+        "selective_base_top_left_text_0004:vt_team:font_m1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_bottom_right_text_0067::font_m1",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0075_selective_base_bottom_right_text_0067_input_workloads_font_m1.drawio",
+      "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0075_selective_base_bottom_right_text_0067_input_workloads_font_m1.vp_program.json",
+      "actions": [
+        "selective_base_bottom_right_text_0067:input_workloads:font_m1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_bottom_left_text_0102::font_p2",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0076_selective_base_bottom_left_text_0102_gauge_font_p2.drawio",
+      "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0076_selective_base_bottom_left_text_0102_gauge_font_p2.vp_program.json",
+      "actions": [
+        "selective_base_bottom_left_text_0102:gauge:font_p2"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_top_left_text_0063::font_p2",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0077_selective_base_top_left_text_0063_4_6_font_p2.drawio",
+      "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0077_selective_base_top_left_text_0063_4_6_font_p2.vp_program.json",
+      "actions": [
+        "selective_base_top_left_text_0063:4_6:font_p2"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_bottom_left_ocr_text_0008::font_p2",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0078_selective_base_bottom_left_ocr_text_0008_fast_track_font_p2.drawio",
+      "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0078_selective_base_bottom_left_ocr_text_0008_fast_track_font_p2.vp_program.json",
+      "actions": [
+        "selective_base_bottom_left_ocr_text_0008:fast_track:font_p2"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_bottom_left_text_0096::font_p2",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0079_selective_base_bottom_left_text_0096_interfero_font_p2.drawio",
+      "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0079_selective_base_bottom_left_text_0096_interfero_font_p2.vp_program.json",
+      "actions": [
+        "selective_base_bottom_left_text_0096:interfero:font_p2"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_bottom_right_text_0108::font_p2",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0080_selective_base_bottom_right_text_0108_diffusion_font_p2.drawio",
+      "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0080_selective_base_bottom_right_text_0108_diffusion_font_p2.vp_program.json",
+      "actions": [
+        "selective_base_bottom_right_text_0108:diffusion:font_p2"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_bottom_left_text_0072::font_p2",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0081_selective_base_bottom_left_text_0072_hardware_font_p2.drawio",
+      "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0081_selective_base_bottom_left_text_0072_hardware_font_p2.vp_program.json",
+      "actions": [
+        "selective_base_bottom_left_text_0072:hardware:font_p2"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_top_left_text_0036::font_p2",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0082_selective_base_top_left_text_0036_exploitation_font_p2.drawio",
+      "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0082_selective_base_top_left_text_0036_exploitation_font_p2.vp_program.json",
+      "actions": [
+        "selective_base_top_left_text_0036:exploitation:font_p2"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_top_right_text_0043::font_p2",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0083_selective_base_top_right_text_0043_atom_ion_trap_font_p2.drawio",
+      "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0083_selective_base_top_right_text_0043_atom_ion_trap_font_p2.vp_program.json",
+      "actions": [
+        "selective_base_top_right_text_0043:atom_ion_trap:font_p2"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_bottom_right_cv_text_0003::font_p2",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0084_selective_base_bottom_right_cv_text_0003_benchmarking_font_p2.drawio",
+      "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0084_selective_base_bottom_right_cv_text_0003_benchmarking_font_p2.vp_program.json",
+      "actions": [
+        "selective_base_bottom_right_cv_text_0003:benchmarking:font_p2"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_top_left_text_0009::font_p2",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0085_selective_base_top_left_text_0009_assembled_colored_code_font_p2.drawio",
+      "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0085_selective_base_top_left_text_0009_assembled_colored_code_font_p2.vp_program.json",
+      "actions": [
+        "selective_base_top_left_text_0009:assembled_colored_code:font_p2"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_bottom_left_text_0069::font_p2",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0086_selective_base_bottom_left_text_0069_qft_font_p2.drawio",
+      "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0086_selective_base_bottom_left_text_0069_qft_font_p2.vp_program.json",
+      "actions": [
+        "selective_base_bottom_left_text_0069:qft:font_p2"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_bottom_right_text_0099::font_p2",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0087_selective_base_bottom_right_text_0099_rl_circuit_font_p2.drawio",
+      "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0087_selective_base_bottom_right_text_0099_rl_circuit_font_p2.vp_program.json",
+      "actions": [
+        "selective_base_bottom_right_text_0099:rl_circuit:font_p2"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_top_right_text_0045::font_p2",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0088_selective_base_top_right_text_0045_trotter_font_p2.drawio",
+      "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0088_selective_base_top_right_text_0045_trotter_font_p2.vp_program.json",
+      "actions": [
+        "selective_base_top_right_text_0045:trotter:font_p2"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_top_right_text_0056::font_p2",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0089_selective_base_top_right_text_0056_pipeline_font_p2.drawio",
+      "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0089_selective_base_top_right_text_0056_pipeline_font_p2.vp_program.json",
+      "actions": [
+        "selective_base_top_right_text_0056:pipeline:font_p2"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_top_left_text_0031::font_p2",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0090_selective_base_top_left_text_0031_rl_based_font_p2.drawio",
+      "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0090_selective_base_top_left_text_0031_rl_based_font_p2.vp_program.json",
+      "actions": [
+        "selective_base_top_left_text_0031:rl_based:font_p2"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_top_right_cv_text_0005::font_p2",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0091_selective_base_top_right_cv_text_0005_x_z_bias_font_p2.drawio",
+      "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0091_selective_base_top_right_cv_text_0005_x_z_bias_font_p2.vp_program.json",
+      "actions": [
+        "selective_base_top_right_cv_text_0005:x_z_bias:font_p2"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_bottom_left_ocr_text_0002::font_p2",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0092_selective_base_bottom_left_ocr_text_0002_scheduling_font_p2.drawio",
+      "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0092_selective_base_bottom_left_ocr_text_0002_scheduling_font_p2.vp_program.json",
+      "actions": [
+        "selective_base_bottom_left_ocr_text_0002:scheduling:font_p2"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "rotated_ocr_text_0006::font_p2",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0093_rotated_ocr_text_0006_soundness_hrrc_font_p2.drawio",
+      "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0093_rotated_ocr_text_0006_soundness_hrrc_font_p2.vp_program.json",
+      "actions": [
+        "rotated_ocr_text_0006:soundness_hrrc:font_p2"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_bottom_right_text_0118::font_p2",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0094_selective_base_bottom_right_text_0118_soundness_font_p2.drawio",
+      "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0094_selective_base_bottom_right_text_0118_soundness_font_p2.vp_program.json",
+      "actions": [
+        "selective_base_bottom_right_text_0118:soundness:font_p2"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_bottom_right_text_0117::font_p2",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0095_selective_base_bottom_right_text_0117_input_metrocs_font_p2.drawio",
+      "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0095_selective_base_bottom_right_text_0117_input_metrocs_font_p2.vp_program.json",
+      "actions": [
+        "selective_base_bottom_right_text_0117:input_metrocs:font_p2"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_top_right_text_0041::font_p2",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0096_selective_base_top_right_text_0041_rl_policy_font_p2.drawio",
+      "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0096_selective_base_top_right_text_0041_rl_policy_font_p2.vp_program.json",
+      "actions": [
+        "selective_base_top_right_text_0041:rl_policy:font_p2"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_bottom_left_text_0086::font_p2",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0097_selective_base_bottom_left_text_0086_cv_primitives_font_p2.drawio",
+      "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0097_selective_base_bottom_left_text_0086_cv_primitives_font_p2.vp_program.json",
+      "actions": [
+        "selective_base_bottom_left_text_0086:cv_primitives:font_p2"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_top_left_text_0006::font_p2",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0098_selective_base_top_left_text_0006_full_zx_calculus_font_p2.drawio",
+      "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0098_selective_base_top_left_text_0006_full_zx_calculus_font_p2.vp_program.json",
+      "actions": [
+        "selective_base_top_left_text_0006:full_zx_calculus:font_p2"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_top_left_text_0004::font_p2",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0099_selective_base_top_left_text_0004_vt_team_font_p2.drawio",
+      "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0099_selective_base_top_left_text_0004_vt_team_font_p2.vp_program.json",
+      "actions": [
+        "selective_base_top_left_text_0004:vt_team:font_p2"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_bottom_right_text_0067::font_p2",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0100_selective_base_bottom_right_text_0067_input_workloads_font_p2.drawio",
+      "program": "outputs/visual_primitives/ccb_text_beam_v20_batch_style.s01_0100_selective_base_bottom_right_text_0067_input_workloads_font_p2.vp_program.json",
+      "actions": [
+        "selective_base_bottom_right_text_0067:input_workloads:font_p2"
+      ],
+      "metrics": null
+    }
+  ],
+  "cleanup": {
+    "deleted_files": 400,
+    "deleted_states": 100
+  }
+}
