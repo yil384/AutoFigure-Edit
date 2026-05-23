@@ -1,0 +1,22 @@
+[
+  {"kind": "shift", "dx": -0.5, "dy": 0.0},
+  {"kind": "shift", "dx": 0.5, "dy": 0.0},
+  {"kind": "shift", "dx": 0.0, "dy": -0.5},
+  {"kind": "shift", "dx": 0.0, "dy": 0.5},
+  {"kind": "shift", "dx": -1.0, "dy": 0.0},
+  {"kind": "shift", "dx": 1.0, "dy": 0.0},
+  {"kind": "shift", "dx": 0.0, "dy": -1.0},
+  {"kind": "shift", "dx": 0.0, "dy": 1.0},
+  {"kind": "shift", "dx": -1.5, "dy": 0.0},
+  {"kind": "shift", "dx": 1.5, "dy": 0.0},
+  {"kind": "shift", "dx": 0.0, "dy": -1.5},
+  {"kind": "shift", "dx": 0.0, "dy": 1.5},
+  {"kind": "box", "dw": -2.0, "dh": 0.0},
+  {"kind": "box", "dw": 2.0, "dh": 0.0},
+  {"kind": "box", "dw": 0.0, "dh": -1.0},
+  {"kind": "box", "dw": 0.0, "dh": 1.0},
+  {"kind": "box", "dw": -4.0, "dh": 0.0},
+  {"kind": "box", "dw": 4.0, "dh": 0.0},
+  {"kind": "box", "dw": 0.0, "dh": -2.0},
+  {"kind": "box", "dw": 0.0, "dh": 2.0}
+]
