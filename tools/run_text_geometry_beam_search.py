@@ -150,12 +150,14 @@ def main() -> None:
     all_generated: list[dict[str, Any]] = []
     cleanup_report = {"deleted_files": 0, "deleted_states": 0}
     seen_state_keys = {initial.key}
+    evaluated_candidates = 0
     for step in range(1, max(1, args.steps) + 1):
         generated: list[SearchState] = []
         successors: list[SearchState] = []
         pending_batch: list[SearchState] = []
 
         def flush_batch() -> None:
+            nonlocal evaluated_candidates
             if not pending_batch:
                 return
             batch = list(pending_batch)
@@ -177,6 +179,19 @@ def main() -> None:
                 batch_state.score = float(row.get("score") or -1e9)
                 if batch_state.score >= args.min_action_score:
                     successors.append(batch_state)
+            evaluated_candidates += len(batch)
+            batch_best = max(
+                [initial.score] + [item.score for item in successors],
+                default=initial.score,
+            )
+            print(json.dumps({
+                "event": "batch_evaluated",
+                "step": step,
+                "batch_size": len(batch),
+                "evaluated_candidates": evaluated_candidates,
+                "successors": len(successors),
+                "best_score_so_far": batch_best,
+            }), file=sys.stderr, flush=True)
             if args.cleanup_generated and args.eval_batch_size > 0:
                 protected = {item.key for item in beam}
                 protected.update(
