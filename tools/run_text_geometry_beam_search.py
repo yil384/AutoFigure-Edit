@@ -216,15 +216,18 @@ def main() -> None:
                 updated = copy.deepcopy(state.program)
                 primitive = _primitive_by_id(updated, action["primitive_id"])
                 if primitive is None:
-                    continue
-                if not _apply_op(primitive, action["op"]):
+                    if not _apply_program_op(updated, action["op"]):
+                        continue
+                elif not _apply_op(primitive, action["op"]):
                     continue
                 path_actions = state.actions + [action]
                 key = _state_key(path_actions)
                 if key in seen_state_keys:
                     continue
                 seen_state_keys.add(key)
-                primitive["source"] = str(primitive.get("source", "text")) + "+beam_text_geo"
+                primitive = _primitive_by_id(updated, action["primitive_id"])
+                if primitive is not None:
+                    primitive["source"] = str(primitive.get("source", "text")) + "+beam_text_geo"
                 tag = f"s{step:02d}_{len(generated) + 1:04d}_{_action_slug(path_actions)}"
                 drawio = Path(f"{base}.{tag}.drawio")
                 program_path = Path(f"{base}.{tag}.vp_program.json")
@@ -507,6 +510,19 @@ def _build_actions(
 ) -> list[dict[str, Any]]:
     actions = []
     for op_index, op in enumerate(ops):
+        if str(op.get("kind") or "") == "add_text":
+            text = str(op.get("text") or "")
+            add_id = str(op.get("id") or op.get("target_id") or f"add_text_{op_index:04d}")
+            actions.append({
+                "primitive_id": add_id,
+                "text": text,
+                "primitive_type": "text",
+                "candidate_index": -1,
+                "op_index": op_index,
+                "op": op,
+                "key": f"{add_id}::{_op_name(op)}",
+            })
+            continue
         for candidate_index, candidate in enumerate(candidates):
             if not _op_compatible(candidate, op):
                 continue
@@ -525,8 +541,22 @@ def _build_actions(
 def _op_compatible(candidate: dict[str, Any], op: dict[str, Any]) -> bool:
     primitive_type = str(candidate.get("primitive_type") or "")
     kind = str(op.get("kind") or "")
+    if kind == "add_text":
+        return False
+    target_id = op.get("target_id")
+    if target_id and str(candidate.get("primitive_id")) != str(target_id):
+        return False
+    target_ids = {str(item) for item in (op.get("target_ids") or [])}
+    if target_ids and str(candidate.get("primitive_id")) not in target_ids:
+        return False
     if primitive_type != "text" and kind in {"font", "bold"}:
         return False
+    if primitive_type != "text" and kind in {"replace_text", "text"}:
+        return False
+    if kind in {"replace_text", "text"}:
+        before = str(op.get("from") or "")
+        if before and _norm_token(candidate.get("text")) != _norm_token(before):
+            return False
     if primitive_type == "edge" and kind == "box":
         return False
     return True
@@ -552,6 +582,60 @@ def _primitive_by_id(program: dict[str, Any], primitive_id: str) -> dict[str, An
         if primitive.get("id") == primitive_id:
             return primitive
     return None
+
+
+def _apply_program_op(program: dict[str, Any], op: dict[str, Any]) -> bool:
+    kind = str(op.get("kind") or "")
+    if kind != "add_text":
+        return False
+    text = str(op.get("text") or "").strip()
+    bbox = op.get("bbox")
+    if not text or not bbox or len(bbox) != 4:
+        return False
+    primitives = program.setdefault("primitives", [])
+    primitive_id = str(op.get("id") or op.get("target_id") or _next_primitive_id(primitives, "beam_text_add"))
+    if _primitive_by_id(program, primitive_id) is not None:
+        return False
+    primitive = {
+        "id": primitive_id,
+        "type": "text",
+        "role": str(op.get("role") or "label"),
+        "bbox": [_round(float(value)) for value in bbox],
+        "text": text,
+        "style": {
+            "font_size": int(op.get("font_size") or 8),
+            "bold": bool(op.get("bold")),
+            "align": str(op.get("align") or "center"),
+        },
+        "source": "beam_text_add",
+        "confidence": op.get("confidence"),
+    }
+    if op.get("rotation") is not None:
+        primitive["style"]["rotation"] = float(op.get("rotation"))
+    primitives.append(primitive)
+    _refresh_counts(program)
+    return True
+
+
+def _next_primitive_id(primitives: list[dict[str, Any]], prefix: str) -> str:
+    existing = {str(primitive.get("id")) for primitive in primitives}
+    index = 1
+    while True:
+        candidate = f"{prefix}_{index:04d}"
+        if candidate not in existing:
+            return candidate
+        index += 1
+
+
+def _refresh_counts(program: dict[str, Any]) -> None:
+    primitives = program.get("primitives", [])
+    program["counts"] = {
+        "regions": sum(1 for p in primitives if p.get("type") == "region"),
+        "texts": sum(1 for p in primitives if p.get("type") == "text"),
+        "edges": sum(1 for p in primitives if p.get("type") == "edge"),
+        "shapes": sum(1 for p in primitives if p.get("type") == "shape"),
+        "total": len(primitives),
+    }
 
 
 def _shift_path(path: Any, dx: float, dy: float) -> list[list[float]]:
@@ -601,6 +685,20 @@ def _apply_op(primitive: dict[str, Any], op: dict[str, Any]) -> bool:
         if before == after:
             return False
         style["bold"] = after
+        return True
+    if kind in {"replace_text", "text"}:
+        updated_text = str(op.get("text") or op.get("value") or op.get("to") or "")
+        if not updated_text:
+            return False
+        current_text = str(primitive.get("text") or "")
+        if current_text == updated_text:
+            return False
+        primitive["text"] = updated_text
+        style = primitive.setdefault("style", {})
+        if op.get("font_size") is not None:
+            style["font_size"] = int(op.get("font_size"))
+        if op.get("bold") is not None:
+            style["bold"] = bool(op.get("bold"))
         return True
     if kind == "box":
         if primitive.get("path"):
@@ -715,6 +813,10 @@ def _op_name(op: dict[str, Any]) -> str:
         return f"font_{int(op.get('delta') or 0):+d}".replace("+", "p").replace("-", "m")
     if kind == "bold":
         return f"bold_{int(bool(op.get('value')))}"
+    if kind in {"replace_text", "text"}:
+        return f"text_{_safe_name(str(op.get('text') or op.get('value') or op.get('to') or ''))[:48]}"
+    if kind == "add_text":
+        return f"add_text_{_safe_name(str(op.get('text') or ''))[:48]}"
     if kind == "box":
         return f"box_{float(op.get('dw') or 0):g}_{float(op.get('dh') or 0):g}".replace("-", "m")
     return _safe_name(kind)

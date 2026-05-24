@@ -1,0 +1,67 @@
+[
+  {
+    "kind": "replace_text",
+    "target_id": "selective_base_bottom_right_text_0117",
+    "text": "Input Metrics"
+  },
+  {
+    "kind": "replace_text",
+    "target_id": "selective_base_bottom_right_text_0115",
+    "text": "Physical-Qubit Brand"
+  },
+  {
+    "kind": "replace_text",
+    "target_id": "selective_base_bottom_right_text_0107",
+    "text": "ZX-FT Protocol Synthesis"
+  },
+  {
+    "kind": "replace_text",
+    "target_id": "selective_base_bottom_right_text_0099",
+    "text": "RL Circuit Token"
+  },
+  {
+    "kind": "replace_text",
+    "target_id": "selective_base_bottom_right_text_0087",
+    "text": "Qiskit+Surface Code"
+  },
+  {
+    "kind": "replace_text",
+    "target_id": "selective_base_bottom_right_text_0103",
+    "text": "Graph Diffusion"
+  },
+  {
+    "kind": "replace_text",
+    "target_id": "selective_base_bottom_right_text_0110",
+    "text": "Graph Diffusion Model"
+  },
+  {
+    "kind": "replace_text",
+    "target_id": "selective_base_bottom_right_text_0111",
+    "text": "PyZX+Hand Layout"
+  },
+  {
+    "kind": "replace_text",
+    "target_id": "selective_base_bottom_left_text_0078",
+    "text": "Physics-Informed Agent"
+  },
+  {
+    "kind": "replace_text",
+    "target_id": "selective_base_bottom_left_text_0072",
+    "text": "Hardware Agent"
+  },
+  {
+    "kind": "replace_text",
+    "target_id": "selective_base_bottom_left_text_0075",
+    "text": "Verification Agent"
+  },
+  {
+    "kind": "replace_text",
+    "target_id": "selective_base_bottom_left_text_0112",
+    "text": "Model Distillation"
+  },
+  {
+    "kind": "replace_text",
+    "target_id": "selective_base_bottom_left_text_0083",
+    "text": "Select Truncation"
+  }
+]

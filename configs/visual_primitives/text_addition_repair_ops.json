@@ -1,0 +1,47 @@
+[
+  {
+    "kind": "add_text",
+    "id": "beam_add_bottom_right_zx_ft_protocol",
+    "text": "2X-FT Protocol",
+    "bbox": [1007.667, 593.0, 1089.0, 603.0],
+    "font_size": 8,
+    "bold": true,
+    "confidence": 0.77
+  },
+  {
+    "kind": "add_text",
+    "id": "beam_add_bottom_left_verification",
+    "text": "Verification",
+    "bbox": [486.0, 445.0, 553.0, 461.667],
+    "font_size": 12,
+    "bold": true,
+    "confidence": 0.96
+  },
+  {
+    "kind": "add_text",
+    "id": "beam_add_bottom_left_distillation",
+    "text": "Distillation",
+    "bbox": [286.0, 684.0, 347.0, 694.333],
+    "font_size": 8,
+    "bold": true,
+    "confidence": 0.96
+  },
+  {
+    "kind": "add_text",
+    "id": "beam_add_bottom_left_gadgets",
+    "text": "Gadgets",
+    "bbox": [320.0, 593.667, 360.0, 604.667],
+    "font_size": 8,
+    "bold": false,
+    "confidence": 0.79
+  },
+  {
+    "kind": "add_text",
+    "id": "beam_add_top_left_validated_novel",
+    "text": "Validated Novel",
+    "bbox": [566.0, 109.0, 657.333, 120.0],
+    "font_size": 8,
+    "bold": true,
+    "confidence": 0.96
+  }
+]

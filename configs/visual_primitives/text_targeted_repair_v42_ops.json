@@ -1,0 +1,74 @@
+[
+  {
+    "kind": "add_text",
+    "target_id": "beam_add_bottom_left_physics_informed",
+    "text": "Physics-Informed",
+    "bbox": [132.0, 440.0, 246.0, 457.0],
+    "font_size": 10,
+    "bold": true,
+    "confidence": 0.86
+  },
+  {
+    "kind": "add_text",
+    "target_id": "beam_add_bottom_left_hardware",
+    "text": "Hardware",
+    "bbox": [393.0, 440.0, 466.0, 457.0],
+    "font_size": 11,
+    "bold": true,
+    "confidence": 0.82
+  },
+  {
+    "kind": "add_text",
+    "target_id": "beam_add_bottom_left_verification_title",
+    "text": "Verification",
+    "bbox": [484.0, 440.0, 556.0, 457.0],
+    "font_size": 11,
+    "bold": true,
+    "confidence": 0.86
+  },
+  {
+    "kind": "add_text",
+    "target_id": "beam_add_bottom_right_benchmarking",
+    "text": "Benchmarking",
+    "bbox": [1120.0, 416.0, 1218.0, 434.0],
+    "font_size": 11,
+    "bold": true,
+    "confidence": 0.86
+  },
+  {
+    "kind": "add_text",
+    "target_id": "beam_add_bottom_right_zx_ft_protocol_v2",
+    "text": "ZX-FT Protocol",
+    "bbox": [1010.0, 590.0, 1094.0, 606.0],
+    "font_size": 8,
+    "bold": true,
+    "confidence": 0.82
+  },
+  {
+    "kind": "add_text",
+    "target_id": "beam_add_bottom_right_rl_circuit_token",
+    "text": "RL Circuit Token",
+    "bbox": [1136.0, 577.0, 1220.0, 594.0],
+    "font_size": 8,
+    "bold": true,
+    "confidence": 0.78
+  },
+  {
+    "kind": "add_text",
+    "target_id": "beam_add_bottom_right_graph_diffusion",
+    "text": "Graph Diffusion",
+    "bbox": [807.0, 592.0, 873.0, 609.0],
+    "font_size": 8,
+    "bold": true,
+    "confidence": 0.78
+  },
+  {
+    "kind": "add_text",
+    "target_id": "beam_add_top_right_fast_feedback",
+    "text": "Fast Feedback",
+    "bbox": [997.0, 289.0, 1088.0, 305.0],
+    "font_size": 8,
+    "bold": true,
+    "confidence": 0.74
+  }
+]
