@@ -1,0 +1,531 @@
+{
+  "source_image": "uploads/ccb48c0276204b17ba8d7e3474ea19ad.jpg",
+  "winner": "artifacts/visual_primitives/ccb_v44/ccb_pure_native_current_best.drawio",
+  "tile_winners": {
+    "top_left": {
+      "drawio": "artifacts/visual_primitives/ccb_v44/ccb_pure_native_current_best.drawio",
+      "score": 0.789365,
+      "edge_f1": 0.7395,
+      "edge_precision": 0.8312,
+      "ocr_f1": 0.8,
+      "ocr_precision": 0.8636,
+      "ocr_semantic_f1": 0.8,
+      "ocr_semantic_precision": 0.8636,
+      "changed_pixel_ratio_t30": 0.181629,
+      "pure": true
+    },
+    "top_right": {
+      "drawio": "artifacts/visual_primitives/ccb_v44/ccb_pure_native_current_best.drawio",
+      "score": 0.842878,
+      "edge_f1": 0.78,
+      "edge_precision": 0.8496,
+      "ocr_f1": 0.8687,
+      "ocr_precision": 0.9149,
+      "ocr_semantic_f1": 0.8687,
+      "ocr_semantic_precision": 0.9149,
+      "changed_pixel_ratio_t30": 0.148661,
+      "pure": true
+    },
+    "bottom_left": {
+      "drawio": "artifacts/visual_primitives/ccb_v44/ccb_pure_native_current_best.drawio",
+      "score": 0.757468,
+      "edge_f1": 0.7313,
+      "edge_precision": 0.8071,
+      "ocr_f1": 0.7333,
+      "ocr_precision": 0.8148,
+      "ocr_semantic_f1": 0.7333,
+      "ocr_semantic_precision": 0.8148,
+      "changed_pixel_ratio_t30": 0.164221,
+      "pure": true
+    },
+    "bottom_right": {
+      "drawio": "artifacts/visual_primitives/ccb_v44/ccb_pure_native_current_best.drawio",
+      "score": 0.780726,
+      "edge_f1": 0.7534,
+      "edge_precision": 0.8413,
+      "ocr_f1": 0.6585,
+      "ocr_precision": 0.7941,
+      "ocr_semantic_f1": 0.7317,
+      "ocr_semantic_precision": 0.8824,
+      "changed_pixel_ratio_t30": 0.160557,
+      "pure": true
+    }
+  },
+  "panel_regions": [],
+  "panel_winners": {},
+  "variants": [
+    {
+      "drawio": "artifacts/visual_primitives/ccb_v44/ccb_pure_native_current_best.drawio",
+      "rendered_png": "artifacts/visual_primitives/ccb_v44/ccb_pure_native_current_best.drawio.png",
+      "compare_png": "artifacts/visual_primitives/ccb_v44/ccb_pure_native_current_best.drawio.compare.png",
+      "native_purity": {
+        "ok": true,
+        "forbidden_hits": [],
+        "forbidden_tokens": [
+          "shape=image",
+          "data:image",
+          "<image",
+          "base64",
+          "shape=stencil",
+          "stencil("
+        ]
+      },
+      "export": {
+        "ok": true,
+        "returncode": 0,
+        "stdout": "artifacts/visual_primitives/ccb_v44/ccb_pure_native_current_best.drawio -> artifacts/visual_primitives/ccb_v44/ccb_pure_native_current_best.drawio.png",
+        "stderr": "[68369:0524/130007.367648:ERROR:base/process/process_mac.cc:53] task_policy_set TASK_CATEGORY_POLICY: (os/kern) invalid argument (4)\n[68369:0524/130007.367720:ERROR:base/process/process_mac.cc:98] task_policy_set TASK_SUPPRESSION_POLICY: (os/kern) invalid argument (4)",
+        "command": [
+          "/Applications/draw.io.app/Contents/MacOS/draw.io",
+          "-x",
+          "-f",
+          "png",
+          "-e",
+          "-b",
+          "0",
+          "-o",
+          "artifacts/visual_primitives/ccb_v44/ccb_pure_native_current_best.drawio.png",
+          "artifacts/visual_primitives/ccb_v44/ccb_pure_native_current_best.drawio"
+        ],
+        "attempts": [
+          {
+            "attempt": 1,
+            "ok": true,
+            "returncode": 0,
+            "stdout": "artifacts/visual_primitives/ccb_v44/ccb_pure_native_current_best.drawio -> artifacts/visual_primitives/ccb_v44/ccb_pure_native_current_best.drawio.png",
+            "stderr": "[68369:0524/130007.367648:ERROR:base/process/process_mac.cc:53] task_policy_set TASK_CATEGORY_POLICY: (os/kern) invalid argument (4)\n[68369:0524/130007.367720:ERROR:base/process/process_mac.cc:98] task_policy_set TASK_SUPPRESSION_POLICY: (os/kern) invalid argument (4)"
+          }
+        ]
+      },
+      "metrics": {
+        "canvas": {
+          "width": 1376,
+          "height": 768
+        },
+        "pixel_mae": 20.8628,
+        "changed_pixel_ratio_t30": 0.163767,
+        "edge": {
+          "precision": 0.8324,
+          "recall": 0.684,
+          "f1": 0.7509,
+          "reference_edges": 108354,
+          "rendered_edges": 88927
+        },
+        "ocr": {
+          "available": true,
+          "reference_token_count": 167,
+          "rendered_token_count": 135,
+          "overlap_count": 128,
+          "precision": 0.9481,
+          "recall": 0.7665,
+          "f1": 0.8477,
+          "missing_sample": [
+            "-3",
+            "1-9",
+            "22",
+            "23",
+            "2x-calculus",
+            "4-6",
+            "4s",
+            "assembled",
+            "atom/ion",
+            "atom/lrap",
+            "ba",
+            "bb",
+            "bloch",
+            "diffusion",
+            "drand",
+            "ee",
+            "fast-track",
+            "formed",
+            "gauge",
+            "ge",
+            "hardware",
+            "ina",
+            "interfero-",
+            "lation",
+            "llm4rl",
+            "metrocs",
+            "noi",
+            "non-",
+            "og",
+            "physica"
+          ],
+          "extra_sample": [
+            "13",
+            "2x",
+            "79",
+            "brand",
+            "conn",
+            "erative",
+            "filter"
+          ],
+          "semantic": {
+            "reference_token_count": 166,
+            "rendered_token_count": 135,
+            "overlap_count": 129,
+            "precision": 0.9556,
+            "recall": 0.7771,
+            "f1": 0.8571,
+            "missing_sample": [
+              "-3",
+              "1-9",
+              "22",
+              "23",
+              "2x-calculus",
+              "4-6",
+              "4s",
+              "assembled",
+              "atom/ion",
+              "atom/lrap",
+              "ba",
+              "bb",
+              "bloch",
+              "diffusion",
+              "ee",
+              "fast-track",
+              "formed",
+              "gauge",
+              "ge",
+              "hardware",
+              "ina",
+              "interfero-",
+              "lation",
+              "llm4rl",
+              "noi",
+              "non-",
+              "og",
+              "physica",
+              "physics-",
+              "prot"
+            ],
+            "extra_sample": [
+              "13",
+              "2x",
+              "79",
+              "conn",
+              "erative",
+              "filter"
+            ]
+          }
+        }
+      },
+      "tile_metrics": {
+        "top_left": {
+          "canvas": {
+            "width": 688,
+            "height": 384
+          },
+          "pixel_mae": 24.0841,
+          "changed_pixel_ratio_t30": 0.181629,
+          "edge": {
+            "precision": 0.8312,
+            "recall": 0.666,
+            "f1": 0.7395,
+            "reference_edges": 28509,
+            "rendered_edges": 22603
+          },
+          "ocr": {
+            "available": true,
+            "reference_token_count": 51,
+            "rendered_token_count": 44,
+            "overlap_count": 38,
+            "precision": 0.8636,
+            "recall": 0.7451,
+            "f1": 0.8,
+            "missing_sample": [
+              "-3",
+              "1-9",
+              "2x-calculus",
+              "4-6",
+              "ae",
+              "assembled",
+              "families",
+              "gnn",
+              "llm-driven",
+              "rl-based",
+              "ry",
+              "team",
+              "vt"
+            ],
+            "extra_sample": [
+              "0d",
+              "13",
+              "4",
+              "79",
+              "conn",
+              "filter"
+            ],
+            "semantic": {
+              "reference_token_count": 51,
+              "rendered_token_count": 44,
+              "overlap_count": 38,
+              "precision": 0.8636,
+              "recall": 0.7451,
+              "f1": 0.8,
+              "missing_sample": [
+                "-3",
+                "1-9",
+                "2x-calculus",
+                "4-6",
+                "ae",
+                "assembled",
+                "families",
+                "gnn",
+                "llm-driven",
+                "rl-based",
+                "ry",
+                "team",
+                "vt"
+              ],
+              "extra_sample": [
+                "0d",
+                "13",
+                "4",
+                "79",
+                "conn",
+                "filter"
+              ]
+            }
+          }
+        },
+        "top_right": {
+          "canvas": {
+            "width": 688,
+            "height": 384
+          },
+          "pixel_mae": 19.5964,
+          "changed_pixel_ratio_t30": 0.148661,
+          "edge": {
+            "precision": 0.8496,
+            "recall": 0.721,
+            "f1": 0.78,
+            "reference_edges": 26164,
+            "rendered_edges": 22436
+          },
+          "ocr": {
+            "available": true,
+            "reference_token_count": 52,
+            "rendered_token_count": 47,
+            "overlap_count": 43,
+            "precision": 0.9149,
+            "recall": 0.8269,
+            "f1": 0.8687,
+            "missing_sample": [
+              "atom/ion",
+              "dx",
+              "dz",
+              "iterative",
+              "llm4rl",
+              "targets",
+              "to",
+              "trotter",
+              "ye"
+            ],
+            "extra_sample": [
+              "3",
+              "bias",
+              "erative",
+              "x/z"
+            ],
+            "semantic": {
+              "reference_token_count": 52,
+              "rendered_token_count": 47,
+              "overlap_count": 43,
+              "precision": 0.9149,
+              "recall": 0.8269,
+              "f1": 0.8687,
+              "missing_sample": [
+                "atom/ion",
+                "dx",
+                "dz",
+                "iterative",
+                "llm4rl",
+                "targets",
+                "to",
+                "trotter",
+                "ye"
+              ],
+              "extra_sample": [
+                "3",
+                "bias",
+                "erative",
+                "x/z"
+              ]
+            }
+          }
+        },
+        "bottom_left": {
+          "canvas": {
+            "width": 688,
+            "height": 384
+          },
+          "pixel_mae": 19.8291,
+          "changed_pixel_ratio_t30": 0.164221,
+          "edge": {
+            "precision": 0.8071,
+            "recall": 0.6685,
+            "f1": 0.7313,
+            "reference_edges": 26387,
+            "rendered_edges": 22034
+          },
+          "ocr": {
+            "available": true,
+            "reference_token_count": 33,
+            "rendered_token_count": 27,
+            "overlap_count": 22,
+            "precision": 0.8148,
+            "recall": 0.6667,
+            "f1": 0.7333,
+            "missing_sample": [
+              "4s",
+              "distillation",
+              "families",
+              "fast-track",
+              "hardware",
+              "interfero-",
+              "og",
+              "oo",
+              "pe",
+              "physics-informed",
+              "verificat"
+            ],
+            "extra_sample": [
+              "feedback",
+              "la",
+              "qft",
+              "sub-unitaries",
+              "test"
+            ],
+            "semantic": {
+              "reference_token_count": 33,
+              "rendered_token_count": 27,
+              "overlap_count": 22,
+              "precision": 0.8148,
+              "recall": 0.6667,
+              "f1": 0.7333,
+              "missing_sample": [
+                "4s",
+                "distillation",
+                "families",
+                "fast-track",
+                "hardware",
+                "interfero-",
+                "og",
+                "oo",
+                "pe",
+                "physics-informed",
+                "verificat"
+              ],
+              "extra_sample": [
+                "feedback",
+                "la",
+                "qft",
+                "sub-unitaries",
+                "test"
+              ]
+            }
+          }
+        },
+        "bottom_right": {
+          "canvas": {
+            "width": 688,
+            "height": 384
+          },
+          "pixel_mae": 19.9417,
+          "changed_pixel_ratio_t30": 0.160557,
+          "edge": {
+            "precision": 0.8413,
+            "recall": 0.6822,
+            "f1": 0.7534,
+            "reference_edges": 27294,
+            "rendered_edges": 21854
+          },
+          "ocr": {
+            "available": true,
+            "reference_token_count": 48,
+            "rendered_token_count": 34,
+            "overlap_count": 27,
+            "precision": 0.7941,
+            "recall": 0.5625,
+            "f1": 0.6585,
+            "missing_sample": [
+              "+5",
+              "22",
+              "2x-ft",
+              "5",
+              "8",
+              "ale",
+              "benchmarking",
+              "circuit",
+              "code",
+              "diffusion",
+              "drand",
+              "ge",
+              "i+",
+              "le",
+              "metrocs",
+              "od",
+              "of",
+              "protocol",
+              "rl",
+              "we",
+              "wr"
+            ],
+            "extra_sample": [
+              "2x",
+              "9",
+              "be",
+              "bencnmarking",
+              "brand",
+              "diagram",
+              "metrics"
+            ],
+            "semantic": {
+              "reference_token_count": 48,
+              "rendered_token_count": 34,
+              "overlap_count": 30,
+              "precision": 0.8824,
+              "recall": 0.625,
+              "f1": 0.7317,
+              "missing_sample": [
+                "+5",
+                "22",
+                "2x-ft",
+                "5",
+                "8",
+                "ale",
+                "circuit",
+                "code",
+                "diffusion",
+                "ge",
+                "i+",
+                "le",
+                "od",
+                "of",
+                "protocol",
+                "rl",
+                "we",
+                "wr"
+              ],
+              "extra_sample": [
+                "2x",
+                "9",
+                "be",
+                "diagram"
+              ]
+            }
+          }
+        }
+      },
+      "panel_metrics": null,
+      "compare": {
+        "ok": true,
+        "path": "artifacts/visual_primitives/ccb_v44/ccb_pure_native_current_best.drawio.compare.png",
+        "width": 2754,
+        "height": 771
+      },
+      "score": 0.8328
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "visual_diagnosis": [
+    {
+      "issue": "Bottom-right legend and labels contain OCR-confused text.",
+      "region": [805, 635, 1250, 705],
+      "primitive_ids": [
+        "selective_base_bottom_right_text_0111",
+        "selective_base_bottom_right_text_0115",
+        "selective_base_bottom_right_text_0117",
+        "rotated_ocr_text_0006"
+      ],
+      "severity": "medium"
+    }
+  ],
+  "patch_plan": [
+    {
+      "op": "update",
+      "target_ids": ["selective_base_bottom_right_text_0111"],
+      "updates": {
+        "text": "PyZX+Hand Layout",
+        "bbox": [1112.0, 640.5, 1232.0, 667.5],
+        "style": {
+          "font_size": 12,
+          "bold": true,
+          "align": "center"
+        }
+      }
+    },
+    {
+      "op": "update",
+      "target_ids": ["selective_base_bottom_right_text_0115"],
+      "updates": {
+        "text": "Physical-Qubit Brand",
+        "bbox": [982.0, 676.0, 1105.0, 699.0],
+        "style": {
+          "font_size": 10,
+          "bold": true,
+          "align": "center"
+        }
+      }
+    },
+    {
+      "op": "update",
+      "target_ids": ["selective_base_bottom_right_text_0117"],
+      "updates": {
+        "text": "Input Metrics",
+        "bbox": [814.0, 681.0, 913.0, 697.5],
+        "style": {
+          "font_size": 11,
+          "bold": true,
+          "align": "center"
+        }
+      }
+    },
+    {
+      "op": "update",
+      "target_ids": ["rotated_ocr_text_0006"],
+      "updates": {
+        "text": "Soundness hmc",
+        "bbox": [1221.65, 635.25, 1277.35, 659.75],
+        "style": {
+          "font_size": 11,
+          "bold": true,
+          "align": "center",
+          "rotation": 270.0
+        }
+      }
+    }
+  ]
+}
