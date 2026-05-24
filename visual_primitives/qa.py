@@ -383,6 +383,8 @@ def _semantic_ocr_token(token: str) -> str:
         "metrocs": "metrics",
         "hrrc": "hmc",
         "layout)": "layout",
+        "gage": "gauge",
+        "verificat": "verification",
         "bencnmarking": "benchmarking",
         "benenmarking": "benchmarking",
         "dittusion": "diffusion",
