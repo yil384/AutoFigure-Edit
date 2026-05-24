@@ -1,0 +1,844 @@
+{
+  "source_image": "uploads/ccb48c0276204b17ba8d7e3474ea19ad.jpg",
+  "winner": "outputs/visual_primitives/ccb_ai_title_v43_try1.op001_al_enabled_to_ai_enabled.drawio",
+  "tile_winners": {},
+  "panel_regions": [],
+  "panel_winners": {},
+  "variants": [
+    {
+      "drawio": "outputs/visual_primitives/ccb_ai_title_v43_try1.op001_al_enabled_to_ai_enabled.drawio",
+      "rendered_png": "outputs/visual_primitives/ccb_ai_title_v43_try1.op001_al_enabled_to_ai_enabled.drawio.png",
+      "compare_png": "outputs/visual_primitives/ccb_ai_title_v43_try1.op001_al_enabled_to_ai_enabled.drawio.compare.png",
+      "native_purity": {
+        "ok": true,
+        "forbidden_hits": [],
+        "forbidden_tokens": [
+          "shape=image",
+          "data:image",
+          "<image",
+          "base64",
+          "shape=stencil",
+          "stencil("
+        ]
+      },
+      "export": {
+        "ok": true,
+        "returncode": 0,
+        "stdout": "outputs/visual_primitives/ccb_ai_title_v43_try1.op001_al_enabled_to_ai_enabled.drawio -> outputs/visual_primitives/ccb_ai_title_v43_try1.op001_al_enabled_to_ai_enabled.drawio.png",
+        "stderr": "",
+        "command": [
+          "/Applications/draw.io.app/Contents/MacOS/draw.io",
+          "-x",
+          "-f",
+          "png",
+          "-e",
+          "-b",
+          "0",
+          "-o",
+          "outputs/visual_primitives/ccb_ai_title_v43_try1.op001_al_enabled_to_ai_enabled.drawio.png",
+          "outputs/visual_primitives/ccb_ai_title_v43_try1.op001_al_enabled_to_ai_enabled.drawio"
+        ],
+        "attempts": [
+          {
+            "attempt": 1,
+            "ok": true,
+            "returncode": 0,
+            "stdout": "outputs/visual_primitives/ccb_ai_title_v43_try1.op001_al_enabled_to_ai_enabled.drawio -> outputs/visual_primitives/ccb_ai_title_v43_try1.op001_al_enabled_to_ai_enabled.drawio.png",
+            "stderr": ""
+          }
+        ]
+      },
+      "metrics": {
+        "canvas": {
+          "width": 1376,
+          "height": 768
+        },
+        "pixel_mae": 20.8814,
+        "changed_pixel_ratio_t30": 0.163859,
+        "edge": {
+          "precision": 0.8326,
+          "recall": 0.6846,
+          "f1": 0.7514,
+          "reference_edges": 108354,
+          "rendered_edges": 89003
+        },
+        "ocr": {
+          "available": true,
+          "reference_token_count": 167,
+          "rendered_token_count": 138,
+          "overlap_count": 131,
+          "precision": 0.9493,
+          "recall": 0.7844,
+          "f1": 0.859,
+          "missing_sample": [
+            "-3",
+            "1-9",
+            "22",
+            "23",
+            "2x-calculus",
+            "4-6",
+            "4s",
+            "assembled",
+            "atom/ion",
+            "atom/lrap",
+            "ba",
+            "bb",
+            "bloch",
+            "diffusion",
+            "fast-track",
+            "formed",
+            "gauge",
+            "ge",
+            "hardware",
+            "ina",
+            "interfero-",
+            "lation",
+            "llm4rl",
+            "noi",
+            "non-",
+            "og",
+            "physica",
+            "physics-",
+            "prot",
+            "rl-based"
+          ],
+          "extra_sample": [
+            "13",
+            "2x",
+            "79",
+            "conn",
+            "erative",
+            "filter",
+            "physical-qubit"
+          ],
+          "semantic": {
+            "reference_token_count": 166,
+            "rendered_token_count": 137,
+            "overlap_count": 130,
+            "precision": 0.9489,
+            "recall": 0.7831,
+            "f1": 0.8581,
+            "missing_sample": [
+              "-3",
+              "1-9",
+              "22",
+              "23",
+              "2x-calculus",
+              "4-6",
+              "4s",
+              "assembled",
+              "atom/ion",
+              "atom/lrap",
+              "ba",
+              "bb",
+              "bloch",
+              "diffusion",
+              "fast-track",
+              "formed",
+              "gauge",
+              "ge",
+              "hardware",
+              "ina",
+              "interfero-",
+              "lation",
+              "llm4rl",
+              "noi",
+              "non-",
+              "og",
+              "physica",
+              "physics-",
+              "prot",
+              "rl-based"
+            ],
+            "extra_sample": [
+              "13",
+              "2x",
+              "79",
+              "conn",
+              "erative",
+              "filter",
+              "physical-qubit"
+            ]
+          }
+        }
+      },
+      "tile_metrics": null,
+      "panel_metrics": null,
+      "compare": {
+        "ok": true,
+        "path": "outputs/visual_primitives/ccb_ai_title_v43_try1.op001_al_enabled_to_ai_enabled.drawio.compare.png",
+        "width": 2754,
+        "height": 771
+      },
+      "score": 0.83264
+    },
+    {
+      "drawio": "outputs/visual_primitives/ccb_ai_title_v43_try1.op002_al_enhanced_to_ai_enhanced.drawio",
+      "rendered_png": "outputs/visual_primitives/ccb_ai_title_v43_try1.op002_al_enhanced_to_ai_enhanced.drawio.png",
+      "compare_png": "outputs/visual_primitives/ccb_ai_title_v43_try1.op002_al_enhanced_to_ai_enhanced.drawio.compare.png",
+      "native_purity": {
+        "ok": true,
+        "forbidden_hits": [],
+        "forbidden_tokens": [
+          "shape=image",
+          "data:image",
+          "<image",
+          "base64",
+          "shape=stencil",
+          "stencil("
+        ]
+      },
+      "export": {
+        "ok": true,
+        "returncode": 0,
+        "stdout": "outputs/visual_primitives/ccb_ai_title_v43_try1.op002_al_enhanced_to_ai_enhanced.drawio -> outputs/visual_primitives/ccb_ai_title_v43_try1.op002_al_enhanced_to_ai_enhanced.drawio.png",
+        "stderr": "",
+        "command": [
+          "/Applications/draw.io.app/Contents/MacOS/draw.io",
+          "-x",
+          "-f",
+          "png",
+          "-e",
+          "-b",
+          "0",
+          "-o",
+          "outputs/visual_primitives/ccb_ai_title_v43_try1.op002_al_enhanced_to_ai_enhanced.drawio.png",
+          "outputs/visual_primitives/ccb_ai_title_v43_try1.op002_al_enhanced_to_ai_enhanced.drawio"
+        ],
+        "attempts": [
+          {
+            "attempt": 1,
+            "ok": true,
+            "returncode": 0,
+            "stdout": "outputs/visual_primitives/ccb_ai_title_v43_try1.op002_al_enhanced_to_ai_enhanced.drawio -> outputs/visual_primitives/ccb_ai_title_v43_try1.op002_al_enhanced_to_ai_enhanced.drawio.png",
+            "stderr": ""
+          }
+        ]
+      },
+      "metrics": {
+        "canvas": {
+          "width": 1376,
+          "height": 768
+        },
+        "pixel_mae": 20.8815,
+        "changed_pixel_ratio_t30": 0.163859,
+        "edge": {
+          "precision": 0.8326,
+          "recall": 0.6846,
+          "f1": 0.7514,
+          "reference_edges": 108354,
+          "rendered_edges": 89005
+        },
+        "ocr": {
+          "available": true,
+          "reference_token_count": 167,
+          "rendered_token_count": 138,
+          "overlap_count": 131,
+          "precision": 0.9493,
+          "recall": 0.7844,
+          "f1": 0.859,
+          "missing_sample": [
+            "-3",
+            "1-9",
+            "22",
+            "23",
+            "2x-calculus",
+            "4-6",
+            "4s",
+            "assembled",
+            "atom/ion",
+            "atom/lrap",
+            "ba",
+            "bb",
+            "bloch",
+            "diffusion",
+            "fast-track",
+            "formed",
+            "gauge",
+            "ge",
+            "hardware",
+            "ina",
+            "interfero-",
+            "lation",
+            "llm4rl",
+            "noi",
+            "non-",
+            "og",
+            "physica",
+            "physics-",
+            "prot",
+            "rl-based"
+          ],
+          "extra_sample": [
+            "13",
+            "2x",
+            "79",
+            "conn",
+            "erative",
+            "filter",
+            "physical-qubit"
+          ],
+          "semantic": {
+            "reference_token_count": 166,
+            "rendered_token_count": 137,
+            "overlap_count": 130,
+            "precision": 0.9489,
+            "recall": 0.7831,
+            "f1": 0.8581,
+            "missing_sample": [
+              "-3",
+              "1-9",
+              "22",
+              "23",
+              "2x-calculus",
+              "4-6",
+              "4s",
+              "assembled",
+              "atom/ion",
+              "atom/lrap",
+              "ba",
+              "bb",
+              "bloch",
+              "diffusion",
+              "fast-track",
+              "formed",
+              "gauge",
+              "ge",
+              "hardware",
+              "ina",
+              "interfero-",
+              "lation",
+              "llm4rl",
+              "noi",
+              "non-",
+              "og",
+              "physica",
+              "physics-",
+              "prot",
+              "rl-based"
+            ],
+            "extra_sample": [
+              "13",
+              "2x",
+              "79",
+              "conn",
+              "erative",
+              "filter",
+              "physical-qubit"
+            ]
+          }
+        }
+      },
+      "tile_metrics": null,
+      "panel_metrics": null,
+      "compare": {
+        "ok": true,
+        "path": "outputs/visual_primitives/ccb_ai_title_v43_try1.op002_al_enhanced_to_ai_enhanced.drawio.compare.png",
+        "width": 2754,
+        "height": 771
+      },
+      "score": 0.83264
+    },
+    {
+      "drawio": "outputs/visual_primitives/ccb_ai_title_v43_try1.all_replacements.drawio",
+      "rendered_png": "outputs/visual_primitives/ccb_ai_title_v43_try1.all_replacements.drawio.png",
+      "compare_png": "outputs/visual_primitives/ccb_ai_title_v43_try1.all_replacements.drawio.compare.png",
+      "native_purity": {
+        "ok": true,
+        "forbidden_hits": [],
+        "forbidden_tokens": [
+          "shape=image",
+          "data:image",
+          "<image",
+          "base64",
+          "shape=stencil",
+          "stencil("
+        ]
+      },
+      "export": {
+        "ok": true,
+        "returncode": 0,
+        "stdout": "outputs/visual_primitives/ccb_ai_title_v43_try1.all_replacements.drawio -> outputs/visual_primitives/ccb_ai_title_v43_try1.all_replacements.drawio.png",
+        "stderr": "",
+        "command": [
+          "/Applications/draw.io.app/Contents/MacOS/draw.io",
+          "-x",
+          "-f",
+          "png",
+          "-e",
+          "-b",
+          "0",
+          "-o",
+          "outputs/visual_primitives/ccb_ai_title_v43_try1.all_replacements.drawio.png",
+          "outputs/visual_primitives/ccb_ai_title_v43_try1.all_replacements.drawio"
+        ],
+        "attempts": [
+          {
+            "attempt": 1,
+            "ok": true,
+            "returncode": 0,
+            "stdout": "outputs/visual_primitives/ccb_ai_title_v43_try1.all_replacements.drawio -> outputs/visual_primitives/ccb_ai_title_v43_try1.all_replacements.drawio.png",
+            "stderr": ""
+          }
+        ]
+      },
+      "metrics": {
+        "canvas": {
+          "width": 1376,
+          "height": 768
+        },
+        "pixel_mae": 20.8817,
+        "changed_pixel_ratio_t30": 0.163859,
+        "edge": {
+          "precision": 0.8326,
+          "recall": 0.6846,
+          "f1": 0.7514,
+          "reference_edges": 108354,
+          "rendered_edges": 89003
+        },
+        "ocr": {
+          "available": true,
+          "reference_token_count": 167,
+          "rendered_token_count": 138,
+          "overlap_count": 131,
+          "precision": 0.9493,
+          "recall": 0.7844,
+          "f1": 0.859,
+          "missing_sample": [
+            "-3",
+            "1-9",
+            "22",
+            "23",
+            "2x-calculus",
+            "4-6",
+            "4s",
+            "assembled",
+            "atom/ion",
+            "atom/lrap",
+            "ba",
+            "bb",
+            "bloch",
+            "diffusion",
+            "fast-track",
+            "formed",
+            "gauge",
+            "ge",
+            "hardware",
+            "ina",
+            "interfero-",
+            "lation",
+            "llm4rl",
+            "noi",
+            "non-",
+            "og",
+            "physica",
+            "physics-",
+            "prot",
+            "rl-based"
+          ],
+          "extra_sample": [
+            "13",
+            "2x",
+            "79",
+            "conn",
+            "erative",
+            "filter",
+            "physical-qubit"
+          ],
+          "semantic": {
+            "reference_token_count": 166,
+            "rendered_token_count": 137,
+            "overlap_count": 130,
+            "precision": 0.9489,
+            "recall": 0.7831,
+            "f1": 0.8581,
+            "missing_sample": [
+              "-3",
+              "1-9",
+              "22",
+              "23",
+              "2x-calculus",
+              "4-6",
+              "4s",
+              "assembled",
+              "atom/ion",
+              "atom/lrap",
+              "ba",
+              "bb",
+              "bloch",
+              "diffusion",
+              "fast-track",
+              "formed",
+              "gauge",
+              "ge",
+              "hardware",
+              "ina",
+              "interfero-",
+              "lation",
+              "llm4rl",
+              "noi",
+              "non-",
+              "og",
+              "physica",
+              "physics-",
+              "prot",
+              "rl-based"
+            ],
+            "extra_sample": [
+              "13",
+              "2x",
+              "79",
+              "conn",
+              "erative",
+              "filter",
+              "physical-qubit"
+            ]
+          }
+        }
+      },
+      "tile_metrics": null,
+      "panel_metrics": null,
+      "compare": {
+        "ok": true,
+        "path": "outputs/visual_primitives/ccb_ai_title_v43_try1.all_replacements.drawio.compare.png",
+        "width": 2754,
+        "height": 771
+      },
+      "score": 0.83264
+    },
+    {
+      "drawio": "artifacts/visual_primitives/ccb_v42/ccb_pure_native_current_best.drawio",
+      "rendered_png": "artifacts/visual_primitives/ccb_v42/ccb_pure_native_current_best.drawio.png",
+      "compare_png": "artifacts/visual_primitives/ccb_v42/ccb_pure_native_current_best.drawio.compare.png",
+      "native_purity": {
+        "ok": true,
+        "forbidden_hits": [],
+        "forbidden_tokens": [
+          "shape=image",
+          "data:image",
+          "<image",
+          "base64",
+          "shape=stencil",
+          "stencil("
+        ]
+      },
+      "export": {
+        "ok": true,
+        "returncode": 0,
+        "stdout": "artifacts/visual_primitives/ccb_v42/ccb_pure_native_current_best.drawio -> artifacts/visual_primitives/ccb_v42/ccb_pure_native_current_best.drawio.png",
+        "stderr": "",
+        "command": [
+          "/Applications/draw.io.app/Contents/MacOS/draw.io",
+          "-x",
+          "-f",
+          "png",
+          "-e",
+          "-b",
+          "0",
+          "-o",
+          "artifacts/visual_primitives/ccb_v42/ccb_pure_native_current_best.drawio.png",
+          "artifacts/visual_primitives/ccb_v42/ccb_pure_native_current_best.drawio"
+        ],
+        "attempts": [
+          {
+            "attempt": 1,
+            "ok": true,
+            "returncode": 0,
+            "stdout": "artifacts/visual_primitives/ccb_v42/ccb_pure_native_current_best.drawio -> artifacts/visual_primitives/ccb_v42/ccb_pure_native_current_best.drawio.png",
+            "stderr": ""
+          }
+        ]
+      },
+      "metrics": {
+        "canvas": {
+          "width": 1376,
+          "height": 768
+        },
+        "pixel_mae": 20.8813,
+        "changed_pixel_ratio_t30": 0.163858,
+        "edge": {
+          "precision": 0.8325,
+          "recall": 0.6846,
+          "f1": 0.7514,
+          "reference_edges": 108354,
+          "rendered_edges": 89004
+        },
+        "ocr": {
+          "available": true,
+          "reference_token_count": 167,
+          "rendered_token_count": 138,
+          "overlap_count": 131,
+          "precision": 0.9493,
+          "recall": 0.7844,
+          "f1": 0.859,
+          "missing_sample": [
+            "-3",
+            "1-9",
+            "22",
+            "23",
+            "2x-calculus",
+            "4-6",
+            "4s",
+            "assembled",
+            "atom/ion",
+            "atom/lrap",
+            "ba",
+            "bb",
+            "bloch",
+            "diffusion",
+            "fast-track",
+            "formed",
+            "gauge",
+            "ge",
+            "hardware",
+            "ina",
+            "interfero-",
+            "lation",
+            "llm4rl",
+            "noi",
+            "non-",
+            "og",
+            "physica",
+            "physics-",
+            "prot",
+            "rl-based"
+          ],
+          "extra_sample": [
+            "13",
+            "2x",
+            "79",
+            "conn",
+            "erative",
+            "filter",
+            "physical-qubit"
+          ],
+          "semantic": {
+            "reference_token_count": 166,
+            "rendered_token_count": 137,
+            "overlap_count": 130,
+            "precision": 0.9489,
+            "recall": 0.7831,
+            "f1": 0.8581,
+            "missing_sample": [
+              "-3",
+              "1-9",
+              "22",
+              "23",
+              "2x-calculus",
+              "4-6",
+              "4s",
+              "assembled",
+              "atom/ion",
+              "atom/lrap",
+              "ba",
+              "bb",
+              "bloch",
+              "diffusion",
+              "fast-track",
+              "formed",
+              "gauge",
+              "ge",
+              "hardware",
+              "ina",
+              "interfero-",
+              "lation",
+              "llm4rl",
+              "noi",
+              "non-",
+              "og",
+              "physica",
+              "physics-",
+              "prot",
+              "rl-based"
+            ],
+            "extra_sample": [
+              "13",
+              "2x",
+              "79",
+              "conn",
+              "erative",
+              "filter",
+              "physical-qubit"
+            ]
+          }
+        }
+      },
+      "tile_metrics": null,
+      "panel_metrics": null,
+      "compare": {
+        "ok": true,
+        "path": "artifacts/visual_primitives/ccb_v42/ccb_pure_native_current_best.drawio.compare.png",
+        "width": 2754,
+        "height": 771
+      },
+      "score": 0.832624
+    },
+    {
+      "drawio": "outputs/visual_primitives/ccb_ai_title_v43_try1.op003_al_driven_to_ai_driven.drawio",
+      "rendered_png": "outputs/visual_primitives/ccb_ai_title_v43_try1.op003_al_driven_to_ai_driven.drawio.png",
+      "compare_png": "outputs/visual_primitives/ccb_ai_title_v43_try1.op003_al_driven_to_ai_driven.drawio.compare.png",
+      "native_purity": {
+        "ok": true,
+        "forbidden_hits": [],
+        "forbidden_tokens": [
+          "shape=image",
+          "data:image",
+          "<image",
+          "base64",
+          "shape=stencil",
+          "stencil("
+        ]
+      },
+      "export": {
+        "ok": true,
+        "returncode": 0,
+        "stdout": "outputs/visual_primitives/ccb_ai_title_v43_try1.op003_al_driven_to_ai_driven.drawio -> outputs/visual_primitives/ccb_ai_title_v43_try1.op003_al_driven_to_ai_driven.drawio.png",
+        "stderr": "",
+        "command": [
+          "/Applications/draw.io.app/Contents/MacOS/draw.io",
+          "-x",
+          "-f",
+          "png",
+          "-e",
+          "-b",
+          "0",
+          "-o",
+          "outputs/visual_primitives/ccb_ai_title_v43_try1.op003_al_driven_to_ai_driven.drawio.png",
+          "outputs/visual_primitives/ccb_ai_title_v43_try1.op003_al_driven_to_ai_driven.drawio"
+        ],
+        "attempts": [
+          {
+            "attempt": 1,
+            "ok": true,
+            "returncode": 0,
+            "stdout": "outputs/visual_primitives/ccb_ai_title_v43_try1.op003_al_driven_to_ai_driven.drawio -> outputs/visual_primitives/ccb_ai_title_v43_try1.op003_al_driven_to_ai_driven.drawio.png",
+            "stderr": ""
+          }
+        ]
+      },
+      "metrics": {
+        "canvas": {
+          "width": 1376,
+          "height": 768
+        },
+        "pixel_mae": 20.8813,
+        "changed_pixel_ratio_t30": 0.163857,
+        "edge": {
+          "precision": 0.8325,
+          "recall": 0.6846,
+          "f1": 0.7514,
+          "reference_edges": 108354,
+          "rendered_edges": 89003
+        },
+        "ocr": {
+          "available": true,
+          "reference_token_count": 167,
+          "rendered_token_count": 138,
+          "overlap_count": 131,
+          "precision": 0.9493,
+          "recall": 0.7844,
+          "f1": 0.859,
+          "missing_sample": [
+            "-3",
+            "1-9",
+            "22",
+            "23",
+            "2x-calculus",
+            "4-6",
+            "4s",
+            "assembled",
+            "atom/ion",
+            "atom/lrap",
+            "ba",
+            "bb",
+            "bloch",
+            "diffusion",
+            "fast-track",
+            "formed",
+            "gauge",
+            "ge",
+            "hardware",
+            "ina",
+            "interfero-",
+            "lation",
+            "llm4rl",
+            "noi",
+            "non-",
+            "og",
+            "physica",
+            "physics-",
+            "prot",
+            "rl-based"
+          ],
+          "extra_sample": [
+            "13",
+            "2x",
+            "79",
+            "conn",
+            "erative",
+            "filter",
+            "physical-qubit"
+          ],
+          "semantic": {
+            "reference_token_count": 166,
+            "rendered_token_count": 137,
+            "overlap_count": 130,
+            "precision": 0.9489,
+            "recall": 0.7831,
+            "f1": 0.8581,
+            "missing_sample": [
+              "-3",
+              "1-9",
+              "22",
+              "23",
+              "2x-calculus",
+              "4-6",
+              "4s",
+              "assembled",
+              "atom/ion",
+              "atom/lrap",
+              "ba",
+              "bb",
+              "bloch",
+              "diffusion",
+              "fast-track",
+              "formed",
+              "gauge",
+              "ge",
+              "hardware",
+              "ina",
+              "interfero-",
+              "lation",
+              "llm4rl",
+              "noi",
+              "non-",
+              "og",
+              "physica",
+              "physics-",
+              "prot",
+              "rl-based"
+            ],
+            "extra_sample": [
+              "13",
+              "2x",
+              "79",
+              "conn",
+              "erative",
+              "filter",
+              "physical-qubit"
+            ]
+          }
+        }
+      },
+      "tile_metrics": null,
+      "panel_metrics": null,
+      "compare": {
+        "ok": true,
+        "path": "outputs/visual_primitives/ccb_ai_title_v43_try1.op003_al_driven_to_ai_driven.drawio.compare.png",
+        "width": 2754,
+        "height": 771
+      },
+      "score": 0.832624
+    }
+  ]
+}

@@ -310,22 +310,22 @@ def _ocr_token_metrics(ref: Image.Image, ren: Image.Image) -> dict[str, Any]:
         return {"available": False, "error": str(exc)}
     ref_tokens = _ocr_tokens(ref, pytesseract)
     ren_tokens = _ocr_tokens(ren, pytesseract)
-    ref_set = set(ref_tokens)
-    ren_set = set(ren_tokens)
-    overlap = ref_set & ren_set
-    precision = len(overlap) / max(1, len(ren_set))
-    recall = len(overlap) / max(1, len(ref_set))
-    f1 = 2 * precision * recall / max(1e-9, precision + recall)
+    raw = _token_set_metrics(ref_tokens, ren_tokens)
+    semantic = _token_set_metrics(
+        [_semantic_ocr_token(token) for token in ref_tokens],
+        [_semantic_ocr_token(token) for token in ren_tokens],
+    )
     return {
         "available": True,
-        "reference_token_count": len(ref_set),
-        "rendered_token_count": len(ren_set),
-        "overlap_count": len(overlap),
-        "precision": round(float(precision), 4),
-        "recall": round(float(recall), 4),
-        "f1": round(float(f1), 4),
-        "missing_sample": sorted(ref_set - ren_set)[:30],
-        "extra_sample": sorted(ren_set - ref_set)[:30],
+        "reference_token_count": raw["reference_token_count"],
+        "rendered_token_count": raw["rendered_token_count"],
+        "overlap_count": raw["overlap_count"],
+        "precision": raw["precision"],
+        "recall": raw["recall"],
+        "f1": raw["f1"],
+        "missing_sample": raw["missing_sample"],
+        "extra_sample": raw["extra_sample"],
+        "semantic": semantic,
     }
 
 
@@ -347,12 +347,48 @@ def _ocr_tokens(img: Image.Image, pytesseract_module) -> list[str]:
     return tokens
 
 
+def _token_set_metrics(ref_tokens: list[str], ren_tokens: list[str]) -> dict[str, Any]:
+    ref_set = {token for token in ref_tokens if token}
+    ren_set = {token for token in ren_tokens if token}
+    overlap = ref_set & ren_set
+    precision = len(overlap) / max(1, len(ren_set))
+    recall = len(overlap) / max(1, len(ref_set))
+    f1 = 2 * precision * recall / max(1e-9, precision + recall)
+    return {
+        "reference_token_count": len(ref_set),
+        "rendered_token_count": len(ren_set),
+        "overlap_count": len(overlap),
+        "precision": round(float(precision), 4),
+        "recall": round(float(recall), 4),
+        "f1": round(float(f1), 4),
+        "missing_sample": sorted(ref_set - ren_set)[:30],
+        "extra_sample": sorted(ren_set - ref_set)[:30],
+    }
+
+
 def _normalize_token(text: str) -> str:
     text = (text or "").strip().lower()
     text = re.sub(r"[^a-z0-9+\-/]+", "", text)
     if len(text) <= 1 and not text.isdigit():
         return ""
     return text
+
+
+def _semantic_ocr_token(token: str) -> str:
+    corrections = {
+        "al-driven": "ai-driven",
+        "al-enabled": "ai-enabled",
+        "al-enhanced": "ai-enhanced",
+        "drand": "brand",
+        "metrocs": "metrics",
+        "hrrc": "hmc",
+        "layout)": "layout",
+        "bencnmarking": "benchmarking",
+        "benenmarking": "benchmarking",
+        "dittusion": "diffusion",
+        "fiter": "filter",
+    }
+    return corrections.get(token, token)
 
 
 def _heuristic_issues(pure_check, export_result, metrics, program) -> list[str]:

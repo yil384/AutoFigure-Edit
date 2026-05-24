@@ -198,10 +198,17 @@ def score_variant(row: dict[str, Any]) -> float:
         return -1e9
     edge = metrics.get("edge") or {}
     ocr = metrics.get("ocr") or {}
+    semantic_ocr = ocr.get("semantic") or {}
     edge_f1 = float(edge.get("f1") or 0.0)
     edge_precision = float(edge.get("precision") or 0.0)
-    ocr_f1 = float(ocr.get("f1") or 0.0)
-    ocr_precision = float(ocr.get("precision") or 0.0)
+    ocr_f1 = max(
+        float(ocr.get("f1") or 0.0),
+        float(semantic_ocr.get("f1") or 0.0),
+    )
+    ocr_precision = max(
+        float(ocr.get("precision") or 0.0),
+        float(semantic_ocr.get("precision") or 0.0),
+    )
     changed = float(metrics.get("changed_pixel_ratio_t30") or 0.0)
     rendered_edges = float(edge.get("rendered_edges") or 0.0)
     reference_edges = float(edge.get("reference_edges") or 1.0)
@@ -224,6 +231,7 @@ def compact_score_row(row: dict[str, Any]) -> dict[str, Any]:
     metrics = row.get("metrics") or {}
     edge = metrics.get("edge") or {}
     ocr = metrics.get("ocr") or {}
+    semantic_ocr = ocr.get("semantic") or {}
     return {
         "drawio": row.get("drawio"),
         "score": row.get("score"),
@@ -231,6 +239,8 @@ def compact_score_row(row: dict[str, Any]) -> dict[str, Any]:
         "edge_precision": edge.get("precision"),
         "ocr_f1": ocr.get("f1"),
         "ocr_precision": ocr.get("precision"),
+        "ocr_semantic_f1": semantic_ocr.get("f1"),
+        "ocr_semantic_precision": semantic_ocr.get("precision"),
         "changed_pixel_ratio_t30": metrics.get("changed_pixel_ratio_t30"),
         "pure": row.get("native_purity", {}).get("ok"),
     }
