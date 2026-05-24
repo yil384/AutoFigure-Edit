@@ -1,0 +1,64 @@
+{
+  "visual_diagnosis": [
+    {
+      "issue": "Physics-Informed Agent panel lacks a clean outer panel boundary and its header text is occluded.",
+      "region": [128, 438, 246, 626],
+      "primitive_ids": [
+        "selective_base_bottom_left_text_0078",
+        "selective_base_bottom_left_text_0083"
+      ],
+      "severity": "high"
+    }
+  ],
+  "patch_plan": [
+    {
+      "op": "delete_in_bbox",
+      "bbox": [128, 442, 246, 482],
+      "types": ["region", "shape", "edge"],
+      "mode": "center",
+      "protect_text": true,
+      "margin": 0.0
+    },
+    {
+      "op": "add",
+      "new_primitive": {
+        "id": "v45_bottom_left_physics_outer_panel",
+        "type": "region",
+        "role": "panel_or_container",
+        "bbox": [130.5, 442.0, 244.0, 624.5],
+        "style": {
+          "fill": "none",
+          "stroke": "#8f9cac",
+          "rounded": true
+        },
+        "source": "scene_graph_repair"
+      }
+    },
+    {
+      "op": "update",
+      "target_ids": ["selective_base_bottom_left_text_0078"],
+      "updates": {
+        "text": "Physics-Informed\nAgent",
+        "bbox": [132.0, 443.0, 242.0, 477.0],
+        "style": {
+          "font_size": 10,
+          "bold": true,
+          "align": "center"
+        }
+      }
+    },
+    {
+      "op": "update",
+      "target_ids": ["selective_base_bottom_left_text_0083"],
+      "updates": {
+        "text": "Select Truncation",
+        "bbox": [138.0, 483.0, 236.0, 499.0],
+        "style": {
+          "font_size": 9,
+          "bold": true,
+          "align": "center"
+        }
+      }
+    }
+  ]
+}
