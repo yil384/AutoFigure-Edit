@@ -1,0 +1,3368 @@
+{
+  "source_image": "uploads/ccb48c0276204b17ba8d7e3474ea19ad.jpg",
+  "program_json": "artifacts/visual_primitives/ccb_v36/ccb_pure_native_current_best.vp_program.json",
+  "baseline_drawio": "artifacts/visual_primitives/ccb_v36/ccb_pure_native_current_best.drawio",
+  "baseline": {
+    "step": null,
+    "key": "root",
+    "parent_key": null,
+    "score": 0.823344,
+    "drawio": "artifacts/visual_primitives/ccb_v36/ccb_pure_native_current_best.drawio",
+    "program": "artifacts/visual_primitives/ccb_v36/ccb_pure_native_current_best.vp_program.json",
+    "actions": [],
+    "metrics": {
+      "drawio": "artifacts/visual_primitives/ccb_v36/ccb_pure_native_current_best.drawio",
+      "score": 0.823344,
+      "edge_f1": 0.7469,
+      "edge_precision": 0.8307,
+      "ocr_f1": 0.8411,
+      "ocr_precision": 0.9407,
+      "changed_pixel_ratio_t30": 0.163826,
+      "pure": true
+    }
+  },
+  "best": {
+    "step": null,
+    "key": "selective_base_bottom_right_shape_0037::shift_0_m1|selective_base_top_left_edge_0099::shift_0.5_0",
+    "parent_key": null,
+    "score": 0.823826,
+    "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0046_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_bottom_righ.drawio",
+    "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0046_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_bottom_righ.vp_program.json",
+    "actions": [
+      "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_0.5_0",
+      "selective_base_bottom_right_shape_0037:shape:rectangle:shift_0_m1"
+    ],
+    "metrics": {
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0046_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_bottom_righ.drawio",
+      "score": 0.823826,
+      "edge_f1": 0.7478,
+      "edge_precision": 0.8318,
+      "ocr_f1": 0.8411,
+      "ocr_precision": 0.9407,
+      "changed_pixel_ratio_t30": 0.16383,
+      "pure": true
+    }
+  },
+  "best_artifacts": {
+    "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.best.drawio",
+    "program": "outputs/visual_primitives/ccb_combo_v37_try1.best.vp_program.json",
+    "png": "outputs/visual_primitives/ccb_combo_v37_try1.best.drawio.png",
+    "compare": "outputs/visual_primitives/ccb_combo_v37_try1.best.drawio.compare.png"
+  },
+  "metrics_tokens": {
+    "extra": [
+      "13",
+      "2x",
+      "79",
+      "conn",
+      "erative",
+      "famiios",
+      "filter",
+      "physical-qubit"
+    ],
+    "missing": [
+      "-3",
+      "1-9",
+      "22",
+      "23",
+      "2x-calculus",
+      "4-6",
+      "4s",
+      "assembled",
+      "atom/ion",
+      "atom/lrap",
+      "ba",
+      "bb",
+      "benchmarking",
+      "bloch",
+      "diffusion",
+      "fast",
+      "fast-track",
+      "formed",
+      "gauge",
+      "ge",
+      "hardware",
+      "ina",
+      "interfero-",
+      "lation",
+      "llm4rl",
+      "noi",
+      "non-",
+      "novel",
+      "og",
+      "physica"
+    ]
+  },
+  "forced_ids": [
+    "selective_base_bottom_right_edge_0046",
+    "selective_base_bottom_right_region_0045",
+    "selective_base_bottom_right_region_0047",
+    "selective_base_bottom_right_shape_0037",
+    "selective_base_top_left_edge_0099",
+    "selective_base_top_right_edge_0044",
+    "selective_base_top_right_shape_0015"
+  ],
+  "primitive_types": [
+    "edge",
+    "region",
+    "shape"
+  ],
+  "candidates": [
+    {
+      "primitive_id": "selective_base_top_left_edge_0099",
+      "text": "axis_or_connector",
+      "primitive_type": "edge",
+      "bbox": [
+        502.229,
+        178.126,
+        502.229,
+        243.13
+      ],
+      "source": "cv_line+cv_line_snap",
+      "font_size": null,
+      "matched_extra_tokens": [],
+      "matched_missing_tokens": [],
+      "forced": true,
+      "area": 65.004,
+      "length": 63.0
+    },
+    {
+      "primitive_id": "selective_base_bottom_right_edge_0046",
+      "text": "axis_or_connector",
+      "primitive_type": "edge",
+      "bbox": [
+        1267.0,
+        486.5,
+        1364.0,
+        486.5
+      ],
+      "source": "cv_line+cv_line_snap+beam_text_geo",
+      "font_size": null,
+      "matched_extra_tokens": [],
+      "matched_missing_tokens": [],
+      "forced": true,
+      "area": 97.0,
+      "length": 98.0
+    },
+    {
+      "primitive_id": "selective_base_top_right_shape_0015",
+      "text": "ellipse",
+      "primitive_type": "shape",
+      "bbox": [
+        752.0,
+        151.5,
+        765.0,
+        164.5
+      ],
+      "source": "cv_native_shape+beam_text_geo",
+      "font_size": null,
+      "matched_extra_tokens": [],
+      "matched_missing_tokens": [],
+      "forced": true,
+      "area": 169.0,
+      "length": null
+    },
+    {
+      "primitive_id": "selective_base_top_right_edge_0044",
+      "text": "axis_or_connector",
+      "primitive_type": "edge",
+      "bbox": [
+        941.875,
+        315.019,
+        1173.0,
+        315.019
+      ],
+      "source": "cv_line+cv_line_snap+beam_text_geo",
+      "font_size": null,
+      "matched_extra_tokens": [],
+      "matched_missing_tokens": [],
+      "forced": true,
+      "area": 231.125,
+      "length": 229.0
+    },
+    {
+      "primitive_id": "selective_base_bottom_right_shape_0037",
+      "text": "rectangle",
+      "primitive_type": "shape",
+      "bbox": [
+        1143.8,
+        416.8,
+        1189.2,
+        424.2
+      ],
+      "source": "cv_native_shape",
+      "font_size": null,
+      "matched_extra_tokens": [],
+      "matched_missing_tokens": [],
+      "forced": true,
+      "area": 335.96,
+      "length": null
+    },
+    {
+      "primitive_id": "selective_base_bottom_right_region_0047",
+      "text": "panel_or_container",
+      "primitive_type": "region",
+      "bbox": [
+        1152.0,
+        536.0,
+        1187.0,
+        571.0
+      ],
+      "source": "border+cv_snap",
+      "font_size": null,
+      "matched_extra_tokens": [],
+      "matched_missing_tokens": [],
+      "forced": true,
+      "area": 1225.0,
+      "length": null
+    },
+    {
+      "primitive_id": "selective_base_bottom_right_region_0045",
+      "text": "panel_or_container",
+      "primitive_type": "region",
+      "bbox": [
+        1013.0,
+        537.0,
+        1043.0,
+        589.0
+      ],
+      "source": "border+cv_snap",
+      "font_size": null,
+      "matched_extra_tokens": [],
+      "matched_missing_tokens": [],
+      "forced": true,
+      "area": 1560.0,
+      "length": null
+    }
+  ],
+  "ops": [
+    {
+      "kind": "shift",
+      "dx": 0.5,
+      "dy": 0.0
+    },
+    {
+      "kind": "shift",
+      "dx": 1.0,
+      "dy": 0.0
+    },
+    {
+      "kind": "shift",
+      "dx": 0.0,
+      "dy": -0.5
+    },
+    {
+      "kind": "shift",
+      "dx": 0.0,
+      "dy": 0.5
+    },
+    {
+      "kind": "shift",
+      "dx": 0.0,
+      "dy": 1.0
+    },
+    {
+      "kind": "shift",
+      "dx": -0.5,
+      "dy": 0.0
+    },
+    {
+      "kind": "shift",
+      "dx": 0.0,
+      "dy": -1.0
+    }
+  ],
+  "eval_batch_size": 14,
+  "steps": [
+    {
+      "step": 1,
+      "generated": 49,
+      "evaluated": 49,
+      "beam": [
+        {
+          "step": null,
+          "key": "selective_base_top_left_edge_0099::shift_0.5_0",
+          "parent_key": null,
+          "score": 0.823644,
+          "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0001_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0.drawio",
+          "program": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0001_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0.vp_program.json",
+          "actions": [
+            "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_0.5_0"
+          ],
+          "metrics": {
+            "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0001_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0.drawio",
+            "score": 0.823644,
+            "edge_f1": 0.7475,
+            "edge_precision": 0.8313,
+            "ocr_f1": 0.8411,
+            "ocr_precision": 0.9407,
+            "changed_pixel_ratio_t30": 0.163823,
+            "pure": true
+          }
+        },
+        {
+          "step": null,
+          "key": "selective_base_top_left_edge_0099::shift_1_0",
+          "parent_key": null,
+          "score": 0.823644,
+          "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0008_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0.drawio",
+          "program": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0008_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0.vp_program.json",
+          "actions": [
+            "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_1_0"
+          ],
+          "metrics": {
+            "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0008_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0.drawio",
+            "score": 0.823644,
+            "edge_f1": 0.7475,
+            "edge_precision": 0.8313,
+            "ocr_f1": 0.8411,
+            "ocr_precision": 0.9407,
+            "changed_pixel_ratio_t30": 0.163763,
+            "pure": true
+          }
+        },
+        {
+          "step": null,
+          "key": "selective_base_bottom_right_shape_0037::shift_0_m1",
+          "parent_key": null,
+          "score": 0.82351,
+          "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0047_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_m1.drawio",
+          "program": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0047_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_m1.vp_program.json",
+          "actions": [
+            "selective_base_bottom_right_shape_0037:shape:rectangle:shift_0_m1"
+          ],
+          "metrics": {
+            "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0047_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_m1.drawio",
+            "score": 0.82351,
+            "edge_f1": 0.7472,
+            "edge_precision": 0.8311,
+            "ocr_f1": 0.8411,
+            "ocr_precision": 0.9407,
+            "changed_pixel_ratio_t30": 0.163833,
+            "pure": true
+          }
+        }
+      ],
+      "top_successors": [
+        {
+          "step": null,
+          "key": "selective_base_top_left_edge_0099::shift_0.5_0",
+          "parent_key": null,
+          "score": 0.823644,
+          "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0001_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0.drawio",
+          "program": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0001_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0.vp_program.json",
+          "actions": [
+            "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_0.5_0"
+          ],
+          "metrics": {
+            "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0001_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0.drawio",
+            "score": 0.823644,
+            "edge_f1": 0.7475,
+            "edge_precision": 0.8313,
+            "ocr_f1": 0.8411,
+            "ocr_precision": 0.9407,
+            "changed_pixel_ratio_t30": 0.163823,
+            "pure": true
+          }
+        },
+        {
+          "step": null,
+          "key": "selective_base_top_left_edge_0099::shift_1_0",
+          "parent_key": null,
+          "score": 0.823644,
+          "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0008_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0.drawio",
+          "program": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0008_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0.vp_program.json",
+          "actions": [
+            "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_1_0"
+          ],
+          "metrics": {
+            "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0008_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0.drawio",
+            "score": 0.823644,
+            "edge_f1": 0.7475,
+            "edge_precision": 0.8313,
+            "ocr_f1": 0.8411,
+            "ocr_precision": 0.9407,
+            "changed_pixel_ratio_t30": 0.163763,
+            "pure": true
+          }
+        },
+        {
+          "step": null,
+          "key": "selective_base_bottom_right_shape_0037::shift_0_m1",
+          "parent_key": null,
+          "score": 0.82351,
+          "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0047_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_m1.drawio",
+          "program": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0047_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_m1.vp_program.json",
+          "actions": [
+            "selective_base_bottom_right_shape_0037:shape:rectangle:shift_0_m1"
+          ],
+          "metrics": {
+            "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0047_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_m1.drawio",
+            "score": 0.82351,
+            "edge_f1": 0.7472,
+            "edge_precision": 0.8311,
+            "ocr_f1": 0.8411,
+            "ocr_precision": 0.9407,
+            "changed_pixel_ratio_t30": 0.163833,
+            "pure": true
+          }
+        },
+        {
+          "step": null,
+          "key": "selective_base_bottom_right_region_0045::shift_0.5_0",
+          "parent_key": null,
+          "score": 0.823444,
+          "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0007_selective_base_bottom_right_region_0045_region_panel_or_container_shift_0_5_0.drawio",
+          "program": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0007_selective_base_bottom_right_region_0045_region_panel_or_container_shift_0_5_0.vp_program.json",
+          "actions": [
+            "selective_base_bottom_right_region_0045:region:panel_or_container:shift_0.5_0"
+          ],
+          "metrics": {
+            "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0007_selective_base_bottom_right_region_0045_region_panel_or_container_shift_0_5_0.drawio",
+            "score": 0.823444,
+            "edge_f1": 0.7471,
+            "edge_precision": 0.8309,
+            "ocr_f1": 0.8411,
+            "ocr_precision": 0.9407,
+            "changed_pixel_ratio_t30": 0.163782,
+            "pure": true
+          }
+        },
+        {
+          "step": null,
+          "key": "selective_base_bottom_right_region_0045::shift_0_m0.5",
+          "parent_key": null,
+          "score": 0.823444,
+          "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0021_selective_base_bottom_right_region_0045_region_panel_or_container_shift_0_m0_5.drawio",
+          "program": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0021_selective_base_bottom_right_region_0045_region_panel_or_container_shift_0_m0_5.vp_program.json",
+          "actions": [
+            "selective_base_bottom_right_region_0045:region:panel_or_container:shift_0_m0.5"
+          ],
+          "metrics": {
+            "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0021_selective_base_bottom_right_region_0045_region_panel_or_container_shift_0_m0_5.drawio",
+            "score": 0.823444,
+            "edge_f1": 0.7471,
+            "edge_precision": 0.8309,
+            "ocr_f1": 0.8411,
+            "ocr_precision": 0.9407,
+            "changed_pixel_ratio_t30": 0.163851,
+            "pure": true
+          }
+        },
+        {
+          "step": null,
+          "key": "selective_base_bottom_right_region_0045::shift_0_m1",
+          "parent_key": null,
+          "score": 0.823444,
+          "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0049_selective_base_bottom_right_region_0045_region_panel_or_container_shift_0_m1.drawio",
+          "program": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0049_selective_base_bottom_right_region_0045_region_panel_or_container_shift_0_m1.vp_program.json",
+          "actions": [
+            "selective_base_bottom_right_region_0045:region:panel_or_container:shift_0_m1"
+          ],
+          "metrics": {
+            "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0049_selective_base_bottom_right_region_0045_region_panel_or_container_shift_0_m1.drawio",
+            "score": 0.823444,
+            "edge_f1": 0.7471,
+            "edge_precision": 0.8309,
+            "ocr_f1": 0.8411,
+            "ocr_precision": 0.9407,
+            "changed_pixel_ratio_t30": 0.163787,
+            "pure": true
+          }
+        },
+        {
+          "step": null,
+          "key": "selective_base_bottom_right_shape_0037::shift_0_m0.5",
+          "parent_key": null,
+          "score": 0.823378,
+          "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0019_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_m0_5.drawio",
+          "program": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0019_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_m0_5.vp_program.json",
+          "actions": [
+            "selective_base_bottom_right_shape_0037:shape:rectangle:shift_0_m0.5"
+          ],
+          "metrics": {
+            "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0019_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_m0_5.drawio",
+            "score": 0.823378,
+            "edge_f1": 0.747,
+            "edge_precision": 0.8307,
+            "ocr_f1": 0.8411,
+            "ocr_precision": 0.9407,
+            "changed_pixel_ratio_t30": 0.163832,
+            "pure": true
+          }
+        },
+        {
+          "step": null,
+          "key": "selective_base_bottom_right_edge_0046::shift_0.5_0",
+          "parent_key": null,
+          "score": 0.823344,
+          "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0002_selective_base_bottom_right_edge_0046_edge_axis_or_connector_shift_0_5_0.drawio",
+          "program": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0002_selective_base_bottom_right_edge_0046_edge_axis_or_connector_shift_0_5_0.vp_program.json",
+          "actions": [
+            "selective_base_bottom_right_edge_0046:edge:axis_or_connector:shift_0.5_0"
+          ],
+          "metrics": {
+            "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0002_selective_base_bottom_right_edge_0046_edge_axis_or_connector_shift_0_5_0.drawio",
+            "score": 0.823344,
+            "edge_f1": 0.7469,
+            "edge_precision": 0.8307,
+            "ocr_f1": 0.8411,
+            "ocr_precision": 0.9407,
+            "changed_pixel_ratio_t30": 0.163827,
+            "pure": true
+          }
+        },
+        {
+          "step": null,
+          "key": "selective_base_bottom_right_shape_0037::shift_0.5_0",
+          "parent_key": null,
+          "score": 0.823344,
+          "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0005_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_5_0.drawio",
+          "program": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0005_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_5_0.vp_program.json",
+          "actions": [
+            "selective_base_bottom_right_shape_0037:shape:rectangle:shift_0.5_0"
+          ],
+          "metrics": {
+            "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0005_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_5_0.drawio",
+            "score": 0.823344,
+            "edge_f1": 0.7469,
+            "edge_precision": 0.8307,
+            "ocr_f1": 0.8411,
+            "ocr_precision": 0.9407,
+            "changed_pixel_ratio_t30": 0.163823,
+            "pure": true
+          }
+        },
+        {
+          "step": null,
+          "key": "selective_base_bottom_right_edge_0046::shift_1_0",
+          "parent_key": null,
+          "score": 0.823344,
+          "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0009_selective_base_bottom_right_edge_0046_edge_axis_or_connector_shift_1_0.drawio",
+          "program": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0009_selective_base_bottom_right_edge_0046_edge_axis_or_connector_shift_1_0.vp_program.json",
+          "actions": [
+            "selective_base_bottom_right_edge_0046:edge:axis_or_connector:shift_1_0"
+          ],
+          "metrics": {
+            "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0009_selective_base_bottom_right_edge_0046_edge_axis_or_connector_shift_1_0.drawio",
+            "score": 0.823344,
+            "edge_f1": 0.7469,
+            "edge_precision": 0.8307,
+            "ocr_f1": 0.8411,
+            "ocr_precision": 0.9407,
+            "changed_pixel_ratio_t30": 0.163826,
+            "pure": true
+          }
+        },
+        {
+          "step": null,
+          "key": "selective_base_bottom_right_shape_0037::shift_1_0",
+          "parent_key": null,
+          "score": 0.823344,
+          "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0012_selective_base_bottom_right_shape_0037_shape_rectangle_shift_1_0.drawio",
+          "program": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0012_selective_base_bottom_right_shape_0037_shape_rectangle_shift_1_0.vp_program.json",
+          "actions": [
+            "selective_base_bottom_right_shape_0037:shape:rectangle:shift_1_0"
+          ],
+          "metrics": {
+            "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0012_selective_base_bottom_right_shape_0037_shape_rectangle_shift_1_0.drawio",
+            "score": 0.823344,
+            "edge_f1": 0.7469,
+            "edge_precision": 0.8307,
+            "ocr_f1": 0.8411,
+            "ocr_precision": 0.9407,
+            "changed_pixel_ratio_t30": 0.163829,
+            "pure": true
+          }
+        },
+        {
+          "step": null,
+          "key": "selective_base_top_left_edge_0099::shift_0_m0.5",
+          "parent_key": null,
+          "score": 0.823344,
+          "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0015_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_m0_5.drawio",
+          "program": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0015_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_m0_5.vp_program.json",
+          "actions": [
+            "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_0_m0.5"
+          ],
+          "metrics": {
+            "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0015_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_m0_5.drawio",
+            "score": 0.823344,
+            "edge_f1": 0.7469,
+            "edge_precision": 0.8307,
+            "ocr_f1": 0.8411,
+            "ocr_precision": 0.9407,
+            "changed_pixel_ratio_t30": 0.163824,
+            "pure": true
+          }
+        }
+      ]
+    },
+    {
+      "step": 2,
+      "generated": 141,
+      "evaluated": 141,
+      "beam": [
+        {
+          "step": null,
+          "key": "selective_base_bottom_right_shape_0037::shift_0_m1|selective_base_top_left_edge_0099::shift_0.5_0",
+          "parent_key": null,
+          "score": 0.823826,
+          "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0046_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_bottom_righ.drawio",
+          "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0046_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_bottom_righ.vp_program.json",
+          "actions": [
+            "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_0.5_0",
+            "selective_base_bottom_right_shape_0037:shape:rectangle:shift_0_m1"
+          ],
+          "metrics": {
+            "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0046_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_bottom_righ.drawio",
+            "score": 0.823826,
+            "edge_f1": 0.7478,
+            "edge_precision": 0.8318,
+            "ocr_f1": 0.8411,
+            "ocr_precision": 0.9407,
+            "changed_pixel_ratio_t30": 0.16383,
+            "pure": true
+          }
+        },
+        {
+          "step": null,
+          "key": "selective_base_bottom_right_shape_0037::shift_0_m1|selective_base_top_left_edge_0099::shift_1_0",
+          "parent_key": null,
+          "score": 0.823826,
+          "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0093_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_bottom_right_.drawio",
+          "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0093_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_bottom_right_.vp_program.json",
+          "actions": [
+            "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_1_0",
+            "selective_base_bottom_right_shape_0037:shape:rectangle:shift_0_m1"
+          ],
+          "metrics": {
+            "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0093_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_bottom_right_.drawio",
+            "score": 0.823826,
+            "edge_f1": 0.7478,
+            "edge_precision": 0.8318,
+            "ocr_f1": 0.8411,
+            "ocr_precision": 0.9407,
+            "changed_pixel_ratio_t30": 0.16377,
+            "pure": true
+          }
+        },
+        {
+          "step": null,
+          "key": "selective_base_bottom_right_region_0045::shift_0.5_0|selective_base_top_left_edge_0099::shift_0.5_0",
+          "parent_key": null,
+          "score": 0.82376,
+          "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0006_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_bottom_righ.drawio",
+          "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0006_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_bottom_righ.vp_program.json",
+          "actions": [
+            "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_0.5_0",
+            "selective_base_bottom_right_region_0045:region:panel_or_container:shift_0.5_0"
+          ],
+          "metrics": {
+            "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0006_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_bottom_righ.drawio",
+            "score": 0.82376,
+            "edge_f1": 0.7477,
+            "edge_precision": 0.8316,
+            "ocr_f1": 0.8411,
+            "ocr_precision": 0.9407,
+            "changed_pixel_ratio_t30": 0.16378,
+            "pure": true
+          }
+        }
+      ],
+      "top_successors": [
+        {
+          "step": null,
+          "key": "selective_base_bottom_right_shape_0037::shift_0_m1|selective_base_top_left_edge_0099::shift_0.5_0",
+          "parent_key": null,
+          "score": 0.823826,
+          "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0046_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_bottom_righ.drawio",
+          "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0046_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_bottom_righ.vp_program.json",
+          "actions": [
+            "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_0.5_0",
+            "selective_base_bottom_right_shape_0037:shape:rectangle:shift_0_m1"
+          ],
+          "metrics": {
+            "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0046_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_bottom_righ.drawio",
+            "score": 0.823826,
+            "edge_f1": 0.7478,
+            "edge_precision": 0.8318,
+            "ocr_f1": 0.8411,
+            "ocr_precision": 0.9407,
+            "changed_pixel_ratio_t30": 0.16383,
+            "pure": true
+          }
+        },
+        {
+          "step": null,
+          "key": "selective_base_bottom_right_shape_0037::shift_0_m1|selective_base_top_left_edge_0099::shift_1_0",
+          "parent_key": null,
+          "score": 0.823826,
+          "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0093_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_bottom_right_.drawio",
+          "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0093_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_bottom_right_.vp_program.json",
+          "actions": [
+            "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_1_0",
+            "selective_base_bottom_right_shape_0037:shape:rectangle:shift_0_m1"
+          ],
+          "metrics": {
+            "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0093_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_bottom_right_.drawio",
+            "score": 0.823826,
+            "edge_f1": 0.7478,
+            "edge_precision": 0.8318,
+            "ocr_f1": 0.8411,
+            "ocr_precision": 0.9407,
+            "changed_pixel_ratio_t30": 0.16377,
+            "pure": true
+          }
+        },
+        {
+          "step": null,
+          "key": "selective_base_bottom_right_region_0045::shift_0.5_0|selective_base_top_left_edge_0099::shift_0.5_0",
+          "parent_key": null,
+          "score": 0.82376,
+          "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0006_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_bottom_righ.drawio",
+          "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0006_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_bottom_righ.vp_program.json",
+          "actions": [
+            "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_0.5_0",
+            "selective_base_bottom_right_region_0045:region:panel_or_container:shift_0.5_0"
+          ],
+          "metrics": {
+            "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0006_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_bottom_righ.drawio",
+            "score": 0.82376,
+            "edge_f1": 0.7477,
+            "edge_precision": 0.8316,
+            "ocr_f1": 0.8411,
+            "ocr_precision": 0.9407,
+            "changed_pixel_ratio_t30": 0.16378,
+            "pure": true
+          }
+        },
+        {
+          "step": null,
+          "key": "selective_base_bottom_right_region_0045::shift_0_m0.5|selective_base_top_left_edge_0099::shift_0.5_0",
+          "parent_key": null,
+          "score": 0.82376,
+          "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0020_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_bottom_righ.drawio",
+          "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0020_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_bottom_righ.vp_program.json",
+          "actions": [
+            "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_0.5_0",
+            "selective_base_bottom_right_region_0045:region:panel_or_container:shift_0_m0.5"
+          ],
+          "metrics": {
+            "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0020_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_bottom_righ.drawio",
+            "score": 0.82376,
+            "edge_f1": 0.7477,
+            "edge_precision": 0.8316,
+            "ocr_f1": 0.8411,
+            "ocr_precision": 0.9407,
+            "changed_pixel_ratio_t30": 0.163849,
+            "pure": true
+          }
+        },
+        {
+          "step": null,
+          "key": "selective_base_bottom_right_region_0045::shift_0_m1|selective_base_top_left_edge_0099::shift_0.5_0",
+          "parent_key": null,
+          "score": 0.82376,
+          "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0048_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_bottom_righ.drawio",
+          "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0048_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_bottom_righ.vp_program.json",
+          "actions": [
+            "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_0.5_0",
+            "selective_base_bottom_right_region_0045:region:panel_or_container:shift_0_m1"
+          ],
+          "metrics": {
+            "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0048_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_bottom_righ.drawio",
+            "score": 0.82376,
+            "edge_f1": 0.7477,
+            "edge_precision": 0.8316,
+            "ocr_f1": 0.8411,
+            "ocr_precision": 0.9407,
+            "changed_pixel_ratio_t30": 0.163784,
+            "pure": true
+          }
+        },
+        {
+          "step": null,
+          "key": "selective_base_bottom_right_region_0045::shift_0.5_0|selective_base_top_left_edge_0099::shift_1_0",
+          "parent_key": null,
+          "score": 0.82376,
+          "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0054_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_bottom_right_.drawio",
+          "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0054_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_bottom_right_.vp_program.json",
+          "actions": [
+            "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_1_0",
+            "selective_base_bottom_right_region_0045:region:panel_or_container:shift_0.5_0"
+          ],
+          "metrics": {
+            "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0054_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_bottom_right_.drawio",
+            "score": 0.82376,
+            "edge_f1": 0.7477,
+            "edge_precision": 0.8316,
+            "ocr_f1": 0.8411,
+            "ocr_precision": 0.9407,
+            "changed_pixel_ratio_t30": 0.16372,
+            "pure": true
+          }
+        },
+        {
+          "step": null,
+          "key": "selective_base_bottom_right_region_0045::shift_0_m0.5|selective_base_top_left_edge_0099::shift_1_0",
+          "parent_key": null,
+          "score": 0.82376,
+          "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0067_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_bottom_right_.drawio",
+          "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0067_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_bottom_right_.vp_program.json",
+          "actions": [
+            "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_1_0",
+            "selective_base_bottom_right_region_0045:region:panel_or_container:shift_0_m0.5"
+          ],
+          "metrics": {
+            "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0067_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_bottom_right_.drawio",
+            "score": 0.82376,
+            "edge_f1": 0.7477,
+            "edge_precision": 0.8316,
+            "ocr_f1": 0.8411,
+            "ocr_precision": 0.9407,
+            "changed_pixel_ratio_t30": 0.163789,
+            "pure": true
+          }
+        },
+        {
+          "step": null,
+          "key": "selective_base_bottom_right_region_0045::shift_0_m1|selective_base_top_left_edge_0099::shift_1_0",
+          "parent_key": null,
+          "score": 0.82376,
+          "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0095_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_bottom_right_.drawio",
+          "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0095_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_bottom_right_.vp_program.json",
+          "actions": [
+            "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_1_0",
+            "selective_base_bottom_right_region_0045:region:panel_or_container:shift_0_m1"
+          ],
+          "metrics": {
+            "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0095_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_bottom_right_.drawio",
+            "score": 0.82376,
+            "edge_f1": 0.7477,
+            "edge_precision": 0.8316,
+            "ocr_f1": 0.8411,
+            "ocr_precision": 0.9407,
+            "changed_pixel_ratio_t30": 0.163725,
+            "pure": true
+          }
+        },
+        {
+          "step": null,
+          "key": "selective_base_bottom_right_shape_0037::shift_0_m0.5|selective_base_top_left_edge_0099::shift_0.5_0",
+          "parent_key": null,
+          "score": 0.823694,
+          "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0018_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_bottom_righ.drawio",
+          "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0018_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_bottom_righ.vp_program.json",
+          "actions": [
+            "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_0.5_0",
+            "selective_base_bottom_right_shape_0037:shape:rectangle:shift_0_m0.5"
+          ],
+          "metrics": {
+            "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0018_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_bottom_righ.drawio",
+            "score": 0.823694,
+            "edge_f1": 0.7476,
+            "edge_precision": 0.8314,
+            "ocr_f1": 0.8411,
+            "ocr_precision": 0.9407,
+            "changed_pixel_ratio_t30": 0.163829,
+            "pure": true
+          }
+        },
+        {
+          "step": null,
+          "key": "selective_base_bottom_right_shape_0037::shift_0_m0.5|selective_base_top_left_edge_0099::shift_1_0",
+          "parent_key": null,
+          "score": 0.823694,
+          "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0065_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_bottom_right_.drawio",
+          "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0065_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_bottom_right_.vp_program.json",
+          "actions": [
+            "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_1_0",
+            "selective_base_bottom_right_shape_0037:shape:rectangle:shift_0_m0.5"
+          ],
+          "metrics": {
+            "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0065_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_bottom_right_.drawio",
+            "score": 0.823694,
+            "edge_f1": 0.7476,
+            "edge_precision": 0.8314,
+            "ocr_f1": 0.8411,
+            "ocr_precision": 0.9407,
+            "changed_pixel_ratio_t30": 0.163769,
+            "pure": true
+          }
+        },
+        {
+          "step": null,
+          "key": "selective_base_bottom_right_shape_0037::shift_0.5_0|selective_base_top_left_edge_0099::shift_0.5_0",
+          "parent_key": null,
+          "score": 0.82366,
+          "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0004_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_bottom_righ.drawio",
+          "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0004_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_bottom_righ.vp_program.json",
+          "actions": [
+            "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_0.5_0",
+            "selective_base_bottom_right_shape_0037:shape:rectangle:shift_0.5_0"
+          ],
+          "metrics": {
+            "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0004_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_bottom_righ.drawio",
+            "score": 0.82366,
+            "edge_f1": 0.7475,
+            "edge_precision": 0.8314,
+            "ocr_f1": 0.8411,
+            "ocr_precision": 0.9407,
+            "changed_pixel_ratio_t30": 0.16382,
+            "pure": true
+          }
+        },
+        {
+          "step": null,
+          "key": "selective_base_bottom_right_shape_0037::shift_1_0|selective_base_top_left_edge_0099::shift_0.5_0",
+          "parent_key": null,
+          "score": 0.82366,
+          "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0011_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_bottom_righ.drawio",
+          "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0011_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_bottom_righ.vp_program.json",
+          "actions": [
+            "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_0.5_0",
+            "selective_base_bottom_right_shape_0037:shape:rectangle:shift_1_0"
+          ],
+          "metrics": {
+            "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0011_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_bottom_righ.drawio",
+            "score": 0.82366,
+            "edge_f1": 0.7475,
+            "edge_precision": 0.8314,
+            "ocr_f1": 0.8411,
+            "ocr_precision": 0.9407,
+            "changed_pixel_ratio_t30": 0.163826,
+            "pure": true
+          }
+        }
+      ]
+    }
+  ],
+  "generated": [
+    {
+      "step": 1,
+      "key": "selective_base_top_left_edge_0099::shift_0.5_0",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0001_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0001_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0.vp_program.json",
+      "actions": [
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_0.5_0"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_bottom_right_edge_0046::shift_0.5_0",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0002_selective_base_bottom_right_edge_0046_edge_axis_or_connector_shift_0_5_0.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0002_selective_base_bottom_right_edge_0046_edge_axis_or_connector_shift_0_5_0.vp_program.json",
+      "actions": [
+        "selective_base_bottom_right_edge_0046:edge:axis_or_connector:shift_0.5_0"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_top_right_shape_0015::shift_0.5_0",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0003_selective_base_top_right_shape_0015_shape_ellipse_shift_0_5_0.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0003_selective_base_top_right_shape_0015_shape_ellipse_shift_0_5_0.vp_program.json",
+      "actions": [
+        "selective_base_top_right_shape_0015:shape:ellipse:shift_0.5_0"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_top_right_edge_0044::shift_0.5_0",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0004_selective_base_top_right_edge_0044_edge_axis_or_connector_shift_0_5_0.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0004_selective_base_top_right_edge_0044_edge_axis_or_connector_shift_0_5_0.vp_program.json",
+      "actions": [
+        "selective_base_top_right_edge_0044:edge:axis_or_connector:shift_0.5_0"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_bottom_right_shape_0037::shift_0.5_0",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0005_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_5_0.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0005_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_5_0.vp_program.json",
+      "actions": [
+        "selective_base_bottom_right_shape_0037:shape:rectangle:shift_0.5_0"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_bottom_right_region_0047::shift_0.5_0",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0006_selective_base_bottom_right_region_0047_region_panel_or_container_shift_0_5_0.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0006_selective_base_bottom_right_region_0047_region_panel_or_container_shift_0_5_0.vp_program.json",
+      "actions": [
+        "selective_base_bottom_right_region_0047:region:panel_or_container:shift_0.5_0"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_bottom_right_region_0045::shift_0.5_0",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0007_selective_base_bottom_right_region_0045_region_panel_or_container_shift_0_5_0.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0007_selective_base_bottom_right_region_0045_region_panel_or_container_shift_0_5_0.vp_program.json",
+      "actions": [
+        "selective_base_bottom_right_region_0045:region:panel_or_container:shift_0.5_0"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_top_left_edge_0099::shift_1_0",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0008_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0008_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0.vp_program.json",
+      "actions": [
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_1_0"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_bottom_right_edge_0046::shift_1_0",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0009_selective_base_bottom_right_edge_0046_edge_axis_or_connector_shift_1_0.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0009_selective_base_bottom_right_edge_0046_edge_axis_or_connector_shift_1_0.vp_program.json",
+      "actions": [
+        "selective_base_bottom_right_edge_0046:edge:axis_or_connector:shift_1_0"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_top_right_shape_0015::shift_1_0",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0010_selective_base_top_right_shape_0015_shape_ellipse_shift_1_0.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0010_selective_base_top_right_shape_0015_shape_ellipse_shift_1_0.vp_program.json",
+      "actions": [
+        "selective_base_top_right_shape_0015:shape:ellipse:shift_1_0"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_top_right_edge_0044::shift_1_0",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0011_selective_base_top_right_edge_0044_edge_axis_or_connector_shift_1_0.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0011_selective_base_top_right_edge_0044_edge_axis_or_connector_shift_1_0.vp_program.json",
+      "actions": [
+        "selective_base_top_right_edge_0044:edge:axis_or_connector:shift_1_0"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_bottom_right_shape_0037::shift_1_0",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0012_selective_base_bottom_right_shape_0037_shape_rectangle_shift_1_0.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0012_selective_base_bottom_right_shape_0037_shape_rectangle_shift_1_0.vp_program.json",
+      "actions": [
+        "selective_base_bottom_right_shape_0037:shape:rectangle:shift_1_0"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_bottom_right_region_0047::shift_1_0",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0013_selective_base_bottom_right_region_0047_region_panel_or_container_shift_1_0.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0013_selective_base_bottom_right_region_0047_region_panel_or_container_shift_1_0.vp_program.json",
+      "actions": [
+        "selective_base_bottom_right_region_0047:region:panel_or_container:shift_1_0"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_bottom_right_region_0045::shift_1_0",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0014_selective_base_bottom_right_region_0045_region_panel_or_container_shift_1_0.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0014_selective_base_bottom_right_region_0045_region_panel_or_container_shift_1_0.vp_program.json",
+      "actions": [
+        "selective_base_bottom_right_region_0045:region:panel_or_container:shift_1_0"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_top_left_edge_0099::shift_0_m0.5",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0015_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_m0_5.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0015_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_m0_5.vp_program.json",
+      "actions": [
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_0_m0.5"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_bottom_right_edge_0046::shift_0_m0.5",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0016_selective_base_bottom_right_edge_0046_edge_axis_or_connector_shift_0_m0_5.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0016_selective_base_bottom_right_edge_0046_edge_axis_or_connector_shift_0_m0_5.vp_program.json",
+      "actions": [
+        "selective_base_bottom_right_edge_0046:edge:axis_or_connector:shift_0_m0.5"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_top_right_shape_0015::shift_0_m0.5",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0017_selective_base_top_right_shape_0015_shape_ellipse_shift_0_m0_5.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0017_selective_base_top_right_shape_0015_shape_ellipse_shift_0_m0_5.vp_program.json",
+      "actions": [
+        "selective_base_top_right_shape_0015:shape:ellipse:shift_0_m0.5"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_top_right_edge_0044::shift_0_m0.5",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0018_selective_base_top_right_edge_0044_edge_axis_or_connector_shift_0_m0_5.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0018_selective_base_top_right_edge_0044_edge_axis_or_connector_shift_0_m0_5.vp_program.json",
+      "actions": [
+        "selective_base_top_right_edge_0044:edge:axis_or_connector:shift_0_m0.5"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_bottom_right_shape_0037::shift_0_m0.5",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0019_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_m0_5.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0019_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_m0_5.vp_program.json",
+      "actions": [
+        "selective_base_bottom_right_shape_0037:shape:rectangle:shift_0_m0.5"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_bottom_right_region_0047::shift_0_m0.5",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0020_selective_base_bottom_right_region_0047_region_panel_or_container_shift_0_m0_5.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0020_selective_base_bottom_right_region_0047_region_panel_or_container_shift_0_m0_5.vp_program.json",
+      "actions": [
+        "selective_base_bottom_right_region_0047:region:panel_or_container:shift_0_m0.5"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_bottom_right_region_0045::shift_0_m0.5",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0021_selective_base_bottom_right_region_0045_region_panel_or_container_shift_0_m0_5.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0021_selective_base_bottom_right_region_0045_region_panel_or_container_shift_0_m0_5.vp_program.json",
+      "actions": [
+        "selective_base_bottom_right_region_0045:region:panel_or_container:shift_0_m0.5"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_top_left_edge_0099::shift_0_0.5",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0022_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_0_5.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0022_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_0_5.vp_program.json",
+      "actions": [
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_0_0.5"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_bottom_right_edge_0046::shift_0_0.5",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0023_selective_base_bottom_right_edge_0046_edge_axis_or_connector_shift_0_0_5.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0023_selective_base_bottom_right_edge_0046_edge_axis_or_connector_shift_0_0_5.vp_program.json",
+      "actions": [
+        "selective_base_bottom_right_edge_0046:edge:axis_or_connector:shift_0_0.5"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_top_right_shape_0015::shift_0_0.5",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0024_selective_base_top_right_shape_0015_shape_ellipse_shift_0_0_5.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0024_selective_base_top_right_shape_0015_shape_ellipse_shift_0_0_5.vp_program.json",
+      "actions": [
+        "selective_base_top_right_shape_0015:shape:ellipse:shift_0_0.5"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_top_right_edge_0044::shift_0_0.5",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0025_selective_base_top_right_edge_0044_edge_axis_or_connector_shift_0_0_5.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0025_selective_base_top_right_edge_0044_edge_axis_or_connector_shift_0_0_5.vp_program.json",
+      "actions": [
+        "selective_base_top_right_edge_0044:edge:axis_or_connector:shift_0_0.5"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_bottom_right_shape_0037::shift_0_0.5",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0026_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_0_5.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0026_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_0_5.vp_program.json",
+      "actions": [
+        "selective_base_bottom_right_shape_0037:shape:rectangle:shift_0_0.5"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_bottom_right_region_0047::shift_0_0.5",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0027_selective_base_bottom_right_region_0047_region_panel_or_container_shift_0_0_5.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0027_selective_base_bottom_right_region_0047_region_panel_or_container_shift_0_0_5.vp_program.json",
+      "actions": [
+        "selective_base_bottom_right_region_0047:region:panel_or_container:shift_0_0.5"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_bottom_right_region_0045::shift_0_0.5",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0028_selective_base_bottom_right_region_0045_region_panel_or_container_shift_0_0_5.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0028_selective_base_bottom_right_region_0045_region_panel_or_container_shift_0_0_5.vp_program.json",
+      "actions": [
+        "selective_base_bottom_right_region_0045:region:panel_or_container:shift_0_0.5"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_top_left_edge_0099::shift_0_1",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0029_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_1.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0029_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_1.vp_program.json",
+      "actions": [
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_0_1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_bottom_right_edge_0046::shift_0_1",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0030_selective_base_bottom_right_edge_0046_edge_axis_or_connector_shift_0_1.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0030_selective_base_bottom_right_edge_0046_edge_axis_or_connector_shift_0_1.vp_program.json",
+      "actions": [
+        "selective_base_bottom_right_edge_0046:edge:axis_or_connector:shift_0_1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_top_right_shape_0015::shift_0_1",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0031_selective_base_top_right_shape_0015_shape_ellipse_shift_0_1.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0031_selective_base_top_right_shape_0015_shape_ellipse_shift_0_1.vp_program.json",
+      "actions": [
+        "selective_base_top_right_shape_0015:shape:ellipse:shift_0_1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_top_right_edge_0044::shift_0_1",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0032_selective_base_top_right_edge_0044_edge_axis_or_connector_shift_0_1.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0032_selective_base_top_right_edge_0044_edge_axis_or_connector_shift_0_1.vp_program.json",
+      "actions": [
+        "selective_base_top_right_edge_0044:edge:axis_or_connector:shift_0_1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_bottom_right_shape_0037::shift_0_1",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0033_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_1.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0033_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_1.vp_program.json",
+      "actions": [
+        "selective_base_bottom_right_shape_0037:shape:rectangle:shift_0_1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_bottom_right_region_0047::shift_0_1",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0034_selective_base_bottom_right_region_0047_region_panel_or_container_shift_0_1.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0034_selective_base_bottom_right_region_0047_region_panel_or_container_shift_0_1.vp_program.json",
+      "actions": [
+        "selective_base_bottom_right_region_0047:region:panel_or_container:shift_0_1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_bottom_right_region_0045::shift_0_1",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0035_selective_base_bottom_right_region_0045_region_panel_or_container_shift_0_1.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0035_selective_base_bottom_right_region_0045_region_panel_or_container_shift_0_1.vp_program.json",
+      "actions": [
+        "selective_base_bottom_right_region_0045:region:panel_or_container:shift_0_1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_top_left_edge_0099::shift_m0.5_0",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0036_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_m0_5_0.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0036_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_m0_5_0.vp_program.json",
+      "actions": [
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_m0.5_0"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_bottom_right_edge_0046::shift_m0.5_0",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0037_selective_base_bottom_right_edge_0046_edge_axis_or_connector_shift_m0_5_0.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0037_selective_base_bottom_right_edge_0046_edge_axis_or_connector_shift_m0_5_0.vp_program.json",
+      "actions": [
+        "selective_base_bottom_right_edge_0046:edge:axis_or_connector:shift_m0.5_0"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_top_right_shape_0015::shift_m0.5_0",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0038_selective_base_top_right_shape_0015_shape_ellipse_shift_m0_5_0.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0038_selective_base_top_right_shape_0015_shape_ellipse_shift_m0_5_0.vp_program.json",
+      "actions": [
+        "selective_base_top_right_shape_0015:shape:ellipse:shift_m0.5_0"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_top_right_edge_0044::shift_m0.5_0",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0039_selective_base_top_right_edge_0044_edge_axis_or_connector_shift_m0_5_0.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0039_selective_base_top_right_edge_0044_edge_axis_or_connector_shift_m0_5_0.vp_program.json",
+      "actions": [
+        "selective_base_top_right_edge_0044:edge:axis_or_connector:shift_m0.5_0"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_bottom_right_shape_0037::shift_m0.5_0",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0040_selective_base_bottom_right_shape_0037_shape_rectangle_shift_m0_5_0.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0040_selective_base_bottom_right_shape_0037_shape_rectangle_shift_m0_5_0.vp_program.json",
+      "actions": [
+        "selective_base_bottom_right_shape_0037:shape:rectangle:shift_m0.5_0"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_bottom_right_region_0047::shift_m0.5_0",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0041_selective_base_bottom_right_region_0047_region_panel_or_container_shift_m0_5_0.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0041_selective_base_bottom_right_region_0047_region_panel_or_container_shift_m0_5_0.vp_program.json",
+      "actions": [
+        "selective_base_bottom_right_region_0047:region:panel_or_container:shift_m0.5_0"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_bottom_right_region_0045::shift_m0.5_0",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0042_selective_base_bottom_right_region_0045_region_panel_or_container_shift_m0_5_0.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0042_selective_base_bottom_right_region_0045_region_panel_or_container_shift_m0_5_0.vp_program.json",
+      "actions": [
+        "selective_base_bottom_right_region_0045:region:panel_or_container:shift_m0.5_0"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_top_left_edge_0099::shift_0_m1",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0043_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_m1.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0043_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_m1.vp_program.json",
+      "actions": [
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_0_m1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_bottom_right_edge_0046::shift_0_m1",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0044_selective_base_bottom_right_edge_0046_edge_axis_or_connector_shift_0_m1.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0044_selective_base_bottom_right_edge_0046_edge_axis_or_connector_shift_0_m1.vp_program.json",
+      "actions": [
+        "selective_base_bottom_right_edge_0046:edge:axis_or_connector:shift_0_m1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_top_right_shape_0015::shift_0_m1",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0045_selective_base_top_right_shape_0015_shape_ellipse_shift_0_m1.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0045_selective_base_top_right_shape_0015_shape_ellipse_shift_0_m1.vp_program.json",
+      "actions": [
+        "selective_base_top_right_shape_0015:shape:ellipse:shift_0_m1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_top_right_edge_0044::shift_0_m1",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0046_selective_base_top_right_edge_0044_edge_axis_or_connector_shift_0_m1.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0046_selective_base_top_right_edge_0044_edge_axis_or_connector_shift_0_m1.vp_program.json",
+      "actions": [
+        "selective_base_top_right_edge_0044:edge:axis_or_connector:shift_0_m1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_bottom_right_shape_0037::shift_0_m1",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0047_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_m1.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0047_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_m1.vp_program.json",
+      "actions": [
+        "selective_base_bottom_right_shape_0037:shape:rectangle:shift_0_m1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_bottom_right_region_0047::shift_0_m1",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0048_selective_base_bottom_right_region_0047_region_panel_or_container_shift_0_m1.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0048_selective_base_bottom_right_region_0047_region_panel_or_container_shift_0_m1.vp_program.json",
+      "actions": [
+        "selective_base_bottom_right_region_0047:region:panel_or_container:shift_0_m1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 1,
+      "key": "selective_base_bottom_right_region_0045::shift_0_m1",
+      "parent_key": "root",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0049_selective_base_bottom_right_region_0045_region_panel_or_container_shift_0_m1.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s01_0049_selective_base_bottom_right_region_0045_region_panel_or_container_shift_0_m1.vp_program.json",
+      "actions": [
+        "selective_base_bottom_right_region_0045:region:panel_or_container:shift_0_m1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_bottom_right_edge_0046::shift_0.5_0|selective_base_top_left_edge_0099::shift_0.5_0",
+      "parent_key": "selective_base_top_left_edge_0099::shift_0.5_0",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0001_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_bottom_righ.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0001_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_bottom_righ.vp_program.json",
+      "actions": [
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_0.5_0",
+        "selective_base_bottom_right_edge_0046:edge:axis_or_connector:shift_0.5_0"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_top_left_edge_0099::shift_0.5_0|selective_base_top_right_shape_0015::shift_0.5_0",
+      "parent_key": "selective_base_top_left_edge_0099::shift_0.5_0",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0002_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_top_right_s.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0002_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_top_right_s.vp_program.json",
+      "actions": [
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_0.5_0",
+        "selective_base_top_right_shape_0015:shape:ellipse:shift_0.5_0"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_top_left_edge_0099::shift_0.5_0|selective_base_top_right_edge_0044::shift_0.5_0",
+      "parent_key": "selective_base_top_left_edge_0099::shift_0.5_0",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0003_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_top_right_e.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0003_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_top_right_e.vp_program.json",
+      "actions": [
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_0.5_0",
+        "selective_base_top_right_edge_0044:edge:axis_or_connector:shift_0.5_0"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_bottom_right_shape_0037::shift_0.5_0|selective_base_top_left_edge_0099::shift_0.5_0",
+      "parent_key": "selective_base_top_left_edge_0099::shift_0.5_0",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0004_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_bottom_righ.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0004_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_bottom_righ.vp_program.json",
+      "actions": [
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_0.5_0",
+        "selective_base_bottom_right_shape_0037:shape:rectangle:shift_0.5_0"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_bottom_right_region_0047::shift_0.5_0|selective_base_top_left_edge_0099::shift_0.5_0",
+      "parent_key": "selective_base_top_left_edge_0099::shift_0.5_0",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0005_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_bottom_righ.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0005_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_bottom_righ.vp_program.json",
+      "actions": [
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_0.5_0",
+        "selective_base_bottom_right_region_0047:region:panel_or_container:shift_0.5_0"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_bottom_right_region_0045::shift_0.5_0|selective_base_top_left_edge_0099::shift_0.5_0",
+      "parent_key": "selective_base_top_left_edge_0099::shift_0.5_0",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0006_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_bottom_righ.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0006_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_bottom_righ.vp_program.json",
+      "actions": [
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_0.5_0",
+        "selective_base_bottom_right_region_0045:region:panel_or_container:shift_0.5_0"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_top_left_edge_0099::shift_0.5_0|selective_base_top_left_edge_0099::shift_1_0",
+      "parent_key": "selective_base_top_left_edge_0099::shift_0.5_0",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0007_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_top_left_ed.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0007_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_top_left_ed.vp_program.json",
+      "actions": [
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_0.5_0",
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_1_0"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_bottom_right_edge_0046::shift_1_0|selective_base_top_left_edge_0099::shift_0.5_0",
+      "parent_key": "selective_base_top_left_edge_0099::shift_0.5_0",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0008_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_bottom_righ.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0008_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_bottom_righ.vp_program.json",
+      "actions": [
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_0.5_0",
+        "selective_base_bottom_right_edge_0046:edge:axis_or_connector:shift_1_0"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_top_left_edge_0099::shift_0.5_0|selective_base_top_right_shape_0015::shift_1_0",
+      "parent_key": "selective_base_top_left_edge_0099::shift_0.5_0",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0009_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_top_right_s.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0009_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_top_right_s.vp_program.json",
+      "actions": [
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_0.5_0",
+        "selective_base_top_right_shape_0015:shape:ellipse:shift_1_0"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_top_left_edge_0099::shift_0.5_0|selective_base_top_right_edge_0044::shift_1_0",
+      "parent_key": "selective_base_top_left_edge_0099::shift_0.5_0",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0010_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_top_right_e.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0010_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_top_right_e.vp_program.json",
+      "actions": [
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_0.5_0",
+        "selective_base_top_right_edge_0044:edge:axis_or_connector:shift_1_0"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_bottom_right_shape_0037::shift_1_0|selective_base_top_left_edge_0099::shift_0.5_0",
+      "parent_key": "selective_base_top_left_edge_0099::shift_0.5_0",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0011_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_bottom_righ.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0011_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_bottom_righ.vp_program.json",
+      "actions": [
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_0.5_0",
+        "selective_base_bottom_right_shape_0037:shape:rectangle:shift_1_0"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_bottom_right_region_0047::shift_1_0|selective_base_top_left_edge_0099::shift_0.5_0",
+      "parent_key": "selective_base_top_left_edge_0099::shift_0.5_0",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0012_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_bottom_righ.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0012_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_bottom_righ.vp_program.json",
+      "actions": [
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_0.5_0",
+        "selective_base_bottom_right_region_0047:region:panel_or_container:shift_1_0"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_bottom_right_region_0045::shift_1_0|selective_base_top_left_edge_0099::shift_0.5_0",
+      "parent_key": "selective_base_top_left_edge_0099::shift_0.5_0",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0013_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_bottom_righ.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0013_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_bottom_righ.vp_program.json",
+      "actions": [
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_0.5_0",
+        "selective_base_bottom_right_region_0045:region:panel_or_container:shift_1_0"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_top_left_edge_0099::shift_0.5_0|selective_base_top_left_edge_0099::shift_0_m0.5",
+      "parent_key": "selective_base_top_left_edge_0099::shift_0.5_0",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0014_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_top_left_ed.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0014_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_top_left_ed.vp_program.json",
+      "actions": [
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_0.5_0",
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_0_m0.5"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_bottom_right_edge_0046::shift_0_m0.5|selective_base_top_left_edge_0099::shift_0.5_0",
+      "parent_key": "selective_base_top_left_edge_0099::shift_0.5_0",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0015_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_bottom_righ.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0015_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_bottom_righ.vp_program.json",
+      "actions": [
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_0.5_0",
+        "selective_base_bottom_right_edge_0046:edge:axis_or_connector:shift_0_m0.5"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_top_left_edge_0099::shift_0.5_0|selective_base_top_right_shape_0015::shift_0_m0.5",
+      "parent_key": "selective_base_top_left_edge_0099::shift_0.5_0",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0016_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_top_right_s.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0016_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_top_right_s.vp_program.json",
+      "actions": [
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_0.5_0",
+        "selective_base_top_right_shape_0015:shape:ellipse:shift_0_m0.5"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_top_left_edge_0099::shift_0.5_0|selective_base_top_right_edge_0044::shift_0_m0.5",
+      "parent_key": "selective_base_top_left_edge_0099::shift_0.5_0",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0017_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_top_right_e.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0017_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_top_right_e.vp_program.json",
+      "actions": [
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_0.5_0",
+        "selective_base_top_right_edge_0044:edge:axis_or_connector:shift_0_m0.5"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_bottom_right_shape_0037::shift_0_m0.5|selective_base_top_left_edge_0099::shift_0.5_0",
+      "parent_key": "selective_base_top_left_edge_0099::shift_0.5_0",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0018_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_bottom_righ.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0018_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_bottom_righ.vp_program.json",
+      "actions": [
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_0.5_0",
+        "selective_base_bottom_right_shape_0037:shape:rectangle:shift_0_m0.5"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_bottom_right_region_0047::shift_0_m0.5|selective_base_top_left_edge_0099::shift_0.5_0",
+      "parent_key": "selective_base_top_left_edge_0099::shift_0.5_0",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0019_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_bottom_righ.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0019_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_bottom_righ.vp_program.json",
+      "actions": [
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_0.5_0",
+        "selective_base_bottom_right_region_0047:region:panel_or_container:shift_0_m0.5"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_bottom_right_region_0045::shift_0_m0.5|selective_base_top_left_edge_0099::shift_0.5_0",
+      "parent_key": "selective_base_top_left_edge_0099::shift_0.5_0",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0020_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_bottom_righ.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0020_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_bottom_righ.vp_program.json",
+      "actions": [
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_0.5_0",
+        "selective_base_bottom_right_region_0045:region:panel_or_container:shift_0_m0.5"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_top_left_edge_0099::shift_0.5_0|selective_base_top_left_edge_0099::shift_0_0.5",
+      "parent_key": "selective_base_top_left_edge_0099::shift_0.5_0",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0021_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_top_left_ed.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0021_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_top_left_ed.vp_program.json",
+      "actions": [
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_0.5_0",
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_0_0.5"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_bottom_right_edge_0046::shift_0_0.5|selective_base_top_left_edge_0099::shift_0.5_0",
+      "parent_key": "selective_base_top_left_edge_0099::shift_0.5_0",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0022_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_bottom_righ.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0022_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_bottom_righ.vp_program.json",
+      "actions": [
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_0.5_0",
+        "selective_base_bottom_right_edge_0046:edge:axis_or_connector:shift_0_0.5"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_top_left_edge_0099::shift_0.5_0|selective_base_top_right_shape_0015::shift_0_0.5",
+      "parent_key": "selective_base_top_left_edge_0099::shift_0.5_0",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0023_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_top_right_s.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0023_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_top_right_s.vp_program.json",
+      "actions": [
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_0.5_0",
+        "selective_base_top_right_shape_0015:shape:ellipse:shift_0_0.5"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_top_left_edge_0099::shift_0.5_0|selective_base_top_right_edge_0044::shift_0_0.5",
+      "parent_key": "selective_base_top_left_edge_0099::shift_0.5_0",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0024_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_top_right_e.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0024_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_top_right_e.vp_program.json",
+      "actions": [
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_0.5_0",
+        "selective_base_top_right_edge_0044:edge:axis_or_connector:shift_0_0.5"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_bottom_right_shape_0037::shift_0_0.5|selective_base_top_left_edge_0099::shift_0.5_0",
+      "parent_key": "selective_base_top_left_edge_0099::shift_0.5_0",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0025_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_bottom_righ.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0025_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_bottom_righ.vp_program.json",
+      "actions": [
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_0.5_0",
+        "selective_base_bottom_right_shape_0037:shape:rectangle:shift_0_0.5"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_bottom_right_region_0047::shift_0_0.5|selective_base_top_left_edge_0099::shift_0.5_0",
+      "parent_key": "selective_base_top_left_edge_0099::shift_0.5_0",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0026_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_bottom_righ.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0026_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_bottom_righ.vp_program.json",
+      "actions": [
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_0.5_0",
+        "selective_base_bottom_right_region_0047:region:panel_or_container:shift_0_0.5"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_bottom_right_region_0045::shift_0_0.5|selective_base_top_left_edge_0099::shift_0.5_0",
+      "parent_key": "selective_base_top_left_edge_0099::shift_0.5_0",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0027_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_bottom_righ.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0027_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_bottom_righ.vp_program.json",
+      "actions": [
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_0.5_0",
+        "selective_base_bottom_right_region_0045:region:panel_or_container:shift_0_0.5"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_top_left_edge_0099::shift_0.5_0|selective_base_top_left_edge_0099::shift_0_1",
+      "parent_key": "selective_base_top_left_edge_0099::shift_0.5_0",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0028_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_top_left_ed.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0028_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_top_left_ed.vp_program.json",
+      "actions": [
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_0.5_0",
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_0_1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_bottom_right_edge_0046::shift_0_1|selective_base_top_left_edge_0099::shift_0.5_0",
+      "parent_key": "selective_base_top_left_edge_0099::shift_0.5_0",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0029_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_bottom_righ.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0029_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_bottom_righ.vp_program.json",
+      "actions": [
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_0.5_0",
+        "selective_base_bottom_right_edge_0046:edge:axis_or_connector:shift_0_1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_top_left_edge_0099::shift_0.5_0|selective_base_top_right_shape_0015::shift_0_1",
+      "parent_key": "selective_base_top_left_edge_0099::shift_0.5_0",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0030_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_top_right_s.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0030_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_top_right_s.vp_program.json",
+      "actions": [
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_0.5_0",
+        "selective_base_top_right_shape_0015:shape:ellipse:shift_0_1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_top_left_edge_0099::shift_0.5_0|selective_base_top_right_edge_0044::shift_0_1",
+      "parent_key": "selective_base_top_left_edge_0099::shift_0.5_0",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0031_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_top_right_e.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0031_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_top_right_e.vp_program.json",
+      "actions": [
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_0.5_0",
+        "selective_base_top_right_edge_0044:edge:axis_or_connector:shift_0_1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_bottom_right_shape_0037::shift_0_1|selective_base_top_left_edge_0099::shift_0.5_0",
+      "parent_key": "selective_base_top_left_edge_0099::shift_0.5_0",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0032_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_bottom_righ.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0032_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_bottom_righ.vp_program.json",
+      "actions": [
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_0.5_0",
+        "selective_base_bottom_right_shape_0037:shape:rectangle:shift_0_1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_bottom_right_region_0047::shift_0_1|selective_base_top_left_edge_0099::shift_0.5_0",
+      "parent_key": "selective_base_top_left_edge_0099::shift_0.5_0",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0033_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_bottom_righ.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0033_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_bottom_righ.vp_program.json",
+      "actions": [
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_0.5_0",
+        "selective_base_bottom_right_region_0047:region:panel_or_container:shift_0_1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_bottom_right_region_0045::shift_0_1|selective_base_top_left_edge_0099::shift_0.5_0",
+      "parent_key": "selective_base_top_left_edge_0099::shift_0.5_0",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0034_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_bottom_righ.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0034_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_bottom_righ.vp_program.json",
+      "actions": [
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_0.5_0",
+        "selective_base_bottom_right_region_0045:region:panel_or_container:shift_0_1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_top_left_edge_0099::shift_0.5_0|selective_base_top_left_edge_0099::shift_m0.5_0",
+      "parent_key": "selective_base_top_left_edge_0099::shift_0.5_0",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0035_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_top_left_ed.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0035_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_top_left_ed.vp_program.json",
+      "actions": [
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_0.5_0",
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_m0.5_0"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_bottom_right_edge_0046::shift_m0.5_0|selective_base_top_left_edge_0099::shift_0.5_0",
+      "parent_key": "selective_base_top_left_edge_0099::shift_0.5_0",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0036_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_bottom_righ.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0036_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_bottom_righ.vp_program.json",
+      "actions": [
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_0.5_0",
+        "selective_base_bottom_right_edge_0046:edge:axis_or_connector:shift_m0.5_0"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_top_left_edge_0099::shift_0.5_0|selective_base_top_right_shape_0015::shift_m0.5_0",
+      "parent_key": "selective_base_top_left_edge_0099::shift_0.5_0",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0037_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_top_right_s.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0037_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_top_right_s.vp_program.json",
+      "actions": [
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_0.5_0",
+        "selective_base_top_right_shape_0015:shape:ellipse:shift_m0.5_0"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_top_left_edge_0099::shift_0.5_0|selective_base_top_right_edge_0044::shift_m0.5_0",
+      "parent_key": "selective_base_top_left_edge_0099::shift_0.5_0",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0038_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_top_right_e.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0038_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_top_right_e.vp_program.json",
+      "actions": [
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_0.5_0",
+        "selective_base_top_right_edge_0044:edge:axis_or_connector:shift_m0.5_0"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_bottom_right_shape_0037::shift_m0.5_0|selective_base_top_left_edge_0099::shift_0.5_0",
+      "parent_key": "selective_base_top_left_edge_0099::shift_0.5_0",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0039_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_bottom_righ.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0039_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_bottom_righ.vp_program.json",
+      "actions": [
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_0.5_0",
+        "selective_base_bottom_right_shape_0037:shape:rectangle:shift_m0.5_0"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_bottom_right_region_0047::shift_m0.5_0|selective_base_top_left_edge_0099::shift_0.5_0",
+      "parent_key": "selective_base_top_left_edge_0099::shift_0.5_0",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0040_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_bottom_righ.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0040_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_bottom_righ.vp_program.json",
+      "actions": [
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_0.5_0",
+        "selective_base_bottom_right_region_0047:region:panel_or_container:shift_m0.5_0"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_bottom_right_region_0045::shift_m0.5_0|selective_base_top_left_edge_0099::shift_0.5_0",
+      "parent_key": "selective_base_top_left_edge_0099::shift_0.5_0",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0041_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_bottom_righ.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0041_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_bottom_righ.vp_program.json",
+      "actions": [
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_0.5_0",
+        "selective_base_bottom_right_region_0045:region:panel_or_container:shift_m0.5_0"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_top_left_edge_0099::shift_0.5_0|selective_base_top_left_edge_0099::shift_0_m1",
+      "parent_key": "selective_base_top_left_edge_0099::shift_0.5_0",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0042_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_top_left_ed.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0042_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_top_left_ed.vp_program.json",
+      "actions": [
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_0.5_0",
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_0_m1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_bottom_right_edge_0046::shift_0_m1|selective_base_top_left_edge_0099::shift_0.5_0",
+      "parent_key": "selective_base_top_left_edge_0099::shift_0.5_0",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0043_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_bottom_righ.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0043_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_bottom_righ.vp_program.json",
+      "actions": [
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_0.5_0",
+        "selective_base_bottom_right_edge_0046:edge:axis_or_connector:shift_0_m1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_top_left_edge_0099::shift_0.5_0|selective_base_top_right_shape_0015::shift_0_m1",
+      "parent_key": "selective_base_top_left_edge_0099::shift_0.5_0",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0044_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_top_right_s.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0044_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_top_right_s.vp_program.json",
+      "actions": [
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_0.5_0",
+        "selective_base_top_right_shape_0015:shape:ellipse:shift_0_m1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_top_left_edge_0099::shift_0.5_0|selective_base_top_right_edge_0044::shift_0_m1",
+      "parent_key": "selective_base_top_left_edge_0099::shift_0.5_0",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0045_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_top_right_e.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0045_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_top_right_e.vp_program.json",
+      "actions": [
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_0.5_0",
+        "selective_base_top_right_edge_0044:edge:axis_or_connector:shift_0_m1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_bottom_right_shape_0037::shift_0_m1|selective_base_top_left_edge_0099::shift_0.5_0",
+      "parent_key": "selective_base_top_left_edge_0099::shift_0.5_0",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0046_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_bottom_righ.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0046_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_bottom_righ.vp_program.json",
+      "actions": [
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_0.5_0",
+        "selective_base_bottom_right_shape_0037:shape:rectangle:shift_0_m1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_bottom_right_region_0047::shift_0_m1|selective_base_top_left_edge_0099::shift_0.5_0",
+      "parent_key": "selective_base_top_left_edge_0099::shift_0.5_0",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0047_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_bottom_righ.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0047_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_bottom_righ.vp_program.json",
+      "actions": [
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_0.5_0",
+        "selective_base_bottom_right_region_0047:region:panel_or_container:shift_0_m1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_bottom_right_region_0045::shift_0_m1|selective_base_top_left_edge_0099::shift_0.5_0",
+      "parent_key": "selective_base_top_left_edge_0099::shift_0.5_0",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0048_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_bottom_righ.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0048_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_0_5_0__selective_base_bottom_righ.vp_program.json",
+      "actions": [
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_0.5_0",
+        "selective_base_bottom_right_region_0045:region:panel_or_container:shift_0_m1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_bottom_right_edge_0046::shift_0.5_0|selective_base_top_left_edge_0099::shift_1_0",
+      "parent_key": "selective_base_top_left_edge_0099::shift_1_0",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0049_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_bottom_right_.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0049_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_bottom_right_.vp_program.json",
+      "actions": [
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_1_0",
+        "selective_base_bottom_right_edge_0046:edge:axis_or_connector:shift_0.5_0"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_top_left_edge_0099::shift_1_0|selective_base_top_right_shape_0015::shift_0.5_0",
+      "parent_key": "selective_base_top_left_edge_0099::shift_1_0",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0050_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_top_right_sha.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0050_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_top_right_sha.vp_program.json",
+      "actions": [
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_1_0",
+        "selective_base_top_right_shape_0015:shape:ellipse:shift_0.5_0"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_top_left_edge_0099::shift_1_0|selective_base_top_right_edge_0044::shift_0.5_0",
+      "parent_key": "selective_base_top_left_edge_0099::shift_1_0",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0051_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_top_right_edg.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0051_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_top_right_edg.vp_program.json",
+      "actions": [
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_1_0",
+        "selective_base_top_right_edge_0044:edge:axis_or_connector:shift_0.5_0"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_bottom_right_shape_0037::shift_0.5_0|selective_base_top_left_edge_0099::shift_1_0",
+      "parent_key": "selective_base_top_left_edge_0099::shift_1_0",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0052_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_bottom_right_.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0052_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_bottom_right_.vp_program.json",
+      "actions": [
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_1_0",
+        "selective_base_bottom_right_shape_0037:shape:rectangle:shift_0.5_0"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_bottom_right_region_0047::shift_0.5_0|selective_base_top_left_edge_0099::shift_1_0",
+      "parent_key": "selective_base_top_left_edge_0099::shift_1_0",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0053_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_bottom_right_.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0053_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_bottom_right_.vp_program.json",
+      "actions": [
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_1_0",
+        "selective_base_bottom_right_region_0047:region:panel_or_container:shift_0.5_0"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_bottom_right_region_0045::shift_0.5_0|selective_base_top_left_edge_0099::shift_1_0",
+      "parent_key": "selective_base_top_left_edge_0099::shift_1_0",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0054_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_bottom_right_.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0054_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_bottom_right_.vp_program.json",
+      "actions": [
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_1_0",
+        "selective_base_bottom_right_region_0045:region:panel_or_container:shift_0.5_0"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_bottom_right_edge_0046::shift_1_0|selective_base_top_left_edge_0099::shift_1_0",
+      "parent_key": "selective_base_top_left_edge_0099::shift_1_0",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0055_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_bottom_right_.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0055_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_bottom_right_.vp_program.json",
+      "actions": [
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_1_0",
+        "selective_base_bottom_right_edge_0046:edge:axis_or_connector:shift_1_0"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_top_left_edge_0099::shift_1_0|selective_base_top_right_shape_0015::shift_1_0",
+      "parent_key": "selective_base_top_left_edge_0099::shift_1_0",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0056_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_top_right_sha.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0056_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_top_right_sha.vp_program.json",
+      "actions": [
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_1_0",
+        "selective_base_top_right_shape_0015:shape:ellipse:shift_1_0"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_top_left_edge_0099::shift_1_0|selective_base_top_right_edge_0044::shift_1_0",
+      "parent_key": "selective_base_top_left_edge_0099::shift_1_0",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0057_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_top_right_edg.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0057_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_top_right_edg.vp_program.json",
+      "actions": [
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_1_0",
+        "selective_base_top_right_edge_0044:edge:axis_or_connector:shift_1_0"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_bottom_right_shape_0037::shift_1_0|selective_base_top_left_edge_0099::shift_1_0",
+      "parent_key": "selective_base_top_left_edge_0099::shift_1_0",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0058_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_bottom_right_.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0058_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_bottom_right_.vp_program.json",
+      "actions": [
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_1_0",
+        "selective_base_bottom_right_shape_0037:shape:rectangle:shift_1_0"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_bottom_right_region_0047::shift_1_0|selective_base_top_left_edge_0099::shift_1_0",
+      "parent_key": "selective_base_top_left_edge_0099::shift_1_0",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0059_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_bottom_right_.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0059_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_bottom_right_.vp_program.json",
+      "actions": [
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_1_0",
+        "selective_base_bottom_right_region_0047:region:panel_or_container:shift_1_0"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_bottom_right_region_0045::shift_1_0|selective_base_top_left_edge_0099::shift_1_0",
+      "parent_key": "selective_base_top_left_edge_0099::shift_1_0",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0060_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_bottom_right_.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0060_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_bottom_right_.vp_program.json",
+      "actions": [
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_1_0",
+        "selective_base_bottom_right_region_0045:region:panel_or_container:shift_1_0"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_top_left_edge_0099::shift_0_m0.5|selective_base_top_left_edge_0099::shift_1_0",
+      "parent_key": "selective_base_top_left_edge_0099::shift_1_0",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0061_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_top_left_edge.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0061_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_top_left_edge.vp_program.json",
+      "actions": [
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_1_0",
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_0_m0.5"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_bottom_right_edge_0046::shift_0_m0.5|selective_base_top_left_edge_0099::shift_1_0",
+      "parent_key": "selective_base_top_left_edge_0099::shift_1_0",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0062_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_bottom_right_.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0062_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_bottom_right_.vp_program.json",
+      "actions": [
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_1_0",
+        "selective_base_bottom_right_edge_0046:edge:axis_or_connector:shift_0_m0.5"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_top_left_edge_0099::shift_1_0|selective_base_top_right_shape_0015::shift_0_m0.5",
+      "parent_key": "selective_base_top_left_edge_0099::shift_1_0",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0063_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_top_right_sha.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0063_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_top_right_sha.vp_program.json",
+      "actions": [
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_1_0",
+        "selective_base_top_right_shape_0015:shape:ellipse:shift_0_m0.5"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_top_left_edge_0099::shift_1_0|selective_base_top_right_edge_0044::shift_0_m0.5",
+      "parent_key": "selective_base_top_left_edge_0099::shift_1_0",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0064_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_top_right_edg.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0064_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_top_right_edg.vp_program.json",
+      "actions": [
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_1_0",
+        "selective_base_top_right_edge_0044:edge:axis_or_connector:shift_0_m0.5"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_bottom_right_shape_0037::shift_0_m0.5|selective_base_top_left_edge_0099::shift_1_0",
+      "parent_key": "selective_base_top_left_edge_0099::shift_1_0",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0065_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_bottom_right_.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0065_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_bottom_right_.vp_program.json",
+      "actions": [
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_1_0",
+        "selective_base_bottom_right_shape_0037:shape:rectangle:shift_0_m0.5"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_bottom_right_region_0047::shift_0_m0.5|selective_base_top_left_edge_0099::shift_1_0",
+      "parent_key": "selective_base_top_left_edge_0099::shift_1_0",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0066_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_bottom_right_.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0066_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_bottom_right_.vp_program.json",
+      "actions": [
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_1_0",
+        "selective_base_bottom_right_region_0047:region:panel_or_container:shift_0_m0.5"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_bottom_right_region_0045::shift_0_m0.5|selective_base_top_left_edge_0099::shift_1_0",
+      "parent_key": "selective_base_top_left_edge_0099::shift_1_0",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0067_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_bottom_right_.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0067_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_bottom_right_.vp_program.json",
+      "actions": [
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_1_0",
+        "selective_base_bottom_right_region_0045:region:panel_or_container:shift_0_m0.5"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_top_left_edge_0099::shift_0_0.5|selective_base_top_left_edge_0099::shift_1_0",
+      "parent_key": "selective_base_top_left_edge_0099::shift_1_0",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0068_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_top_left_edge.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0068_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_top_left_edge.vp_program.json",
+      "actions": [
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_1_0",
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_0_0.5"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_bottom_right_edge_0046::shift_0_0.5|selective_base_top_left_edge_0099::shift_1_0",
+      "parent_key": "selective_base_top_left_edge_0099::shift_1_0",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0069_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_bottom_right_.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0069_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_bottom_right_.vp_program.json",
+      "actions": [
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_1_0",
+        "selective_base_bottom_right_edge_0046:edge:axis_or_connector:shift_0_0.5"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_top_left_edge_0099::shift_1_0|selective_base_top_right_shape_0015::shift_0_0.5",
+      "parent_key": "selective_base_top_left_edge_0099::shift_1_0",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0070_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_top_right_sha.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0070_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_top_right_sha.vp_program.json",
+      "actions": [
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_1_0",
+        "selective_base_top_right_shape_0015:shape:ellipse:shift_0_0.5"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_top_left_edge_0099::shift_1_0|selective_base_top_right_edge_0044::shift_0_0.5",
+      "parent_key": "selective_base_top_left_edge_0099::shift_1_0",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0071_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_top_right_edg.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0071_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_top_right_edg.vp_program.json",
+      "actions": [
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_1_0",
+        "selective_base_top_right_edge_0044:edge:axis_or_connector:shift_0_0.5"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_bottom_right_shape_0037::shift_0_0.5|selective_base_top_left_edge_0099::shift_1_0",
+      "parent_key": "selective_base_top_left_edge_0099::shift_1_0",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0072_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_bottom_right_.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0072_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_bottom_right_.vp_program.json",
+      "actions": [
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_1_0",
+        "selective_base_bottom_right_shape_0037:shape:rectangle:shift_0_0.5"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_bottom_right_region_0047::shift_0_0.5|selective_base_top_left_edge_0099::shift_1_0",
+      "parent_key": "selective_base_top_left_edge_0099::shift_1_0",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0073_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_bottom_right_.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0073_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_bottom_right_.vp_program.json",
+      "actions": [
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_1_0",
+        "selective_base_bottom_right_region_0047:region:panel_or_container:shift_0_0.5"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_bottom_right_region_0045::shift_0_0.5|selective_base_top_left_edge_0099::shift_1_0",
+      "parent_key": "selective_base_top_left_edge_0099::shift_1_0",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0074_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_bottom_right_.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0074_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_bottom_right_.vp_program.json",
+      "actions": [
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_1_0",
+        "selective_base_bottom_right_region_0045:region:panel_or_container:shift_0_0.5"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_top_left_edge_0099::shift_0_1|selective_base_top_left_edge_0099::shift_1_0",
+      "parent_key": "selective_base_top_left_edge_0099::shift_1_0",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0075_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_top_left_edge.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0075_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_top_left_edge.vp_program.json",
+      "actions": [
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_1_0",
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_0_1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_bottom_right_edge_0046::shift_0_1|selective_base_top_left_edge_0099::shift_1_0",
+      "parent_key": "selective_base_top_left_edge_0099::shift_1_0",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0076_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_bottom_right_.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0076_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_bottom_right_.vp_program.json",
+      "actions": [
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_1_0",
+        "selective_base_bottom_right_edge_0046:edge:axis_or_connector:shift_0_1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_top_left_edge_0099::shift_1_0|selective_base_top_right_shape_0015::shift_0_1",
+      "parent_key": "selective_base_top_left_edge_0099::shift_1_0",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0077_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_top_right_sha.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0077_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_top_right_sha.vp_program.json",
+      "actions": [
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_1_0",
+        "selective_base_top_right_shape_0015:shape:ellipse:shift_0_1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_top_left_edge_0099::shift_1_0|selective_base_top_right_edge_0044::shift_0_1",
+      "parent_key": "selective_base_top_left_edge_0099::shift_1_0",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0078_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_top_right_edg.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0078_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_top_right_edg.vp_program.json",
+      "actions": [
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_1_0",
+        "selective_base_top_right_edge_0044:edge:axis_or_connector:shift_0_1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_bottom_right_shape_0037::shift_0_1|selective_base_top_left_edge_0099::shift_1_0",
+      "parent_key": "selective_base_top_left_edge_0099::shift_1_0",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0079_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_bottom_right_.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0079_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_bottom_right_.vp_program.json",
+      "actions": [
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_1_0",
+        "selective_base_bottom_right_shape_0037:shape:rectangle:shift_0_1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_bottom_right_region_0047::shift_0_1|selective_base_top_left_edge_0099::shift_1_0",
+      "parent_key": "selective_base_top_left_edge_0099::shift_1_0",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0080_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_bottom_right_.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0080_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_bottom_right_.vp_program.json",
+      "actions": [
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_1_0",
+        "selective_base_bottom_right_region_0047:region:panel_or_container:shift_0_1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_bottom_right_region_0045::shift_0_1|selective_base_top_left_edge_0099::shift_1_0",
+      "parent_key": "selective_base_top_left_edge_0099::shift_1_0",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0081_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_bottom_right_.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0081_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_bottom_right_.vp_program.json",
+      "actions": [
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_1_0",
+        "selective_base_bottom_right_region_0045:region:panel_or_container:shift_0_1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_top_left_edge_0099::shift_1_0|selective_base_top_left_edge_0099::shift_m0.5_0",
+      "parent_key": "selective_base_top_left_edge_0099::shift_1_0",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0082_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_top_left_edge.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0082_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_top_left_edge.vp_program.json",
+      "actions": [
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_1_0",
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_m0.5_0"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_bottom_right_edge_0046::shift_m0.5_0|selective_base_top_left_edge_0099::shift_1_0",
+      "parent_key": "selective_base_top_left_edge_0099::shift_1_0",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0083_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_bottom_right_.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0083_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_bottom_right_.vp_program.json",
+      "actions": [
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_1_0",
+        "selective_base_bottom_right_edge_0046:edge:axis_or_connector:shift_m0.5_0"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_top_left_edge_0099::shift_1_0|selective_base_top_right_shape_0015::shift_m0.5_0",
+      "parent_key": "selective_base_top_left_edge_0099::shift_1_0",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0084_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_top_right_sha.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0084_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_top_right_sha.vp_program.json",
+      "actions": [
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_1_0",
+        "selective_base_top_right_shape_0015:shape:ellipse:shift_m0.5_0"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_top_left_edge_0099::shift_1_0|selective_base_top_right_edge_0044::shift_m0.5_0",
+      "parent_key": "selective_base_top_left_edge_0099::shift_1_0",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0085_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_top_right_edg.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0085_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_top_right_edg.vp_program.json",
+      "actions": [
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_1_0",
+        "selective_base_top_right_edge_0044:edge:axis_or_connector:shift_m0.5_0"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_bottom_right_shape_0037::shift_m0.5_0|selective_base_top_left_edge_0099::shift_1_0",
+      "parent_key": "selective_base_top_left_edge_0099::shift_1_0",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0086_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_bottom_right_.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0086_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_bottom_right_.vp_program.json",
+      "actions": [
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_1_0",
+        "selective_base_bottom_right_shape_0037:shape:rectangle:shift_m0.5_0"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_bottom_right_region_0047::shift_m0.5_0|selective_base_top_left_edge_0099::shift_1_0",
+      "parent_key": "selective_base_top_left_edge_0099::shift_1_0",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0087_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_bottom_right_.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0087_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_bottom_right_.vp_program.json",
+      "actions": [
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_1_0",
+        "selective_base_bottom_right_region_0047:region:panel_or_container:shift_m0.5_0"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_bottom_right_region_0045::shift_m0.5_0|selective_base_top_left_edge_0099::shift_1_0",
+      "parent_key": "selective_base_top_left_edge_0099::shift_1_0",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0088_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_bottom_right_.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0088_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_bottom_right_.vp_program.json",
+      "actions": [
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_1_0",
+        "selective_base_bottom_right_region_0045:region:panel_or_container:shift_m0.5_0"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_top_left_edge_0099::shift_0_m1|selective_base_top_left_edge_0099::shift_1_0",
+      "parent_key": "selective_base_top_left_edge_0099::shift_1_0",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0089_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_top_left_edge.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0089_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_top_left_edge.vp_program.json",
+      "actions": [
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_1_0",
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_0_m1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_bottom_right_edge_0046::shift_0_m1|selective_base_top_left_edge_0099::shift_1_0",
+      "parent_key": "selective_base_top_left_edge_0099::shift_1_0",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0090_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_bottom_right_.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0090_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_bottom_right_.vp_program.json",
+      "actions": [
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_1_0",
+        "selective_base_bottom_right_edge_0046:edge:axis_or_connector:shift_0_m1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_top_left_edge_0099::shift_1_0|selective_base_top_right_shape_0015::shift_0_m1",
+      "parent_key": "selective_base_top_left_edge_0099::shift_1_0",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0091_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_top_right_sha.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0091_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_top_right_sha.vp_program.json",
+      "actions": [
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_1_0",
+        "selective_base_top_right_shape_0015:shape:ellipse:shift_0_m1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_top_left_edge_0099::shift_1_0|selective_base_top_right_edge_0044::shift_0_m1",
+      "parent_key": "selective_base_top_left_edge_0099::shift_1_0",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0092_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_top_right_edg.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0092_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_top_right_edg.vp_program.json",
+      "actions": [
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_1_0",
+        "selective_base_top_right_edge_0044:edge:axis_or_connector:shift_0_m1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_bottom_right_shape_0037::shift_0_m1|selective_base_top_left_edge_0099::shift_1_0",
+      "parent_key": "selective_base_top_left_edge_0099::shift_1_0",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0093_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_bottom_right_.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0093_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_bottom_right_.vp_program.json",
+      "actions": [
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_1_0",
+        "selective_base_bottom_right_shape_0037:shape:rectangle:shift_0_m1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_bottom_right_region_0047::shift_0_m1|selective_base_top_left_edge_0099::shift_1_0",
+      "parent_key": "selective_base_top_left_edge_0099::shift_1_0",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0094_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_bottom_right_.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0094_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_bottom_right_.vp_program.json",
+      "actions": [
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_1_0",
+        "selective_base_bottom_right_region_0047:region:panel_or_container:shift_0_m1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_bottom_right_region_0045::shift_0_m1|selective_base_top_left_edge_0099::shift_1_0",
+      "parent_key": "selective_base_top_left_edge_0099::shift_1_0",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0095_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_bottom_right_.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0095_selective_base_top_left_edge_0099_edge_axis_or_connector_shift_1_0__selective_base_bottom_right_.vp_program.json",
+      "actions": [
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_1_0",
+        "selective_base_bottom_right_region_0045:region:panel_or_container:shift_0_m1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_bottom_right_edge_0046::shift_0.5_0|selective_base_bottom_right_shape_0037::shift_0_m1",
+      "parent_key": "selective_base_bottom_right_shape_0037::shift_0_m1",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0096_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_m1__selective_base_bottom_right_e.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0096_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_m1__selective_base_bottom_right_e.vp_program.json",
+      "actions": [
+        "selective_base_bottom_right_shape_0037:shape:rectangle:shift_0_m1",
+        "selective_base_bottom_right_edge_0046:edge:axis_or_connector:shift_0.5_0"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_bottom_right_shape_0037::shift_0_m1|selective_base_top_right_shape_0015::shift_0.5_0",
+      "parent_key": "selective_base_bottom_right_shape_0037::shift_0_m1",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0097_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_m1__selective_base_top_right_shap.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0097_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_m1__selective_base_top_right_shap.vp_program.json",
+      "actions": [
+        "selective_base_bottom_right_shape_0037:shape:rectangle:shift_0_m1",
+        "selective_base_top_right_shape_0015:shape:ellipse:shift_0.5_0"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_bottom_right_shape_0037::shift_0_m1|selective_base_top_right_edge_0044::shift_0.5_0",
+      "parent_key": "selective_base_bottom_right_shape_0037::shift_0_m1",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0098_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_m1__selective_base_top_right_edge.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0098_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_m1__selective_base_top_right_edge.vp_program.json",
+      "actions": [
+        "selective_base_bottom_right_shape_0037:shape:rectangle:shift_0_m1",
+        "selective_base_top_right_edge_0044:edge:axis_or_connector:shift_0.5_0"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_bottom_right_shape_0037::shift_0.5_0|selective_base_bottom_right_shape_0037::shift_0_m1",
+      "parent_key": "selective_base_bottom_right_shape_0037::shift_0_m1",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0099_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_m1__selective_base_bottom_right_s.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0099_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_m1__selective_base_bottom_right_s.vp_program.json",
+      "actions": [
+        "selective_base_bottom_right_shape_0037:shape:rectangle:shift_0_m1",
+        "selective_base_bottom_right_shape_0037:shape:rectangle:shift_0.5_0"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_bottom_right_region_0047::shift_0.5_0|selective_base_bottom_right_shape_0037::shift_0_m1",
+      "parent_key": "selective_base_bottom_right_shape_0037::shift_0_m1",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0100_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_m1__selective_base_bottom_right_r.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0100_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_m1__selective_base_bottom_right_r.vp_program.json",
+      "actions": [
+        "selective_base_bottom_right_shape_0037:shape:rectangle:shift_0_m1",
+        "selective_base_bottom_right_region_0047:region:panel_or_container:shift_0.5_0"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_bottom_right_region_0045::shift_0.5_0|selective_base_bottom_right_shape_0037::shift_0_m1",
+      "parent_key": "selective_base_bottom_right_shape_0037::shift_0_m1",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0101_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_m1__selective_base_bottom_right_r.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0101_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_m1__selective_base_bottom_right_r.vp_program.json",
+      "actions": [
+        "selective_base_bottom_right_shape_0037:shape:rectangle:shift_0_m1",
+        "selective_base_bottom_right_region_0045:region:panel_or_container:shift_0.5_0"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_bottom_right_edge_0046::shift_1_0|selective_base_bottom_right_shape_0037::shift_0_m1",
+      "parent_key": "selective_base_bottom_right_shape_0037::shift_0_m1",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0102_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_m1__selective_base_bottom_right_e.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0102_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_m1__selective_base_bottom_right_e.vp_program.json",
+      "actions": [
+        "selective_base_bottom_right_shape_0037:shape:rectangle:shift_0_m1",
+        "selective_base_bottom_right_edge_0046:edge:axis_or_connector:shift_1_0"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_bottom_right_shape_0037::shift_0_m1|selective_base_top_right_shape_0015::shift_1_0",
+      "parent_key": "selective_base_bottom_right_shape_0037::shift_0_m1",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0103_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_m1__selective_base_top_right_shap.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0103_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_m1__selective_base_top_right_shap.vp_program.json",
+      "actions": [
+        "selective_base_bottom_right_shape_0037:shape:rectangle:shift_0_m1",
+        "selective_base_top_right_shape_0015:shape:ellipse:shift_1_0"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_bottom_right_shape_0037::shift_0_m1|selective_base_top_right_edge_0044::shift_1_0",
+      "parent_key": "selective_base_bottom_right_shape_0037::shift_0_m1",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0104_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_m1__selective_base_top_right_edge.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0104_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_m1__selective_base_top_right_edge.vp_program.json",
+      "actions": [
+        "selective_base_bottom_right_shape_0037:shape:rectangle:shift_0_m1",
+        "selective_base_top_right_edge_0044:edge:axis_or_connector:shift_1_0"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_bottom_right_shape_0037::shift_0_m1|selective_base_bottom_right_shape_0037::shift_1_0",
+      "parent_key": "selective_base_bottom_right_shape_0037::shift_0_m1",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0105_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_m1__selective_base_bottom_right_s.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0105_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_m1__selective_base_bottom_right_s.vp_program.json",
+      "actions": [
+        "selective_base_bottom_right_shape_0037:shape:rectangle:shift_0_m1",
+        "selective_base_bottom_right_shape_0037:shape:rectangle:shift_1_0"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_bottom_right_region_0047::shift_1_0|selective_base_bottom_right_shape_0037::shift_0_m1",
+      "parent_key": "selective_base_bottom_right_shape_0037::shift_0_m1",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0106_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_m1__selective_base_bottom_right_r.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0106_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_m1__selective_base_bottom_right_r.vp_program.json",
+      "actions": [
+        "selective_base_bottom_right_shape_0037:shape:rectangle:shift_0_m1",
+        "selective_base_bottom_right_region_0047:region:panel_or_container:shift_1_0"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_bottom_right_region_0045::shift_1_0|selective_base_bottom_right_shape_0037::shift_0_m1",
+      "parent_key": "selective_base_bottom_right_shape_0037::shift_0_m1",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0107_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_m1__selective_base_bottom_right_r.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0107_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_m1__selective_base_bottom_right_r.vp_program.json",
+      "actions": [
+        "selective_base_bottom_right_shape_0037:shape:rectangle:shift_0_m1",
+        "selective_base_bottom_right_region_0045:region:panel_or_container:shift_1_0"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_bottom_right_shape_0037::shift_0_m1|selective_base_top_left_edge_0099::shift_0_m0.5",
+      "parent_key": "selective_base_bottom_right_shape_0037::shift_0_m1",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0108_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_m1__selective_base_top_left_edge_.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0108_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_m1__selective_base_top_left_edge_.vp_program.json",
+      "actions": [
+        "selective_base_bottom_right_shape_0037:shape:rectangle:shift_0_m1",
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_0_m0.5"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_bottom_right_edge_0046::shift_0_m0.5|selective_base_bottom_right_shape_0037::shift_0_m1",
+      "parent_key": "selective_base_bottom_right_shape_0037::shift_0_m1",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0109_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_m1__selective_base_bottom_right_e.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0109_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_m1__selective_base_bottom_right_e.vp_program.json",
+      "actions": [
+        "selective_base_bottom_right_shape_0037:shape:rectangle:shift_0_m1",
+        "selective_base_bottom_right_edge_0046:edge:axis_or_connector:shift_0_m0.5"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_bottom_right_shape_0037::shift_0_m1|selective_base_top_right_shape_0015::shift_0_m0.5",
+      "parent_key": "selective_base_bottom_right_shape_0037::shift_0_m1",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0110_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_m1__selective_base_top_right_shap.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0110_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_m1__selective_base_top_right_shap.vp_program.json",
+      "actions": [
+        "selective_base_bottom_right_shape_0037:shape:rectangle:shift_0_m1",
+        "selective_base_top_right_shape_0015:shape:ellipse:shift_0_m0.5"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_bottom_right_shape_0037::shift_0_m1|selective_base_top_right_edge_0044::shift_0_m0.5",
+      "parent_key": "selective_base_bottom_right_shape_0037::shift_0_m1",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0111_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_m1__selective_base_top_right_edge.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0111_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_m1__selective_base_top_right_edge.vp_program.json",
+      "actions": [
+        "selective_base_bottom_right_shape_0037:shape:rectangle:shift_0_m1",
+        "selective_base_top_right_edge_0044:edge:axis_or_connector:shift_0_m0.5"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_bottom_right_shape_0037::shift_0_m0.5|selective_base_bottom_right_shape_0037::shift_0_m1",
+      "parent_key": "selective_base_bottom_right_shape_0037::shift_0_m1",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0112_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_m1__selective_base_bottom_right_s.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0112_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_m1__selective_base_bottom_right_s.vp_program.json",
+      "actions": [
+        "selective_base_bottom_right_shape_0037:shape:rectangle:shift_0_m1",
+        "selective_base_bottom_right_shape_0037:shape:rectangle:shift_0_m0.5"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_bottom_right_region_0047::shift_0_m0.5|selective_base_bottom_right_shape_0037::shift_0_m1",
+      "parent_key": "selective_base_bottom_right_shape_0037::shift_0_m1",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0113_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_m1__selective_base_bottom_right_r.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0113_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_m1__selective_base_bottom_right_r.vp_program.json",
+      "actions": [
+        "selective_base_bottom_right_shape_0037:shape:rectangle:shift_0_m1",
+        "selective_base_bottom_right_region_0047:region:panel_or_container:shift_0_m0.5"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_bottom_right_region_0045::shift_0_m0.5|selective_base_bottom_right_shape_0037::shift_0_m1",
+      "parent_key": "selective_base_bottom_right_shape_0037::shift_0_m1",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0114_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_m1__selective_base_bottom_right_r.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0114_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_m1__selective_base_bottom_right_r.vp_program.json",
+      "actions": [
+        "selective_base_bottom_right_shape_0037:shape:rectangle:shift_0_m1",
+        "selective_base_bottom_right_region_0045:region:panel_or_container:shift_0_m0.5"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_bottom_right_shape_0037::shift_0_m1|selective_base_top_left_edge_0099::shift_0_0.5",
+      "parent_key": "selective_base_bottom_right_shape_0037::shift_0_m1",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0115_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_m1__selective_base_top_left_edge_.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0115_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_m1__selective_base_top_left_edge_.vp_program.json",
+      "actions": [
+        "selective_base_bottom_right_shape_0037:shape:rectangle:shift_0_m1",
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_0_0.5"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_bottom_right_edge_0046::shift_0_0.5|selective_base_bottom_right_shape_0037::shift_0_m1",
+      "parent_key": "selective_base_bottom_right_shape_0037::shift_0_m1",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0116_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_m1__selective_base_bottom_right_e.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0116_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_m1__selective_base_bottom_right_e.vp_program.json",
+      "actions": [
+        "selective_base_bottom_right_shape_0037:shape:rectangle:shift_0_m1",
+        "selective_base_bottom_right_edge_0046:edge:axis_or_connector:shift_0_0.5"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_bottom_right_shape_0037::shift_0_m1|selective_base_top_right_shape_0015::shift_0_0.5",
+      "parent_key": "selective_base_bottom_right_shape_0037::shift_0_m1",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0117_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_m1__selective_base_top_right_shap.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0117_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_m1__selective_base_top_right_shap.vp_program.json",
+      "actions": [
+        "selective_base_bottom_right_shape_0037:shape:rectangle:shift_0_m1",
+        "selective_base_top_right_shape_0015:shape:ellipse:shift_0_0.5"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_bottom_right_shape_0037::shift_0_m1|selective_base_top_right_edge_0044::shift_0_0.5",
+      "parent_key": "selective_base_bottom_right_shape_0037::shift_0_m1",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0118_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_m1__selective_base_top_right_edge.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0118_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_m1__selective_base_top_right_edge.vp_program.json",
+      "actions": [
+        "selective_base_bottom_right_shape_0037:shape:rectangle:shift_0_m1",
+        "selective_base_top_right_edge_0044:edge:axis_or_connector:shift_0_0.5"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_bottom_right_shape_0037::shift_0_0.5|selective_base_bottom_right_shape_0037::shift_0_m1",
+      "parent_key": "selective_base_bottom_right_shape_0037::shift_0_m1",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0119_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_m1__selective_base_bottom_right_s.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0119_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_m1__selective_base_bottom_right_s.vp_program.json",
+      "actions": [
+        "selective_base_bottom_right_shape_0037:shape:rectangle:shift_0_m1",
+        "selective_base_bottom_right_shape_0037:shape:rectangle:shift_0_0.5"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_bottom_right_region_0047::shift_0_0.5|selective_base_bottom_right_shape_0037::shift_0_m1",
+      "parent_key": "selective_base_bottom_right_shape_0037::shift_0_m1",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0120_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_m1__selective_base_bottom_right_r.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0120_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_m1__selective_base_bottom_right_r.vp_program.json",
+      "actions": [
+        "selective_base_bottom_right_shape_0037:shape:rectangle:shift_0_m1",
+        "selective_base_bottom_right_region_0047:region:panel_or_container:shift_0_0.5"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_bottom_right_region_0045::shift_0_0.5|selective_base_bottom_right_shape_0037::shift_0_m1",
+      "parent_key": "selective_base_bottom_right_shape_0037::shift_0_m1",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0121_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_m1__selective_base_bottom_right_r.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0121_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_m1__selective_base_bottom_right_r.vp_program.json",
+      "actions": [
+        "selective_base_bottom_right_shape_0037:shape:rectangle:shift_0_m1",
+        "selective_base_bottom_right_region_0045:region:panel_or_container:shift_0_0.5"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_bottom_right_shape_0037::shift_0_m1|selective_base_top_left_edge_0099::shift_0_1",
+      "parent_key": "selective_base_bottom_right_shape_0037::shift_0_m1",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0122_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_m1__selective_base_top_left_edge_.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0122_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_m1__selective_base_top_left_edge_.vp_program.json",
+      "actions": [
+        "selective_base_bottom_right_shape_0037:shape:rectangle:shift_0_m1",
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_0_1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_bottom_right_edge_0046::shift_0_1|selective_base_bottom_right_shape_0037::shift_0_m1",
+      "parent_key": "selective_base_bottom_right_shape_0037::shift_0_m1",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0123_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_m1__selective_base_bottom_right_e.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0123_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_m1__selective_base_bottom_right_e.vp_program.json",
+      "actions": [
+        "selective_base_bottom_right_shape_0037:shape:rectangle:shift_0_m1",
+        "selective_base_bottom_right_edge_0046:edge:axis_or_connector:shift_0_1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_bottom_right_shape_0037::shift_0_m1|selective_base_top_right_shape_0015::shift_0_1",
+      "parent_key": "selective_base_bottom_right_shape_0037::shift_0_m1",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0124_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_m1__selective_base_top_right_shap.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0124_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_m1__selective_base_top_right_shap.vp_program.json",
+      "actions": [
+        "selective_base_bottom_right_shape_0037:shape:rectangle:shift_0_m1",
+        "selective_base_top_right_shape_0015:shape:ellipse:shift_0_1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_bottom_right_shape_0037::shift_0_m1|selective_base_top_right_edge_0044::shift_0_1",
+      "parent_key": "selective_base_bottom_right_shape_0037::shift_0_m1",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0125_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_m1__selective_base_top_right_edge.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0125_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_m1__selective_base_top_right_edge.vp_program.json",
+      "actions": [
+        "selective_base_bottom_right_shape_0037:shape:rectangle:shift_0_m1",
+        "selective_base_top_right_edge_0044:edge:axis_or_connector:shift_0_1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_bottom_right_shape_0037::shift_0_1|selective_base_bottom_right_shape_0037::shift_0_m1",
+      "parent_key": "selective_base_bottom_right_shape_0037::shift_0_m1",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0126_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_m1__selective_base_bottom_right_s.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0126_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_m1__selective_base_bottom_right_s.vp_program.json",
+      "actions": [
+        "selective_base_bottom_right_shape_0037:shape:rectangle:shift_0_m1",
+        "selective_base_bottom_right_shape_0037:shape:rectangle:shift_0_1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_bottom_right_region_0047::shift_0_1|selective_base_bottom_right_shape_0037::shift_0_m1",
+      "parent_key": "selective_base_bottom_right_shape_0037::shift_0_m1",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0127_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_m1__selective_base_bottom_right_r.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0127_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_m1__selective_base_bottom_right_r.vp_program.json",
+      "actions": [
+        "selective_base_bottom_right_shape_0037:shape:rectangle:shift_0_m1",
+        "selective_base_bottom_right_region_0047:region:panel_or_container:shift_0_1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_bottom_right_region_0045::shift_0_1|selective_base_bottom_right_shape_0037::shift_0_m1",
+      "parent_key": "selective_base_bottom_right_shape_0037::shift_0_m1",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0128_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_m1__selective_base_bottom_right_r.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0128_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_m1__selective_base_bottom_right_r.vp_program.json",
+      "actions": [
+        "selective_base_bottom_right_shape_0037:shape:rectangle:shift_0_m1",
+        "selective_base_bottom_right_region_0045:region:panel_or_container:shift_0_1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_bottom_right_shape_0037::shift_0_m1|selective_base_top_left_edge_0099::shift_m0.5_0",
+      "parent_key": "selective_base_bottom_right_shape_0037::shift_0_m1",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0129_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_m1__selective_base_top_left_edge_.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0129_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_m1__selective_base_top_left_edge_.vp_program.json",
+      "actions": [
+        "selective_base_bottom_right_shape_0037:shape:rectangle:shift_0_m1",
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_m0.5_0"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_bottom_right_edge_0046::shift_m0.5_0|selective_base_bottom_right_shape_0037::shift_0_m1",
+      "parent_key": "selective_base_bottom_right_shape_0037::shift_0_m1",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0130_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_m1__selective_base_bottom_right_e.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0130_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_m1__selective_base_bottom_right_e.vp_program.json",
+      "actions": [
+        "selective_base_bottom_right_shape_0037:shape:rectangle:shift_0_m1",
+        "selective_base_bottom_right_edge_0046:edge:axis_or_connector:shift_m0.5_0"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_bottom_right_shape_0037::shift_0_m1|selective_base_top_right_shape_0015::shift_m0.5_0",
+      "parent_key": "selective_base_bottom_right_shape_0037::shift_0_m1",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0131_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_m1__selective_base_top_right_shap.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0131_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_m1__selective_base_top_right_shap.vp_program.json",
+      "actions": [
+        "selective_base_bottom_right_shape_0037:shape:rectangle:shift_0_m1",
+        "selective_base_top_right_shape_0015:shape:ellipse:shift_m0.5_0"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_bottom_right_shape_0037::shift_0_m1|selective_base_top_right_edge_0044::shift_m0.5_0",
+      "parent_key": "selective_base_bottom_right_shape_0037::shift_0_m1",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0132_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_m1__selective_base_top_right_edge.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0132_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_m1__selective_base_top_right_edge.vp_program.json",
+      "actions": [
+        "selective_base_bottom_right_shape_0037:shape:rectangle:shift_0_m1",
+        "selective_base_top_right_edge_0044:edge:axis_or_connector:shift_m0.5_0"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_bottom_right_shape_0037::shift_0_m1|selective_base_bottom_right_shape_0037::shift_m0.5_0",
+      "parent_key": "selective_base_bottom_right_shape_0037::shift_0_m1",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0133_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_m1__selective_base_bottom_right_s.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0133_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_m1__selective_base_bottom_right_s.vp_program.json",
+      "actions": [
+        "selective_base_bottom_right_shape_0037:shape:rectangle:shift_0_m1",
+        "selective_base_bottom_right_shape_0037:shape:rectangle:shift_m0.5_0"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_bottom_right_region_0047::shift_m0.5_0|selective_base_bottom_right_shape_0037::shift_0_m1",
+      "parent_key": "selective_base_bottom_right_shape_0037::shift_0_m1",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0134_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_m1__selective_base_bottom_right_r.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0134_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_m1__selective_base_bottom_right_r.vp_program.json",
+      "actions": [
+        "selective_base_bottom_right_shape_0037:shape:rectangle:shift_0_m1",
+        "selective_base_bottom_right_region_0047:region:panel_or_container:shift_m0.5_0"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_bottom_right_region_0045::shift_m0.5_0|selective_base_bottom_right_shape_0037::shift_0_m1",
+      "parent_key": "selective_base_bottom_right_shape_0037::shift_0_m1",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0135_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_m1__selective_base_bottom_right_r.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0135_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_m1__selective_base_bottom_right_r.vp_program.json",
+      "actions": [
+        "selective_base_bottom_right_shape_0037:shape:rectangle:shift_0_m1",
+        "selective_base_bottom_right_region_0045:region:panel_or_container:shift_m0.5_0"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_bottom_right_shape_0037::shift_0_m1|selective_base_top_left_edge_0099::shift_0_m1",
+      "parent_key": "selective_base_bottom_right_shape_0037::shift_0_m1",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0136_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_m1__selective_base_top_left_edge_.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0136_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_m1__selective_base_top_left_edge_.vp_program.json",
+      "actions": [
+        "selective_base_bottom_right_shape_0037:shape:rectangle:shift_0_m1",
+        "selective_base_top_left_edge_0099:edge:axis_or_connector:shift_0_m1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_bottom_right_edge_0046::shift_0_m1|selective_base_bottom_right_shape_0037::shift_0_m1",
+      "parent_key": "selective_base_bottom_right_shape_0037::shift_0_m1",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0137_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_m1__selective_base_bottom_right_e.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0137_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_m1__selective_base_bottom_right_e.vp_program.json",
+      "actions": [
+        "selective_base_bottom_right_shape_0037:shape:rectangle:shift_0_m1",
+        "selective_base_bottom_right_edge_0046:edge:axis_or_connector:shift_0_m1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_bottom_right_shape_0037::shift_0_m1|selective_base_top_right_shape_0015::shift_0_m1",
+      "parent_key": "selective_base_bottom_right_shape_0037::shift_0_m1",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0138_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_m1__selective_base_top_right_shap.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0138_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_m1__selective_base_top_right_shap.vp_program.json",
+      "actions": [
+        "selective_base_bottom_right_shape_0037:shape:rectangle:shift_0_m1",
+        "selective_base_top_right_shape_0015:shape:ellipse:shift_0_m1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_bottom_right_shape_0037::shift_0_m1|selective_base_top_right_edge_0044::shift_0_m1",
+      "parent_key": "selective_base_bottom_right_shape_0037::shift_0_m1",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0139_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_m1__selective_base_top_right_edge.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0139_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_m1__selective_base_top_right_edge.vp_program.json",
+      "actions": [
+        "selective_base_bottom_right_shape_0037:shape:rectangle:shift_0_m1",
+        "selective_base_top_right_edge_0044:edge:axis_or_connector:shift_0_m1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_bottom_right_region_0047::shift_0_m1|selective_base_bottom_right_shape_0037::shift_0_m1",
+      "parent_key": "selective_base_bottom_right_shape_0037::shift_0_m1",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0140_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_m1__selective_base_bottom_right_r.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0140_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_m1__selective_base_bottom_right_r.vp_program.json",
+      "actions": [
+        "selective_base_bottom_right_shape_0037:shape:rectangle:shift_0_m1",
+        "selective_base_bottom_right_region_0047:region:panel_or_container:shift_0_m1"
+      ],
+      "metrics": null
+    },
+    {
+      "step": 2,
+      "key": "selective_base_bottom_right_region_0045::shift_0_m1|selective_base_bottom_right_shape_0037::shift_0_m1",
+      "parent_key": "selective_base_bottom_right_shape_0037::shift_0_m1",
+      "score": -1000000000.0,
+      "drawio": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0141_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_m1__selective_base_bottom_right_r.drawio",
+      "program": "outputs/visual_primitives/ccb_combo_v37_try1.s02_0141_selective_base_bottom_right_shape_0037_shape_rectangle_shift_0_m1__selective_base_bottom_right_r.vp_program.json",
+      "actions": [
+        "selective_base_bottom_right_shape_0037:shape:rectangle:shift_0_m1",
+        "selective_base_bottom_right_region_0045:region:panel_or_container:shift_0_m1"
+      ],
+      "metrics": null
+    }
+  ],
+  "cleanup": {
+    "deleted_files": 760,
+    "deleted_states": 190
+  }
+}

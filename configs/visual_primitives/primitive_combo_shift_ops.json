@@ -1,0 +1,9 @@
+[
+  {"kind": "shift", "dx": 0.5, "dy": 0.0},
+  {"kind": "shift", "dx": 1.0, "dy": 0.0},
+  {"kind": "shift", "dx": 0.0, "dy": -0.5},
+  {"kind": "shift", "dx": 0.0, "dy": 0.5},
+  {"kind": "shift", "dx": 0.0, "dy": 1.0},
+  {"kind": "shift", "dx": -0.5, "dy": 0.0},
+  {"kind": "shift", "dx": 0.0, "dy": -1.0}
+]
