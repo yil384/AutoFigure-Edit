@@ -1,6 +1,7 @@
 """Render and rank pure-native draw.io reconstruction variants."""
 from __future__ import annotations
 
+import json
 from pathlib import Path
 from typing import Any
 
@@ -48,6 +49,7 @@ def evaluate_drawio_variants(
                 png,
                 expected_tokens=expected_tokens,
             )
+            _attach_program_cleanliness(metrics, drawio)
             compare_result = make_side_by_side(source, png, compare)
             tile_metrics = (
                 compute_tile_metrics(
@@ -246,13 +248,22 @@ def score_variant(row: dict[str, Any]) -> float:
     dirt_penalty = max(0.0, changed - 0.17) * 0.45
     overdraw_ratio = rendered_edges / max(1.0, reference_edges)
     overdraw_penalty = max(0.0, overdraw_ratio - 0.86) * 0.10
+    cleanliness = metrics.get("program_cleanliness") or {}
+    residual_text_overlap_count = float(
+        cleanliness.get("residual_text_overlap_count") or 0.0
+    )
+    residual_text_overlap_penalty = min(
+        0.004,
+        residual_text_overlap_count * 0.00004,
+    )
     return round(
         0.34 * edge_f1 +
         0.34 * ocr_f1 +
         0.16 * edge_precision +
         0.16 * ocr_precision -
         dirt_penalty -
-        overdraw_penalty,
+        overdraw_penalty -
+        residual_text_overlap_penalty,
         6,
     )
 
@@ -274,6 +285,99 @@ def compact_score_row(row: dict[str, Any]) -> dict[str, Any]:
         "ocr_semantic_precision": semantic_ocr.get("precision"),
         "ocr_target_semantic_f1": target_ocr.get("f1"),
         "ocr_target_semantic_precision": target_ocr.get("precision"),
+        "residual_text_overlap_count": (
+            (metrics.get("program_cleanliness") or {})
+            .get("residual_text_overlap_count")
+        ),
         "changed_pixel_ratio_t30": metrics.get("changed_pixel_ratio_t30"),
         "pure": row.get("native_purity", {}).get("ok"),
     }
+
+
+def _attach_program_cleanliness(metrics: dict[str, Any],
+                                drawio_path: str | Path) -> None:
+    program_path = Path(drawio_path).with_suffix(".vp_program.json")
+    if not program_path.exists():
+        return
+    try:
+        program = json.loads(program_path.read_text())
+    except Exception:
+        return
+    metrics["program_cleanliness"] = _program_cleanliness_metrics(program)
+
+
+def _program_cleanliness_metrics(program: dict[str, Any]) -> dict[str, Any]:
+    primitives = program.get("primitives") or []
+    texts = [
+        primitive
+        for primitive in primitives
+        if primitive.get("type") == "text" and _bbox(primitive)
+    ]
+    residuals = [
+        primitive
+        for primitive in primitives
+        if primitive.get("type") in {"edge", "shape"}
+        and _is_residual_micro_primitive(primitive)
+        and _bbox(primitive)
+    ]
+    overlap_pairs = []
+    for residual in residuals:
+        residual_box = _bbox(residual)
+        if not residual_box:
+            continue
+        for text in texts:
+            text_box = _bbox(text)
+            if text_box and _intersects(residual_box, _pad_bbox(text_box, 1.5)):
+                overlap_pairs.append({
+                    "residual_id": residual.get("id"),
+                    "text_id": text.get("id"),
+                    "text": text.get("text"),
+                })
+                break
+    return {
+        "residual_text_overlap_count": len(overlap_pairs),
+        "residual_text_overlap_sample": overlap_pairs[:12],
+    }
+
+
+def _is_residual_micro_primitive(primitive: dict[str, Any]) -> bool:
+    source = str(primitive.get("source") or "")
+    role = str(primitive.get("role") or "")
+    if "residual" not in source and "residual" not in role:
+        return False
+    box = _bbox(primitive)
+    if not box:
+        return False
+    x0, y0, x1, y1 = box
+    return (x1 - x0) <= 18.0 and (y1 - y0) <= 18.0
+
+
+def _bbox(primitive: dict[str, Any]) -> tuple[float, float, float, float] | None:
+    raw = primitive.get("bbox")
+    if raw and len(raw) == 4:
+        return tuple(float(value) for value in raw)
+    path = primitive.get("path") or []
+    if not path:
+        return None
+    xs = [float(point[0]) for point in path if len(point) >= 2]
+    ys = [float(point[1]) for point in path if len(point) >= 2]
+    if not xs or not ys:
+        return None
+    return (min(xs), min(ys), max(xs), max(ys))
+
+
+def _pad_bbox(
+    box: tuple[float, float, float, float],
+    pad: float,
+) -> tuple[float, float, float, float]:
+    x0, y0, x1, y1 = box
+    return (x0 - pad, y0 - pad, x1 + pad, y1 + pad)
+
+
+def _intersects(
+    a: tuple[float, float, float, float],
+    b: tuple[float, float, float, float],
+) -> bool:
+    ax0, ay0, ax1, ay1 = a
+    bx0, by0, bx1, by1 = b
+    return not (ax1 < bx0 or ax0 > bx1 or ay1 < by0 or ay0 > by1)

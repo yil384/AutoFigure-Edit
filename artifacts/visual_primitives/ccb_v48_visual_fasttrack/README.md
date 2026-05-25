@@ -12,6 +12,11 @@ This is a visual-cleanup candidate, not the score-current-best.
 - Score-current-best remains v45 under expected-text evaluation: `0.838004`
 - v47 expected-text beam score: `0.834518`
 - v48 Fast-track cleanup score: `0.834450`
+- v48 score with residual-text cleanliness reward: `0.834090`
+- v47 score with residual-text cleanliness reward: `0.833998`
+- v45 score with residual-text cleanliness reward: `0.837484`
+- v48 residual-text overlap count: `9`
+- v47/v45 residual-text overlap count: `13`
 - Native purity: `true`
 
 ## Visual Repair
@@ -29,8 +34,8 @@ text and connector line as native draw.io elements.
 
 ## Why It Was Not Promoted
 
-The local visual crop is cleaner by inspection, but the edge-based metric
-slightly favors the dirty version because the deleted residual strokes increase
-Canny edge overlap. This is an example where the reward model should include a
-VLM visual cleanliness check or a residual-noise penalty, rather than using
-edge F1 alone.
+The original edge-based metric slightly favored the dirty version because the
+deleted residual strokes increased Canny edge overlap. The follow-up
+program-level cleanliness reward fixes that specific failure mode: v48 now
+beats v47 on the same full-image expected-text score while still trailing v45
+as the global current-best.

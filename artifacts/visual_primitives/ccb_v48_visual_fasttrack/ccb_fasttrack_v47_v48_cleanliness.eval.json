@@ -1,0 +1,657 @@
+{
+  "source_image": "uploads/ccb48c0276204b17ba8d7e3474ea19ad.jpg",
+  "winner": "artifacts/visual_primitives/ccb_v48_visual_fasttrack/ccb_fasttrack_clean_candidate.drawio",
+  "tile_winners": {},
+  "panel_regions": [],
+  "expected_tokens": [
+    "2x",
+    "zx",
+    "qec",
+    "rl",
+    "llm",
+    "gnn",
+    "cv",
+    "qft",
+    "x/z",
+    "dX",
+    "dZ",
+    "Ranked Candidates & Surgery Scores",
+    "LLM-driven Exploration",
+    "Seed codes",
+    "Propose partially assembled colored code",
+    "Features",
+    "Tanner-graph",
+    "RL-based Exploitation",
+    "Filter Funnel",
+    "Algebraic Validity Check",
+    "GNN Surrogate Filtering",
+    "Classical Metrics Ranker",
+    "VT Team",
+    "Full ZX-Calculus Surgery Analysis",
+    "Validated Novel Code Families",
+    "Improved Surgery Metrics",
+    "Weekly batching",
+    "Months",
+    "AI-Enabled Co-Design of Quantum LDPC Codes and Fault-Tolerant Interfaces",
+    "Noise analysis/Input",
+    "Neutral atom/trap",
+    "Neutral atom/ion trap",
+    "Noise fingerprint extraction",
+    "X/Z bias",
+    "LLM-Driven Recipe Composition",
+    "Propose Algebraic code recipes",
+    "Modulate dX, dZ targets",
+    "Candidate codes",
+    "GNN Surrogate Fast Feedback",
+    "Noise annotation",
+    "RL Policy",
+    "Iterative GNN Retraining",
+    "Switchable Code Families",
+    "Switching Circuits",
+    "Decoders",
+    "Trotter Ordering",
+    "Phase I LLM+RL pipeline",
+    "ML-Driven Codesign of QEC for Strongly Correlated Spin Dynamics",
+    "QFT Simulation Target",
+    "Physics-Informed Agent",
+    "Select Truncation",
+    "Sub-unitaries",
+    "Gaussian",
+    "Non-Gaussian coupling",
+    "Decomposition Agent",
+    "CV Primitives",
+    "Bloch-Messiah",
+    "Interfero-meters",
+    "Gadgets",
+    "Hardware Agent",
+    "Scheduling",
+    "Verification Agent",
+    "Iterative feedback",
+    "Error",
+    "Executable CV Quantum Circuit",
+    "Model Distillation",
+    "Fast-track",
+    "For Routine Circuit Families",
+    "AI-Enhanced Continuous-Variable Quantum Computing for Quantum Field Theory",
+    "Input Workloads",
+    "Quantum Chemistry FeMoco",
+    "Hubbard Model",
+    "Natural-Language Frontend",
+    "Graph Diffusion Model",
+    "ZX Diagram Synthesis",
+    "ZX-FT Protocol Synthesis",
+    "Benchmarking",
+    "Qiskit+Surface Code",
+    "RL Circuit Token",
+    "PyZX+Hand Layout",
+    "Sample Efficiency",
+    "Physical-Qubit Overhead",
+    "Soundness hmc",
+    "Input Metrics",
+    "Physical-Qubit Brand",
+    "Scaling",
+    "ZX Calculus as a Unifying Language for AI-Driven, Application-Aware QEC"
+  ],
+  "panel_winners": {},
+  "variants": [
+    {
+      "drawio": "artifacts/visual_primitives/ccb_v48_visual_fasttrack/ccb_fasttrack_clean_candidate.drawio",
+      "rendered_png": "artifacts/visual_primitives/ccb_v48_visual_fasttrack/ccb_fasttrack_clean_candidate.drawio.png",
+      "compare_png": "artifacts/visual_primitives/ccb_v48_visual_fasttrack/ccb_fasttrack_clean_candidate.drawio.compare.png",
+      "native_purity": {
+        "ok": true,
+        "forbidden_hits": [],
+        "forbidden_tokens": [
+          "shape=image",
+          "data:image",
+          "<image",
+          "base64",
+          "shape=stencil",
+          "stencil("
+        ]
+      },
+      "export": {
+        "ok": true,
+        "returncode": 0,
+        "stdout": "artifacts/visual_primitives/ccb_v48_visual_fasttrack/ccb_fasttrack_clean_candidate.drawio -> artifacts/visual_primitives/ccb_v48_visual_fasttrack/ccb_fasttrack_clean_candidate.drawio.png",
+        "stderr": "",
+        "command": [
+          "/Applications/draw.io.app/Contents/MacOS/draw.io",
+          "-x",
+          "-f",
+          "png",
+          "-e",
+          "-b",
+          "0",
+          "-o",
+          "artifacts/visual_primitives/ccb_v48_visual_fasttrack/ccb_fasttrack_clean_candidate.drawio.png",
+          "artifacts/visual_primitives/ccb_v48_visual_fasttrack/ccb_fasttrack_clean_candidate.drawio"
+        ],
+        "attempts": [
+          {
+            "attempt": 1,
+            "ok": true,
+            "returncode": 0,
+            "stdout": "artifacts/visual_primitives/ccb_v48_visual_fasttrack/ccb_fasttrack_clean_candidate.drawio -> artifacts/visual_primitives/ccb_v48_visual_fasttrack/ccb_fasttrack_clean_candidate.drawio.png",
+            "stderr": ""
+          }
+        ]
+      },
+      "metrics": {
+        "canvas": {
+          "width": 1376,
+          "height": 768
+        },
+        "pixel_mae": 20.7276,
+        "changed_pixel_ratio_t30": 0.162381,
+        "edge": {
+          "precision": 0.8348,
+          "recall": 0.6908,
+          "f1": 0.756,
+          "reference_edges": 108354,
+          "rendered_edges": 89447
+        },
+        "ocr": {
+          "available": true,
+          "reference_token_count": 167,
+          "rendered_token_count": 138,
+          "overlap_count": 127,
+          "precision": 0.9203,
+          "recall": 0.7605,
+          "f1": 0.8328,
+          "missing_sample": [
+            "-3",
+            "1-9",
+            "22",
+            "23",
+            "2x-calculus",
+            "4-6",
+            "4s",
+            "8",
+            "9",
+            "assembled",
+            "atom/ion",
+            "atom/lrap",
+            "ba",
+            "bb",
+            "bloch",
+            "diffusion",
+            "drand",
+            "ee",
+            "fast-track",
+            "formed",
+            "gauge",
+            "ge",
+            "ina",
+            "interfero-",
+            "lation",
+            "llm4rl",
+            "metrocs",
+            "noi",
+            "non-",
+            "og"
+          ],
+          "extra_sample": [
+            "13",
+            "2x",
+            "79",
+            "at",
+            "brand",
+            "conn",
+            "erative",
+            "filter",
+            "gage",
+            "le",
+            "verification"
+          ],
+          "semantic": {
+            "reference_token_count": 166,
+            "rendered_token_count": 138,
+            "overlap_count": 130,
+            "precision": 0.942,
+            "recall": 0.7831,
+            "f1": 0.8553,
+            "missing_sample": [
+              "-3",
+              "1-9",
+              "22",
+              "23",
+              "2x-calculus",
+              "4-6",
+              "4s",
+              "8",
+              "9",
+              "assembled",
+              "atom/ion",
+              "atom/lrap",
+              "ba",
+              "bb",
+              "bloch",
+              "diffusion",
+              "ee",
+              "fast-track",
+              "formed",
+              "ge",
+              "ina",
+              "interfero-",
+              "lation",
+              "llm4rl",
+              "noi",
+              "non-",
+              "og",
+              "physica",
+              "physics-",
+              "prot"
+            ],
+            "extra_sample": [
+              "13",
+              "2x",
+              "79",
+              "at",
+              "conn",
+              "erative",
+              "filter",
+              "le"
+            ]
+          },
+          "target_semantic": {
+            "reference_token_count": 195,
+            "rendered_token_count": 138,
+            "overlap_count": 132,
+            "precision": 0.9565,
+            "recall": 0.6769,
+            "f1": 0.7928,
+            "missing_sample": [
+              "-3",
+              "1-9",
+              "22",
+              "23",
+              "2x-calculus",
+              "4-6",
+              "4s",
+              "8",
+              "9",
+              "assembled",
+              "atom/ion",
+              "atom/lrap",
+              "atom/trap",
+              "ba",
+              "bb",
+              "bloch",
+              "bloch-messiah",
+              "colored",
+              "coupling",
+              "diffusion",
+              "distillation",
+              "dx",
+              "dz",
+              "ee",
+              "efficiency",
+              "error",
+              "fast-track",
+              "femoco",
+              "formed",
+              "gadgets"
+            ],
+            "extra_sample": [
+              "13",
+              "79",
+              "at",
+              "conn",
+              "erative",
+              "le"
+            ],
+            "expected_token_count": 157,
+            "source_reference_token_count": 166
+          }
+        },
+        "program_cleanliness": {
+          "residual_text_overlap_count": 9,
+          "residual_text_overlap_sample": [
+            {
+              "residual_id": "selective_base_bottom_left_res_edge_0040",
+              "text_id": "selective_base_bottom_left_ocr_text_0002",
+              "text": "Scheduling"
+            },
+            {
+              "residual_id": "selective_base_bottom_left_res_edge_0041",
+              "text_id": "selective_base_bottom_left_ocr_text_0002",
+              "text": "Scheduling"
+            },
+            {
+              "residual_id": "selective_base_bottom_left_res_edge_0056",
+              "text_id": "selective_base_bottom_left_ocr_text_0002",
+              "text": "Scheduling"
+            },
+            {
+              "residual_id": "selective_base_bottom_left_res_edge_0057",
+              "text_id": "selective_base_bottom_left_ocr_text_0002",
+              "text": "Scheduling"
+            },
+            {
+              "residual_id": "selective_base_bottom_left_res_edge_0070",
+              "text_id": "selective_base_bottom_left_ocr_text_0002",
+              "text": "Scheduling"
+            },
+            {
+              "residual_id": "selective_base_bottom_right_res_edge_0073",
+              "text_id": "rotated_ocr_text_0006",
+              "text": "Soundness hmc"
+            },
+            {
+              "residual_id": "g4_r01_c01_res_edge_0067",
+              "text_id": "selective_base_top_left_text_0009",
+              "text": "assembled\ncolored code"
+            },
+            {
+              "residual_id": "g4_r01_c01_res_edge_0068",
+              "text_id": "selective_base_top_left_text_0009",
+              "text": "assembled\ncolored code"
+            },
+            {
+              "residual_id": "g4_r03_c02_res_edge_0072",
+              "text_id": "selective_base_bottom_left_ocr_text_0002",
+              "text": "Scheduling"
+            }
+          ]
+        }
+      },
+      "tile_metrics": null,
+      "panel_metrics": null,
+      "compare": {
+        "ok": true,
+        "path": "artifacts/visual_primitives/ccb_v48_visual_fasttrack/ccb_fasttrack_clean_candidate.drawio.compare.png",
+        "width": 2754,
+        "height": 771
+      },
+      "score": 0.83409
+    },
+    {
+      "drawio": "artifacts/visual_primitives/ccb_v47_expected_text_beam/ccb_expected_text_candidate.drawio",
+      "rendered_png": "artifacts/visual_primitives/ccb_v47_expected_text_beam/ccb_expected_text_candidate.drawio.png",
+      "compare_png": "artifacts/visual_primitives/ccb_v47_expected_text_beam/ccb_expected_text_candidate.drawio.compare.png",
+      "native_purity": {
+        "ok": true,
+        "forbidden_hits": [],
+        "forbidden_tokens": [
+          "shape=image",
+          "data:image",
+          "<image",
+          "base64",
+          "shape=stencil",
+          "stencil("
+        ]
+      },
+      "export": {
+        "ok": true,
+        "returncode": 0,
+        "stdout": "artifacts/visual_primitives/ccb_v47_expected_text_beam/ccb_expected_text_candidate.drawio -> artifacts/visual_primitives/ccb_v47_expected_text_beam/ccb_expected_text_candidate.drawio.png",
+        "stderr": "[24666:0524/212855.082315:ERROR:base/process/process_mac.cc:98] task_policy_set TASK_SUPPRESSION_POLICY: (os/kern) invalid argument (4)",
+        "command": [
+          "/Applications/draw.io.app/Contents/MacOS/draw.io",
+          "-x",
+          "-f",
+          "png",
+          "-e",
+          "-b",
+          "0",
+          "-o",
+          "artifacts/visual_primitives/ccb_v47_expected_text_beam/ccb_expected_text_candidate.drawio.png",
+          "artifacts/visual_primitives/ccb_v47_expected_text_beam/ccb_expected_text_candidate.drawio"
+        ],
+        "attempts": [
+          {
+            "attempt": 1,
+            "ok": true,
+            "returncode": 0,
+            "stdout": "artifacts/visual_primitives/ccb_v47_expected_text_beam/ccb_expected_text_candidate.drawio -> artifacts/visual_primitives/ccb_v47_expected_text_beam/ccb_expected_text_candidate.drawio.png",
+            "stderr": "[24666:0524/212855.082315:ERROR:base/process/process_mac.cc:98] task_policy_set TASK_SUPPRESSION_POLICY: (os/kern) invalid argument (4)"
+          }
+        ]
+      },
+      "metrics": {
+        "canvas": {
+          "width": 1376,
+          "height": 768
+        },
+        "pixel_mae": 20.7253,
+        "changed_pixel_ratio_t30": 0.162384,
+        "edge": {
+          "precision": 0.8348,
+          "recall": 0.6911,
+          "f1": 0.7562,
+          "reference_edges": 108354,
+          "rendered_edges": 89487
+        },
+        "ocr": {
+          "available": true,
+          "reference_token_count": 167,
+          "rendered_token_count": 138,
+          "overlap_count": 127,
+          "precision": 0.9203,
+          "recall": 0.7605,
+          "f1": 0.8328,
+          "missing_sample": [
+            "-3",
+            "1-9",
+            "22",
+            "23",
+            "2x-calculus",
+            "4-6",
+            "4s",
+            "8",
+            "9",
+            "assembled",
+            "atom/ion",
+            "atom/lrap",
+            "ba",
+            "bb",
+            "bloch",
+            "diffusion",
+            "drand",
+            "ee",
+            "fast-track",
+            "formed",
+            "gauge",
+            "ge",
+            "ina",
+            "interfero-",
+            "lation",
+            "llm4rl",
+            "metrocs",
+            "noi",
+            "non-",
+            "og"
+          ],
+          "extra_sample": [
+            "13",
+            "2x",
+            "79",
+            "at",
+            "brand",
+            "conn",
+            "erative",
+            "filter",
+            "gage",
+            "le",
+            "verification"
+          ],
+          "semantic": {
+            "reference_token_count": 166,
+            "rendered_token_count": 138,
+            "overlap_count": 130,
+            "precision": 0.942,
+            "recall": 0.7831,
+            "f1": 0.8553,
+            "missing_sample": [
+              "-3",
+              "1-9",
+              "22",
+              "23",
+              "2x-calculus",
+              "4-6",
+              "4s",
+              "8",
+              "9",
+              "assembled",
+              "atom/ion",
+              "atom/lrap",
+              "ba",
+              "bb",
+              "bloch",
+              "diffusion",
+              "ee",
+              "fast-track",
+              "formed",
+              "ge",
+              "ina",
+              "interfero-",
+              "lation",
+              "llm4rl",
+              "noi",
+              "non-",
+              "og",
+              "physica",
+              "physics-",
+              "prot"
+            ],
+            "extra_sample": [
+              "13",
+              "2x",
+              "79",
+              "at",
+              "conn",
+              "erative",
+              "filter",
+              "le"
+            ]
+          },
+          "target_semantic": {
+            "reference_token_count": 195,
+            "rendered_token_count": 138,
+            "overlap_count": 132,
+            "precision": 0.9565,
+            "recall": 0.6769,
+            "f1": 0.7928,
+            "missing_sample": [
+              "-3",
+              "1-9",
+              "22",
+              "23",
+              "2x-calculus",
+              "4-6",
+              "4s",
+              "8",
+              "9",
+              "assembled",
+              "atom/ion",
+              "atom/lrap",
+              "atom/trap",
+              "ba",
+              "bb",
+              "bloch",
+              "bloch-messiah",
+              "colored",
+              "coupling",
+              "diffusion",
+              "distillation",
+              "dx",
+              "dz",
+              "ee",
+              "efficiency",
+              "error",
+              "fast-track",
+              "femoco",
+              "formed",
+              "gadgets"
+            ],
+            "extra_sample": [
+              "13",
+              "79",
+              "at",
+              "conn",
+              "erative",
+              "le"
+            ],
+            "expected_token_count": 157,
+            "source_reference_token_count": 166
+          }
+        },
+        "program_cleanliness": {
+          "residual_text_overlap_count": 13,
+          "residual_text_overlap_sample": [
+            {
+              "residual_id": "selective_base_bottom_left_res_edge_0040",
+              "text_id": "selective_base_bottom_left_ocr_text_0002",
+              "text": "Scheduling"
+            },
+            {
+              "residual_id": "selective_base_bottom_left_res_edge_0041",
+              "text_id": "selective_base_bottom_left_ocr_text_0002",
+              "text": "Scheduling"
+            },
+            {
+              "residual_id": "selective_base_bottom_left_res_edge_0049",
+              "text_id": "selective_base_bottom_left_ocr_text_0008",
+              "text": "Fast-track"
+            },
+            {
+              "residual_id": "selective_base_bottom_left_res_edge_0056",
+              "text_id": "selective_base_bottom_left_ocr_text_0002",
+              "text": "Scheduling"
+            },
+            {
+              "residual_id": "selective_base_bottom_left_res_edge_0057",
+              "text_id": "selective_base_bottom_left_ocr_text_0002",
+              "text": "Scheduling"
+            },
+            {
+              "residual_id": "selective_base_bottom_left_res_edge_0063",
+              "text_id": "selective_base_bottom_left_ocr_text_0008",
+              "text": "Fast-track"
+            },
+            {
+              "residual_id": "selective_base_bottom_left_res_edge_0064",
+              "text_id": "selective_base_bottom_left_ocr_text_0008",
+              "text": "Fast-track"
+            },
+            {
+              "residual_id": "selective_base_bottom_left_res_edge_0070",
+              "text_id": "selective_base_bottom_left_ocr_text_0002",
+              "text": "Scheduling"
+            },
+            {
+              "residual_id": "selective_base_bottom_left_res_edge_0071",
+              "text_id": "selective_base_bottom_left_ocr_text_0008",
+              "text": "Fast-track"
+            },
+            {
+              "residual_id": "selective_base_bottom_right_res_edge_0073",
+              "text_id": "rotated_ocr_text_0006",
+              "text": "Soundness hmc"
+            },
+            {
+              "residual_id": "g4_r01_c01_res_edge_0067",
+              "text_id": "selective_base_top_left_text_0009",
+              "text": "assembled\ncolored code"
+            },
+            {
+              "residual_id": "g4_r01_c01_res_edge_0068",
+              "text_id": "selective_base_top_left_text_0009",
+              "text": "assembled\ncolored code"
+            }
+          ]
+        }
+      },
+      "tile_metrics": null,
+      "panel_metrics": null,
+      "compare": {
+        "ok": true,
+        "path": "artifacts/visual_primitives/ccb_v47_expected_text_beam/ccb_expected_text_candidate.drawio.compare.png",
+        "width": 2754,
+        "height": 771
+      },
+      "score": 0.833998
+    }
+  ]
+}
