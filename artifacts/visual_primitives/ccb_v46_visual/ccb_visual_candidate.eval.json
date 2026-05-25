@@ -27,7 +27,7 @@
       "pure": true
     },
     "bottom_left": {
-      "drawio": "outputs/visual_primitives/ccb_v46_header_text_beam.best.drawio",
+      "drawio": "artifacts/visual_primitives/ccb_v46_visual/ccb_visual_candidate.drawio",
       "score": 0.772958,
       "edge_f1": 0.7508,
       "edge_precision": 0.8165,
@@ -39,7 +39,7 @@
       "pure": true
     },
     "bottom_right": {
-      "drawio": "outputs/visual_primitives/ccb_v46_header_text_beam.best.drawio",
+      "drawio": "artifacts/visual_primitives/ccb_v46_visual/ccb_visual_candidate.drawio",
       "score": 0.788074,
       "edge_f1": 0.7534,
       "edge_precision": 0.8414,
@@ -529,9 +529,9 @@
       "score": 0.835652
     },
     {
-      "drawio": "outputs/visual_primitives/ccb_v46_header_text_beam.best.drawio",
-      "rendered_png": "outputs/visual_primitives/ccb_v46_header_text_beam.best.drawio.png",
-      "compare_png": "outputs/visual_primitives/ccb_v46_header_text_beam.best.drawio.compare.png",
+      "drawio": "artifacts/visual_primitives/ccb_v46_visual/ccb_visual_candidate.drawio",
+      "rendered_png": "artifacts/visual_primitives/ccb_v46_visual/ccb_visual_candidate.drawio.png",
+      "compare_png": "artifacts/visual_primitives/ccb_v46_visual/ccb_visual_candidate.drawio.compare.png",
       "native_purity": {
         "ok": true,
         "forbidden_hits": [],
@@ -547,7 +547,7 @@
       "export": {
         "ok": true,
         "returncode": 0,
-        "stdout": "outputs/visual_primitives/ccb_v46_header_text_beam.best.drawio -> outputs/visual_primitives/ccb_v46_header_text_beam.best.drawio.png",
+        "stdout": "artifacts/visual_primitives/ccb_v46_visual/ccb_visual_candidate.drawio -> artifacts/visual_primitives/ccb_v46_visual/ccb_visual_candidate.drawio.png",
         "stderr": "",
         "command": [
           "/Applications/draw.io.app/Contents/MacOS/draw.io",
@@ -558,15 +558,15 @@
           "-b",
           "0",
           "-o",
-          "outputs/visual_primitives/ccb_v46_header_text_beam.best.drawio.png",
-          "outputs/visual_primitives/ccb_v46_header_text_beam.best.drawio"
+          "artifacts/visual_primitives/ccb_v46_visual/ccb_visual_candidate.drawio.png",
+          "artifacts/visual_primitives/ccb_v46_visual/ccb_visual_candidate.drawio"
         ],
         "attempts": [
           {
             "attempt": 1,
             "ok": true,
             "returncode": 0,
-            "stdout": "outputs/visual_primitives/ccb_v46_header_text_beam.best.drawio -> outputs/visual_primitives/ccb_v46_header_text_beam.best.drawio.png",
+            "stdout": "artifacts/visual_primitives/ccb_v46_visual/ccb_visual_candidate.drawio -> artifacts/visual_primitives/ccb_v46_visual/ccb_visual_candidate.drawio.png",
             "stderr": ""
           }
         ]
@@ -999,7 +999,7 @@
       "panel_metrics": null,
       "compare": {
         "ok": true,
-        "path": "outputs/visual_primitives/ccb_v46_header_text_beam.best.drawio.compare.png",
+        "path": "artifacts/visual_primitives/ccb_v46_visual/ccb_visual_candidate.drawio.compare.png",
         "width": 2754,
         "height": 771
       },

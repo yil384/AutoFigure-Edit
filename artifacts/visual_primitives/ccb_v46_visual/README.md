@@ -40,6 +40,14 @@ reference-image OCR did not reliably detect visually present labels such as
 `Verification`. As a result, correct native text can be counted as an extra
 token. This is an evaluation limitation, not a raster/vector purity issue.
 
+`ccb_visual_breakthroughs.json` records this candidate as a local visual
+breakthrough:
+
+- Bottom-left tile delta: `+0.009206`
+- Bottom-right tile delta: `+0.007316`
+- Full-image score delta: `-0.003656`
+- Recommendation: `archive_visual_candidate_for_composition`
+
 ## Next Step
 
 The next search loop should split the reward into:
