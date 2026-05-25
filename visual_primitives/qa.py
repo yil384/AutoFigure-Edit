@@ -145,7 +145,8 @@ def make_quadrant_crops(image_path: str | Path,
 
 
 def compute_render_metrics(reference_image: str | Path,
-                           rendered_image: str | Path) -> dict[str, Any]:
+                           rendered_image: str | Path,
+                           expected_tokens: list[str] | None = None) -> dict[str, Any]:
     ref = Image.open(reference_image).convert("RGB")
     ren = Image.open(rendered_image).convert("RGB")
     w = min(ref.width, ren.width)
@@ -158,7 +159,7 @@ def compute_render_metrics(reference_image: str | Path,
     diff = ImageChops.difference(ref, ren).convert("L")
     changed_ratio = float((np.asarray(diff) > 30).mean())
     edge = _edge_metrics(ref_arr.astype(np.uint8), ren_arr.astype(np.uint8))
-    ocr = _ocr_token_metrics(ref, ren)
+    ocr = _ocr_token_metrics(ref, ren, expected_tokens=expected_tokens)
     return {
         "canvas": {"width": w, "height": h},
         "pixel_mae": round(mae, 4),
@@ -303,7 +304,9 @@ def _edge_metrics(ref_rgb: np.ndarray, ren_rgb: np.ndarray) -> dict[str, float]:
     }
 
 
-def _ocr_token_metrics(ref: Image.Image, ren: Image.Image) -> dict[str, Any]:
+def _ocr_token_metrics(ref: Image.Image,
+                       ren: Image.Image,
+                       expected_tokens: list[str] | None = None) -> dict[str, Any]:
     try:
         import pytesseract
     except Exception as exc:
@@ -311,11 +314,10 @@ def _ocr_token_metrics(ref: Image.Image, ren: Image.Image) -> dict[str, Any]:
     ref_tokens = _ocr_tokens(ref, pytesseract)
     ren_tokens = _ocr_tokens(ren, pytesseract)
     raw = _token_set_metrics(ref_tokens, ren_tokens)
-    semantic = _token_set_metrics(
-        [_semantic_ocr_token(token) for token in ref_tokens],
-        [_semantic_ocr_token(token) for token in ren_tokens],
-    )
-    return {
+    semantic_ref = [_semantic_ocr_token(token) for token in ref_tokens]
+    semantic_ren = [_semantic_ocr_token(token) for token in ren_tokens]
+    semantic = _token_set_metrics(semantic_ref, semantic_ren)
+    result = {
         "available": True,
         "reference_token_count": raw["reference_token_count"],
         "rendered_token_count": raw["rendered_token_count"],
@@ -327,6 +329,14 @@ def _ocr_token_metrics(ref: Image.Image, ren: Image.Image) -> dict[str, Any]:
         "extra_sample": raw["extra_sample"],
         "semantic": semantic,
     }
+    expected = _expected_semantic_tokens(expected_tokens)
+    if expected:
+        target_ref = sorted(set(semantic_ref) | set(expected))
+        target = _token_set_metrics(target_ref, semantic_ren)
+        target["expected_token_count"] = len(set(expected))
+        target["source_reference_token_count"] = len(set(semantic_ref))
+        result["target_semantic"] = target
+    return result
 
 
 def _ocr_tokens(img: Image.Image, pytesseract_module) -> list[str]:
@@ -364,6 +374,18 @@ def _token_set_metrics(ref_tokens: list[str], ren_tokens: list[str]) -> dict[str
         "missing_sample": sorted(ref_set - ren_set)[:30],
         "extra_sample": sorted(ren_set - ref_set)[:30],
     }
+
+
+def _expected_semantic_tokens(expected_tokens: list[str] | None) -> list[str]:
+    if not expected_tokens:
+        return []
+    tokens = []
+    for item in expected_tokens:
+        for raw in re.findall(r"[A-Za-z0-9+\-/]+", str(item or "")):
+            token = _semantic_ocr_token(_normalize_token(raw))
+            if token:
+                tokens.append(token)
+    return tokens
 
 
 def _normalize_token(text: str) -> str:

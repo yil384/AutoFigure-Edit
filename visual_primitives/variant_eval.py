@@ -23,6 +23,7 @@ def evaluate_drawio_variants(
     export: bool = True,
     include_tiles: bool = False,
     panel_regions: list[dict[str, Any]] | None = None,
+    expected_tokens: list[str] | None = None,
 ) -> list[dict[str, Any]]:
     """Export variants, compute render metrics, and return ranked rows."""
     source = Path(source_image)
@@ -42,14 +43,30 @@ def evaluate_drawio_variants(
         tile_metrics = None
         panel_metrics = None
         if png.exists() and (not export or not export_result or export_result.get("ok")):
-            metrics = compute_render_metrics(source, png)
+            metrics = compute_render_metrics(
+                source,
+                png,
+                expected_tokens=expected_tokens,
+            )
             compare_result = make_side_by_side(source, png, compare)
             tile_metrics = (
-                compute_tile_metrics(source, png, drawio)
+                compute_tile_metrics(
+                    source,
+                    png,
+                    drawio,
+                    expected_tokens=expected_tokens,
+                )
                 if include_tiles else None
             )
             panel_metrics = (
-                compute_region_metrics(source, png, drawio, panel_regions, "panel")
+                compute_region_metrics(
+                    source,
+                    png,
+                    drawio,
+                    panel_regions,
+                    "panel",
+                    expected_tokens=expected_tokens,
+                )
                 if panel_regions else None
             )
         row = {
@@ -105,6 +122,7 @@ def compute_tile_metrics(
     source_image: str | Path,
     rendered_image: str | Path,
     artifact_stem: str | Path,
+    expected_tokens: list[str] | None = None,
 ) -> dict[str, Any]:
     source = Image.open(source_image).convert("RGB")
     rendered = Image.open(rendered_image).convert("RGB")
@@ -125,7 +143,11 @@ def compute_tile_metrics(
         ren_path = Path(f"{stem}.{name}.rendered.png")
         source.crop(box).save(src_path)
         rendered.crop(box).save(ren_path)
-        out[name] = compute_render_metrics(src_path, ren_path)
+        out[name] = compute_render_metrics(
+            src_path,
+            ren_path,
+            expected_tokens=expected_tokens,
+        )
     return out
 
 
@@ -135,6 +157,7 @@ def compute_region_metrics(
     artifact_stem: str | Path,
     regions: list[dict[str, Any]],
     label: str = "region",
+    expected_tokens: list[str] | None = None,
 ) -> dict[str, Any]:
     source = Image.open(source_image).convert("RGB")
     rendered = Image.open(rendered_image).convert("RGB")
@@ -153,7 +176,11 @@ def compute_region_metrics(
         ren_path = Path(f"{stem}.{region_id}.rendered.png")
         source.crop(box).save(src_path)
         rendered.crop(box).save(ren_path)
-        metrics = compute_render_metrics(src_path, ren_path)
+        metrics = compute_render_metrics(
+            src_path,
+            ren_path,
+            expected_tokens=expected_tokens,
+        )
         metrics["region"] = {
             "id": region_id,
             "bbox": list(box),
@@ -199,15 +226,18 @@ def score_variant(row: dict[str, Any]) -> float:
     edge = metrics.get("edge") or {}
     ocr = metrics.get("ocr") or {}
     semantic_ocr = ocr.get("semantic") or {}
+    target_ocr = ocr.get("target_semantic") or {}
     edge_f1 = float(edge.get("f1") or 0.0)
     edge_precision = float(edge.get("precision") or 0.0)
     ocr_f1 = max(
         float(ocr.get("f1") or 0.0),
         float(semantic_ocr.get("f1") or 0.0),
+        float(target_ocr.get("f1") or 0.0),
     )
     ocr_precision = max(
         float(ocr.get("precision") or 0.0),
         float(semantic_ocr.get("precision") or 0.0),
+        float(target_ocr.get("precision") or 0.0),
     )
     changed = float(metrics.get("changed_pixel_ratio_t30") or 0.0)
     rendered_edges = float(edge.get("rendered_edges") or 0.0)
@@ -232,6 +262,7 @@ def compact_score_row(row: dict[str, Any]) -> dict[str, Any]:
     edge = metrics.get("edge") or {}
     ocr = metrics.get("ocr") or {}
     semantic_ocr = ocr.get("semantic") or {}
+    target_ocr = ocr.get("target_semantic") or {}
     return {
         "drawio": row.get("drawio"),
         "score": row.get("score"),
@@ -241,6 +272,8 @@ def compact_score_row(row: dict[str, Any]) -> dict[str, Any]:
         "ocr_precision": ocr.get("precision"),
         "ocr_semantic_f1": semantic_ocr.get("f1"),
         "ocr_semantic_precision": semantic_ocr.get("precision"),
+        "ocr_target_semantic_f1": target_ocr.get("f1"),
+        "ocr_target_semantic_precision": target_ocr.get("precision"),
         "changed_pixel_ratio_t30": metrics.get("changed_pixel_ratio_t30"),
         "pure": row.get("native_purity", {}).get("ok"),
     }

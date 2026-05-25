@@ -1,0 +1,26 @@
+{
+  "visual_diagnosis": [
+    {
+      "issue": "Residual micro-strokes overlap the Fast-track label and visually read as stray braces/ticks.",
+      "region": [412, 648, 472, 665],
+      "primitive_ids": [
+        "selective_base_bottom_left_res_edge_0049",
+        "selective_base_bottom_left_res_edge_0063",
+        "selective_base_bottom_left_res_edge_0064",
+        "selective_base_bottom_left_res_edge_0071"
+      ],
+      "severity": "high"
+    }
+  ],
+  "patch_plan": [
+    {
+      "op": "delete",
+      "target_ids": [
+        "selective_base_bottom_left_res_edge_0049",
+        "selective_base_bottom_left_res_edge_0063",
+        "selective_base_bottom_left_res_edge_0064",
+        "selective_base_bottom_left_res_edge_0071"
+      ]
+    }
+  ]
+}

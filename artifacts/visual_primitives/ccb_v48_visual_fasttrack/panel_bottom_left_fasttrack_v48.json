@@ -1,0 +1,12 @@
+{
+  "version": "manual-local-panel-regions-0.1",
+  "source": "visual_inspection_v48",
+  "panel_regions": [
+    {
+      "id": "bottom_left_fasttrack_label",
+      "bbox": [360, 625, 545, 690],
+      "kind": "manual_visual_patch_region",
+      "source": "fasttrack_noise_prune_v48"
+    }
+  ]
+}

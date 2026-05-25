@@ -73,6 +73,8 @@ def main() -> None:
     ap.add_argument("--drawio-cli", default=DEFAULT_DRAWIO_CLI)
     ap.add_argument("--baseline-drawio", default=None)
     ap.add_argument("--metrics-json", default=None)
+    ap.add_argument("--expected-tokens-json", default=None,
+                    help="optional VLM/layout expected text tokens JSON")
     ap.add_argument("--candidate-ids", default=None,
                     help="comma-separated primitive ids to prioritize")
     ap.add_argument("--primitive-types", default="text",
@@ -103,6 +105,7 @@ def main() -> None:
         compile_program_to_drawio(program, baseline_drawio, font_family=args.font_family)
 
     metrics_tokens = _metrics_tokens(args.metrics_json)
+    expected_tokens = _load_expected_tokens(args.expected_tokens_json)
     forced_ids = {
         item.strip() for item in (args.candidate_ids or "").split(",")
         if item.strip()
@@ -129,6 +132,7 @@ def main() -> None:
         export=True,
         retry_attempts=args.retry_all_null_attempts,
         retry_delay=args.retry_all_null_delay,
+        expected_tokens=expected_tokens,
     )
     if not baseline_rows:
         raise RuntimeError("baseline evaluation produced no rows")
@@ -169,6 +173,7 @@ def main() -> None:
                 export=True,
                 retry_attempts=args.retry_all_null_attempts,
                 retry_delay=args.retry_all_null_delay,
+                expected_tokens=expected_tokens,
             )
             by_path = {Path(row["drawio"]).resolve(): row for row in rows}
             for batch_state in batch:
@@ -329,6 +334,7 @@ def main() -> None:
             "compare": str(best_compare) if best_compare.exists() else None,
         },
         "metrics_tokens": metrics_tokens,
+        "expected_tokens": expected_tokens,
         "forced_ids": sorted(forced_ids),
         "primitive_types": sorted(primitive_types),
         "candidates": candidates,
@@ -385,6 +391,7 @@ def _evaluate_with_retry(
     export: bool,
     retry_attempts: int,
     retry_delay: float,
+    expected_tokens: list[str] | None,
 ) -> list[dict[str, Any]]:
     attempts = max(1, retry_attempts)
     rows: list[dict[str, Any]] = []
@@ -394,6 +401,7 @@ def _evaluate_with_retry(
             variants,
             drawio_cli=drawio_cli,
             export=export,
+            expected_tokens=expected_tokens,
         )
         if rows and any(row.get("metrics") is not None for row in rows):
             return rows
@@ -401,6 +409,24 @@ def _evaluate_with_retry(
             _cleanup_drawio_process(drawio_cli)
             time.sleep(float(retry_delay))
     return rows
+
+
+def _load_expected_tokens(path: str | None) -> list[str]:
+    if not path:
+        return []
+    data = json.loads(Path(path).read_text())
+    if isinstance(data, list):
+        return [str(item) for item in data]
+    if not isinstance(data, dict):
+        raise ValueError("expected tokens JSON must be an array or object")
+    values: list[str] = []
+    for key in ("tokens", "phrases", "expected_tokens", "expected_phrases"):
+        raw = data.get(key) or []
+        if isinstance(raw, str):
+            values.append(raw)
+        else:
+            values.extend(str(item) for item in raw)
+    return values
 
 
 def _cleanup_drawio_process(drawio_cli: str) -> None:

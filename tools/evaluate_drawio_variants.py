@@ -39,6 +39,8 @@ def main() -> None:
                     help="also compute quadrant-level scores and winners")
     ap.add_argument("--panel-regions", default=None,
                     help="panel region JSON for local panel-level scores")
+    ap.add_argument("--expected-tokens-json", default=None,
+                    help="optional VLM/layout expected text tokens JSON")
     ap.add_argument("--best-stem", default=None,
                     help="copy winner artifacts to <best-stem>.drawio/.png/.compare.png")
     ap.add_argument("--manifest", default=None,
@@ -50,6 +52,7 @@ def main() -> None:
     args = ap.parse_args()
 
     source = Path(args.source_image)
+    expected_tokens = _load_expected_tokens(args.expected_tokens_json)
     panel_regions = (
         load_panel_regions(args.panel_regions)
         if args.panel_regions else None
@@ -61,6 +64,7 @@ def main() -> None:
         export=not args.no_export,
         include_tiles=args.tiles,
         panel_regions=panel_regions,
+        expected_tokens=expected_tokens,
         retry_all_null=args.retry_all_null,
         retry_attempts=args.retry_all_null_attempts,
         retry_delay=args.retry_all_null_delay,
@@ -70,6 +74,7 @@ def main() -> None:
         "winner": rows[0]["drawio"] if rows else None,
         "tile_winners": tile_winners(rows) if args.tiles else {},
         "panel_regions": panel_regions or [],
+        "expected_tokens": expected_tokens or [],
         "panel_winners": panel_winners(rows) if panel_regions else {},
         "variants": rows,
     }
@@ -110,6 +115,7 @@ def _evaluate_with_optional_retry(
     export: bool,
     include_tiles: bool,
     panel_regions,
+    expected_tokens,
     retry_all_null: bool,
     retry_attempts: int,
     retry_delay: float,
@@ -124,6 +130,7 @@ def _evaluate_with_optional_retry(
             export=export,
             include_tiles=include_tiles,
             panel_regions=panel_regions,
+            expected_tokens=expected_tokens,
         )
         if not rows or any(row.get("metrics") is not None for row in rows):
             return rows
@@ -144,6 +151,24 @@ def _cleanup_drawio_process() -> None:
         )
     except Exception:
         pass
+
+
+def _load_expected_tokens(path: str | None) -> list[str]:
+    if not path:
+        return []
+    data = json.loads(Path(path).read_text())
+    if isinstance(data, list):
+        return [str(item) for item in data]
+    if not isinstance(data, dict):
+        raise ValueError("expected tokens JSON must be an array or object")
+    values: list[str] = []
+    for key in ("tokens", "phrases", "expected_tokens", "expected_phrases"):
+        raw = data.get(key) or []
+        if isinstance(raw, str):
+            values.append(raw)
+        else:
+            values.extend(str(item) for item in raw)
+    return values
 
 
 if __name__ == "__main__":
