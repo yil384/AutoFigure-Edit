@@ -410,7 +410,11 @@ def _semantic_ocr_token(token: str) -> str:
         "bencnmarking": "benchmarking",
         "benenmarking": "benchmarking",
         "dittusion": "diffusion",
+        "distittion": "diffusion",
         "fiter": "filter",
+        "llmgal": "llmrl",
+        "tanner-graph": "tanner",
+        "atonv/irap": "atom/lrap",
     }
     return corrections.get(token, token)
 

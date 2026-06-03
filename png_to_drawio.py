@@ -1862,7 +1862,7 @@ def detect_bar_charts(rgb: np.ndarray, text_blocks: list[dict],
         bw = int(stats[i, cv2.CC_STAT_WIDTH])
         bh = int(stats[i, cv2.CC_STAT_HEIGHT])
         area = int(stats[i, cv2.CC_STAT_AREA])
-        if area < 55 or bw < 3 or bh < 12: continue
+        if area < 55 or bw < 6 or bh < 12: continue
         if bw > 55 or bh > 220: continue
         if bh < bw * 1.4: continue  # must be taller than wide
         bbox = (float(x), float(y), float(x + bw), float(y + bh))
@@ -1899,10 +1899,38 @@ def detect_bar_charts(rgb: np.ndarray, text_blocks: list[dict],
 
     result = []
     for grp in groups:
-        if len(grp) >= 2:
-            for r in grp:
-                del r['_cx']
-                result.append(r)
+        if len(grp) < 2:
+            continue
+        # Merge bars that are horizontally overlapping or touching (gap < 4px)
+        # to prevent adjacent thin bars from being misread as letters by OCR.
+        merged: list[dict] = []
+        grp_sorted = sorted(grp, key=lambda r: r['bbox'][0])
+        cur_r = dict(grp_sorted[0])
+        del cur_r['_cx']
+        for nxt in grp_sorted[1:]:
+            cx0, cy0, cx1, cy1 = cur_r['bbox']
+            nx0, ny0, nx1, ny1 = nxt['bbox']
+            gap = nx0 - cx1
+            if gap < 4:
+                # Merge: expand bbox, average fill by area
+                ca = (cx1 - cx0) * (cy1 - cy0)
+                na = (nx1 - nx0) * (ny1 - ny0)
+                cur_r['bbox'] = (cx0, min(cy0, ny0),
+                                  nx1, max(cy1, ny1))
+                # blend fill proportionally
+                cr, cg, cb = _hex_to_rgb(cur_r['fill'])
+                nr, ng, nb = _hex_to_rgb(nxt['fill'])
+                t = na / max(1, ca + na)
+                blended = (int(cr + t*(nr-cr)), int(cg + t*(ng-cg)), int(cb + t*(nb-cb)))
+                cur_r['fill'] = _rgb_to_hex(blended)
+                cur_r['stroke'] = _darken_hex(blended)
+            else:
+                merged.append(cur_r)
+                cur_r = dict(nxt)
+                if '_cx' in cur_r: del cur_r['_cx']
+        if '_cx' in cur_r: del cur_r['_cx']
+        merged.append(cur_r)
+        result.extend(merged)
     return result[:max_rects]
 
 
