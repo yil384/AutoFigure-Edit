@@ -1233,6 +1233,151 @@ def merge_overlapping_boxes(boxes: list, overlap_threshold: float = 0.9) -> list
     return result
 
 
+def _box_iou(box_a, box_b):
+    """Compute IoU between two boxes (x1,y1,x2,y2 tuples)."""
+    x1 = max(box_a[0], box_b[0])
+    y1 = max(box_a[1], box_b[1])
+    x2 = min(box_a[2], box_b[2])
+    y2 = min(box_a[3], box_b[3])
+    if x2 <= x1 or y2 <= y1:
+        return 0.0
+    inter = (x2 - x1) * (y2 - y1)
+    area_a = (box_a[2] - box_a[0]) * (box_a[3] - box_a[1])
+    area_b = (box_b[2] - box_b[0]) * (box_b[3] - box_b[1])
+    return inter / max(area_a + area_b - inter, 1)
+
+
+def filter_bad_boxes(boxes: list, image_width: int, image_height: int,
+                     image: "Image.Image | None" = None) -> list:
+    """
+    过滤掉有问题的检测框：
+    1. 面积过大（占图片面积>15%）
+    2. 面积过小（<50像素）
+    3. 宽高比极端（>6:1 或 1:6）
+    4. 位于图片边缘（可能是假阳性）
+    5. 底部越界
+    6. 大框低置信度
+    7. gemini_vision框过大（相对于SAM框的中位数）
+    8. 图像内容验证：真图标颜色丰富，连线/文字区域颜色单调
+
+    Args:
+        boxes: box列表
+        image_width: 图片宽度
+        image_height: 图片高度
+        image: 原始图片（用于颜色验证，可选）
+
+    Returns:
+        过滤后的box列表，重新编号
+    """
+    import numpy as np
+
+    image_area = image_width * image_height
+
+    # 计算SAM检测框的中位面积（作为参考基准）
+    sam_areas = []
+    for box in boxes:
+        if box.get("prompt", "") != "gemini_vision":
+            w = box["x2"] - box["x1"]
+            h = box["y2"] - box["y1"]
+            sam_areas.append(w * h)
+    median_sam_area = sorted(sam_areas)[len(sam_areas) // 2] if sam_areas else 2000
+
+    # 准备图像数组（用于颜色验证）
+    img_arr = None
+    if image is not None:
+        img_arr = np.array(image.convert("RGB"))
+
+    filtered = []
+    removed = []
+
+    for box in boxes:
+        x1, y1, x2, y2 = box["x1"], box["y1"], box["x2"], box["y2"]
+        w = x2 - x1
+        h = y2 - y1
+        area = w * h
+        score = box.get("score", 0)
+        label = box.get("label", "?")
+        prompt = box.get("prompt", "")
+
+        area_ratio = area / image_area if image_area > 0 else 0
+        aspect = max(w, h) / max(min(w, h), 1)
+
+        reason = None
+
+        # 1. 面积过大（>15%的图片面积）
+        if area_ratio > 0.15:
+            reason = f"面积过大 ({area_ratio:.1%})"
+
+        # 2. 面积过小（<50像素）
+        elif area < 50:
+            reason = f"面积过小 ({area}px)"
+
+        # 3. 宽高比极端（>6:1）
+        elif aspect > 6:
+            reason = f"宽高比极端 ({aspect:.1f}:1)"
+
+        # 4. 位于图片最边缘角落（可能是假阳性）
+        elif (x1 <= 2 and y1 <= 5) or (x2 >= image_width - 2 and y2 >= image_height - 2):
+            reason = f"位于图片边缘角落"
+
+        # 5. 底部越界（y2 接近图片底部且很扁）
+        elif y2 >= image_height - 5 and h < 20:
+            reason = f"底部假阳性 (y2={y2}, h={h})"
+
+        # 6. 大框低置信度（面积>5%且score<0.7）
+        elif area_ratio > 0.05 and score < 0.7:
+            reason = f"大框低置信度 (area={area_ratio:.1%}, score={score:.2f})"
+
+        # 7. gemini_vision框面积远大于SAM中位数（>3倍）
+        elif prompt == "gemini_vision" and area > median_sam_area * 3:
+            reason = f"gemini框过大 (area={area} > 3x median_sam={median_sam_area})"
+
+        # 8. gemini_vision框与SAM框重叠 → 重复检测
+        if reason is None and prompt == "gemini_vision":
+            for other in boxes:
+                if other is box or other.get("prompt", "") == "gemini_vision":
+                    continue
+                overlap = _box_iou(
+                    (x1, y1, x2, y2),
+                    (other["x1"], other["y1"], other["x2"], other["y2"]))
+                if overlap > 0.2:
+                    reason = f"与SAM框{other.get('label','?')}重叠 (IoU={overlap:.2f})"
+                    break
+
+        # 9. 图像内容验证：检查区域颜色丰富度
+        if reason is None and img_arr is not None and prompt == "gemini_vision":
+            crop = img_arr[max(0,y1):min(y2, img_arr.shape[0]),
+                           max(0,x1):min(x2, img_arr.shape[1])]
+            if crop.size > 0:
+                color_std = np.std(crop)
+                non_white = np.mean(np.min(crop, axis=2) < 200)
+
+                if color_std < 25 and non_white < 0.3:
+                    reason = f"颜色单调 (std={color_std:.1f}, non_white={non_white:.1%})，可能是连线/文字区域"
+
+        if reason:
+            removed.append((label, reason))
+        else:
+            filtered.append(box)
+
+    if removed:
+        print(f"\n  过滤掉 {len(removed)} 个异常框:")
+        for label, reason in removed:
+            print(f"    {label}: {reason}")
+
+    # 重新编号
+    result = []
+    for idx, box in enumerate(filtered):
+        result_box = box.copy()
+        result_box["id"] = idx
+        result_box["label"] = f"<AF>{idx + 1:02d}"
+        result_box["width"] = box["x2"] - box["x1"]
+        result_box["height"] = box["y2"] - box["y1"]
+        result.append(result_box)
+
+    return result
+
+
 def _get_fal_api_key(sam_api_key: Optional[str]) -> str:
     key = sam_api_key or os.environ.get("FAL_KEY")
     if not key:
@@ -1734,6 +1879,15 @@ def segment_with_sam3(
                 print(f"    {box_info['label']}: ({box_info['x1']}, {box_info['y1']}, {box_info['x2']}, {box_info['y2']})")
         else:
             print(f"  无需合并，所有boxes重叠比例均低于阈值")
+
+    # === 新增：过滤异常框 ===
+    print(f"\n  过滤异常框...")
+    original_count2 = len(valid_boxes)
+    valid_boxes = filter_bad_boxes(valid_boxes, original_size[0], original_size[1], image=image)
+    if len(valid_boxes) < original_count2:
+        print(f"  过滤完成: {original_count2} -> {len(valid_boxes)}")
+    else:
+        print(f"  无需过滤，所有框均正常")
 
     # 使用合并后的 valid_boxes 创建标记图片
     print(f"\n  绘制 samed.png (使用 {len(valid_boxes)} 个boxes)...")
