@@ -9,7 +9,7 @@ from png_to_drawio import (
     _emit_edge_cell,
     _emit_native_shape_cell,
     _emit_rect_cell,
-    _emit_text_cell,
+    _xml_escape,
     _wrap_drawio,
     assert_pure_native_drawio,
 )
@@ -115,4 +115,38 @@ def _as_text(primitive: dict[str, Any]) -> dict[str, Any]:
         "bold": bool(style.get("bold")),
         "align": style.get("align", "center"),
         "rotation": style.get("rotation"),
+        "font_color": style.get("font_color") or "#050505",
     }
+
+
+def _emit_text_cell(cid: int,
+                    item: dict[str, Any],
+                    parent: str = "4",
+                    font_family: str = "Arial") -> str:
+    x0, y0, x1, y1 = item["bbox"]
+    w = max(2.0, x1 - x0)
+    h = max(2.0, y1 - y0)
+    text = _xml_escape(item.get("text", ""))
+    if "\n" in text:
+        text = text.replace("\n", "&lt;br&gt;")
+    align = item.get("align", "center")
+    font_color = item.get("font_color") or "#050505"
+    style_parts = [
+        "text", "html=1", "strokeColor=none", "fillColor=none",
+        f"align={align}", "verticalAlign=middle", "whiteSpace=wrap",
+        "rounded=0", f"fontFamily={font_family}",
+        f"fontSize={int(item.get('font_size') or 9)}",
+        f"fontColor={font_color}",
+    ]
+    if item.get("rotation") is not None:
+        style_parts.append(f"rotation={float(item['rotation']):.1f}")
+    if item.get("bold"):
+        style_parts.append("fontStyle=1")
+    style = ";".join(style_parts) + ";"
+    return (
+        f'<mxCell id="{cid}" value="{text}" style="{style}" '
+        f'vertex="1" parent="{parent}">'
+        f'<mxGeometry x="{x0 - 1:.1f}" y="{y0 - 1:.1f}" '
+        f'width="{w + 2:.1f}" height="{h + 2:.1f}" as="geometry"/>'
+        f'</mxCell>'
+    )
