@@ -571,7 +571,7 @@ def _is_geometry_mask_text(item: dict, min_conf: float = 70.0) -> bool:
 
 
 def detect_pale_rectangles(rgb: np.ndarray,
-                           max_area_ratio: float = 0.12,
+                           max_area_ratio: float = 0.38,
                            min_fill_ratio: float = 0.58,
                            min_contour_fill_ratio: float = 0.50) -> list[dict]:
     arr = rgb.astype(np.float32)
@@ -625,7 +625,7 @@ def detect_pale_rectangles(rgb: np.ndarray,
 
 
 def detect_separated_pale_rectangles(rgb: np.ndarray,
-                                     max_area_ratio: float = 0.08) -> list[dict]:
+                                     max_area_ratio: float = 0.38) -> list[dict]:
     """Recover pale panels that were over-merged by close morphology."""
     arr = rgb.astype(np.float32)
     h, w = arr.shape[:2]
@@ -1367,7 +1367,7 @@ def detect_native_shapes(rgb: np.ndarray, text_blocks: list[dict],
             pix_area = int(stats[li, cv2.CC_STAT_AREA])
             if pix_area < 18 or bw < 4 or bh < 4:
                 continue
-            if max(bw, bh) > 135 or bw * bh > 9000:
+            if max(bw, bh) > 280 or bw * bh > 35000:
                 continue
             aspect = max(bw, bh) / max(1.0, min(bw, bh))
             if aspect > 14 or (aspect > 8 and min(bw, bh) < 7):
@@ -1833,6 +1833,79 @@ def filter_background_native_shapes(shapes: list[dict],
     return filtered
 
 
+def detect_bar_charts(rgb: np.ndarray, text_blocks: list[dict],
+                      max_rects: int = 150) -> list[dict]:
+    """Detect bar chart columns as native colored rectangles.
+
+    Finds narrow vertical colored blobs (height > 1.4 * width, height ≥ 12px,
+    width ≤ 55px) that cluster horizontally — the hallmark of a bar chart.
+    Groups with ≥ 2 bars are emitted as individual filled rectangles.
+    """
+    arr = rgb.astype(np.float32)
+    h, w = arr.shape[:2]
+    luma = 0.299 * arr[:, :, 0] + 0.587 * arr[:, :, 1] + 0.114 * arr[:, :, 2]
+    chroma = arr.max(axis=2) - arr.min(axis=2)
+    page_bg = (luma > 246) & (chroma < 9)
+
+    bar_mask = ((chroma > 18) & (luma > 65) & (luma < 238) &
+                ~page_bg).astype(np.uint8) * 255
+    _erase_bboxes(bar_mask, text_blocks, pad=2)
+    bar_mask = cv2.morphologyEx(
+        bar_mask, cv2.MORPH_OPEN,
+        cv2.getStructuringElement(cv2.MORPH_RECT, (2, 2)))
+
+    n, labels, stats, _ = cv2.connectedComponentsWithStats(bar_mask, 8)
+    candidates = []
+    for i in range(1, n):
+        x = int(stats[i, cv2.CC_STAT_LEFT])
+        y = int(stats[i, cv2.CC_STAT_TOP])
+        bw = int(stats[i, cv2.CC_STAT_WIDTH])
+        bh = int(stats[i, cv2.CC_STAT_HEIGHT])
+        area = int(stats[i, cv2.CC_STAT_AREA])
+        if area < 55 or bw < 3 or bh < 12: continue
+        if bw > 55 or bh > 220: continue
+        if bh < bw * 1.4: continue  # must be taller than wide
+        bbox = (float(x), float(y), float(x + bw), float(y + bh))
+        if _bbox_touches_text(bbox, text_blocks, threshold=0.15): continue
+        comp = (labels[y:y + bh, x:x + bw] == i)
+        fill_ratio = area / max(1, bw * bh)
+        if fill_ratio < 0.35: continue
+        samples = rgb[y:y + bh, x:x + bw][comp]
+        if len(samples) == 0: continue
+        med = np.median(samples, axis=0)
+        candidates.append({
+            'kind': 'rect',
+            'bbox': bbox,
+            'fill': _rgb_to_hex(med),
+            'stroke': _darken_hex(med),
+            'area': float(area),
+            '_cx': float(x + bw / 2),
+        })
+
+    if not candidates:
+        return []
+
+    # Group by horizontal proximity (≤ 60px gap between bar centers)
+    candidates.sort(key=lambda c: c['_cx'])
+    groups: list[list[dict]] = []
+    cur: list[dict] = [candidates[0]]
+    for c in candidates[1:]:
+        if c['_cx'] - cur[-1]['_cx'] <= 60:
+            cur.append(c)
+        else:
+            groups.append(cur)
+            cur = [c]
+    groups.append(cur)
+
+    result = []
+    for grp in groups:
+        if len(grp) >= 2:
+            for r in grp:
+                del r['_cx']
+                result.append(r)
+    return result[:max_rects]
+
+
 def detect_icon_crops(img: Image.Image, rgb: np.ndarray,
                       text_blocks: list[dict], lines: list[dict],
                       native_shapes: list[dict] | None = None,
@@ -2160,7 +2233,14 @@ def convert_png_to_drawio(input_path: str, output_path: str,
     border_rects = filter_border_rectangles(
         detect_border_rectangles(rgb), detection_text_blocks)
     fill_rects = filter_fill_rectangles(raw_fill_rects, border_rects)
+    bar_chart_rects = (detect_bar_charts(rgb, detection_text_blocks)
+                       if emit_native_shapes else [])
     rects = merge_rectangles(fill_rects, border_rects)
+    # Bar chart rects are added after dedup so they are not swallowed by
+    # large background panels.
+    rects = rects + [r for r in bar_chart_rects
+                     if not any(_bbox_iou(r['bbox'], old['bbox']) > 0.60
+                                for old in rects)]
     axis_lines = detect_lines(rgb, detection_text_blocks,
                               detect_arrows=detect_arrows)
     connectors = (detect_skeleton_connectors(
@@ -2275,6 +2355,7 @@ def convert_png_to_drawio(input_path: str, output_path: str,
         },
         'counts': {
             'rectangles': len(rects),
+            'bar_chart_rects': len(bar_chart_rects),
             'native_shapes': len(native_shapes),
             'tiny_marks': len(tiny_marks),
             'foreground_tiles': len(foreground_tiles),
