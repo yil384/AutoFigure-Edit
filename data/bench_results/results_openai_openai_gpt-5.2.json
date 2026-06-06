@@ -1,0 +1,794 @@
+{
+  "report": {
+    "backend": "openai",
+    "model": "openai/gpt-5.2",
+    "n": 46,
+    "overall": [
+      46,
+      0.10736521739130434,
+      0.10869565217391304
+    ],
+    "synthetic": [
+      20,
+      0.23104999999999998,
+      0.25
+    ],
+    "ccb": [
+      26,
+      0.012223076923076923,
+      0.0
+    ],
+    "text": [
+      30,
+      0.03842,
+      0.0
+    ],
+    "box": [
+      16,
+      0.23663749999999997,
+      0.3125
+    ]
+  },
+  "results": [
+    {
+      "source": "synthetic",
+      "kind": "text",
+      "label": "Verifier",
+      "gt": [
+        182.3,
+        213.5,
+        469.7,
+        259.5
+      ],
+      "pred": null,
+      "iou": 0.0,
+      "err": null,
+      "raw": ""
+    },
+    {
+      "source": "synthetic",
+      "kind": "text",
+      "label": "Embedding",
+      "gt": [
+        768.5,
+        387.3,
+        1139.5,
+        433.3
+      ],
+      "pred": null,
+      "iou": 0.0,
+      "err": null,
+      "raw": ""
+    },
+    {
+      "source": "synthetic",
+      "kind": "text",
+      "label": "(b) Inference Flow",
+      "gt": [
+        660.0,
+        30.0,
+        1248.0,
+        52.0
+      ],
+      "pred": [
+        645.0,
+        34.0,
+        796.0,
+        55.0
+      ],
+      "iou": 0.1792,
+      "err": null,
+      "raw": "{\"box\":[645,34,796,55]}"
+    },
+    {
+      "source": "synthetic",
+      "kind": "box",
+      "label": "Cross-Hamiltonian 2",
+      "gt": [
+        773.8,
+        132.4,
+        1134.2,
+        168.1
+      ],
+      "pred": null,
+      "iou": 0.0,
+      "err": null,
+      "raw": ""
+    },
+    {
+      "source": "synthetic",
+      "kind": "box",
+      "label": "Embedding",
+      "gt": [
+        768.5,
+        387.3,
+        1139.5,
+        433.3
+      ],
+      "pred": null,
+      "iou": 0.0,
+      "err": null,
+      "raw": ""
+    },
+    {
+      "source": "synthetic",
+      "kind": "text",
+      "label": "Memory",
+      "gt": [
+        214.2,
+        497.3,
+        745.8,
+        584.2
+      ],
+      "pred": null,
+      "iou": 0.0,
+      "err": null,
+      "raw": ""
+    },
+    {
+      "source": "synthetic",
+      "kind": "text",
+      "label": "Stage 3: Decoding",
+      "gt": [
+        80.0,
+        10.0,
+        880.0,
+        36.0
+      ],
+      "pred": [
+        394.0,
+        14.0,
+        568.0,
+        38.0
+      ],
+      "iou": 0.181,
+      "err": null,
+      "raw": "{\"box\":[394,14,568,38]}"
+    },
+    {
+      "source": "synthetic",
+      "kind": "text",
+      "label": "Kernel",
+      "gt": [
+        224.4,
+        81.8,
+        735.6,
+        168.7
+      ],
+      "pred": [
+        463.0,
+        104.0,
+        498.0,
+        119.0
+      ],
+      "iou": 0.0118,
+      "err": null,
+      "raw": "{\"box\":[463,104,498,119]}"
+    },
+    {
+      "source": "synthetic",
+      "kind": "box",
+      "label": "Kernel",
+      "gt": [
+        224.4,
+        81.8,
+        735.6,
+        168.7
+      ],
+      "pred": [
+        183.0,
+        83.0,
+        776.0,
+        165.0
+      ],
+      "iou": 0.8198,
+      "err": null,
+      "raw": "{\"box\":[183,83,776,165]}"
+    },
+    {
+      "source": "synthetic",
+      "kind": "box",
+      "label": "Dense Tokenizer",
+      "gt": [
+        249.4,
+        358.8,
+        710.6,
+        445.7
+      ],
+      "pred": null,
+      "iou": 0.0,
+      "err": null,
+      "raw": "{\"box\":[214,313,743"
+    },
+    {
+      "source": "synthetic",
+      "kind": "text",
+      "label": "Tokenizer",
+      "gt": [
+        437.3,
+        70.0,
+        624.7,
+        127.0
+      ],
+      "pred": [
+        477.0,
+        91.0,
+        576.0,
+        111.0
+      ],
+      "iou": 0.1854,
+      "err": null,
+      "raw": "{\"box\":[477,91,576,111]}"
+    },
+    {
+      "source": "synthetic",
+      "kind": "text",
+      "label": "Projection",
+      "gt": [
+        1063.0,
+        70.0,
+        1255.0,
+        127.0
+      ],
+      "pred": [
+        1148.0,
+        85.0,
+        1236.0,
+        105.0
+      ],
+      "iou": 0.1608,
+      "err": null,
+      "raw": "{\"box\":[1148,85,1236,105]}"
+    },
+    {
+      "source": "synthetic",
+      "kind": "text",
+      "label": "Sparse Embedding",
+      "gt": [
+        720.6,
+        70.0,
+        969.4,
+        127.0
+      ],
+      "pred": null,
+      "iou": 0.0,
+      "err": null,
+      "raw": ""
+    },
+    {
+      "source": "synthetic",
+      "kind": "box",
+      "label": "Sparse Embedding",
+      "gt": [
+        720.6,
+        70.0,
+        969.4,
+        127.0
+      ],
+      "pred": [
+        711.0,
+        60.0,
+        970.0,
+        118.0
+      ],
+      "iou": 0.6919,
+      "err": null,
+      "raw": "{\"box\":[711,60,970,118]}"
+    },
+    {
+      "source": "synthetic",
+      "kind": "box",
+      "label": "Hybrid Sampler",
+      "gt": [
+        100.8,
+        70.0,
+        333.2,
+        127.0
+      ],
+      "pred": [
+        100.0,
+        69.0,
+        334.0,
+        136.0
+      ],
+      "iou": 0.8449,
+      "err": null,
+      "raw": "{\"box\":[100,69,334,136]}"
+    },
+    {
+      "source": "synthetic",
+      "kind": "text",
+      "label": "Optimizer",
+      "gt": [
+        581.3,
+        160.0,
+        763.7,
+        206.0
+      ],
+      "pred": null,
+      "iou": 0.0,
+      "err": null,
+      "raw": ""
+    },
+    {
+      "source": "synthetic",
+      "kind": "text",
+      "label": "Decoder",
+      "gt": [
+        486.9,
+        56.0,
+        613.1,
+        102.0
+      ],
+      "pred": null,
+      "iou": 0.0,
+      "err": null,
+      "raw": ""
+    },
+    {
+      "source": "synthetic",
+      "kind": "text",
+      "label": "Encoder",
+      "gt": [
+        111.2,
+        160.0,
+        253.8,
+        206.0
+      ],
+      "pred": [
+        141.9,
+        163.44,
+        217.8,
+        173.52
+      ],
+      "iou": 0.1166,
+      "err": null,
+      "raw": "{\"box\":[129,227,198,241]}"
+    },
+    {
+      "source": "synthetic",
+      "kind": "box",
+      "label": "Decoder",
+      "gt": [
+        486.9,
+        56.0,
+        613.1,
+        102.0
+      ],
+      "pred": [
+        479.0,
+        58.0,
+        621.0,
+        116.0
+      ],
+      "iou": 0.6542,
+      "err": null,
+      "raw": "{\"box\":[479,58,621,116]}"
+    },
+    {
+      "source": "synthetic",
+      "kind": "box",
+      "label": "Optimizer",
+      "gt": [
+        581.3,
+        160.0,
+        763.7,
+        206.0
+      ],
+      "pred": [
+        564.0,
+        159.0,
+        752.0,
+        210.0
+      ],
+      "iou": 0.7754,
+      "err": null,
+      "raw": "{\"box\":[564,159,752,210]}"
+    },
+    {
+      "source": "ccb",
+      "kind": "text",
+      "label": "Select Truncation",
+      "gt": [
+        138.0,
+        483.0,
+        236.0,
+        499.0
+      ],
+      "pred": null,
+      "iou": 0.0,
+      "err": null,
+      "raw": ""
+    },
+    {
+      "source": "ccb",
+      "kind": "text",
+      "label": "batching",
+      "gt": [
+        246.0,
+        290.0,
+        305.0,
+        313.0
+      ],
+      "pred": null,
+      "iou": 0.0,
+      "err": null,
+      "raw": ""
+    },
+    {
+      "source": "ccb",
+      "kind": "text",
+      "label": "(FeMoco",
+      "gt": [
+        798.0,
+        465.667,
+        844.333,
+        479.667
+      ],
+      "pred": null,
+      "iou": 0.0,
+      "err": null,
+      "raw": ""
+    },
+    {
+      "source": "ccb",
+      "kind": "text",
+      "label": "Bloch-\nMessiah",
+      "gt": [
+        276.0,
+        532.0,
+        314.5,
+        559.5
+      ],
+      "pred": [
+        281.0,
+        523.0,
+        352.0,
+        557.0
+      ],
+      "iou": 0.3178,
+      "err": null,
+      "raw": "{\"box\":[281,523,352,557]}"
+    },
+    {
+      "source": "ccb",
+      "kind": "text",
+      "label": "ZX Diagram",
+      "gt": [
+        891.0,
+        509.0,
+        971.0,
+        534.0
+      ],
+      "pred": [
+        779.0,
+        446.0,
+        856.0,
+        463.0
+      ],
+      "iou": 0.0,
+      "err": null,
+      "raw": "{\"box\":[779,446,856,463]}"
+    },
+    {
+      "source": "ccb",
+      "kind": "text",
+      "label": "Physical-Qubit Brand",
+      "gt": [
+        982.0,
+        676.0,
+        1105.0,
+        699.0
+      ],
+      "pred": null,
+      "iou": 0.0,
+      "err": null,
+      "raw": ""
+    },
+    {
+      "source": "ccb",
+      "kind": "text",
+      "label": "Noise analysis/Input",
+      "gt": [
+        785.0,
+        22.0,
+        878.0,
+        46.0
+      ],
+      "pred": null,
+      "iou": 0.0,
+      "err": null,
+      "raw": "{\""
+    },
+    {
+      "source": "ccb",
+      "kind": "text",
+      "label": "Frontend",
+      "gt": [
+        734.0,
+        607.0,
+        792.0,
+        627.0
+      ],
+      "pred": null,
+      "iou": 0.0,
+      "err": null,
+      "raw": ""
+    },
+    {
+      "source": "ccb",
+      "kind": "text",
+      "label": "Code",
+      "gt": [
+        1151.0,
+        503.0,
+        1189.0,
+        523.0
+      ],
+      "pred": null,
+      "iou": 0.0,
+      "err": null,
+      "raw": ""
+    },
+    {
+      "source": "ccb",
+      "kind": "text",
+      "label": "feedback",
+      "gt": [
+        488.0,
+        499.0,
+        552.0,
+        522.0
+      ],
+      "pred": null,
+      "iou": 0.0,
+      "err": null,
+      "raw": ""
+    },
+    {
+      "source": "ccb",
+      "kind": "text",
+      "label": "Token",
+      "gt": [
+        1177.0,
+        579.0,
+        1219.0,
+        599.0
+      ],
+      "pred": null,
+      "iou": 0.0,
+      "err": null,
+      "raw": ""
+    },
+    {
+      "source": "ccb",
+      "kind": "text",
+      "label": "Trotter",
+      "gt": [
+        1294.0,
+        203.0,
+        1344.0,
+        223.0
+      ],
+      "pred": [
+        1213.0,
+        258.0,
+        1274.0,
+        273.0
+      ],
+      "iou": 0.0,
+      "err": null,
+      "raw": "{\"box\":[1213,258,1274,273]}"
+    },
+    {
+      "source": "ccb",
+      "kind": "text",
+      "label": "extraction",
+      "gt": [
+        829.0,
+        115.0,
+        898.0,
+        136.0
+      ],
+      "pred": null,
+      "iou": 0.0,
+      "err": null,
+      "raw": ""
+    },
+    {
+      "source": "ccb",
+      "kind": "text",
+      "label": "Key:",
+      "gt": [
+        721.0,
+        666.0,
+        769.0,
+        709.0
+      ],
+      "pred": null,
+      "iou": 0.0,
+      "err": null,
+      "raw": ""
+    },
+    {
+      "source": "ccb",
+      "kind": "text",
+      "label": "Decomposition",
+      "gt": [
+        267.0,
+        439.0,
+        366.0,
+        464.0
+      ],
+      "pred": null,
+      "iou": 0.0,
+      "err": null,
+      "raw": ""
+    },
+    {
+      "source": "ccb",
+      "kind": "text",
+      "label": "Theory.",
+      "gt": [
+        7.0,
+        740.0,
+        71.0,
+        768.0
+      ],
+      "pred": null,
+      "iou": 0.0,
+      "err": null,
+      "raw": ""
+    },
+    {
+      "source": "ccb",
+      "kind": "text",
+      "label": "Circuits",
+      "gt": [
+        1293.0,
+        121.0,
+        1347.0,
+        141.0
+      ],
+      "pred": null,
+      "iou": 0.0,
+      "err": null,
+      "raw": ""
+    },
+    {
+      "source": "ccb",
+      "kind": "text",
+      "label": "Noise",
+      "gt": [
+        1101.0,
+        242.0,
+        1144.0,
+        262.0
+      ],
+      "pred": null,
+      "iou": 0.0,
+      "err": null,
+      "raw": ""
+    },
+    {
+      "source": "ccb",
+      "kind": "box",
+      "label": "LLM-Driven Recipe Composition",
+      "gt": [
+        923.0,
+        22.0,
+        1169.0,
+        49.0
+      ],
+      "pred": null,
+      "iou": 0.0,
+      "err": null,
+      "raw": ""
+    },
+    {
+      "source": "ccb",
+      "kind": "box",
+      "label": "Input Metrics",
+      "gt": [
+        775.0,
+        675.0,
+        936.0,
+        701.0
+      ],
+      "pred": null,
+      "iou": 0.0,
+      "err": null,
+      "raw": ""
+    },
+    {
+      "source": "ccb",
+      "kind": "box",
+      "label": "Noise analysis/Input",
+      "gt": [
+        713.0,
+        22.0,
+        913.0,
+        49.0
+      ],
+      "pred": null,
+      "iou": 0.0,
+      "err": null,
+      "raw": ""
+    },
+    {
+      "source": "ccb",
+      "kind": "box",
+      "label": "Verification\nAgent",
+      "gt": [
+        483.0,
+        441.5,
+        557.0,
+        493.0
+      ],
+      "pred": null,
+      "iou": 0.0,
+      "err": null,
+      "raw": ""
+    },
+    {
+      "source": "ccb",
+      "kind": "box",
+      "label": "Hardware\nAgent",
+      "gt": [
+        392.0,
+        441.5,
+        465.5,
+        493.0
+      ],
+      "pred": null,
+      "iou": 0.0,
+      "err": null,
+      "raw": ""
+    },
+    {
+      "source": "ccb",
+      "kind": "box",
+      "label": "Benchmarking",
+      "gt": [
+        1110.0,
+        415.0,
+        1204.0,
+        438.0
+      ],
+      "pred": null,
+      "iou": 0.0,
+      "err": null,
+      "raw": ""
+    },
+    {
+      "source": "ccb",
+      "kind": "box",
+      "label": "Input Metrics",
+      "gt": [
+        775.0,
+        675.0,
+        936.0,
+        701.0
+      ],
+      "pred": null,
+      "iou": 0.0,
+      "err": null,
+      "raw": ""
+    },
+    {
+      "source": "ccb",
+      "kind": "box",
+      "label": "Seed codes",
+      "gt": [
+        17.0,
+        209.0,
+        122.0,
+        301.0
+      ],
+      "pred": null,
+      "iou": 0.0,
+      "err": null,
+      "raw": ""
+    }
+  ]
+}

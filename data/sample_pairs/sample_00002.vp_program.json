@@ -1,0 +1,268 @@
+{
+ "version": "synth-1",
+ "source": "synthetic",
+ "canvas": {
+  "width": 1376,
+  "height": 720
+ },
+ "coordinate_space": "pixel",
+ "counts": {
+  "regions": 2,
+  "shapes": 2,
+  "edges": 3,
+  "texts": 5,
+  "total": 12
+ },
+ "primitives": [
+  {
+   "id": "syn_region_0001",
+   "type": "region",
+   "role": "panel_or_container",
+   "bbox": [
+    100.8,
+    70.0,
+    333.2,
+    127.0
+   ],
+   "style": {
+    "fill": "#f3e0e6",
+    "stroke": "#b07f93",
+    "rounded": true
+   },
+   "source": "synth"
+  },
+  {
+   "id": "syn_text_0001",
+   "type": "text",
+   "role": "label",
+   "bbox": [
+    100.8,
+    70.0,
+    333.2,
+    127.0
+   ],
+   "text": "Hybrid Sampler",
+   "style": {
+    "font_size": 11,
+    "bold": false,
+    "align": "center",
+    "font_color": "#101010"
+   },
+   "source": "synth"
+  },
+  {
+   "id": "syn_shape_0001",
+   "type": "shape",
+   "role": "symbol_or_mark",
+   "shape": "rhombus",
+   "bbox": [
+    437.3,
+    70.0,
+    624.7,
+    127.0
+   ],
+   "style": {
+    "fill": "none",
+    "stroke": "#b09a78"
+   },
+   "source": "synth"
+  },
+  {
+   "id": "syn_text_0002",
+   "type": "text",
+   "role": "label",
+   "bbox": [
+    437.3,
+    70.0,
+    624.7,
+    127.0
+   ],
+   "text": "Tokenizer",
+   "style": {
+    "font_size": 11,
+    "bold": false,
+    "align": "center",
+    "font_color": "#101010"
+   },
+   "source": "synth"
+  },
+  {
+   "id": "syn_region_0002",
+   "type": "region",
+   "role": "panel_or_container",
+   "bbox": [
+    720.6,
+    70.0,
+    969.4,
+    127.0
+   ],
+   "style": {
+    "fill": "#e8e4f0",
+    "stroke": "#8a7fb0",
+    "rounded": false
+   },
+   "source": "synth"
+  },
+  {
+   "id": "syn_text_0003",
+   "type": "text",
+   "role": "label",
+   "bbox": [
+    720.6,
+    70.0,
+    969.4,
+    127.0
+   ],
+   "text": "Sparse Embedding",
+   "style": {
+    "font_size": 11,
+    "bold": false,
+    "align": "center",
+    "font_color": "#101010"
+   },
+   "source": "synth"
+  },
+  {
+   "id": "syn_shape_0002",
+   "type": "shape",
+   "role": "symbol_or_mark",
+   "shape": "ellipse",
+   "bbox": [
+    1063.0,
+    70.0,
+    1255.0,
+    127.0
+   ],
+   "style": {
+    "fill": "none",
+    "stroke": "#b07f93"
+   },
+   "source": "synth"
+  },
+  {
+   "id": "syn_text_0004",
+   "type": "text",
+   "role": "label",
+   "bbox": [
+    1063.0,
+    70.0,
+    1255.0,
+    127.0
+   ],
+   "text": "Projection",
+   "style": {
+    "font_size": 11,
+    "bold": false,
+    "align": "center",
+    "font_color": "#101010"
+   },
+   "source": "synth"
+  },
+  {
+   "id": "syn_edge_0001",
+   "type": "edge",
+   "role": "connector",
+   "bbox": [
+    333.1570752239379,
+    98.5,
+    437.2937516347471,
+    98.5
+   ],
+   "path": [
+    [
+     333.2,
+     98.5
+    ],
+    [
+     437.3,
+     98.5
+    ]
+   ],
+   "style": {
+    "stroke": "#303030",
+    "stroke_width": 1.59,
+    "arrow_start": false,
+    "arrow_end": true
+   },
+   "source": "synth"
+  },
+  {
+   "id": "syn_edge_0002",
+   "type": "edge",
+   "role": "connector",
+   "bbox": [
+    624.7062483652529,
+    98.5,
+    720.6124524815589,
+    98.5
+   ],
+   "path": [
+    [
+     624.7,
+     98.5
+    ],
+    [
+     720.6,
+     98.5
+    ]
+   ],
+   "style": {
+    "stroke": "#303030",
+    "stroke_width": 1.61,
+    "arrow_start": false,
+    "arrow_end": true
+   },
+   "source": "synth"
+  },
+  {
+   "id": "syn_edge_0003",
+   "type": "edge",
+   "role": "connector",
+   "bbox": [
+    969.3875475184411,
+    98.5,
+    1062.9546936915117,
+    98.5
+   ],
+   "path": [
+    [
+     969.4,
+     98.5
+    ],
+    [
+     1063.0,
+     98.5
+    ]
+   ],
+   "style": {
+    "stroke": "#303030",
+    "stroke_width": 1.6,
+    "arrow_start": false,
+    "arrow_end": true
+   },
+   "source": "synth"
+  },
+  {
+   "id": "syn_text_0005",
+   "type": "text",
+   "role": "label",
+   "bbox": [
+    994.2,
+    76.5,
+    1038.2,
+    92.5
+   ],
+   "text": "no",
+   "style": {
+    "font_size": 9,
+    "bold": false,
+    "align": "center",
+    "font_color": "#101010"
+   },
+   "source": "synth"
+  }
+ ],
+ "metadata": {
+  "generator": "synth_diagram_gen"
+ }
+}

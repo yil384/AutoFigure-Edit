@@ -1,0 +1,885 @@
+{
+ "version": "synth-1",
+ "source": "synthetic",
+ "canvas": {
+  "width": 1280,
+  "height": 640
+ },
+ "coordinate_space": "pixel",
+ "counts": {
+  "regions": 17,
+  "shapes": 0,
+  "edges": 9,
+  "texts": 17,
+  "total": 43
+ },
+ "primitives": [
+  {
+   "id": "syn_region_0001",
+   "type": "region",
+   "role": "panel_or_container",
+   "bbox": [
+    24.0,
+    24.0,
+    628.0,
+    308.0
+   ],
+   "style": {
+    "fill": "#f5f6f8",
+    "stroke": "#8f9cac",
+    "rounded": true
+   },
+   "source": "synth"
+  },
+  {
+   "id": "syn_text_0001",
+   "type": "text",
+   "role": "label",
+   "bbox": [
+    32.0,
+    30.0,
+    620.0,
+    52.0
+   ],
+   "text": "(a) Model Overview",
+   "style": {
+    "font_size": 12,
+    "bold": true,
+    "align": "left",
+    "font_color": "#101010"
+   },
+   "source": "synth"
+  },
+  {
+   "id": "syn_region_0002",
+   "type": "region",
+   "role": "panel_or_container",
+   "bbox": [
+    192.1,
+    98.5,
+    459.9,
+    144.5
+   ],
+   "style": {
+    "fill": "#dceeee",
+    "stroke": "#6fa0a0",
+    "rounded": true
+   },
+   "source": "synth"
+  },
+  {
+   "id": "syn_text_0002",
+   "type": "text",
+   "role": "label",
+   "bbox": [
+    192.1,
+    98.5,
+    459.9,
+    144.5
+   ],
+   "text": "Noise",
+   "style": {
+    "font_size": 10,
+    "bold": false,
+    "align": "center",
+    "font_color": "#101010"
+   },
+   "source": "synth"
+  },
+  {
+   "id": "syn_region_0003",
+   "type": "region",
+   "role": "panel_or_container",
+   "bbox": [
+    182.3,
+    213.5,
+    469.7,
+    259.5
+   ],
+   "style": {
+    "fill": "#d8e6ef",
+    "stroke": "#6f8190",
+    "rounded": true
+   },
+   "source": "synth"
+  },
+  {
+   "id": "syn_text_0003",
+   "type": "text",
+   "role": "label",
+   "bbox": [
+    182.3,
+    213.5,
+    469.7,
+    259.5
+   ],
+   "text": "Verifier",
+   "style": {
+    "font_size": 10,
+    "bold": false,
+    "align": "center",
+    "font_color": "#101010"
+   },
+   "source": "synth"
+  },
+  {
+   "id": "syn_edge_0001",
+   "type": "edge",
+   "role": "connector",
+   "bbox": [
+    326.0,
+    144.5,
+    326.0,
+    213.5
+   ],
+   "path": [
+    [
+     326.0,
+     144.5
+    ],
+    [
+     326.0,
+     213.5
+    ]
+   ],
+   "style": {
+    "stroke": "#303030",
+    "stroke_width": 1.12,
+    "arrow_start": false,
+    "arrow_end": true
+   },
+   "source": "synth"
+  },
+  {
+   "id": "syn_region_0004",
+   "type": "region",
+   "role": "panel_or_container",
+   "bbox": [
+    652.0,
+    24.0,
+    1256.0,
+    308.0
+   ],
+   "style": {
+    "fill": "#f4f8f4",
+    "stroke": "#8f9cac",
+    "rounded": true
+   },
+   "source": "synth"
+  },
+  {
+   "id": "syn_text_0004",
+   "type": "text",
+   "role": "label",
+   "bbox": [
+    660.0,
+    30.0,
+    1248.0,
+    52.0
+   ],
+   "text": "(b) Inference Flow",
+   "style": {
+    "font_size": 12,
+    "bold": true,
+    "align": "left",
+    "font_color": "#101010"
+   },
+   "source": "synth"
+  },
+  {
+   "id": "syn_region_0005",
+   "type": "region",
+   "role": "panel_or_container",
+   "bbox": [
+    771.9,
+    74.9,
+    1136.1,
+    110.6
+   ],
+   "style": {
+    "fill": "#fdf3d8",
+    "stroke": "#c9b35a",
+    "rounded": false
+   },
+   "source": "synth"
+  },
+  {
+   "id": "syn_text_0005",
+   "type": "text",
+   "role": "label",
+   "bbox": [
+    771.9,
+    74.9,
+    1136.1,
+    110.6
+   ],
+   "text": "Self-Latent 1",
+   "style": {
+    "font_size": 10,
+    "bold": false,
+    "align": "center",
+    "font_color": "#101010"
+   },
+   "source": "synth"
+  },
+  {
+   "id": "syn_region_0006",
+   "type": "region",
+   "role": "panel_or_container",
+   "bbox": [
+    773.8,
+    132.4,
+    1134.2,
+    168.1
+   ],
+   "style": {
+    "fill": "#d8e6ef",
+    "stroke": "#6f8190",
+    "rounded": true
+   },
+   "source": "synth"
+  },
+  {
+   "id": "syn_text_0006",
+   "type": "text",
+   "role": "label",
+   "bbox": [
+    773.8,
+    132.4,
+    1134.2,
+    168.1
+   ],
+   "text": "Cross-Hamiltonian 2",
+   "style": {
+    "font_size": 10,
+    "bold": false,
+    "align": "center",
+    "font_color": "#101010"
+   },
+   "source": "synth"
+  },
+  {
+   "id": "syn_region_0007",
+   "type": "region",
+   "role": "panel_or_container",
+   "bbox": [
+    815.3,
+    189.9,
+    1092.7,
+    225.6
+   ],
+   "style": {
+    "fill": "#ffffff",
+    "stroke": "#5a5a5a",
+    "rounded": false
+   },
+   "source": "synth"
+  },
+  {
+   "id": "syn_text_0007",
+   "type": "text",
+   "role": "label",
+   "bbox": [
+    815.3,
+    189.9,
+    1092.7,
+    225.6
+   ],
+   "text": "Deep Generator",
+   "style": {
+    "font_size": 10,
+    "bold": false,
+    "align": "center",
+    "font_color": "#101010"
+   },
+   "source": "synth"
+  },
+  {
+   "id": "syn_region_0008",
+   "type": "region",
+   "role": "panel_or_container",
+   "bbox": [
+    739.2,
+    247.4,
+    1168.8,
+    283.1
+   ],
+   "style": {
+    "fill": "#dceeee",
+    "stroke": "#6fa0a0",
+    "rounded": false
+   },
+   "source": "synth"
+  },
+  {
+   "id": "syn_text_0008",
+   "type": "text",
+   "role": "label",
+   "bbox": [
+    739.2,
+    247.4,
+    1168.8,
+    283.1
+   ],
+   "text": "Classifier 4",
+   "style": {
+    "font_size": 10,
+    "bold": false,
+    "align": "center",
+    "font_color": "#101010"
+   },
+   "source": "synth"
+  },
+  {
+   "id": "syn_edge_0002",
+   "type": "edge",
+   "role": "connector",
+   "bbox": [
+    954.0,
+    110.575,
+    954.0,
+    132.425
+   ],
+   "path": [
+    [
+     954.0,
+     110.6
+    ],
+    [
+     954.0,
+     132.4
+    ]
+   ],
+   "style": {
+    "stroke": "#303030",
+    "stroke_width": 1.65,
+    "arrow_start": false,
+    "arrow_end": true
+   },
+   "source": "synth"
+  },
+  {
+   "id": "syn_edge_0003",
+   "type": "edge",
+   "role": "connector",
+   "bbox": [
+    954.0,
+    168.075,
+    954.0,
+    189.925
+   ],
+   "path": [
+    [
+     954.0,
+     168.1
+    ],
+    [
+     954.0,
+     189.9
+    ]
+   ],
+   "style": {
+    "stroke": "#303030",
+    "stroke_width": 1.41,
+    "arrow_start": false,
+    "arrow_end": true
+   },
+   "source": "synth"
+  },
+  {
+   "id": "syn_edge_0004",
+   "type": "edge",
+   "role": "connector",
+   "bbox": [
+    954.0,
+    225.575,
+    954.0,
+    247.425
+   ],
+   "path": [
+    [
+     954.0,
+     225.6
+    ],
+    [
+     954.0,
+     247.4
+    ]
+   ],
+   "style": {
+    "stroke": "#303030",
+    "stroke_width": 1.59,
+    "arrow_start": false,
+    "arrow_end": true
+   },
+   "source": "synth"
+  },
+  {
+   "id": "syn_region_0009",
+   "type": "region",
+   "role": "panel_or_container",
+   "bbox": [
+    24.0,
+    332.0,
+    628.0,
+    616.0
+   ],
+   "style": {
+    "fill": "#fbf8f3",
+    "stroke": "#8f9cac",
+    "rounded": true
+   },
+   "source": "synth"
+  },
+  {
+   "id": "syn_text_0009",
+   "type": "text",
+   "role": "label",
+   "bbox": [
+    32.0,
+    338.0,
+    620.0,
+    360.0
+   ],
+   "text": "(c) Data Flow",
+   "style": {
+    "font_size": 12,
+    "bold": true,
+    "align": "left",
+    "font_color": "#101010"
+   },
+   "source": "synth"
+  },
+  {
+   "id": "syn_region_0010",
+   "type": "region",
+   "role": "panel_or_container",
+   "bbox": [
+    167.6,
+    382.9,
+    484.4,
+    418.6
+   ],
+   "style": {
+    "fill": "#eaf2f7",
+    "stroke": "#8f9cac",
+    "rounded": false
+   },
+   "source": "synth"
+  },
+  {
+   "id": "syn_text_0010",
+   "type": "text",
+   "role": "label",
+   "bbox": [
+    167.6,
+    382.9,
+    484.4,
+    418.6
+   ],
+   "text": "Router",
+   "style": {
+    "font_size": 10,
+    "bold": false,
+    "align": "center",
+    "font_color": "#101010"
+   },
+   "source": "synth"
+  },
+  {
+   "id": "syn_region_0011",
+   "type": "region",
+   "role": "panel_or_container",
+   "bbox": [
+    132.3,
+    440.4,
+    519.7,
+    476.1
+   ],
+   "style": {
+    "fill": "#dceeee",
+    "stroke": "#6fa0a0",
+    "rounded": true
+   },
+   "source": "synth"
+  },
+  {
+   "id": "syn_text_0011",
+   "type": "text",
+   "role": "label",
+   "bbox": [
+    132.3,
+    440.4,
+    519.7,
+    476.1
+   ],
+   "text": "Pre-Backbone 1",
+   "style": {
+    "font_size": 10,
+    "bold": false,
+    "align": "center",
+    "font_color": "#101010"
+   },
+   "source": "synth"
+  },
+  {
+   "id": "syn_region_0012",
+   "type": "region",
+   "role": "panel_or_container",
+   "bbox": [
+    157.2,
+    497.9,
+    494.8,
+    533.6
+   ],
+   "style": {
+    "fill": "#dceeee",
+    "stroke": "#6fa0a0",
+    "rounded": true
+   },
+   "source": "synth"
+  },
+  {
+   "id": "syn_text_0012",
+   "type": "text",
+   "role": "label",
+   "bbox": [
+    157.2,
+    497.9,
+    494.8,
+    533.6
+   ],
+   "text": "Embedding",
+   "style": {
+    "font_size": 10,
+    "bold": false,
+    "align": "center",
+    "font_color": "#101010"
+   },
+   "source": "synth"
+  },
+  {
+   "id": "syn_region_0013",
+   "type": "region",
+   "role": "panel_or_container",
+   "bbox": [
+    148.2,
+    555.4,
+    503.8,
+    591.1
+   ],
+   "style": {
+    "fill": "#f3e0e6",
+    "stroke": "#b07f93",
+    "rounded": true
+   },
+   "source": "synth"
+  },
+  {
+   "id": "syn_text_0013",
+   "type": "text",
+   "role": "label",
+   "bbox": [
+    148.2,
+    555.4,
+    503.8,
+    591.1
+   ],
+   "text": "Readout",
+   "style": {
+    "font_size": 10,
+    "bold": false,
+    "align": "center",
+    "font_color": "#101010"
+   },
+   "source": "synth"
+  },
+  {
+   "id": "syn_edge_0005",
+   "type": "edge",
+   "role": "connector",
+   "bbox": [
+    326.0,
+    418.575,
+    326.0,
+    440.425
+   ],
+   "path": [
+    [
+     326.0,
+     418.6
+    ],
+    [
+     326.0,
+     440.4
+    ]
+   ],
+   "style": {
+    "stroke": "#303030",
+    "stroke_width": 1.69,
+    "arrow_start": false,
+    "arrow_end": true
+   },
+   "source": "synth"
+  },
+  {
+   "id": "syn_edge_0006",
+   "type": "edge",
+   "role": "connector",
+   "bbox": [
+    326.0,
+    476.075,
+    326.0,
+    497.925
+   ],
+   "path": [
+    [
+     326.0,
+     476.1
+    ],
+    [
+     326.0,
+     497.9
+    ]
+   ],
+   "style": {
+    "stroke": "#303030",
+    "stroke_width": 1.42,
+    "arrow_start": false,
+    "arrow_end": true
+   },
+   "source": "synth"
+  },
+  {
+   "id": "syn_edge_0007",
+   "type": "edge",
+   "role": "connector",
+   "bbox": [
+    326.0,
+    533.575,
+    326.0,
+    555.425
+   ],
+   "path": [
+    [
+     326.0,
+     533.6
+    ],
+    [
+     326.0,
+     555.4
+    ]
+   ],
+   "style": {
+    "stroke": "#303030",
+    "stroke_width": 1.02,
+    "arrow_start": false,
+    "arrow_end": true
+   },
+   "source": "synth"
+  },
+  {
+   "id": "syn_region_0014",
+   "type": "region",
+   "role": "panel_or_container",
+   "bbox": [
+    652.0,
+    332.0,
+    1256.0,
+    616.0
+   ],
+   "style": {
+    "fill": "#f4f8f4",
+    "stroke": "#8f9cac",
+    "rounded": true
+   },
+   "source": "synth"
+  },
+  {
+   "id": "syn_text_0014",
+   "type": "text",
+   "role": "label",
+   "bbox": [
+    660.0,
+    338.0,
+    1248.0,
+    360.0
+   ],
+   "text": "(d) Framework",
+   "style": {
+    "font_size": 11,
+    "bold": true,
+    "align": "left",
+    "font_color": "#101010"
+   },
+   "source": "synth"
+  },
+  {
+   "id": "syn_region_0015",
+   "type": "region",
+   "role": "panel_or_container",
+   "bbox": [
+    768.5,
+    387.3,
+    1139.5,
+    433.3
+   ],
+   "style": {
+    "fill": "#fdf3d8",
+    "stroke": "#c9b35a",
+    "rounded": false
+   },
+   "source": "synth"
+  },
+  {
+   "id": "syn_text_0015",
+   "type": "text",
+   "role": "label",
+   "bbox": [
+    768.5,
+    387.3,
+    1139.5,
+    433.3
+   ],
+   "text": "Embedding",
+   "style": {
+    "font_size": 10,
+    "bold": false,
+    "align": "center",
+    "font_color": "#101010"
+   },
+   "source": "synth"
+  },
+  {
+   "id": "syn_region_0016",
+   "type": "region",
+   "role": "panel_or_container",
+   "bbox": [
+    756.5,
+    464.0,
+    1151.5,
+    510.0
+   ],
+   "style": {
+    "fill": "#ffffff",
+    "stroke": "#5a5a5a",
+    "rounded": true
+   },
+   "source": "synth"
+  },
+  {
+   "id": "syn_text_0016",
+   "type": "text",
+   "role": "label",
+   "bbox": [
+    756.5,
+    464.0,
+    1151.5,
+    510.0
+   ],
+   "text": "Buffer",
+   "style": {
+    "font_size": 10,
+    "bold": false,
+    "align": "center",
+    "font_color": "#101010"
+   },
+   "source": "synth"
+  },
+  {
+   "id": "syn_region_0017",
+   "type": "region",
+   "role": "panel_or_container",
+   "bbox": [
+    810.2,
+    540.7,
+    1097.8,
+    586.7
+   ],
+   "style": {
+    "fill": "#e6efe0",
+    "stroke": "#7fa06f",
+    "rounded": false
+   },
+   "source": "synth"
+  },
+  {
+   "id": "syn_text_0017",
+   "type": "text",
+   "role": "label",
+   "bbox": [
+    810.2,
+    540.7,
+    1097.8,
+    586.7
+   ],
+   "text": "Estimator 1",
+   "style": {
+    "font_size": 10,
+    "bold": false,
+    "align": "center",
+    "font_color": "#101010"
+   },
+   "source": "synth"
+  },
+  {
+   "id": "syn_edge_0008",
+   "type": "edge",
+   "role": "connector",
+   "bbox": [
+    954.0,
+    433.3333333333333,
+    954.0,
+    464.0
+   ],
+   "path": [
+    [
+     954.0,
+     433.3
+    ],
+    [
+     954.0,
+     464.0
+    ]
+   ],
+   "style": {
+    "stroke": "#303030",
+    "stroke_width": 1.2,
+    "arrow_start": false,
+    "arrow_end": true
+   },
+   "source": "synth"
+  },
+  {
+   "id": "syn_edge_0009",
+   "type": "edge",
+   "role": "connector",
+   "bbox": [
+    954.0,
+    510.0,
+    954.0,
+    540.6666666666667
+   ],
+   "path": [
+    [
+     954.0,
+     510.0
+    ],
+    [
+     954.0,
+     540.7
+    ]
+   ],
+   "style": {
+    "stroke": "#303030",
+    "stroke_width": 1.21,
+    "arrow_start": false,
+    "arrow_end": true
+   },
+   "source": "synth"
+  }
+ ],
+ "metadata": {
+  "generator": "synth_diagram_gen"
+ }
+}

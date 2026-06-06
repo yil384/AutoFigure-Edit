@@ -1,0 +1,819 @@
+{
+  "report": {
+    "backend": "openai",
+    "model": "qwen/qwen3-vl-32b-instruct",
+    "n": 46,
+    "overall": [
+      46,
+      0.20772608695652175,
+      0.21739130434782608
+    ],
+    "synthetic": [
+      20,
+      0.327225,
+      0.4
+    ],
+    "ccb": [
+      26,
+      0.11580384615384617,
+      0.07692307692307693
+    ],
+    "text": [
+      30,
+      0.19788333333333336,
+      0.2
+    ],
+    "box": [
+      16,
+      0.22618125,
+      0.25
+    ]
+  },
+  "results": [
+    {
+      "source": "synthetic",
+      "kind": "text",
+      "label": "Verifier",
+      "gt": [
+        182.3,
+        213.5,
+        469.7,
+        259.5
+      ],
+      "pred": [
+        185.6,
+        220.8,
+        465.92,
+        253.44
+      ],
+      "iou": 0.6921,
+      "err": null,
+      "raw": "{\"box\":[145, 345, 364, 396]}"
+    },
+    {
+      "source": "synthetic",
+      "kind": "text",
+      "label": "Embedding",
+      "gt": [
+        768.5,
+        387.3,
+        1139.5,
+        433.3
+      ],
+      "pred": null,
+      "iou": 0.0,
+      "err": "openai backend failed: Error code: 429 - {'error': {'message': 'Provider returned error', 'code': 429, 'metadata': {'raw': 'qwen/qwen3-vl-32b-instruct is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations', 'provider_name': 'Alibaba', 'is_byok': False}}, 'user_id': 'user_3EkNcghn4XLp11bCkUexIMpSzsg'}",
+      "raw": ""
+    },
+    {
+      "source": "synthetic",
+      "kind": "text",
+      "label": "(b) Inference Flow",
+      "gt": [
+        660.0,
+        30.0,
+        1248.0,
+        52.0
+      ],
+      "pred": null,
+      "iou": 0.0,
+      "err": "openai backend failed: Error code: 429 - {'error': {'message': 'Provider returned error', 'code': 429, 'metadata': {'raw': 'qwen/qwen3-vl-32b-instruct is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations', 'provider_name': 'Alibaba', 'is_byok': False}}, 'user_id': 'user_3EkNcghn4XLp11bCkUexIMpSzsg'}",
+      "raw": ""
+    },
+    {
+      "source": "synthetic",
+      "kind": "box",
+      "label": "Cross-Hamiltonian 2",
+      "gt": [
+        773.8,
+        132.4,
+        1134.2,
+        168.1
+      ],
+      "pred": null,
+      "iou": 0.0,
+      "err": "openai backend failed: Error code: 429 - {'error': {'message': 'Provider returned error', 'code': 429, 'metadata': {'raw': 'qwen/qwen3-vl-32b-instruct is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations', 'provider_name': 'Alibaba', 'is_byok': False}}, 'user_id': 'user_3EkNcghn4XLp11bCkUexIMpSzsg'}",
+      "raw": ""
+    },
+    {
+      "source": "synthetic",
+      "kind": "box",
+      "label": "Embedding",
+      "gt": [
+        768.5,
+        387.3,
+        1139.5,
+        433.3
+      ],
+      "pred": null,
+      "iou": 0.0,
+      "err": "openai backend failed: Error code: 429 - {'error': {'message': 'Provider returned error', 'code': 429, 'metadata': {'raw': 'qwen/qwen3-vl-32b-instruct is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations', 'provider_name': 'Alibaba', 'is_byok': False}}, 'user_id': 'user_3EkNcghn4XLp11bCkUexIMpSzsg'}",
+      "raw": ""
+    },
+    {
+      "source": "synthetic",
+      "kind": "text",
+      "label": "Memory",
+      "gt": [
+        214.2,
+        497.3,
+        745.8,
+        584.2
+      ],
+      "pred": null,
+      "iou": 0.0,
+      "err": "openai backend failed: Error code: 429 - {'error': {'message': 'Provider returned error', 'code': 429, 'metadata': {'raw': 'qwen/qwen3-vl-32b-instruct is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations', 'provider_name': 'Alibaba', 'is_byok': False}}, 'user_id': 'user_3EkNcghn4XLp11bCkUexIMpSzsg'}",
+      "raw": ""
+    },
+    {
+      "source": "synthetic",
+      "kind": "text",
+      "label": "Stage 3: Decoding",
+      "gt": [
+        80.0,
+        10.0,
+        880.0,
+        36.0
+      ],
+      "pred": null,
+      "iou": 0.0,
+      "err": "openai backend failed: Error code: 429 - {'error': {'message': 'Provider returned error', 'code': 429, 'metadata': {'raw': 'qwen/qwen3-vl-32b-instruct is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations', 'provider_name': 'Alibaba', 'is_byok': False}}, 'user_id': 'user_3EkNcghn4XLp11bCkUexIMpSzsg'}",
+      "raw": ""
+    },
+    {
+      "source": "synthetic",
+      "kind": "text",
+      "label": "Kernel",
+      "gt": [
+        224.4,
+        81.8,
+        735.6,
+        168.7
+      ],
+      "pred": [
+        443.52,
+        118.4,
+        488.64,
+        128.64
+      ],
+      "iou": 0.0104,
+      "err": null,
+      "raw": "{\"box\":[462, 185, 509, 201]}"
+    },
+    {
+      "source": "synthetic",
+      "kind": "box",
+      "label": "Kernel",
+      "gt": [
+        224.4,
+        81.8,
+        735.6,
+        168.7
+      ],
+      "pred": [
+        219.84,
+        80.0,
+        737.28,
+        167.04
+      ],
+      "iou": 0.9496,
+      "err": null,
+      "raw": "{\"box\":[229, 125, 768, 261]}"
+    },
+    {
+      "source": "synthetic",
+      "kind": "box",
+      "label": "Dense Tokenizer",
+      "gt": [
+        249.4,
+        358.8,
+        710.6,
+        445.7
+      ],
+      "pred": [
+        219.84,
+        353.92,
+        738.24,
+        445.44
+      ],
+      "iou": 0.8401,
+      "err": null,
+      "raw": "{\"box\":[229, 553, 769, 696]}"
+    },
+    {
+      "source": "synthetic",
+      "kind": "text",
+      "label": "Tokenizer",
+      "gt": [
+        437.3,
+        70.0,
+        624.7,
+        127.0
+      ],
+      "pred": [
+        415.552,
+        68.4,
+        613.696,
+        128.16
+      ],
+      "iou": 0.8064,
+      "err": null,
+      "raw": "{\"box\":[302, 95, 446, 178]}"
+    },
+    {
+      "source": "synthetic",
+      "kind": "text",
+      "label": "Projection",
+      "gt": [
+        1063.0,
+        70.0,
+        1255.0,
+        127.0
+      ],
+      "pred": [
+        1048.512,
+        68.4,
+        1246.656,
+        123.84
+      ],
+      "iou": 0.8212,
+      "err": null,
+      "raw": "{\"box\":[762, 95, 906, 172]}"
+    },
+    {
+      "source": "synthetic",
+      "kind": "text",
+      "label": "Sparse Embedding",
+      "gt": [
+        720.6,
+        70.0,
+        969.4,
+        127.0
+      ],
+      "pred": [
+        708.64,
+        68.4,
+        968.704,
+        128.16
+      ],
+      "iou": 0.9076,
+      "err": null,
+      "raw": "{\"box\":[515,95,704,178]}"
+    },
+    {
+      "source": "synthetic",
+      "kind": "box",
+      "label": "Sparse Embedding",
+      "gt": [
+        720.6,
+        70.0,
+        969.4,
+        127.0
+      ],
+      "pred": null,
+      "iou": 0.0,
+      "err": "openai backend failed: Error code: 429 - {'error': {'message': 'Provider returned error', 'code': 429, 'metadata': {'raw': 'qwen/qwen3-vl-32b-instruct is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations', 'provider_name': 'Alibaba', 'is_byok': False}}, 'user_id': 'user_3EkNcghn4XLp11bCkUexIMpSzsg'}",
+      "raw": ""
+    },
+    {
+      "source": "synthetic",
+      "kind": "box",
+      "label": "Hybrid Sampler",
+      "gt": [
+        100.8,
+        70.0,
+        333.2,
+        127.0
+      ],
+      "pred": [
+        94.944,
+        67.68,
+        327.488,
+        127.44
+      ],
+      "iou": 0.9085,
+      "err": null,
+      "raw": "{\"box\":[69,94,238,177]}"
+    },
+    {
+      "source": "synthetic",
+      "kind": "text",
+      "label": "Optimizer",
+      "gt": [
+        581.3,
+        160.0,
+        763.7,
+        206.0
+      ],
+      "pred": null,
+      "iou": 0.0,
+      "err": "openai backend failed: Error code: 429 - {'error': {'message': 'Provider returned error', 'code': 429, 'metadata': {'raw': 'qwen/qwen3-vl-32b-instruct is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations', 'provider_name': 'Alibaba', 'is_byok': False}}, 'user_id': 'user_3EkNcghn4XLp11bCkUexIMpSzsg'}",
+      "raw": ""
+    },
+    {
+      "source": "synthetic",
+      "kind": "text",
+      "label": "Decoder",
+      "gt": [
+        486.9,
+        56.0,
+        613.1,
+        102.0
+      ],
+      "pred": [
+        482.9,
+        68.4,
+        614.9,
+        97.2
+      ],
+      "iou": 0.6086,
+      "err": null,
+      "raw": "{\"box\":[439,95,559,135]}"
+    },
+    {
+      "source": "synthetic",
+      "kind": "text",
+      "label": "Encoder",
+      "gt": [
+        111.2,
+        160.0,
+        253.8,
+        206.0
+      ],
+      "pred": null,
+      "iou": 0.0,
+      "err": "openai backend failed: Error code: 429 - {'error': {'message': 'Provider returned error', 'code': 429, 'metadata': {'raw': 'qwen/qwen3-vl-32b-instruct is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations', 'provider_name': 'Alibaba', 'is_byok': False}}, 'user_id': 'user_3EkNcghn4XLp11bCkUexIMpSzsg'}",
+      "raw": ""
+    },
+    {
+      "source": "synthetic",
+      "kind": "box",
+      "label": "Decoder",
+      "gt": [
+        486.9,
+        56.0,
+        613.1,
+        102.0
+      ],
+      "pred": null,
+      "iou": 0.0,
+      "err": "openai backend failed: Error code: 429 - {'error': {'message': 'Provider returned error', 'code': 429, 'metadata': {'raw': 'qwen/qwen3-vl-32b-instruct is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations', 'provider_name': 'Alibaba', 'is_byok': False}}, 'user_id': 'user_3EkNcghn4XLp11bCkUexIMpSzsg'}",
+      "raw": ""
+    },
+    {
+      "source": "synthetic",
+      "kind": "box",
+      "label": "Optimizer",
+      "gt": [
+        581.3,
+        160.0,
+        763.7,
+        206.0
+      ],
+      "pred": null,
+      "iou": 0.0,
+      "err": "openai backend failed: Error code: 429 - {'error': {'message': 'Provider returned error', 'code': 429, 'metadata': {'raw': 'qwen/qwen3-vl-32b-instruct is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations', 'provider_name': 'Alibaba', 'is_byok': False}}, 'user_id': 'user_3EkNcghn4XLp11bCkUexIMpSzsg'}",
+      "raw": ""
+    },
+    {
+      "source": "ccb",
+      "kind": "text",
+      "label": "Select Truncation",
+      "gt": [
+        138.0,
+        483.0,
+        236.0,
+        499.0
+      ],
+      "pred": [
+        140.352,
+        487.68,
+        225.664,
+        503.808
+      ],
+      "iou": 0.4882,
+      "err": null,
+      "raw": "{\"box\":[102, 635, 164, 656]}"
+    },
+    {
+      "source": "ccb",
+      "kind": "text",
+      "label": "batching",
+      "gt": [
+        246.0,
+        290.0,
+        305.0,
+        313.0
+      ],
+      "pred": [
+        222.912,
+        288.0,
+        315.104,
+        304.128
+      ],
+      "iou": 0.4146,
+      "err": null,
+      "raw": "{\"box\":[162, 375, 229, 396]}"
+    },
+    {
+      "source": "ccb",
+      "kind": "text",
+      "label": "(FeMoco",
+      "gt": [
+        798.0,
+        465.667,
+        844.333,
+        479.667
+      ],
+      "pred": null,
+      "iou": 0.0,
+      "err": null,
+      "raw": "{\"box\":null}"
+    },
+    {
+      "source": "ccb",
+      "kind": "text",
+      "label": "Bloch-\nMessiah",
+      "gt": [
+        276.0,
+        532.0,
+        314.5,
+        559.5
+      ],
+      "pred": [
+        169.0,
+        755.0,
+        209.0,
+        786.0
+      ],
+      "iou": 0.0,
+      "err": null,
+      "raw": "{\"box\":[169, 755, 209, 786]}"
+    },
+    {
+      "source": "ccb",
+      "kind": "text",
+      "label": "ZX Diagram",
+      "gt": [
+        891.0,
+        509.0,
+        971.0,
+        534.0
+      ],
+      "pred": [
+        855.872,
+        518.4,
+        948.064,
+        534.528
+      ],
+      "iou": 0.3428,
+      "err": null,
+      "raw": "{\"box\":[622, 675, 689, 696]}"
+    },
+    {
+      "source": "ccb",
+      "kind": "text",
+      "label": "Physical-Qubit Brand",
+      "gt": [
+        982.0,
+        676.0,
+        1105.0,
+        699.0
+      ],
+      "pred": [
+        499.0,
+        885.0,
+        569.0,
+        901.0
+      ],
+      "iou": 0.0,
+      "err": null,
+      "raw": "{\"box\":[499, 885, 569, 901]}"
+    },
+    {
+      "source": "ccb",
+      "kind": "text",
+      "label": "Noise analysis/Input",
+      "gt": [
+        785.0,
+        22.0,
+        878.0,
+        46.0
+      ],
+      "pred": null,
+      "iou": 0.0,
+      "err": "openai backend failed: Error code: 429 - {'error': {'message': 'Provider returned error', 'code': 429, 'metadata': {'raw': 'qwen/qwen3-vl-32b-instruct is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations', 'provider_name': 'Alibaba', 'is_byok': False}}, 'user_id': 'user_3EkNcghn4XLp11bCkUexIMpSzsg'}",
+      "raw": ""
+    },
+    {
+      "source": "ccb",
+      "kind": "text",
+      "label": "Frontend",
+      "gt": [
+        734.0,
+        607.0,
+        792.0,
+        627.0
+      ],
+      "pred": null,
+      "iou": 0.0,
+      "err": "openai backend failed: Error code: 429 - {'error': {'message': 'Provider returned error', 'code': 429, 'metadata': {'raw': 'qwen/qwen3-vl-32b-instruct is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations', 'provider_name': 'Alibaba', 'is_byok': False}}, 'user_id': 'user_3EkNcghn4XLp11bCkUexIMpSzsg'}",
+      "raw": ""
+    },
+    {
+      "source": "ccb",
+      "kind": "text",
+      "label": "Code",
+      "gt": [
+        1151.0,
+        503.0,
+        1189.0,
+        523.0
+      ],
+      "pred": null,
+      "iou": 0.0,
+      "err": "openai backend failed: Error code: 429 - {'error': {'message': 'Provider returned error', 'code': 429, 'metadata': {'raw': 'qwen/qwen3-vl-32b-instruct is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations', 'provider_name': 'Alibaba', 'is_byok': False}}, 'user_id': 'user_3EkNcghn4XLp11bCkUexIMpSzsg'}",
+      "raw": ""
+    },
+    {
+      "source": "ccb",
+      "kind": "text",
+      "label": "feedback",
+      "gt": [
+        488.0,
+        499.0,
+        552.0,
+        522.0
+      ],
+      "pred": [
+        484.352,
+        503.04,
+        549.024,
+        519.168
+      ],
+      "iou": 0.6429,
+      "err": null,
+      "raw": "{\"box\":[352, 655, 399, 676]}"
+    },
+    {
+      "source": "ccb",
+      "kind": "text",
+      "label": "Token",
+      "gt": [
+        1177.0,
+        579.0,
+        1219.0,
+        599.0
+      ],
+      "pred": [
+        569.0,
+        775.0,
+        599.0,
+        796.0
+      ],
+      "iou": 0.0,
+      "err": null,
+      "raw": "{\"box\":[569, 775, 599, 796]}"
+    },
+    {
+      "source": "ccb",
+      "kind": "text",
+      "label": "Trotter",
+      "gt": [
+        1294.0,
+        203.0,
+        1344.0,
+        223.0
+      ],
+      "pred": null,
+      "iou": 0.0,
+      "err": "openai backend failed: Error code: 429 - {'error': {'message': 'Provider returned error', 'code': 429, 'metadata': {'raw': 'qwen/qwen3-vl-32b-instruct is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations', 'provider_name': 'Alibaba', 'is_byok': False}}, 'user_id': 'user_3EkNcghn4XLp11bCkUexIMpSzsg'}",
+      "raw": ""
+    },
+    {
+      "source": "ccb",
+      "kind": "text",
+      "label": "extraction",
+      "gt": [
+        829.0,
+        115.0,
+        898.0,
+        136.0
+      ],
+      "pred": null,
+      "iou": 0.0,
+      "err": "openai backend failed: Error code: 429 - {'error': {'message': 'Provider returned error', 'code': 429, 'metadata': {'raw': 'qwen/qwen3-vl-32b-instruct is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations', 'provider_name': 'Alibaba', 'is_byok': False}}, 'user_id': 'user_3EkNcghn4XLp11bCkUexIMpSzsg'}",
+      "raw": ""
+    },
+    {
+      "source": "ccb",
+      "kind": "text",
+      "label": "Key:",
+      "gt": [
+        721.0,
+        666.0,
+        769.0,
+        709.0
+      ],
+      "pred": [
+        718.272,
+        679.68,
+        755.424,
+        691.968
+      ],
+      "iou": 0.2017,
+      "err": null,
+      "raw": "{\"box\":[522, 885, 549, 901]}"
+    },
+    {
+      "source": "ccb",
+      "kind": "text",
+      "label": "Decomposition",
+      "gt": [
+        267.0,
+        439.0,
+        366.0,
+        464.0
+      ],
+      "pred": null,
+      "iou": 0.0,
+      "err": "openai backend failed: Error code: 429 - {'error': {'message': 'Provider returned error', 'code': 429, 'metadata': {'raw': 'qwen/qwen3-vl-32b-instruct is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations', 'provider_name': 'Alibaba', 'is_byok': False}}, 'user_id': 'user_3EkNcghn4XLp11bCkUexIMpSzsg'}",
+      "raw": ""
+    },
+    {
+      "source": "ccb",
+      "kind": "text",
+      "label": "Theory.",
+      "gt": [
+        7.0,
+        740.0,
+        71.0,
+        768.0
+      ],
+      "pred": null,
+      "iou": 0.0,
+      "err": "openai backend failed: Error code: 429 - {'error': {'message': 'Provider returned error', 'code': 429, 'metadata': {'raw': 'qwen/qwen3-vl-32b-instruct is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations', 'provider_name': 'Alibaba', 'is_byok': False}}, 'user_id': 'user_3EkNcghn4XLp11bCkUexIMpSzsg'}",
+      "raw": ""
+    },
+    {
+      "source": "ccb",
+      "kind": "text",
+      "label": "Circuits",
+      "gt": [
+        1293.0,
+        121.0,
+        1347.0,
+        141.0
+      ],
+      "pred": null,
+      "iou": 0.0,
+      "err": "openai backend failed: Error code: 429 - {'error': {'message': 'Provider returned error', 'code': 429, 'metadata': {'raw': 'qwen/qwen3-vl-32b-instruct is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations', 'provider_name': 'Alibaba', 'is_byok': False}}, 'user_id': 'user_3EkNcghn4XLp11bCkUexIMpSzsg'}",
+      "raw": ""
+    },
+    {
+      "source": "ccb",
+      "kind": "text",
+      "label": "Noise",
+      "gt": [
+        1101.0,
+        242.0,
+        1144.0,
+        262.0
+      ],
+      "pred": null,
+      "iou": 0.0,
+      "err": "openai backend failed: Error code: 429 - {'error': {'message': 'Provider returned error', 'code': 429, 'metadata': {'raw': 'qwen/qwen3-vl-32b-instruct is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations', 'provider_name': 'Alibaba', 'is_byok': False}}, 'user_id': 'user_3EkNcghn4XLp11bCkUexIMpSzsg'}",
+      "raw": ""
+    },
+    {
+      "source": "ccb",
+      "kind": "box",
+      "label": "LLM-Driven Recipe Composition",
+      "gt": [
+        923.0,
+        22.0,
+        1169.0,
+        49.0
+      ],
+      "pred": [
+        452.0,
+        30.0,
+        646.0,
+        412.0
+      ],
+      "iou": 0.0,
+      "err": null,
+      "raw": "{\"box\":[452, 30, 646, 412]}"
+    },
+    {
+      "source": "ccb",
+      "kind": "box",
+      "label": "Input Metrics",
+      "gt": [
+        775.0,
+        675.0,
+        936.0,
+        701.0
+      ],
+      "pred": null,
+      "iou": 0.0,
+      "err": "openai backend failed: Error code: 429 - {'error': {'message': 'Provider returned error', 'code': 429, 'metadata': {'raw': 'qwen/qwen3-vl-32b-instruct is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations', 'provider_name': 'Alibaba', 'is_byok': False}}, 'user_id': 'user_3EkNcghn4XLp11bCkUexIMpSzsg'}",
+      "raw": ""
+    },
+    {
+      "source": "ccb",
+      "kind": "box",
+      "label": "Noise analysis/Input",
+      "gt": [
+        713.0,
+        22.0,
+        913.0,
+        49.0
+      ],
+      "pred": null,
+      "iou": 0.0,
+      "err": "openai backend failed: Error code: 429 - {'error': {'message': 'Provider returned error', 'code': 429, 'metadata': {'raw': 'qwen/qwen3-vl-32b-instruct is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations', 'provider_name': 'Alibaba', 'is_byok': False}}, 'user_id': 'user_3EkNcghn4XLp11bCkUexIMpSzsg'}",
+      "raw": ""
+    },
+    {
+      "source": "ccb",
+      "kind": "box",
+      "label": "Verification\nAgent",
+      "gt": [
+        483.0,
+        441.5,
+        557.0,
+        493.0
+      ],
+      "pred": null,
+      "iou": 0.0,
+      "err": "openai backend failed: Error code: 429 - {'error': {'message': 'Provider returned error', 'code': 429, 'metadata': {'raw': 'qwen/qwen3-vl-32b-instruct is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations', 'provider_name': 'Alibaba', 'is_byok': False}}, 'user_id': 'user_3EkNcghn4XLp11bCkUexIMpSzsg'}",
+      "raw": ""
+    },
+    {
+      "source": "ccb",
+      "kind": "box",
+      "label": "Hardware\nAgent",
+      "gt": [
+        392.0,
+        441.5,
+        465.5,
+        493.0
+      ],
+      "pred": null,
+      "iou": 0.0,
+      "err": "openai backend failed: Error code: 429 - {'error': {'message': 'Provider returned error', 'code': 429, 'metadata': {'raw': 'qwen/qwen3-vl-32b-instruct is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations', 'provider_name': 'Alibaba', 'is_byok': False}}, 'user_id': 'user_3EkNcghn4XLp11bCkUexIMpSzsg'}",
+      "raw": ""
+    },
+    {
+      "source": "ccb",
+      "kind": "box",
+      "label": "Benchmarking",
+      "gt": [
+        1110.0,
+        415.0,
+        1204.0,
+        438.0
+      ],
+      "pred": null,
+      "iou": 0.0,
+      "err": "openai backend failed: Error code: 429 - {'error': {'message': 'Provider returned error', 'code': 429, 'metadata': {'raw': 'qwen/qwen3-vl-32b-instruct is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations', 'provider_name': 'Alibaba', 'is_byok': False}}, 'user_id': 'user_3EkNcghn4XLp11bCkUexIMpSzsg'}",
+      "raw": ""
+    },
+    {
+      "source": "ccb",
+      "kind": "box",
+      "label": "Input Metrics",
+      "gt": [
+        775.0,
+        675.0,
+        936.0,
+        701.0
+      ],
+      "pred": null,
+      "iou": 0.0,
+      "err": "openai backend failed: Error code: 429 - {'error': {'message': 'Provider returned error', 'code': 429, 'metadata': {'raw': 'qwen/qwen3-vl-32b-instruct is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations', 'provider_name': 'Alibaba', 'is_byok': False}}, 'user_id': 'user_3EkNcghn4XLp11bCkUexIMpSzsg'}",
+      "raw": ""
+    },
+    {
+      "source": "ccb",
+      "kind": "box",
+      "label": "Seed codes",
+      "gt": [
+        17.0,
+        209.0,
+        122.0,
+        301.0
+      ],
+      "pred": [
+        13.76,
+        211.2,
+        122.464,
+        298.752
+      ],
+      "iou": 0.9207,
+      "err": null,
+      "raw": "{\"box\":[10, 275, 89, 389]}"
+    }
+  ]
+}

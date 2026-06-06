@@ -1,0 +1,692 @@
+[
+ {
+  "image": "outputs/synth/preview3/sample_00000.png",
+  "W": 1280,
+  "H": 640,
+  "source": "synthetic",
+  "kind": "text",
+  "what": "is the text reading",
+  "label": "Verifier",
+  "gt": [
+   182.3,
+   213.5,
+   469.7,
+   259.5
+  ]
+ },
+ {
+  "image": "outputs/synth/preview3/sample_00000.png",
+  "W": 1280,
+  "H": 640,
+  "source": "synthetic",
+  "kind": "text",
+  "what": "is the text reading",
+  "label": "Embedding",
+  "gt": [
+   768.5,
+   387.3,
+   1139.5,
+   433.3
+  ]
+ },
+ {
+  "image": "outputs/synth/preview3/sample_00000.png",
+  "W": 1280,
+  "H": 640,
+  "source": "synthetic",
+  "kind": "text",
+  "what": "is the text reading",
+  "label": "(b) Inference Flow",
+  "gt": [
+   660.0,
+   30.0,
+   1248.0,
+   52.0
+  ]
+ },
+ {
+  "image": "outputs/synth/preview3/sample_00000.png",
+  "W": 1280,
+  "H": 640,
+  "source": "synthetic",
+  "kind": "box",
+  "what": "is the box/panel containing the label",
+  "label": "Cross-Hamiltonian 2",
+  "gt": [
+   773.8,
+   132.4,
+   1134.2,
+   168.1
+  ]
+ },
+ {
+  "image": "outputs/synth/preview3/sample_00000.png",
+  "W": 1280,
+  "H": 640,
+  "source": "synthetic",
+  "kind": "box",
+  "what": "is the box/panel containing the label",
+  "label": "Embedding",
+  "gt": [
+   768.5,
+   387.3,
+   1139.5,
+   433.3
+  ]
+ },
+ {
+  "image": "outputs/synth/preview3/sample_00001.png",
+  "W": 960,
+  "H": 640,
+  "source": "synthetic",
+  "kind": "text",
+  "what": "is the text reading",
+  "label": "Memory",
+  "gt": [
+   214.2,
+   497.3,
+   745.8,
+   584.2
+  ]
+ },
+ {
+  "image": "outputs/synth/preview3/sample_00001.png",
+  "W": 960,
+  "H": 640,
+  "source": "synthetic",
+  "kind": "text",
+  "what": "is the text reading",
+  "label": "Stage 3: Decoding",
+  "gt": [
+   80.0,
+   10.0,
+   880.0,
+   36.0
+  ]
+ },
+ {
+  "image": "outputs/synth/preview3/sample_00001.png",
+  "W": 960,
+  "H": 640,
+  "source": "synthetic",
+  "kind": "text",
+  "what": "is the text reading",
+  "label": "Kernel",
+  "gt": [
+   224.4,
+   81.8,
+   735.6,
+   168.7
+  ]
+ },
+ {
+  "image": "outputs/synth/preview3/sample_00001.png",
+  "W": 960,
+  "H": 640,
+  "source": "synthetic",
+  "kind": "box",
+  "what": "is the box/panel containing the label",
+  "label": "Kernel",
+  "gt": [
+   224.4,
+   81.8,
+   735.6,
+   168.7
+  ]
+ },
+ {
+  "image": "outputs/synth/preview3/sample_00001.png",
+  "W": 960,
+  "H": 640,
+  "source": "synthetic",
+  "kind": "box",
+  "what": "is the box/panel containing the label",
+  "label": "Dense Tokenizer",
+  "gt": [
+   249.4,
+   358.8,
+   710.6,
+   445.7
+  ]
+ },
+ {
+  "image": "outputs/synth/preview3/sample_00002.png",
+  "W": 1376,
+  "H": 720,
+  "source": "synthetic",
+  "kind": "text",
+  "what": "is the text reading",
+  "label": "Tokenizer",
+  "gt": [
+   437.3,
+   70.0,
+   624.7,
+   127.0
+  ]
+ },
+ {
+  "image": "outputs/synth/preview3/sample_00002.png",
+  "W": 1376,
+  "H": 720,
+  "source": "synthetic",
+  "kind": "text",
+  "what": "is the text reading",
+  "label": "Projection",
+  "gt": [
+   1063.0,
+   70.0,
+   1255.0,
+   127.0
+  ]
+ },
+ {
+  "image": "outputs/synth/preview3/sample_00002.png",
+  "W": 1376,
+  "H": 720,
+  "source": "synthetic",
+  "kind": "text",
+  "what": "is the text reading",
+  "label": "Sparse Embedding",
+  "gt": [
+   720.6,
+   70.0,
+   969.4,
+   127.0
+  ]
+ },
+ {
+  "image": "outputs/synth/preview3/sample_00002.png",
+  "W": 1376,
+  "H": 720,
+  "source": "synthetic",
+  "kind": "box",
+  "what": "is the box/panel containing the label",
+  "label": "Sparse Embedding",
+  "gt": [
+   720.6,
+   70.0,
+   969.4,
+   127.0
+  ]
+ },
+ {
+  "image": "outputs/synth/preview3/sample_00002.png",
+  "W": 1376,
+  "H": 720,
+  "source": "synthetic",
+  "kind": "box",
+  "what": "is the box/panel containing the label",
+  "label": "Hybrid Sampler",
+  "gt": [
+   100.8,
+   70.0,
+   333.2,
+   127.0
+  ]
+ },
+ {
+  "image": "outputs/synth/preview3/sample_00003.png",
+  "W": 1100,
+  "H": 720,
+  "source": "synthetic",
+  "kind": "text",
+  "what": "is the text reading",
+  "label": "Optimizer",
+  "gt": [
+   581.3,
+   160.0,
+   763.7,
+   206.0
+  ]
+ },
+ {
+  "image": "outputs/synth/preview3/sample_00003.png",
+  "W": 1100,
+  "H": 720,
+  "source": "synthetic",
+  "kind": "text",
+  "what": "is the text reading",
+  "label": "Decoder",
+  "gt": [
+   486.9,
+   56.0,
+   613.1,
+   102.0
+  ]
+ },
+ {
+  "image": "outputs/synth/preview3/sample_00003.png",
+  "W": 1100,
+  "H": 720,
+  "source": "synthetic",
+  "kind": "text",
+  "what": "is the text reading",
+  "label": "Encoder",
+  "gt": [
+   111.2,
+   160.0,
+   253.8,
+   206.0
+  ]
+ },
+ {
+  "image": "outputs/synth/preview3/sample_00003.png",
+  "W": 1100,
+  "H": 720,
+  "source": "synthetic",
+  "kind": "box",
+  "what": "is the box/panel containing the label",
+  "label": "Decoder",
+  "gt": [
+   486.9,
+   56.0,
+   613.1,
+   102.0
+  ]
+ },
+ {
+  "image": "outputs/synth/preview3/sample_00003.png",
+  "W": 1100,
+  "H": 720,
+  "source": "synthetic",
+  "kind": "box",
+  "what": "is the box/panel containing the label",
+  "label": "Optimizer",
+  "gt": [
+   581.3,
+   160.0,
+   763.7,
+   206.0
+  ]
+ },
+ {
+  "image": "uploads/ccb48c0276204b17ba8d7e3474ea19ad.jpg",
+  "W": 1376,
+  "H": 768,
+  "source": "ccb",
+  "kind": "text",
+  "what": "is the text reading",
+  "label": "Select Truncation",
+  "gt": [
+   138.0,
+   483.0,
+   236.0,
+   499.0
+  ]
+ },
+ {
+  "image": "uploads/ccb48c0276204b17ba8d7e3474ea19ad.jpg",
+  "W": 1376,
+  "H": 768,
+  "source": "ccb",
+  "kind": "text",
+  "what": "is the text reading",
+  "label": "batching",
+  "gt": [
+   246.0,
+   290.0,
+   305.0,
+   313.0
+  ]
+ },
+ {
+  "image": "uploads/ccb48c0276204b17ba8d7e3474ea19ad.jpg",
+  "W": 1376,
+  "H": 768,
+  "source": "ccb",
+  "kind": "text",
+  "what": "is the text reading",
+  "label": "(FeMoco",
+  "gt": [
+   798.0,
+   465.667,
+   844.333,
+   479.667
+  ]
+ },
+ {
+  "image": "uploads/ccb48c0276204b17ba8d7e3474ea19ad.jpg",
+  "W": 1376,
+  "H": 768,
+  "source": "ccb",
+  "kind": "text",
+  "what": "is the text reading",
+  "label": "Bloch-\nMessiah",
+  "gt": [
+   276.0,
+   532.0,
+   314.5,
+   559.5
+  ]
+ },
+ {
+  "image": "uploads/ccb48c0276204b17ba8d7e3474ea19ad.jpg",
+  "W": 1376,
+  "H": 768,
+  "source": "ccb",
+  "kind": "text",
+  "what": "is the text reading",
+  "label": "ZX Diagram",
+  "gt": [
+   891.0,
+   509.0,
+   971.0,
+   534.0
+  ]
+ },
+ {
+  "image": "uploads/ccb48c0276204b17ba8d7e3474ea19ad.jpg",
+  "W": 1376,
+  "H": 768,
+  "source": "ccb",
+  "kind": "text",
+  "what": "is the text reading",
+  "label": "Physical-Qubit Brand",
+  "gt": [
+   982.0,
+   676.0,
+   1105.0,
+   699.0
+  ]
+ },
+ {
+  "image": "uploads/ccb48c0276204b17ba8d7e3474ea19ad.jpg",
+  "W": 1376,
+  "H": 768,
+  "source": "ccb",
+  "kind": "text",
+  "what": "is the text reading",
+  "label": "Noise analysis/Input",
+  "gt": [
+   785.0,
+   22.0,
+   878.0,
+   46.0
+  ]
+ },
+ {
+  "image": "uploads/ccb48c0276204b17ba8d7e3474ea19ad.jpg",
+  "W": 1376,
+  "H": 768,
+  "source": "ccb",
+  "kind": "text",
+  "what": "is the text reading",
+  "label": "Frontend",
+  "gt": [
+   734.0,
+   607.0,
+   792.0,
+   627.0
+  ]
+ },
+ {
+  "image": "uploads/ccb48c0276204b17ba8d7e3474ea19ad.jpg",
+  "W": 1376,
+  "H": 768,
+  "source": "ccb",
+  "kind": "text",
+  "what": "is the text reading",
+  "label": "Code",
+  "gt": [
+   1151.0,
+   503.0,
+   1189.0,
+   523.0
+  ]
+ },
+ {
+  "image": "uploads/ccb48c0276204b17ba8d7e3474ea19ad.jpg",
+  "W": 1376,
+  "H": 768,
+  "source": "ccb",
+  "kind": "text",
+  "what": "is the text reading",
+  "label": "feedback",
+  "gt": [
+   488.0,
+   499.0,
+   552.0,
+   522.0
+  ]
+ },
+ {
+  "image": "uploads/ccb48c0276204b17ba8d7e3474ea19ad.jpg",
+  "W": 1376,
+  "H": 768,
+  "source": "ccb",
+  "kind": "text",
+  "what": "is the text reading",
+  "label": "Token",
+  "gt": [
+   1177.0,
+   579.0,
+   1219.0,
+   599.0
+  ]
+ },
+ {
+  "image": "uploads/ccb48c0276204b17ba8d7e3474ea19ad.jpg",
+  "W": 1376,
+  "H": 768,
+  "source": "ccb",
+  "kind": "text",
+  "what": "is the text reading",
+  "label": "Trotter",
+  "gt": [
+   1294.0,
+   203.0,
+   1344.0,
+   223.0
+  ]
+ },
+ {
+  "image": "uploads/ccb48c0276204b17ba8d7e3474ea19ad.jpg",
+  "W": 1376,
+  "H": 768,
+  "source": "ccb",
+  "kind": "text",
+  "what": "is the text reading",
+  "label": "extraction",
+  "gt": [
+   829.0,
+   115.0,
+   898.0,
+   136.0
+  ]
+ },
+ {
+  "image": "uploads/ccb48c0276204b17ba8d7e3474ea19ad.jpg",
+  "W": 1376,
+  "H": 768,
+  "source": "ccb",
+  "kind": "text",
+  "what": "is the text reading",
+  "label": "Key:",
+  "gt": [
+   721.0,
+   666.0,
+   769.0,
+   709.0
+  ]
+ },
+ {
+  "image": "uploads/ccb48c0276204b17ba8d7e3474ea19ad.jpg",
+  "W": 1376,
+  "H": 768,
+  "source": "ccb",
+  "kind": "text",
+  "what": "is the text reading",
+  "label": "Decomposition",
+  "gt": [
+   267.0,
+   439.0,
+   366.0,
+   464.0
+  ]
+ },
+ {
+  "image": "uploads/ccb48c0276204b17ba8d7e3474ea19ad.jpg",
+  "W": 1376,
+  "H": 768,
+  "source": "ccb",
+  "kind": "text",
+  "what": "is the text reading",
+  "label": "Theory.",
+  "gt": [
+   7.0,
+   740.0,
+   71.0,
+   768.0
+  ]
+ },
+ {
+  "image": "uploads/ccb48c0276204b17ba8d7e3474ea19ad.jpg",
+  "W": 1376,
+  "H": 768,
+  "source": "ccb",
+  "kind": "text",
+  "what": "is the text reading",
+  "label": "Circuits",
+  "gt": [
+   1293.0,
+   121.0,
+   1347.0,
+   141.0
+  ]
+ },
+ {
+  "image": "uploads/ccb48c0276204b17ba8d7e3474ea19ad.jpg",
+  "W": 1376,
+  "H": 768,
+  "source": "ccb",
+  "kind": "text",
+  "what": "is the text reading",
+  "label": "Noise",
+  "gt": [
+   1101.0,
+   242.0,
+   1144.0,
+   262.0
+  ]
+ },
+ {
+  "image": "uploads/ccb48c0276204b17ba8d7e3474ea19ad.jpg",
+  "W": 1376,
+  "H": 768,
+  "source": "ccb",
+  "kind": "box",
+  "what": "is the box/panel containing the label",
+  "label": "LLM-Driven Recipe Composition",
+  "gt": [
+   923.0,
+   22.0,
+   1169.0,
+   49.0
+  ]
+ },
+ {
+  "image": "uploads/ccb48c0276204b17ba8d7e3474ea19ad.jpg",
+  "W": 1376,
+  "H": 768,
+  "source": "ccb",
+  "kind": "box",
+  "what": "is the box/panel containing the label",
+  "label": "Input Metrics",
+  "gt": [
+   775.0,
+   675.0,
+   936.0,
+   701.0
+  ]
+ },
+ {
+  "image": "uploads/ccb48c0276204b17ba8d7e3474ea19ad.jpg",
+  "W": 1376,
+  "H": 768,
+  "source": "ccb",
+  "kind": "box",
+  "what": "is the box/panel containing the label",
+  "label": "Noise analysis/Input",
+  "gt": [
+   713.0,
+   22.0,
+   913.0,
+   49.0
+  ]
+ },
+ {
+  "image": "uploads/ccb48c0276204b17ba8d7e3474ea19ad.jpg",
+  "W": 1376,
+  "H": 768,
+  "source": "ccb",
+  "kind": "box",
+  "what": "is the box/panel containing the label",
+  "label": "Verification\nAgent",
+  "gt": [
+   483.0,
+   441.5,
+   557.0,
+   493.0
+  ]
+ },
+ {
+  "image": "uploads/ccb48c0276204b17ba8d7e3474ea19ad.jpg",
+  "W": 1376,
+  "H": 768,
+  "source": "ccb",
+  "kind": "box",
+  "what": "is the box/panel containing the label",
+  "label": "Hardware\nAgent",
+  "gt": [
+   392.0,
+   441.5,
+   465.5,
+   493.0
+  ]
+ },
+ {
+  "image": "uploads/ccb48c0276204b17ba8d7e3474ea19ad.jpg",
+  "W": 1376,
+  "H": 768,
+  "source": "ccb",
+  "kind": "box",
+  "what": "is the box/panel containing the label",
+  "label": "Benchmarking",
+  "gt": [
+   1110.0,
+   415.0,
+   1204.0,
+   438.0
+  ]
+ },
+ {
+  "image": "uploads/ccb48c0276204b17ba8d7e3474ea19ad.jpg",
+  "W": 1376,
+  "H": 768,
+  "source": "ccb",
+  "kind": "box",
+  "what": "is the box/panel containing the label",
+  "label": "Input Metrics",
+  "gt": [
+   775.0,
+   675.0,
+   936.0,
+   701.0
+  ]
+ },
+ {
+  "image": "uploads/ccb48c0276204b17ba8d7e3474ea19ad.jpg",
+  "W": 1376,
+  "H": 768,
+  "source": "ccb",
+  "kind": "box",
+  "what": "is the box/panel containing the label",
+  "label": "Seed codes",
+  "gt": [
+   17.0,
+   209.0,
+   122.0,
+   301.0
+  ]
+ }
+]

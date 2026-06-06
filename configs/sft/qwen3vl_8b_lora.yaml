@@ -1,0 +1,52 @@
+# LLaMA-Factory LoRA SFT for png->drawio (Qwen3-VL-8B).
+# Starting hyperparameters — tune on the server. Run:
+#   llamafactory-cli train configs/sft/qwen3vl_8b_lora.yaml
+# Switch model_name_or_path to Qwen/Qwen3-VL-32B-Instruct for the production run
+# (its zero-shot grounding prior is ~2.7x the 8B's; see data/bench_results/).
+
+### model
+model_name_or_path: Qwen/Qwen3-VL-8B-Instruct
+trust_remote_code: true
+image_max_pixels: 1048576      # cap dynamic-resolution tiling on dense figures (~1024^2)
+image_min_pixels: 200704       # ~448^2; too low loses small boxes/text
+
+### method
+stage: sft
+do_train: true
+finetuning_type: lora
+lora_rank: 32
+lora_alpha: 64
+lora_target: all
+freeze_vision_tower: true      # tune the LLM decoder; freeze ViT (recommended for grounding SFT)
+
+### dataset
+dataset: png2drawio_synth      # register in LLaMA-Factory data/dataset_info.json (see runbook)
+template: qwen3_vl
+cutoff_len: 16384              # dense-figure DSL targets are long
+overwrite_cache: true
+preprocessing_num_workers: 16
+dataloader_num_workers: 8
+
+### output
+output_dir: saves/qwen3vl-8b-png2drawio-lora
+logging_steps: 10
+save_steps: 500
+plot_loss: true
+overwrite_output_dir: true
+report_to: none
+
+### train
+per_device_train_batch_size: 1
+gradient_accumulation_steps: 8
+learning_rate: 1.0e-4
+num_train_epochs: 2.0
+lr_scheduler_type: cosine
+warmup_ratio: 0.03
+bf16: true
+gradient_checkpointing: true
+ddp_timeout: 180000000
+
+### eval
+# We do NOT use val-loss as the metric — quality = render-and-compare via
+# tools/eval_reconstruct.py (the real harness score). Keep loss for sanity only.
+val_size: 0.0
